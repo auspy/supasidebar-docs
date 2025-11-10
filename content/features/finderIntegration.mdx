@@ -1,0 +1,261 @@
+# Finder Integration
+
+Add files, folders, and applications directly from Finder to your sidebar with keyboard shortcuts - no drag-and-drop required.
+
+## When to Use
+
+- **Quick folder access**: Add frequently used folders (Documents, Downloads, Projects) for instant navigation
+- **Project organization**: Organize project directories and files by context
+- **App launching**: Add applications for keyboard-driven launching
+- **Path extraction**: Save file paths for documentation, terminal, or sharing
+- **Desktop decluttering**: Keep reference files accessible without desktop clutter
+
+## How It Works
+
+[PLACEHOLDER: Screenshot showing Finder window with files selected and SupaSidebar capturing them]
+
+SupaSidebar uses AppleScript to communicate with Finder, enabling seamless file and folder management:
+- Add selected files or folders
+- Add the current Finder folder (ignoring selection)
+- Copy file paths to clipboard
+- All triggered with global keyboard shortcuts
+
+### Context-Aware Smart Shortcuts
+
+**⌘⌃S** and **⌘⌃C** are context-aware shortcuts that adapt automatically:
+- **In a browser**: Saves current page OR copies URL
+- **In Finder**: Adds selected files/folders OR copies file paths
+
+One shortcut, multiple behaviors based on context.
+
+[PLACEHOLDER: Video showing user in Finder selecting files, pressing ⌘⌃S, and items appearing in sidebar]
+
+**Learn more:** [Smart Shortcuts →](smartShortcuts) - Complete guide to context-aware shortcuts across browsers and Finder
+
+## Setup
+
+### Required Permissions
+
+Finder integration requires **Automation permissions**:
+
+1. Go to **System Settings → Privacy & Security → Automation**
+2. Find **SupaSidebar** in the list
+3. Enable the **Finder** checkbox
+
+[PLACEHOLDER: Screenshot showing Finder automation permission]
+
+**First Time:**
+When you first use Finder shortcuts, macOS will prompt for permission. Click **OK** to grant access.
+
+## Using Finder Integration
+
+### Add Selected Items (⌘⌃S)
+
+1. Select files or folders in Finder
+2. Press **⌘⌃S**
+3. Items appear in sidebar immediately
+
+**Multiple Selection:**
+Select multiple files/folders → Press **⌘⌃S** → All added at once
+
+[PLACEHOLDER: Screenshot showing multiple files being added to sidebar]
+
+**Notification Feedback:**
+SupaSidebar shows a notification confirming how many items were added:
+- "Added selected item to sidebar" (1 item)
+- "Added 5 items to sidebar" (multiple items)
+
+### Add Current Folder (⌘⌥A)
+
+Press **⌘⌥A** to add the folder you're currently viewing in Finder, *ignoring any selected files*.
+
+**Use Case:**
+You're browsing through a project folder with files selected, but you want to save the folder itself - press **⌘⌥A**.
+
+[PLACEHOLDER: Video showing user navigating folders and pressing ⌘⌥A to save current location]
+
+### Copy File Paths (⌘⌃C)
+
+When Finder is active, **⌘⌃C** copies file paths instead of URLs:
+
+1. Select files or folders in Finder
+2. Press **⌘⌃C**
+3. File paths copied to clipboard
+
+**Multiple Selection:**
+Selecting multiple items copies all paths, each on a new line:
+```
+/Users/you/Documents/file1.pdf
+/Users/you/Documents/file2.pdf
+/Users/you/Downloads/image.png
+```
+
+Perfect for documentation, terminal commands, or sharing file locations.
+
+[PLACEHOLDER: Screenshot showing clipboard contents with file paths]
+
+## What You Can Add
+
+### Files
+- Documents (PDF, Word, Excel, etc.)
+- Images and media files
+- Code files
+- Any file type
+
+Click a file in sidebar → Opens with default application
+
+### Folders
+- Project directories
+- Downloads folder
+- Documents folder
+- Any folder on your Mac
+
+Click a folder in sidebar → Opens in Finder
+
+### Applications
+Add applications for keyboard-driven launching:
+
+1. Navigate to **Applications** folder in Finder
+2. Select apps (Mail, Slack, Xcode, etc.)
+3. Press **⌘⌃S** to add them
+4. Optionally [pin](pinnedItems) them for ⌘⌥1-9 shortcuts
+
+[PLACEHOLDER: Screenshot showing applications added to sidebar]
+
+## Organization
+
+### Folders & Hierarchy
+
+Files and folders can be organized:
+- Drag into folders for hierarchical structure
+- Create folders within SupaSidebar
+- Nest folders for complex project organization
+
+Example structure:
+```
+📁 Projects
+  ├── 📁 Client A
+  │   ├── 📄 proposal.pdf
+  │   └── 📁 Assets
+  ├── 📁 Client B
+  └── 📄 template.docx
+```
+
+[PLACEHOLDER: Screenshot showing file/folder organization in sidebar]
+
+### Smart Folders for Files
+
+Create [Smart Folders](smartFolders) to auto-organize files:
+
+**Example: Recent PDFs**
+- Condition 1: Link type is "File System"
+- Condition 2: URL ends with ".pdf"
+- Condition 3: Created in last 7 days
+
+All recently added PDFs appear automatically.
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **⌘⌃S** | Add selected Finder items to sidebar |
+| **⌘⌥A** | Add current Finder folder (ignores selection) |
+| **⌘⌃C** | Copy file paths to clipboard |
+
+## Tips & Tricks
+
+### Quick Folder Access
+Add frequently accessed folders:
+- Downloads folder → Never search for recent downloads
+- Documents folder → Instant access to files
+- Desktop folder → Quick desktop cleanup
+
+### Project Directory Management
+Add all project folders to sidebar:
+1. Navigate to ~/Projects in Finder
+2. Select all project folders
+3. Press **⌘⌃S**
+4. Access any project in one click
+
+### Application Launcher
+Turn SupaSidebar into an app launcher:
+1. Add applications to sidebar
+2. Pin frequently used apps
+3. Launch with ⌘⌥1-9 shortcuts
+
+Faster than Spotlight for your top 9 apps.
+
+### File Path Workflow
+Need file paths for documentation or terminal?
+1. Find files in Finder
+2. Press **⌘⌃C** to copy paths
+3. Paste into documentation, terminal, or scripts
+
+### Temporary File Access
+Add files you need for current project:
+1. Press **⌘⌃S** to add files
+2. Use them throughout the day
+3. Delete from sidebar when project is done
+
+No permanent desktop clutter.
+
+### Folder vs. Selection
+- **⌘⌃S**: Adds what you've selected (files or folders)
+- **⌘⌥A**: Adds the folder you're viewing, ignoring selection
+
+Memorize this distinction for precise control.
+
+## Integration with Other Features
+
+### Combine with Spaces
+Create project-specific spaces:
+- "Client Work" space → Add client folders and files
+- "Personal" space → Add personal documents
+- Keep files organized by context
+
+See [Spaces](spaces) for details.
+
+### Use Smart Folders
+Auto-collect files by type or date:
+- All images added this month
+- All PDF documents
+- All files from specific folder
+
+See [Smart Folders](smartFolders) for setup.
+
+### Pin Critical Folders
+Pin your most-used folders for instant access:
+1. Add folder to sidebar
+2. Pin it
+3. Press ⌘⌥[number] to open in Finder
+
+See [Pinned Items](pinnedItems) for details.
+
+## Troubleshooting
+
+**"Permission Denied" Error**
+- Go to System Settings → Privacy & Security → Automation
+- Enable SupaSidebar for Finder
+- Restart SupaSidebar
+
+**Items Not Adding**
+- Verify Finder automation permission is granted
+- Check that files aren't already in sidebar (duplicates are prevented)
+- Try selecting files and pressing ⌘⌃S again
+
+**Wrong Folder Added**
+- You pressed ⌘⌥A which adds the *current folder*, not selection
+- Use ⌘⌃S to add selected folders instead
+
+**File Paths Not Copying**
+- Ensure Finder is the active application
+- Press ⌘⌃C while Finder window is focused
+- Check System clipboard (paste somewhere to verify)
+
+## Related Features
+
+- [Smart Shortcuts](smartShortcuts) - Context-aware Save (⌘⌃S) and Copy (⌘⌃C) across browsers and Finder
+- [Browser Integration](browserIntegration) - Smart Save for web pages
+- [Pinned Items](pinnedItems) - Quick access to folders and apps
+- [Smart Folders](smartFolders) - Auto-organize files by type
+- [Global Shortcuts](globalShortcuts) - Complete keyboard reference

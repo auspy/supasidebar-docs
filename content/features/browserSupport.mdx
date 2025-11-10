@@ -1,0 +1,485 @@
+# Browser Support
+
+SupaSidebar works seamlessly with 14 major web browsers through AppleScript integration - save pages, copy URLs, and track tabs across Safari, Chrome, Firefox, Arc, and more.
+
+## When to Use
+
+- **Multi-browser workflows**: Work across Safari for personal, Chrome for work, Firefox for development
+- **Browser flexibility**: Choose the right browser for each task without losing integration
+- **No extensions needed**: AppleScript-based integration works without installing browser extensions
+- **Cross-browser tracking**: Monitor tabs and activity across all your browsers simultaneously
+- **Browser-specific features**: Take advantage of Live Tabs, URL extraction, and window management
+- **Permission-based control**: Grant access only to browsers you actually use
+
+## How It Works
+
+[PLACEHOLDER: Diagram showing SupaSidebar connecting to multiple browsers via AppleScript]
+
+SupaSidebar uses AppleScript to communicate with browsers, enabling:
+- Extract current page title and URL
+- Detect which browser is active
+- Monitor open tabs in real-time (Live Tabs)
+- Open saved links in specific browsers
+- Control browser windows (resize, position)
+
+All without browser extensions or manual configuration.
+
+## Supported Browsers
+
+### Integration Levels
+
+SupaSidebar provides two levels of browser integration:
+
+**Basic Integration** - Available for all 14 browsers:
+- Smart Save (⌘⌃S) to save current page
+- Smart Copy (⌘⌃C) to copy URL
+- Open links from sidebar
+- Browser selection and assignment
+- AppleScript-based URL extraction
+
+**Live Tabs** - Available for 10 browsers:
+- Real-time tab tracking
+- Switch to tabs from sidebar
+- See all open tabs across browsers
+- Close tabs directly from SupaSidebar
+- Tab search in [Command Panel](commandPanel)
+
+### Compatibility Matrix
+
+| Browser | Basic Integration | Live Tabs | Notes |
+|---------|------------------|-----------|-------|
+| **Safari** | ✅ | ✅ | Native AppleScript, fastest and most reliable |
+| **Chrome** | ✅ | ✅ | Full Chromium support, excellent stability |
+| **Firefox** | ✅ | ⏳ | System Events integration, Live Tabs in development |
+| **Edge** | ✅ | ✅ | Chromium-based, full feature support |
+| **Arc** | ✅ | ⏳ | Chromium-based, Live Tabs coming soon |
+| **Brave** | ✅ | ✅ | Chromium-based, full support |
+| **Vivaldi** | ✅ | ✅ | Chromium-based, full support |
+| **Dia** | ✅ | ⏳ | Basic integration works, Live Tabs in development |
+| **Comet** | ✅ | ✅ | Perplexity browser, enhanced URL extraction via Accessibility |
+| **Orion** | ✅ | ✅ | WebKit-based, full support |
+| **Zen Browser** | ✅ | ❌ | Firefox-based, basic integration only |
+| **Atlas** | ✅ | ✅ | ChatGPT browser, full support |
+| **Wavebox** | ✅ | ❌ | Basic integration only |
+| **Helium** | ✅ | ✅ | Full support including Live Tabs |
+
+**Legend:**
+- ✅ **Supported** - Feature works fully
+- ⏳ **In Development** - Feature coming in future update
+- ❌ **Not Available** - Feature not planned or not possible
+
+[PLACEHOLDER: Visual grid of browser logos with checkmarks for supported features]
+
+## Setup
+
+### Required Permissions
+
+Browser integration requires **Automation permissions**:
+
+1. Go to **System Settings → Privacy & Security → Automation**
+2. Find **SupaSidebar** in the list
+3. Enable checkboxes for all browsers you use
+
+[PLACEHOLDER: Screenshot showing System Settings automation permissions with multiple browsers enabled]
+
+**First Time Setup:**
+When you first use browser shortcuts, macOS will prompt for permission for each browser. Click **OK** to grant access.
+
+**Grant for All Browsers:**
+Even if you primarily use one browser, enabling all provides flexibility to switch browsers without setup later.
+
+### Optional: Accessibility Permissions
+
+Some browsers benefit from Accessibility access for enhanced features:
+
+**System Settings → Privacy & Security → Accessibility** → Enable SupaSidebar
+
+**Browsers that benefit:**
+- **Comet (Perplexity)**: Enhanced URL extraction from internal URLs
+- **Other browsers**: May improve reliability in edge cases
+
+[PLACEHOLDER: Screenshot showing Accessibility permissions]
+
+### Verifying Permissions
+
+To test if permissions are working:
+
+1. Open a browser (e.g., Safari)
+2. Navigate to any webpage
+3. Press **⌘⌃S** (Smart Save)
+4. Page should be added to sidebar with notification
+
+If nothing happens, check Automation permissions.
+
+## Browser-Specific Features
+
+### Safari
+
+**Integration Type:** Native AppleScript
+
+**Features:**
+- Fastest and most reliable integration
+- Full Live Tabs support with window and tab enumeration
+- Native title and URL extraction
+- Excellent performance
+
+**Best For:**
+- Primary browser workflows
+- macOS-native experiences
+- Users who prefer Apple ecosystem
+
+### Chrome
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Full AppleScript API support
+- Complete Live Tabs with window tracking
+- Reliable URL and title extraction
+- Browser window adjustment support
+
+**Best For:**
+- Cross-platform workflows
+- Google Workspace users
+- Extension-heavy setups
+
+### Firefox
+
+**Integration Type:** System Events
+
+**Features:**
+- Basic integration via System Events
+- Smart Save and Smart Copy work fully
+- Live Tabs in development (coming soon)
+
+**Best For:**
+- Privacy-focused browsing
+- Open-source preference
+- Developer tools
+
+**Known Limitations:**
+- No Live Tabs yet (⏳ in development)
+- Slightly slower URL extraction than Chromium
+
+### Edge
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Full Chromium support
+- Complete Live Tabs
+- Microsoft ecosystem integration
+- All features work identically to Chrome
+
+**Best For:**
+- Microsoft 365 workflows
+- Windows/Mac cross-platform users
+
+### Arc
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Full basic integration
+- Smart Save and Smart Copy work perfectly
+- Live Tabs coming soon (⏳ in development)
+
+**Best For:**
+- Modern browser UI enthusiasts
+- Workspace-based browsing
+- Power users
+
+### Brave
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Full support including Live Tabs
+- Privacy-focused browser with full integration
+- All standard features work
+
+**Best For:**
+- Privacy-conscious users
+- Ad-blocking by default
+- Crypto/Web3 users
+
+### Vivaldi
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Complete integration with Live Tabs
+- Advanced customization doesn't affect SupaSidebar
+- All features work reliably
+
+**Best For:**
+- Power users with custom workflows
+- Tab management enthusiasts
+- Users who love customization
+
+### Comet (Perplexity)
+
+**Integration Type:** Chromium + Accessibility
+
+**Features:**
+- Full Live Tabs support
+- Enhanced URL extraction using Accessibility API
+- Works around internal URL limitations
+- Requires Accessibility permissions for best results
+
+**Best For:**
+- AI-powered search workflows
+- Research-heavy tasks
+- Perplexity AI users
+
+**Special Setup:**
+Enable Accessibility permissions for enhanced URL extraction:
+**System Settings → Privacy & Security → Accessibility** → SupaSidebar
+
+### Orion
+
+**Integration Type:** WebKit AppleScript
+
+**Features:**
+- Full integration including Live Tabs
+- Native macOS performance
+- Chrome/Firefox extension support
+
+**Best For:**
+- WebKit preference
+- Privacy-focused with extensions
+- Native macOS feel
+
+### Zen Browser
+
+**Integration Type:** Firefox-based
+
+**Features:**
+- Basic integration works fully
+- Smart Save and Smart Copy supported
+- Live Tabs not available (❌)
+
+**Best For:**
+- Zen-mode focused browsing
+- Minimalist interface preference
+
+### Atlas (ChatGPT)
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Full support including Live Tabs
+- ChatGPT browser integration
+- All standard features work
+
+**Best For:**
+- AI assistant workflows
+- ChatGPT power users
+
+### Wavebox
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Basic integration works
+- Smart Save and Smart Copy supported
+- Live Tabs not available (❌)
+
+**Best For:**
+- Multi-account management
+- SaaS application workflows
+
+### Helium
+
+**Integration Type:** Chromium AppleScript
+
+**Features:**
+- Full support including Live Tabs
+- Floating browser windows work with SupaSidebar
+- All standard features supported
+
+**Best For:**
+- Always-on-top browser windows
+- Multi-tasking workflows
+- Floating content viewing
+
+## Multi-Browser Workflows
+
+### Dedicate Browsers to Contexts
+
+Use different browsers for different tasks:
+
+**Example Setup:**
+- **Chrome** → Work sites (Gmail, Slack, company tools)
+- **Safari** → Personal browsing (news, shopping, social)
+- **Firefox** → Development (localhost, debugging, dev tools)
+
+SupaSidebar tracks activity across all of them:
+- Save from any browser with same shortcut
+- [Command Panel](commandPanel) searches across all saved links
+- [Live Tabs](liveTabs) shows tabs from all browsers simultaneously
+- [Recent Items](recentItems) captures visits across browsers
+
+### Browser Assignment Per Link
+
+Choose which browser opens each saved link:
+
+1. Save page from any browser
+2. Right-click saved link in sidebar
+3. Select **Set Browser**
+4. Choose preferred browser
+
+Next time you open that link, it uses the assigned browser.
+
+See [Browser Selection](browserSelection) for advanced workflows.
+
+### Browser-Based Organization
+
+Create [Smart Folders](smartFolders) to organize by browser:
+
+**Smart Folder: Chrome Work Links**
+- Condition: Browser is "Chrome"
+- All Chrome-saved links collected automatically
+
+**Smart Folder: Safari Personal**
+- Condition: Browser is "Safari"
+- Personal browsing kept separate
+
+## Live Tabs Integration
+
+For browsers with Live Tabs support (✅), SupaSidebar provides real-time tab tracking:
+
+**Features:**
+- See all open tabs across supported browsers
+- Switch to any tab instantly
+- Close tabs from sidebar
+- Search tabs in Command Panel
+- Track tab activity in Recent Items
+
+[PLACEHOLDER: Screenshot showing Live Tabs from multiple browsers]
+
+**Supported Browsers for Live Tabs:**
+Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Atlas, Helium (9 browsers)
+
+**Coming Soon (⏳):**
+Firefox, Arc, Dia
+
+See [Live Tabs](liveTabs) for detailed documentation.
+
+## Performance & Reliability
+
+### Integration Speed
+
+**Fastest Integration:** Safari, Chrome, Edge, Brave, Vivaldi
+- Near-instant URL extraction
+- Reliable AppleScript APIs
+- Excellent performance
+
+**Fast Integration:** Orion, Comet, Atlas, Helium
+- Slight delays possible with Accessibility extraction
+- Generally excellent performance
+
+**Moderate Integration:** Firefox, Zen
+- System Events-based integration
+- Slightly slower but reliable
+
+### Reliability
+
+All 14 browsers have production-ready integration:
+- Extensive real-world testing
+- Robust error handling
+- Permission verification
+- Fallback mechanisms
+
+**Most Reliable:** Safari (native macOS integration)
+
+## Troubleshooting
+
+### Smart Save Not Working
+
+**Issue:** Pressing ⌘⌃S does nothing in browser
+
+**Solutions:**
+1. Check Automation permissions: System Settings → Automation → SupaSidebar → Enable your browser
+2. Ensure browser window is active (frontmost)
+3. Try closing and reopening the browser
+4. Restart SupaSidebar
+5. Verify browser is in supported list above
+
+### Permission Denied Error (-1743)
+
+**Issue:** Error message when using browser shortcuts
+
+**Solutions:**
+1. Go to System Settings → Privacy & Security → Automation
+2. Find SupaSidebar
+3. Enable checkbox for the specific browser
+4. Restart both SupaSidebar and the browser
+5. Try the shortcut again
+
+### Live Tabs Not Showing
+
+**Issue:** Tabs not appearing in sidebar for supported browser
+
+**Solutions:**
+1. Verify browser has ✅ for Live Tabs in compatibility matrix above
+2. Check Automation permissions are granted
+3. Enable Live Tabs in Preferences → Recents
+4. Ensure browser has at least one open tab
+5. Try refreshing (cmd + R in Recent Items)
+
+See [Live Tabs Troubleshooting](liveTabs#troubleshooting) for more details.
+
+### Wrong URL Extracted
+
+**Issue:** Saved URL is incorrect or internal
+
+**Solutions:**
+1. For Comet browser: Enable Accessibility permissions
+2. Ensure you're on the actual webpage (not browser settings)
+3. Wait for page to fully load before pressing ⌘⌃S
+4. Try refreshing the page and saving again
+
+### Browser Not Detected
+
+**Issue:** SupaSidebar doesn't detect browser is active
+
+**Solutions:**
+1. Click the browser window to make it frontmost
+2. Ensure browser is listed in supported browsers above
+3. Check browser name matches (e.g., "Google Chrome" not just "Chrome")
+4. Grant Automation permissions
+5. Restart both apps
+
+### Shortcuts Work Inconsistently
+
+**Issue:** Sometimes works, sometimes doesn't
+
+**Solutions:**
+1. Check for shortcut conflicts with other apps
+2. Ensure browser window is truly active (not just visible)
+3. Verify permissions haven't been revoked
+4. Try disabling other automation tools temporarily
+5. Check Console.app for errors
+
+## Adding New Browser Support
+
+Want SupaSidebar to support your favorite browser?
+
+**Request Support:**
+Contact support with the browser name and download link. We evaluate requests based on:
+- Browser popularity and user demand
+- AppleScript API availability
+- Technical feasibility
+
+**For Developers:**
+See [Adding Browser Support Guide](/swiftapp/ADDING_BROWSER_SUPPORT.md) for technical details on implementing new browser integrations.
+
+## Related Features
+
+- [Smart Shortcuts](smartShortcuts) - Context-aware Save (⌘⌃S) and Copy (⌘⌃C)
+- [Browser Selection](browserSelection) - Choose which browser opens your links
+- [Live Tabs](liveTabs) - Real-time browser tab tracking
+- [Command Panel](commandPanel) - Search across all saved pages
+- [Recent Items](recentItems) - Auto-tracked browsing history
+- [Global Shortcuts](globalShortcuts) - Complete keyboard reference

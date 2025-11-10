@@ -1,0 +1,262 @@
+# Recent Items
+
+Automatic tracking of your browsing history across all supported browsers - see recently visited pages without manually saving them.
+
+## When to Use
+
+- **Research review**: Review sites you visited during research without saving everything
+- **Quick recovery**: Return to a page you closed accidentally
+- **Unified history**: Track browsing history across multiple browsers in one place
+- **Temporary access**: Access pages without cluttering saved links
+- **Browse patterns**: Discover patterns in your browsing habits
+
+## How It Works
+
+[PLACEHOLDER: Screenshot showing recent items section in sidebar with browser icons]
+
+Recent Items automatically monitors your browsers and tracks pages you visit. No manual saving required - just browse normally and SupaSidebar captures your history.
+
+### Automatic Tracking
+
+SupaSidebar uses two methods to track browser activity:
+
+**Accessibility Observer** (Direct Distribution only)
+Real-time tracking using macOS Accessibility API - instant updates when you navigate.
+
+**Polling Mode** (All versions)
+Periodic checks every few seconds via AppleScript.
+
+[PLACEHOLDER: Video showing user browsing and pages appearing in recent items]
+
+### Multi-Browser Support
+
+Recent Items tracks across all supported browsers simultaneously:
+- Safari
+- Chrome
+- Edge
+- Brave
+- Vivaldi
+- Comet
+- Orion
+- Atlas (ChatGPT)
+- Helium
+- Firefox (with keyboard shortcuts enabled)
+
+See [Browser Integration](browserIntegration) for complete list.
+
+## Setup
+
+### Enable Recent Items
+
+1. Open **Preferences → Recents**
+2. Ensure mode is set to **Recent Items** (not Live Tabs)
+3. Configure display limit (default: 30 items)
+
+[PLACEHOLDER: Screenshot of Recents preferences]
+
+### Required Permissions
+
+Recent Items requires **Automation permissions**:
+
+1. Go to **System Settings → Privacy & Security → Automation**
+2. Find **SupaSidebar**
+3. Enable checkboxes for all browsers you want to track
+
+For real-time tracking (Direct Distribution):
+- **System Settings → Privacy & Security → Accessibility** → Enable SupaSidebar
+
+[PLACEHOLDER: Screenshot showing automation permissions]
+
+### Configure Display Limit
+
+Control how many recent items appear:
+
+1. Open **Preferences → Recents**
+2. Set **Display limit** (1-100 items)
+3. Default: 30 items
+
+More items = more history, but longer list to scroll through.
+
+## Using Recent Items
+
+### Viewing Recent History
+
+Recent items appear in the sidebar's **Recents** section, showing:
+- Page title
+- URL
+- Browser icon (which browser you used)
+- Timestamp (when you visited)
+
+Sorted by most recent first.
+
+[PLACEHOLDER: Screenshot showing recent items with timestamps and browser icons]
+
+### Opening Recent Pages
+
+**From Sidebar:**
+1. Navigate to recent item with arrow keys or click
+2. Press **Return** or click to open
+
+**From Command Panel:**
+1. Press **⌘⌃K**
+2. Type part of the page title or URL
+3. Recent items appear in search results
+4. Press **Return** to open
+
+[PLACEHOLDER: Video showing searching recent items in command panel]
+
+### Saving Recent Items
+
+Found something useful in your recent history?
+
+1. Right-click the recent item
+2. Select **Save to Current Space**
+3. Item becomes a permanent saved link
+
+Or simply let it stay as a recent item - it'll remain for 30 days.
+
+### Ignoring Duplicates
+
+If you visit the same page multiple times, Recent Items updates the timestamp instead of creating duplicates. Your list stays clean.
+
+## Recent Items vs. Live Tabs
+
+Choose between two modes in **Preferences → Recents**:
+
+| Feature | Recent Items | Live Tabs |
+|---------|--------------|-----------|
+| Shows | Visited pages (30 day history) | Currently open tabs |
+| Updates | When you navigate to new page | When tabs open/close/switch |
+| Purpose | Historical reference | Real-time tab management |
+| Persists after | Browser closes | Only while tab is open |
+
+See [Live Tabs](liveTabs) for details on the alternative mode.
+
+## Automatic Cleanup
+
+Recent items are automatically removed after **30 days** to keep your list relevant. No manual cleanup required.
+
+**Saves vs. Recents:**
+- **Saved links**: Never auto-delete, permanent
+- **Recent items**: Auto-delete after 30 days
+
+If you want to keep something forever, save it.
+
+## Advanced Features
+
+### Custom Link Names
+
+By default, recent items use the page title from the browser. To customize:
+
+1. Right-click a recent item
+2. Select **Rename**
+3. Type custom name
+
+The custom name persists even if you revisit the page - SupaSidebar won't overwrite your custom name.
+
+[PLACEHOLDER: Screenshot showing renamed recent item]
+
+### Firefox Keyboard Shortcuts
+
+Firefox has limited AppleScript support. To enable recent tracking:
+
+1. Open **Preferences → Recents**
+2. Enable **Firefox keyboard shortcuts**
+3. SupaSidebar will use a workaround method to track Firefox history
+
+**Trade-off**: Slightly slower tracking, but works reliably.
+
+### Space Filtering
+
+When using [Spaces](spaces), recent items can be filtered by current space:
+
+1. Open **Preferences → Recents**
+2. Enable **Show only items from current space**
+3. Only recent items from websites saved to current space appear
+
+Perfect for focused work contexts.
+
+## Keyboard Shortcuts
+
+Recent items don't have dedicated shortcuts, but integrate with:
+
+| Shortcut | Action |
+|----------|--------|
+| **⌘⌃K** | Open command panel (search recent items) |
+| **↑** / **↓** | Navigate through recent items in sidebar |
+| **Return** | Open selected recent item |
+
+## Tips & Tricks
+
+### Research Workflow
+1. Browse and research without saving
+2. Review recent items at end of session
+3. Save keepers, let temporary items expire
+
+No need to save every page "just in case" - your recent items serve as temporary storage.
+
+### Cross-Browser History
+Work across Safari, Chrome, and Firefox? Recent Items shows all browser history in one unified list - no more checking each browser's history separately.
+
+### Accidental Closure Recovery
+Closed a tab by accident? Check recent items to quickly reopen it.
+
+### Pattern Discovery
+Review your recent items to discover:
+- Sites you visit frequently (consider saving or pinning)
+- Research rabbit holes
+- Time spent on different topics
+
+### Combine with Smart Folders
+Create a [Smart Folder](smartFolders) to collect recent items:
+- Condition: Created in last 7 days
+- Shows everything you've saved this week, not just visited
+
+### Clean Workflow
+Don't clutter your saved links with one-time research. Let recent items handle temporary pages, save only what matters.
+
+## Privacy & Storage
+
+### Local Only
+Recent items are stored locally on your Mac using Core Data. No browsing history is sent to external servers.
+
+### iCloud Sync (Optional)
+If iCloud sync is enabled, recent items sync across your devices. Disable in **Preferences → Sync** if you prefer local-only.
+
+### Manual Cleanup
+Want to clear recent items manually?
+
+1. Right-click any recent item
+2. Select **Delete**
+3. Removed from recents (doesn't affect browser history)
+
+Or wait 30 days for automatic cleanup.
+
+## Troubleshooting
+
+**Recent items not appearing?**
+- Verify automation permissions are granted for your browsers
+- Ensure **Recent Items** mode is selected (not Live Tabs)
+- Check browser is in the supported list
+- For Firefox: Enable Firefox keyboard shortcuts in preferences
+
+**Duplicate items showing?**
+- This shouldn't happen - report bug to support
+- Recent Items should update timestamp, not create duplicates
+
+**Items disappearing too quickly?**
+- Items auto-delete after 30 days
+- Save important items to make them permanent
+
+**Wrong browser icon showing?**
+- Clear recents and track again
+- Report issue if persists
+
+## Related Features
+
+- [Live Tabs](liveTabs) - Alternative mode for real-time tab tracking
+- [Command Panel](commandPanel) - Search across recent items
+- [Browser Support](browserSupport) - Complete compatibility details for all 14 browsers
+- [Browser Integration](browserIntegration) - Overview of browser features
+- [Smart Shortcuts](smartShortcuts) - Save recent items with ⌘⌃S
+- [Smart Folders](smartFolders) - Auto-organize recent items by rules

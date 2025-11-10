@@ -1,0 +1,286 @@
+# Floating Button
+
+A persistent, draggable button that floats above all windows for one-click sidebar access - perfect for mouse-driven workflows.
+
+## When to Use
+
+- Prefer visual, mouse-driven access over keyboard shortcuts
+- Want a always-visible reminder that SupaSidebar is available
+- Use tablet or stylus input frequently
+- Work on large displays where keyboard is far from mouse
+- Combine with keyboard shortcuts for hybrid access
+
+## How It Works
+
+[PLACEHOLDER: Screenshot showing small floating button in corner of screen]
+
+The Floating Button is a small, semi-transparent button that stays visible above all other windows. Click it once to toggle the sidebar - no keyboard needed.
+
+### Persistent & Draggable
+
+**Always Visible:**
+- Floats above all applications
+- Visible across all desktop spaces
+- Never gets hidden behind windows
+- Small enough not to obstruct work
+
+**Fully Draggable:**
+- Drag to any position on screen
+- Position persists across app restarts
+- Move to corners, edges, or anywhere you prefer
+- Works across multiple displays
+
+[PLACEHOLDER: Video showing user dragging floating button to different positions]
+
+## Setup
+
+### Enable Floating Button
+
+1. Open **Preferences → General**
+2. Enable **Show floating button**
+3. Button appears immediately
+
+[PLACEHOLDER: Screenshot of floating button toggle in preferences]
+
+### No Permissions Required
+
+The floating button works without any special permissions - just toggle it on and it appears.
+
+## Using the Floating Button
+
+### Toggle Sidebar
+
+**Single Click:**
+- Sidebar hidden → Click button → Sidebar appears
+- Sidebar visible → Click button → Sidebar hides
+
+Simple, predictable toggle behavior.
+
+[PLACEHOLDER: Video showing clicking button and sidebar responding]
+
+### Repositioning
+
+**Drag to Move:**
+1. Click and hold the button
+2. Drag to desired position
+3. Release to place
+
+**Position Persistence:**
+Your chosen position is saved:
+- Survives app restarts
+- Persists across macOS reboots
+- Separate position for each display
+
+[PLACEHOLDER: Screenshot showing button in custom position]
+
+### Multi-Display Support
+
+On multi-monitor setups:
+- Button position scales to screen dimensions
+- Automatically adjusts when switching displays
+- Each display can have the button at different relative positions
+
+## Customization
+
+### Button Appearance
+
+The floating button is designed to be subtle:
+- Small circular or icon button
+- Semi-transparent to reduce visual noise
+- Unobtrusive color scheme
+- Respects macOS light/dark mode
+
+No customization options - optimized for minimal distraction.
+
+### Position Presets
+
+**Recommended Positions:**
+
+**Top-Right Corner:**
+- Out of the way of most content
+- Easy to reach with mouse
+- Common position for utility buttons
+
+**Top-Left Corner:**
+- Near macOS menu bar
+- Good for left-handed users
+- Alternative to right corner
+
+**Bottom-Right Corner:**
+- Near macOS Dock area
+- Familiar position for system utilities
+- Easy thumb reach on trackpad
+
+**Bottom-Left Corner:**
+- Away from Dock
+- Alternative for left-handed workflows
+
+[PLACEHOLDER: Diagram showing common button positions on screen]
+
+## Combining Access Methods
+
+### Hybrid Workflows
+
+Use the floating button alongside other access methods:
+
+**Mouse + Keyboard:**
+- Click button when hand is on mouse
+- Press **⌘⇧Space** when typing
+- Best of both worlds
+
+**Mouse Triggers + Button:**
+- Edge triggers for quick access while browsing
+- Floating button for precision when needed
+- Multiple options for different contexts
+
+**Button + Command Panel:**
+- Click button to show sidebar
+- Press **⌘⌃K** for focused search
+- Different tasks, different tools
+
+## Tips & Tricks
+
+### Unobtrusive Positioning
+
+Place button in screen corners you rarely use:
+- Top corners for centered work (writing, design)
+- Bottom corners for top-heavy work (reading, browsing)
+- Opposite side from Dock and notifications
+
+### Large Display Strategy
+
+On ultra-wide or large displays:
+- Position button near center of screen edge
+- Reduces mouse travel distance
+- Faster access than corner positions
+
+### Temporary Disable
+
+Don't want the button during specific tasks?
+1. Open Preferences
+2. Toggle off "Show floating button"
+3. Re-enable later as needed
+
+Faster than repositioning.
+
+### Multi-Monitor Workflows
+
+On multi-monitor setups:
+- Position button near screen edges that face each other
+- Example: Left monitor → button on right edge
+- Easier to hit when moving between displays
+
+### Tablet/Stylus Users
+
+For tablet or stylus input:
+- Floating button is more accessible than keyboard shortcuts
+- Larger click target than menu bar icons
+- Drag to convenient stylus-reachable position
+
+### Touchscreen Macs
+
+On touchscreen-capable Macs (if applicable):
+- Floating button works with touch input
+- Large enough touch target
+- Position in comfortable reach zones
+
+## Alternative Access Methods
+
+If the floating button isn't for you, try:
+
+**Keyboard Shortcuts:**
+- **⌘⇧Space** - Toggle sidebar
+- See [Global Shortcuts](globalShortcuts) for complete list
+
+**Mouse Triggers:**
+- Move mouse to screen edge to show sidebar
+- See [Mouse Triggers](mouseTriggers) for setup
+
+**Menu Bar Icon:**
+- Click SupaSidebar icon in menu bar
+- Select "Show Sidebar"
+
+**Browser Auto-Visibility:**
+- Sidebar appears automatically when browsers activate
+- See [Browser Integration](browserIntegration#browser-auto-visibility)
+
+[PLACEHOLDER: Comparison table of all access methods]
+
+## Troubleshooting
+
+**Button not appearing?**
+- Verify "Show floating button" is enabled in Preferences
+- Try toggling off and on again
+- Restart SupaSidebar
+
+**Button in wrong position?**
+- Drag button to desired location
+- Position is saved automatically
+- Check button isn't hidden off-screen edge
+
+**Button too small/hard to click?**
+- Unfortunately, button size is not customizable
+- Use keyboard shortcuts or mouse triggers instead
+- Submit feedback for larger button option
+
+**Button blocking content?**
+- Drag to different position
+- Use semi-transparent appearance (automatic)
+- Consider disabling and using keyboard shortcuts
+
+**Button disappeared after display change?**
+- Button may be positioned off-screen
+- Disable and re-enable floating button
+- It will reappear at default position
+
+**Multiple displays showing duplicate buttons?**
+- This shouldn't happen - only one button appears
+- Report bug to support if you see duplicates
+
+## Performance
+
+### Minimal Impact
+
+The floating button is lightweight:
+- Minimal CPU usage (event-driven, not polling)
+- Small memory footprint
+- No impact on battery life
+- Efficient rendering
+
+### Always-On-Top
+
+The button uses macOS floating window level:
+- Stays above all applications
+- Never gets hidden behind other windows
+- Respects macOS window management
+
+## Accessibility
+
+### Click Target Size
+
+The floating button provides a reasonable click target for:
+- Mouse users
+- Trackpad users
+- Stylus/pen input
+- Touch input (on supported hardware)
+
+### Keyboard Alternative
+
+For users who can't use mouse:
+- All floating button functionality available via keyboard
+- **⌘⇧Space** provides same toggle behavior
+- Full keyboard accessibility maintained
+
+### VoiceOver Support
+
+Screen reader users can:
+- Access floating button with VoiceOver
+- Hear button label
+- Activate with VoiceOver commands
+
+## Related Features
+
+- [Sidebar Panel](sidebar) - What the button controls
+- [Mouse Triggers](mouseTriggers) - Alternative mouse-driven access
+- [Global Shortcuts](globalShortcuts) - Keyboard alternative
+- [Command Panel](commandPanel) - Quick search interface

@@ -1,0 +1,208 @@
+# Smart Folders
+
+Dynamic folders that automatically organize your links based on rules - like smart playlists for your bookmarks.
+
+## When to Use
+
+- Automatically collect all links from a specific domain (e.g., all GitHub repositories)
+- Group links by type (websites, files, folders)
+- Create date-based folders (links added this week, this month)
+- Organize client work by matching URL patterns
+- Build reading lists that auto-update as you save articles
+
+## How It Works
+
+[PLACEHOLDER: Screenshot showing a smart folder with auto-matched links]
+
+Smart Folders use rules to automatically include links that match specific conditions. Instead of manually dragging links into folders, define the criteria once and let SupaSidebar do the organizing.
+
+### Rule-Based Organization
+
+Each smart folder contains:
+- **Conditions**: Rules that links must match
+- **Match Mode**: ANY (OR logic) or ALL (AND logic)
+- **Source Filtering**: Limit to specific spaces or folders
+
+When you save a link that matches the rules, it automatically appears in the smart folder - no manual sorting required.
+
+[PLACEHOLDER: Video showing user saving a link and it auto-appearing in smart folder]
+
+## Setup
+
+### Creating a Smart Folder
+
+1. Right-click in the sidebar or folder area
+2. Select **New Smart Folder**
+3. Name your folder (e.g., "GitHub Projects", "Work Research")
+4. Click **Add Condition** to define rules
+
+[PLACEHOLDER: Screenshot of smart folder creation dialog]
+
+### Adding Conditions
+
+Click **Add Condition** and choose a condition type:
+
+**URL Pattern**
+- Matches: Contains, Starts with, Ends with, Equals
+- Example: URL contains "github.com" → Collects all GitHub links
+
+**Domain**
+- Matches links from a specific domain
+- Example: Domain equals "reddit.com" → All Reddit links
+
+**Link Type**
+- Filter by: Web links, File system items, or All types
+- Example: Link type is "File" → Only files and folders
+
+**Source Space**
+- Matches links from specific workspace(s)
+- Example: Source space is "Work" → Links saved in Work space
+
+**Source Folder**
+- Matches links from specific folder(s)
+- Example: Source folder is "Client A" → All Client A links
+
+**Date Range**
+- Filter by creation date
+- Example: Created in last 7 days → Recent additions
+
+[PLACEHOLDER: Screenshot showing all condition types in dropdown]
+
+### Match Modes
+
+**ANY (OR logic)**: Link matches *at least one* condition
+- Example: URL contains "github.com" OR URL contains "gitlab.com"
+- Use for: Collecting similar items from different sources
+
+**ALL (AND logic)**: Link matches *all* conditions
+- Example: URL contains "docs" AND Source space is "Work"
+- Use for: Precise filtering with multiple criteria
+
+[PLACEHOLDER: Screenshot showing match mode toggle]
+
+## Using Smart Folders
+
+### Auto-Organization
+
+Smart folders update automatically:
+- Save a link → It appears in matching smart folders instantly
+- Edit a link's URL → Smart folder membership updates
+- Delete a link → Removed from all smart folders
+
+### Manual Overrides
+
+Links in smart folders are **references** - deleting from a smart folder doesn't delete the original link. To permanently delete, remove from the source folder.
+
+### Nested Smart Folders
+
+Smart folders can be nested inside regular folders for hierarchical organization:
+
+```
+📁 Work
+  ├── 🔍 Recent Work Links (smart folder)
+  ├── 🔍 Client Websites (smart folder)
+  └── 📁 Archives (regular folder)
+```
+
+[PLACEHOLDER: Screenshot showing nested smart folder structure]
+
+## Example Smart Folders
+
+### All GitHub Repositories
+**Condition**: URL contains "github.com"
+**Use**: Quick access to all your GitHub projects
+
+### This Week's Research
+**Conditions**:
+- Link type is "Web"
+- Created in last 7 days
+**Use**: See what you've been researching lately
+
+### Work Documentation
+**Conditions** (ALL):
+- URL contains "docs"
+- Source space is "Work"
+**Use**: Collect all work-related documentation
+
+### Client Work (Multi-Source)
+**Conditions** (ANY):
+- URL contains "clientname"
+- Source folder is "Client A"
+**Use**: Gather all links related to a client
+
+### Reading List
+**Conditions** (ALL):
+- URL contains any of: medium.com, substack.com, blog
+- Link type is "Web"
+**Use**: Auto-collect articles to read
+
+[PLACEHOLDER: Screenshot showing example smart folder with conditions]
+
+## Managing Smart Folders
+
+### Editing Rules
+
+1. Right-click the smart folder
+2. Select **Edit Smart Folder**
+3. Add, remove, or modify conditions
+4. Changes apply immediately
+
+### Duplicating Smart Folders
+
+Create variations of existing smart folders:
+1. Right-click the smart folder
+2. Select **Duplicate**
+3. Modify conditions as needed
+
+### Custom Icons & Colors
+
+Make smart folders visually distinct:
+1. Right-click the smart folder
+2. Select **Edit Appearance**
+3. Choose icon and color
+4. Smart folder stands out in sidebar
+
+[PLACEHOLDER: Screenshot of smart folder customization options]
+
+## Tips & Tricks
+
+### Domain-Based Organization
+Create smart folders for frequently visited domains:
+- "Twitter" → domain equals "twitter.com"
+- "YouTube" → domain equals "youtube.com"
+- "Stack Overflow" → domain equals "stackoverflow.com"
+
+### Temporary Smart Folders
+Create a "Last 7 Days" smart folder to review recent saves before deciding where to file them permanently.
+
+### Project-Based Collection
+Use URL patterns to collect project-related links:
+- "Project Apollo" → URL contains "apollo-project"
+- All links with that keyword auto-organize
+
+### Combine with Spaces
+Create work-specific smart folders:
+- Condition 1: Source space is "Work"
+- Condition 2: URL contains "company-domain.com"
+- Result: Only work links from company domain
+
+### Reading List Workflow
+1. Create smart folder: Link type = Web, Created in last 30 days
+2. All saved articles appear automatically
+3. Review and move keepers to permanent folders
+4. Old articles age out after 30 days
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **→** | Expand smart folder to see contents |
+| **←** | Collapse smart folder |
+| **Return** | Open first item in smart folder |
+
+## Related Features
+
+- [Spaces](spaces) - Filter smart folders by workspace
+- [Folders](sidebar) - Combine with regular folders for hybrid organization
+- [Command Panel](commandPanel) - Search within smart folder results
+- [Recent Items](recentItems) - Use date-based smart folders for dynamic recents

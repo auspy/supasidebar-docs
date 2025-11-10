@@ -1,0 +1,179 @@
+# Live Tabs
+
+Real-time mirror of your currently open browser tabs directly in the sidebar - switch between tabs across all browsers without leaving your keyboard.
+
+## When to Use
+
+- **Research management**: Handle dozens of tabs across multiple browsers in one view
+- **Quick tab switching**: Switch to specific tabs without Alt-Tabbing through applications
+- **Tab cleanup**: Close tabs you no longer need without opening each browser
+- **Avoid duplicates**: Reuse existing tabs instead of opening duplicates when clicking links
+- **Work overview**: See all your active work at a glance across all browsers
+
+## How It Works
+
+[PLACEHOLDER: Screenshot showing live tabs section in sidebar with tabs from multiple browsers]
+
+Live Tabs continuously monitors your supported browsers and displays all open tabs in real-time within the sidebar. Each tab shows its title, URL, and browser icon.
+
+### Real-Time Synchronization
+
+SupaSidebar uses two methods to keep tabs in sync:
+
+**Polling Mode** (All versions)
+Checks browsers every 0.75 seconds for tab updates via AppleScript.
+
+**Accessibility Observer** (Direct Distribution only)
+Instant updates using macOS Accessibility API when tabs are created, switched, or closed - no polling delay.
+
+[PLACEHOLDER: Video showing live tabs updating in real-time as user opens/closes browser tabs]
+
+### Multi-Browser Support
+
+Live Tabs works across all supported browsers simultaneously:
+
+**Fully Supported** (Real-time tracking):
+- Safari
+- Chrome
+- Edge
+- Brave
+- Vivaldi
+- Comet
+- Orion
+- Atlas (ChatGPT)
+- Helium
+
+**In Development**:
+- Firefox
+- Arc
+- Dia
+
+[PLACEHOLDER: Screenshot showing tabs from Safari, Chrome, and Edge all appearing in sidebar]
+
+### Browser Order Customization
+
+Organize which browsers appear first in your live tabs list:
+
+1. Open **Preferences → Live Tabs**
+2. Drag browsers to reorder priority
+3. Your most-used browser's tabs will appear first
+
+## Setup
+
+### Enable Live Tabs
+
+1. Open **Preferences → Recents**
+2. Toggle **Live Tabs** mode
+3. Grant browser permissions when prompted
+
+[PLACEHOLDER: Screenshot of Live Tabs toggle in preferences]
+
+### Required Permissions
+
+Live Tabs requires **Automation permissions** for each browser:
+
+1. Go to **System Settings → Privacy & Security → Automation**
+2. Find **SupaSidebar**
+3. Enable checkboxes for all browsers you use
+
+For enhanced real-time updates (Direct Distribution):
+- **System Settings → Privacy & Security → Accessibility** → Enable SupaSidebar
+
+[PLACEHOLDER: Screenshot showing automation permissions dialog]
+
+## Using Live Tabs
+
+### View All Tabs
+
+Press **⌘⌃K** to open the Command Panel - your live tabs appear alongside saved links and recent items.
+
+In the sidebar, live tabs appear in the **Recents** section (when Live Tabs mode is enabled).
+
+### Switch to a Tab
+
+**From Sidebar:**
+1. Navigate to the tab with arrow keys or click
+2. Press **Return** or click to activate
+
+**From Command Panel:**
+1. Press **⌘⌃K**
+2. Type tab title or URL
+3. Press **Return** to switch
+
+[PLACEHOLDER: Video showing user searching for tab in command panel and switching to it]
+
+### Close Tabs
+
+Right-click any live tab in the sidebar and select **Close Tab** to close it without opening the browser.
+
+### Smart Tab Reuse
+
+When Live Tabs is enabled and you open a link from SupaSidebar:
+
+- If the URL is already open in a tab, SupaSidebar **activates that tab** instead of creating a duplicate
+- Works across all browsers - even if the tab is in Chrome and you clicked a link configured for Safari
+
+This keeps your tab count manageable and prevents duplicate research tabs.
+
+[PLACEHOLDER: Screenshot showing tab reuse notification]
+
+## Space-Filtered Tabs (Premium)
+
+When using [Spaces](spaces), Live Tabs can show only tabs from websites saved to your current space:
+
+1. Open **Preferences → Live Tabs**
+2. Enable **Filter by current space**
+3. Only relevant tabs appear in the sidebar
+
+Example: Working in your "Work" space? Only see tabs from work-related domains.
+
+[PLACEHOLDER: Screenshot showing filtered live tabs based on current space]
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **⌘⌃K** | Open command panel (shows all tabs) |
+| **↑** / **↓** | Navigate through tabs |
+| **Return** | Switch to selected tab |
+
+## Tips & Tricks
+
+### Research Workflow
+1. Open multiple tabs for research across browsers
+2. Use **⌘⌃K** to search tabs by keyword
+3. Switch between relevant tabs without touching your mouse
+4. Right-click tabs to close distractions
+
+### Cross-Browser Tab Management
+Working across Safari and Chrome? Live Tabs shows everything in one unified list - no more forgetting which browser has which tab.
+
+### Performance Optimization
+Live Tabs intelligently reduces polling frequency for background browsers to save CPU cycles. Active browser tabs update fastest.
+
+### Prevent Duplicate Tabs
+Before opening a link, SupaSidebar checks if you already have it open. This "tab reuse" feature is automatic when Live Tabs is enabled - no configuration needed.
+
+## Troubleshooting
+
+**Tabs not appearing?**
+- Verify automation permissions are granted in System Settings
+- Ensure Live Tabs mode is enabled in Preferences → Recents
+- Check that your browser is in the supported list
+
+**Tabs updating slowly?**
+- Grant Accessibility permissions for real-time updates (Direct Distribution only)
+- Close unused browsers to improve performance
+
+**Tabs from wrong space showing?**
+- Enable "Filter by current space" in Preferences → Live Tabs
+- Ensure websites are saved to the correct space
+
+## Related Features
+
+- [Command Panel](commandPanel) - Search across all tabs
+- [Browser Support](browserSupport) - Complete compatibility details for all 14 browsers
+- [Browser Integration](browserIntegration) - Overview of browser features
+- [Smart Shortcuts](smartShortcuts) - Save tabs with ⌘⌃S while browsing
+- [Recent Items](recentItems) - Alternative mode for browsing history
+- [Spaces](spaces) - Organize tabs by workspace (Premium)

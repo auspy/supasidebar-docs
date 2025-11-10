@@ -1,0 +1,237 @@
+# Mouse Triggers
+
+Show the sidebar by simply moving your mouse to the edge of your screen - no clicking, no keyboard shortcuts required.
+
+## When to Use
+
+- Prefer mouse-driven workflows over keyboard shortcuts
+- Want quick sidebar access without memorizing shortcuts
+- Use a trackpad and find edge gestures natural
+- Work with large displays where reaching edges is easy
+- Combine with keyboard shortcuts for hybrid access
+
+## How It Works
+
+[PLACEHOLDER: Video showing mouse cursor moving to screen edge and sidebar appearing]
+
+Mouse Triggers turn your screen edges into hot zones. Move your cursor to the configured edge, pause briefly, and the sidebar slides into view automatically.
+
+### Edge-Based Activation
+
+Choose which screen edges trigger the sidebar:
+- **Left edge** - Hover near left side of screen
+- **Right edge** - Hover near right side of screen
+- **Both edges** - Either side works
+
+When you move your cursor away, the sidebar can auto-hide or stay visible.
+
+[PLACEHOLDER: Diagram showing screen edges with trigger zones highlighted]
+
+## Setup
+
+### Enable Mouse Triggers
+
+1. Open **Preferences → Mouse Triggers**
+2. Toggle **Enable mouse triggers** ON
+3. Select edge zones (left, right, or both)
+4. Adjust sensitivity settings (optional)
+
+[PLACEHOLDER: Screenshot of Mouse Triggers preferences panel]
+
+### Required Permissions
+
+Mouse Triggers require **Accessibility permissions** to detect mouse position:
+
+1. Go to **System Settings → Privacy & Security → Accessibility**
+2. Find **SupaSidebar** in the list
+3. Enable the checkbox
+
+[PLACEHOLDER: Screenshot showing Accessibility permissions dialog]
+
+**Why Accessibility?**
+macOS requires this permission for apps to monitor global mouse position. SupaSidebar only uses it for edge detection - no data collection.
+
+## Customization
+
+### Edge Threshold
+
+Control how close to the edge you need to move:
+
+- **Small (5px)**: Must be very close to edge
+- **Medium (10px)**: Moderate trigger zone
+- **Large (15px)**: Wide trigger zone, easier to activate
+
+Set in **Preferences → Mouse Triggers → Edge Threshold**
+
+**Tip**: Use smaller thresholds on large displays, larger on small screens.
+
+[PLACEHOLDER: Diagram showing different threshold sizes]
+
+### Hover Delay
+
+Set how long to hover before sidebar appears:
+
+- **Fast (0.1s)**: Instant response
+- **Medium (0.2s)**: Default, balanced
+- **Slow (0.5s)**: Prevents accidental triggers
+
+Set in **Preferences → Mouse Triggers → Hover Delay**
+
+**Tip**: Increase delay if you accidentally trigger the sidebar when reaching for scroll bars or window edges.
+
+### Edge Zone Selection
+
+Choose which edges are active:
+
+**Left Edge Only**
+Good if sidebar is positioned on left side
+
+**Right Edge Only**
+Good if sidebar is positioned on right side
+
+**Both Edges**
+Maximum flexibility - trigger from either side
+
+Set in **Preferences → Mouse Triggers → Enabled Zones**
+
+[PLACEHOLDER: Screenshot showing edge zone checkboxes]
+
+## Advanced Features
+
+### Hysteresis Distance
+
+Prevents flickering when cursor hovers near edge:
+
+Once sidebar appears, you can move slightly away from edge without hiding it. This "dead zone" makes the interaction feel smoother.
+
+**Technical Detail:**
+- Trigger distance: User-configured edge threshold
+- Deactivate distance: Trigger distance + 10px
+
+Automatically handled - no configuration needed.
+
+### Multi-Screen Support
+
+Mouse triggers work across all connected displays:
+- Each screen has independent edge zones
+- Triggering shows sidebar on that screen
+- Works seamlessly as you move between monitors
+
+[PLACEHOLDER: Diagram showing multi-monitor setup with trigger zones on each display]
+
+### Performance Optimization
+
+Mouse triggers use high-performance CGEventTap:
+- Minimal CPU impact
+- No polling - event-driven detection
+- Instant response times
+- Efficient memory usage
+
+## Combining with Other Features
+
+### Mouse + Keyboard Hybrid
+
+Use both access methods:
+- **Mouse trigger** when browsing casually
+- **⌘⇧Space** when keyboard is already in hand
+- **⌘⌃K** for focused search sessions
+
+Different workflows, different access methods.
+
+### Auto-Hide Behavior
+
+Configure sidebar auto-hide in **Preferences → General**:
+
+**With Auto-Hide ON:**
+1. Mouse to edge → Sidebar appears
+2. Click outside → Sidebar hides
+3. Repeat as needed
+
+**With Auto-Hide OFF:**
+1. Mouse to edge → Sidebar appears
+2. Stays visible until you explicitly hide it (Esc or ⌘⇧Space)
+
+[PLACEHOLDER: Video showing both auto-hide behaviors]
+
+### Sidebar Positioning
+
+Mouse triggers adapt to sidebar position:
+
+**Sidebar on Left:**
+- Enable left edge trigger
+- Right edge can be used for other apps/features
+
+**Sidebar on Right:**
+- Enable right edge trigger
+- Left edge available for other purposes
+
+**Sidebar Switches Sides:**
+- Enable both edges for maximum flexibility
+
+Toggle sidebar side with **⌘⌃L**
+
+## Tips & Tricks
+
+### Large Display Workflow
+On ultra-wide or large displays, mouse triggers are faster than keyboard shortcuts:
+- Throw cursor to edge (large movement)
+- Sidebar appears instantly
+- No keyboard context switch needed
+
+### Trackpad Gestures
+Combine with macOS trackpad gestures:
+- Three-finger swipe between spaces
+- Flick cursor to edge to open sidebar
+- Seamless multi-touch workflow
+
+### Prevent Accidental Triggers
+If you frequently trigger the sidebar by accident:
+1. Increase **Hover Delay** to 0.3-0.5s
+2. Decrease **Edge Threshold** to 5px
+3. Disable edge on the side you accidentally trigger
+
+### Hybrid Positioning
+Place sidebar on left, but enable both edge triggers:
+- Left edge for quick access (shorter distance)
+- Right edge as backup when left is blocked by windows
+
+### Disable for Focus Work
+During focused work sessions:
+1. Toggle **Enable mouse triggers** OFF in preferences
+2. Use keyboard shortcuts only
+3. Re-enable when needed
+
+## Troubleshooting
+
+**Mouse triggers not working?**
+- Verify Accessibility permissions are granted
+- System Settings → Privacy & Security → Accessibility → Enable SupaSidebar
+- Restart SupaSidebar after granting permissions
+
+**Sidebar appearing too easily?**
+- Increase **Hover Delay** (try 0.3s or 0.5s)
+- Decrease **Edge Threshold** (try 5px)
+- Disable edge on problem side
+
+**Sidebar not appearing?**
+- Check that **Enable mouse triggers** is ON
+- Verify at least one edge zone is enabled
+- Check cursor is actually reaching the configured threshold distance
+- Ensure sidebar isn't already visible
+
+**Sidebar flickering?**
+- This should be prevented by hysteresis
+- If it persists, increase **Hover Delay**
+- Report issue to support
+
+**Multi-monitor issues?**
+- Mouse triggers should work on all screens
+- Try moving cursor to edge on each display to test
+- Ensure macOS isn't blocking the trigger area with Dock or menu bar
+
+## Related Features
+
+- [Sidebar Panel](sidebar) - Customize sidebar behavior and positioning
+- [Global Shortcuts](globalShortcuts) - Keyboard alternative to mouse triggers
+- [Floating Button](floatingButton) - Another mouse-driven access method
+- [Browser Auto-Visibility](browserIntegration#browser-auto-visibility) - Automatic sidebar display

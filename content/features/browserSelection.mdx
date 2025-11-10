@@ -1,0 +1,550 @@
+# Browser Selection
+
+Choose which browser opens your saved links - assign specific browsers per link, use your active browser dynamically, or pick on demand for ultimate flexibility.
+
+## When to Use
+
+- **Context-based browsing**: Open work links in Chrome, personal in Safari, dev in Firefox
+- **Dynamic workflows**: Use whichever browser you're currently in without manual switching
+- **One-time choices**: Pick a browser for a specific session without changing defaults
+- **Browser-specific features**: Use browsers that work best for certain sites (Arc for design, Safari for Apple sites)
+- **Multi-account management**: Separate work and personal accounts across browsers
+- **Testing workflows**: Open same link in different browsers for cross-browser testing
+
+## How It Works
+
+[PLACEHOLDER: Video showing user opening links with different browsers, using browser picker, and setting default browsers]
+
+SupaSidebar remembers which browser you want to use for each link and provides multiple ways to choose:
+
+**Per-Link Assignment:**
+Right-click any link → Set Browser → Choose once, use forever
+
+**Active Browser Mode:**
+Links open in whatever browser you're currently using
+
+**Always Ask Mode:**
+Shows browser picker every time you open a link
+
+**One-Time Selection:**
+⌥Click or ⌥Return to choose browser for just this time
+
+## Browser Opening Behaviors
+
+### Assigned Browser (Default)
+
+Each link remembers which browser it should open in.
+
+**How It Works:**
+1. Save a link from Chrome → Automatically assigned to Chrome
+2. Can change assignment: Right-click → Set Browser → Choose new browser
+3. Opening that link always uses assigned browser
+
+**Best For:**
+- Consistent workflows
+- Site-specific browser requirements
+- Organizing by context (work vs. personal)
+
+[PLACEHOLDER: Screenshot showing link with browser badge indicating Chrome]
+
+**Example Workflow:**
+- Gmail → Always Chrome (work account)
+- iCloud → Always Safari (personal account)
+- GitHub → Always Firefox (development)
+- Each link opens in its designated browser
+
+### Active Browser Mode
+
+Links open in whichever browser is currently active (frontmost).
+
+**Enable:**
+1. Open **Preferences → General**
+2. Set **Link Opening Behavior** to **Use active browser**
+
+**How It Works:**
+- Click link while Chrome is active → Opens in Chrome
+- Switch to Safari, click same link → Opens in Safari
+- Dynamic behavior based on current browser
+
+**Best For:**
+- Research workflows with single browser
+- Avoiding browser switching
+- Testing links in multiple browsers
+- Ad-hoc browsing sessions
+
+[PLACEHOLDER: Diagram showing same link opening in different browsers based on active browser]
+
+**Example Workflow:**
+1. Working in Chrome all day
+2. All links open in Chrome automatically
+3. Switch to Firefox for testing
+4. Same links now open in Firefox
+5. No manual browser selection needed
+
+### Always Ask Mode
+
+Browser picker appears every time you open a link.
+
+**Enable:**
+1. Open **Preferences → General**
+2. Set **Link Opening Behavior** to **Always ask**
+
+**How It Works:**
+- Click any link
+- Browser picker popover appears
+- Choose browser
+- Link opens
+
+**Best For:**
+- Users who like explicit control
+- Frequently switching between browsers
+- Testing and development workflows
+- Indecisive browser preferences
+
+[PLACEHOLDER: Screenshot showing browser picker popover with all 14 browsers]
+
+**Example Workflow:**
+1. Click link in sidebar
+2. See browser picker: Safari, Chrome, Firefox, Arc...
+3. Choose Firefox for this time
+4. Link opens in Firefox
+5. Next link, repeat choice
+
+## Setting Default Browser for Links
+
+### When Saving Links
+
+Links automatically remember which browser you saved them from:
+
+**Automatic Assignment:**
+- Save from Chrome → Link assigned to Chrome
+- Save from Safari → Link assigned to Safari
+- Save from Firefox → Link assigned to Firefox
+
+[PLACEHOLDER: Screenshot showing newly saved link with browser badge]
+
+### Changing Browser Assignment
+
+**For Single Link:**
+1. Right-click the link in sidebar
+2. Select **Set Browser**
+3. Choose new browser
+4. Assignment updated
+
+[PLACEHOLDER: Screenshot of context menu showing "Set Browser" option]
+
+**For Multiple Links:**
+1. Select multiple links (⇧↑/↓)
+2. Right-click selection
+3. Select **Set Browser**
+4. Choose browser
+5. All selected links updated
+
+### Removing Browser Assignment
+
+**Reset to System Default:**
+1. Right-click link
+2. Select **Set Browser**
+3. Choose **System Default**
+4. Link uses macOS default browser
+
+## One-Time Browser Selection
+
+Choose a browser for a single use without changing assignment.
+
+### Using Option Key + Click
+
+**Method 1: Mouse**
+1. Hold **⌥** (Option)
+2. Click link
+3. Browser picker appears
+4. Choose browser
+5. Link opens, assignment unchanged
+
+[PLACEHOLDER: Screenshot showing ⌥Click on link triggering browser picker]
+
+### Using Option Key + Return
+
+**Method 2: Keyboard**
+1. Navigate to link with ↑↓ keys
+2. Press **⌥Return**
+3. Browser picker appears
+4. Use ↑↓ to select browser
+5. Press Return to open
+6. Assignment unchanged
+
+**Keyboard-Only Workflow:**
+1. **⌘⌃K** → Open command panel
+2. Type search query
+3. **↓** → Select result
+4. **⌥Return** → Browser picker
+5. **↓** → Choose browser
+6. **Return** → Open
+
+All without touching mouse.
+
+## Browser Picker
+
+### Available Browsers
+
+The browser picker shows all installed supported browsers:
+
+**Installed Browsers:**
+- Shown at top of picker
+- Includes icon and name
+- Click or Return to select
+
+**Not Installed:**
+- Grayed out or not shown
+- Install browser to enable
+
+[PLACEHOLDER: Screenshot of browser picker showing installed vs not installed browsers]
+
+### Picker Shortcuts
+
+| Action | Shortcut |
+|--------|----------|
+| Show picker (mouse) | **⌥Click** link |
+| Show picker (keyboard) | **⌥Return** on selected link |
+| Navigate browsers | **↑** / **↓** |
+| Select browser | **Return** or **Click** |
+| Cancel | **Esc** or click outside |
+
+## Multi-Browser Workflows
+
+### Dedicate Browsers to Contexts
+
+**Professional Workflow:**
+```
+Work Space:
+├── Gmail (Chrome) - Work account
+├── Slack (Chrome) - Company workspace
+├── Jira (Chrome) - Project tracking
+└── Company Intranet (Chrome) - Corporate browser
+
+Personal Space:
+├── Gmail (Safari) - Personal account
+├── Twitter (Safari) - Social media
+├── Shopping (Safari) - Personal browsing
+└── News (Safari) - Reading
+
+Development Space:
+├── localhost:3000 (Firefox) - Dev server
+├── GitHub (Firefox) - Code repos
+├── Stack Overflow (Firefox) - Documentation
+└── MDN (Firefox) - Web docs
+```
+
+Each space uses dedicated browsers for context isolation.
+
+[PLACEHOLDER: Screenshot showing different spaces with browser badges on links]
+
+### Browser-Based Smart Folders
+
+Automatically organize links by browser:
+
+**Smart Folder: Chrome Work Links**
+1. Create Smart Folder
+2. Add condition: **Browser is "Chrome"**
+3. All Chrome links collected automatically
+
+**Smart Folder: Safari Personal**
+1. Create Smart Folder
+2. Add condition: **Browser is "Safari"**
+3. All Safari links collected automatically
+
+See [Smart Folders](smartFolders) for setup.
+
+### Testing Workflow
+
+Test same link across browsers:
+
+**Method 1: One-Time Selection**
+1. Open link with **⌥Return**
+2. Choose Chrome → Test in Chrome
+3. Open again with **⌥Return**
+4. Choose Firefox → Test in Firefox
+5. Open again with **⌥Return**
+6. Choose Safari → Test in Safari
+
+**Method 2: Active Browser Mode**
+1. Enable "Use active browser" in Preferences
+2. Switch to Chrome, click link → Opens in Chrome
+3. Switch to Firefox, click link → Opens in Firefox
+4. Switch to Safari, click link → Opens in Safari
+
+### Multi-Account Management
+
+**Work vs Personal Accounts:**
+- Gmail (Work) → Chrome with work Google account
+- Gmail (Personal) → Safari with personal Google account
+- Slack (Work) → Chrome workspace
+- Slack (Personal) → Firefox workspace
+
+Browser isolation prevents account conflicts.
+
+### Browser-Specific Features
+
+Some sites work better in specific browsers:
+
+**Safari:** Best for Apple sites (iCloud, Apple Music, etc.)
+**Chrome:** Best for Google services (Gmail, Drive, Meet)
+**Arc:** Best for design tools with workspace features
+**Firefox:** Best for privacy-focused browsing
+**Edge:** Best for Microsoft 365 services
+
+Assign links based on optimal browser performance.
+
+## Browser Window Adjustment
+
+Automatically resize browser windows to prevent sidebar overlap.
+
+### Enable Window Adjustment
+
+1. Open **Preferences → General**
+2. Set **Browser window adjustment** to desired mode:
+   - **None**: No adjustment
+   - **Minimal**: Small adjustment to prevent overlap
+   - **Fill**: Maximize browser to fill remaining space
+
+[PLACEHOLDER: Before/after screenshots showing browser window adjustment with sidebar visible]
+
+### Adjustment Modes
+
+**None:**
+- Browser windows not adjusted
+- Sidebar may overlap browser content
+- Use if you prefer manual window management
+
+**Minimal:**
+- Browser window shrinks slightly
+- Just enough to prevent sidebar overlap
+- Preserves most of your browser width
+- Recommended for most users
+
+**Fill:**
+- Browser window maximized to fill available space
+- Sidebar and browser perfectly tiled
+- Optimal screen space usage
+- Great for split-screen workflows
+
+[PLACEHOLDER: Diagram showing three adjustment modes side-by-side]
+
+### Supported Browsers
+
+Window adjustment works with:
+- Chrome
+- Edge
+- Brave
+- Vivaldi
+- Safari (limited)
+- Other Chromium-based browsers
+
+**Not Supported:**
+- Firefox (window management API limitations)
+- Arc (custom window behavior)
+- Zen (Firefox-based)
+
+## Browser Auto-Visibility
+
+Show sidebar automatically when browsers become active.
+
+### Enable Auto-Visibility
+
+1. Open **Preferences → General**
+2. Enable **Show sidebar when browser is active**
+
+**How It Works:**
+- Switch to any supported browser → Sidebar appears
+- Switch to non-browser app → Sidebar behavior unchanged
+- Automatic context-aware visibility
+
+**Best For:**
+- Research workflows with frequent browser use
+- Saving pages while browsing
+- Reducing manual sidebar toggling
+- Keyboard-first workflows
+
+[PLACEHOLDER: Video showing sidebar appearing when switching to browser]
+
+## Preferences Configuration
+
+### Link Opening Behavior
+
+**Preferences → General → Link Opening Behavior**
+
+**Options:**
+1. **Use assigned browser** (Default)
+   - Respects per-link browser settings
+   - Consistent behavior
+   - Recommended for most users
+
+2. **Use active browser**
+   - Opens in currently active browser
+   - Dynamic behavior
+   - Best for single-browser workflows
+
+3. **Always ask**
+   - Shows browser picker every time
+   - Explicit control
+   - Best for testing and flexibility
+
+[PLACEHOLDER: Screenshot of Preferences showing Link Opening Behavior options]
+
+### Browser Window Adjustment
+
+**Preferences → General → Browser window adjustment**
+
+**Options:**
+- None
+- Minimal (Recommended)
+- Fill
+
+### Auto-Visibility
+
+**Preferences → General → Show sidebar when browser is active**
+
+- ☐ Disabled (Default)
+- ☑ Enabled
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **⌥Click** | Show browser picker for clicked link |
+| **⌥Return** | Show browser picker for selected link |
+| **↑** / **↓** | Navigate browser picker |
+| **Return** | Select browser in picker |
+| **Esc** | Cancel browser picker |
+
+See [Global Shortcuts](globalShortcuts) for complete reference.
+
+## Tips & Tricks
+
+### Browser Badges
+
+Links in sidebar show small browser icons indicating assignment:
+- Chrome icon → Opens in Chrome
+- Safari icon → Opens in Safari
+- No icon → Uses system default
+
+Visual indication of which browser will be used.
+
+### Hover for Browser Info
+
+Hover over a link to see:
+- Full URL
+- Assigned browser
+- Last accessed time
+- Other metadata
+
+Quick browser assignment verification.
+
+### Keyboard Navigation in Picker
+
+Browser picker is fully keyboard accessible:
+1. **⌥Return** → Open picker
+2. **↑**/**↓** → Cycle browsers
+3. **Return** → Select
+4. **Esc** → Cancel
+
+Never need mouse for browser selection.
+
+### Test Multiple Browsers Fast
+
+**Quick Testing Workflow:**
+1. Select link in sidebar
+2. **⌥Return** → Choose Chrome → Test
+3. **⌥Return** again → Choose Safari → Test
+4. **⌥Return** again → Choose Firefox → Test
+5. Repeat as needed
+
+Fast cross-browser testing.
+
+### Context Menus Remember Position
+
+Browser picker appears near your cursor:
+- Click top of sidebar → Picker at top
+- Click bottom → Picker at bottom
+- Optimized for quick mouse movement
+
+### Organize by Browser Color
+
+Use browser-themed folders:
+- 🔴 Chrome folder (red theme)
+- 🔵 Safari folder (blue theme)
+- 🟠 Firefox folder (orange theme)
+
+Visual organization matching browser branding.
+
+## Troubleshooting
+
+### Browser Not in Picker
+
+**Issue:** Expected browser doesn't appear in picker
+
+**Solutions:**
+1. Ensure browser is installed in Applications folder
+2. Verify browser is supported (see [Browser Support](browserSupport))
+3. Restart SupaSidebar
+4. Check browser app name matches expected name
+
+### Wrong Browser Opens
+
+**Issue:** Link opens in unexpected browser
+
+**Solutions:**
+1. Check link's browser assignment (right-click → check which browser is selected)
+2. Verify Link Opening Behavior in Preferences → General
+3. If using "Active Browser" mode, ensure correct browser is frontmost
+4. Right-click link → Set Browser → Choose correct browser
+
+### Browser Picker Doesn't Appear
+
+**Issue:** ⌥Click or ⌥Return doesn't show browser picker
+
+**Solutions:**
+1. Ensure Option key is held down while clicking/pressing Return
+2. Check keyboard is working (test Option key in other apps)
+3. Verify link is selected (for keyboard method)
+4. Try mouse method if keyboard doesn't work
+5. Restart SupaSidebar
+
+### Window Adjustment Not Working
+
+**Issue:** Browser window doesn't resize with sidebar
+
+**Solutions:**
+1. Check Preferences → General → Browser window adjustment is not "None"
+2. Verify browser supports window adjustment (see supported browsers above)
+3. Firefox and Arc don't support automatic adjustment
+4. Try manual window resizing if automatic doesn't work
+
+### Auto-Visibility Not Triggering
+
+**Issue:** Sidebar doesn't appear when switching to browser
+
+**Solutions:**
+1. Check Preferences → General → "Show sidebar when browser is active" is enabled
+2. Ensure browser has Automation permissions
+3. Try clicking browser window to make it frontmost
+4. Restart SupaSidebar
+
+### Browser Assignment Not Saving
+
+**Issue:** Browser selection doesn't persist
+
+**Solutions:**
+1. Ensure you're using "Set Browser" (right-click), not one-time selection (⌥Click)
+2. Check you're not in "Always ask" mode (Preferences → General)
+3. Verify link saves properly (delete and re-save if needed)
+4. Check CloudKit sync status if using multiple devices
+
+## Related Features
+
+- [Browser Support](browserSupport) - Full list of 14 supported browsers
+- [Smart Shortcuts](smartShortcuts) - Context-aware Save (⌘⌃S) and Copy (⌘⌃C)
+- [Live Tabs](liveTabs) - Real-time tab tracking across browsers
+- [Smart Folders](smartFolders) - Auto-organize links by browser
+- [Spaces](spaces) - Create browser-specific workspaces
+- [Global Shortcuts](globalShortcuts) - Complete keyboard reference
