@@ -1,0 +1,11 @@
+{
+  "index": "Introduction",
+  "gettingStarted": "Getting Started",
+  "features": {
+    "title": "Features",
+    "type": "menu"
+  },
+  "shortcuts": "Shortcuts",
+  "integration": "Integration",
+  "browserIntegration": "Browser Integration"
+}
