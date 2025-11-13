@@ -9,20 +9,17 @@ const config: DocsThemeConfig = {
         <circle cx="12" cy="12" r="6" fill="white" />
         <circle cx="12" cy="12" r="2" fill="#3B82F6" />
       </svg>
-      <span style={{ fontWeight: "bold", color: "#1F2937" }}>Focusmo Docs</span>
+      <span style={{ fontWeight: "bold", color: "#1F2937" }}>SupaSidebar Docs</span>
     </div>
   ),
   project: {
-    link: "https://focusmo.app",
+    link: "https://github.com/auspy/supasidebar-docs",
   },
-  chat: {
-    link: "https://discord.gg/focusmo",
-  },
-  docsRepositoryBase: "https://github.com/focusmo/focusmo-docs",
+  docsRepositoryBase: "https://github.com/auspy/supasidebar-docs",
   footer: {
     text: (
       <span>
-        © {new Date().getFullYear()} Focusmo. Built with{" "}
+        © {new Date().getFullYear()} SupaSidebar. Built with{" "}
         <a href="https://nextra.site" target="_blank" rel="noopener noreferrer">
           Nextra
         </a>
@@ -32,16 +29,16 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – Focusmo Docs",
+      titleTemplate: "%s – SupaSidebar Docs",
     };
   },
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="Focusmo Documentation" />
+      <meta property="og:title" content="SupaSidebar Documentation" />
       <meta
         property="og:description"
-        content="Complete guide to using Focusmo - the ultimate focus and productivity app for macOS and iOS."
+        content="Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features."
       />
       <link rel="icon" href="/favicon.ico" />
     </>
@@ -67,7 +64,7 @@ const config: DocsThemeConfig = {
   search: {
     placeholder: "Search documentation...",
   },
-  primaryHue: 214, // Blue color matching Focusmo branding
+  primaryHue: 214, // Blue color matching SupaSidebar branding
   primarySaturation: 100,
 };
 
