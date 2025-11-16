@@ -2,18 +2,10 @@
 
 Real-time mirror of your currently open browser tabs directly in the sidebar - switch between tabs across all browsers without leaving your keyboard.
 
-## When to Use
-
-- **Research management**: Handle dozens of tabs across multiple browsers in one view
-- **Quick tab switching**: Switch to specific tabs without Alt-Tabbing through applications
-- **Tab cleanup**: Close tabs you no longer need without opening each browser
-- **Avoid duplicates**: Reuse existing tabs instead of opening duplicates when clicking links
-- **Work overview**: See all your active work at a glance across all browsers
-
 ## How It Works
 <br />
 <p align="center">
-  <img src="/assets/lifetabsmultiplebrowser.jpeg" alt="Life Tabs in Multiple Browsers" width="800" />
+  <img src="/lifetabsmultiplebrowser.jpeg" alt="Life Tabs in Multiple Browsers" width="800" />
 </p>
 
 
@@ -21,12 +13,7 @@ Live Tabs continuously monitors your supported browsers and displays all open ta
 
 ### Real-Time Synchronization
 
-SupaSidebar uses two methods to keep tabs in sync:
-
-**Polling Mode** (All versions)
-Checks browsers every 0.75 seconds for tab updates via AppleScript.
-
-**Accessibility Observer** (Direct Distribution only)
+**Accessibility Observer** (
 Instant updates using macOS Accessibility API when tabs are created, switched, or closed - no polling delay.
 <p>
   Watch this video:
@@ -36,29 +23,17 @@ Instant updates using macOS Accessibility API when tabs are created, switched, o
 </p>
 
 
-### Multi-Browser Support
+## Multi-Browser Support
 
 Live Tabs works across all supported browsers simultaneously:
 
-**Fully Supported** (Real-time tracking):
-- Safari
-- Chrome
-- Edge
-- Brave
-- Vivaldi
-- Comet
-- Orion
-- Atlas (ChatGPT)
-- Helium
+**Fully Supported** (Real-time tracking):Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Atlas (ChatGPT), Helium
 
-**In Development**:
-- Firefox
-- Arc
-- Dia
+**In Development**:Firefox, Arc, Dia
 
 <br />
 <p align="center">
-  <img src="/assets/lifetabsmultiplebrowser.jpeg" alt="Life Tabs in Multiple Browsers" width="800" />
+  <img src="/lifetabsmultiplebrowser.jpeg" alt="Life Tabs in Multiple Browsers" width="800" />
 </p>
 
 ### Browser Order Customization
@@ -80,23 +55,12 @@ Organize which browsers appear first in your live tabs list:
 
 <br />
 <p align="center">
-  <img src="/assets/Live Tap Option.jpeg" alt="Life Tabs" width="800" />
+  <img src="/Live Tabs Option.jpeg" alt="Life Tabs" width="800" />
 </p>
 
 
 ### Required Permissions
-
-Live Tabs requires **Automation permissions** for each browser:
-
-1. Go to **System Settings → Privacy & Security → Automation**
-2. Find **SupaSidebar**
-3. Enable checkboxes for all browsers you use
-
-For enhanced real-time updates (Direct Distribution):
-- **System Settings → Privacy & Security → Accessibility** → Enable SupaSidebar
-
-[PLACEHOLDER: Screenshot showing automation permissions dialog]
-
+**refer to**  :  [Set Up](SetUp)
 ## Using Live Tabs
 
 ### View All Tabs
@@ -124,16 +88,6 @@ In the sidebar, live tabs appear in the **Recents** section (when Live Tabs mode
 </p>
 
 
-### Close Tabs
-
-Right-click any live tab in the sidebar and select **Close Tab** to close it without opening the browser.
-
-### Smart Tab Reuse
-
-When Live Tabs is enabled and you open a link from SupaSidebar:
-
-- If the URL is already open in a tab, SupaSidebar **activates that tab** instead of creating a duplicate
-- Works across all browsers - even if the tab is in Chrome and you clicked a link configured for Safari
 
 This keeps your tab count manageable and prevents duplicate research tabs.
 
@@ -158,22 +112,6 @@ Example: Working in your "Work" space? Only see tabs from work-related domains.
 | **↑** / **↓** | Navigate through tabs |
 | **Return** | Switch to selected tab |
 
-## Tips & Tricks
-
-### Research Workflow
-1. Open multiple tabs for research across browsers
-2. Use **⌘⌃K** to search tabs by keyword
-3. Switch between relevant tabs without touching your mouse
-4. Right-click tabs to close distractions
-
-### Cross-Browser Tab Management
-Working across Safari and Chrome? Live Tabs shows everything in one unified list - no more forgetting which browser has which tab.
-
-### Performance Optimization
-Live Tabs intelligently reduces polling frequency for background browsers to save CPU cycles. Active browser tabs update fastest.
-
-### Prevent Duplicate Tabs
-Before opening a link, SupaSidebar checks if you already have it open. This "tab reuse" feature is automatic when Live Tabs is enabled - no configuration needed.
 
 ## Troubleshooting
 
