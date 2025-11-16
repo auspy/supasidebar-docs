@@ -90,9 +90,9 @@ There are **three** ways to select which browser opens a link:
 
 ## Analytics / Telemetry
 Track events (anonymized):
-- `browser_assignment_changed` {link_id, new_browser}
-- `browser_picker_opened` {link_id, via: 'option_click' | 'option_enter' | 'context_menu'}
-- `browser_one_time_used` {link_id, browser}
+- `browser_assignment_changed {link_id, new_browser}`
+- `browser_picker_opened {link_id, via: 'option_click' | 'option_enter' | 'context_menu'}`
+- `browser_one_time_used {link_id, browser}`
 
 ## Accessibility
 - Picker must have appropriate ARIA roles (menu, menuitem) and labels.
