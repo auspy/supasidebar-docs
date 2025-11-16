@@ -3,9 +3,6 @@
 Choose which browser opens your saved links - assign specific browsers per link, use your active browser dynamically, or pick on demand for ultimate flexibility.
 
 
-## Purpose
-Allow SupaSidebar users to control which browser opens a saved link. Provide simple, discoverable, and accessible ways to choose a browser **per link** or **one-time**, while keeping a sensible default behavior.
-
 ## Quick Start - Three Ways to Select a Browser
 
 ### **1. Right‑Click → Open With**
@@ -26,45 +23,8 @@ Allow SupaSidebar users to control which browser opens a saved link. Provide sim
 
 > **Note:** The browser selection popup only appears when using shortcuts or modifier keys (Option‑Click, Option‑Enter). Your last used browser may be remembered depending on user settings. All three methods work for **links, tabs, and certain URL‑related commands**.
 
----
-
-## Scope
-This feature covers: per-link browser assignment, one-time browser choice, keyboard-first flows, and a browser picker UI. It does **not** cover cross-device sync implementation details or low-level OS-level URL handling (those are separate tickets).
-
-## Goals
-- Make it easy for non‑technical users to pick a browser for each link.
-- Support power users who prefer keyboard-only flows.
-- Keep default behavior predictable (use assigned browser unless user overrides).
-- Provide clear visual cues (browser badges) and accessible keyboard shortcuts.
-
-## Key User Stories
-- As a user, I want a link to always open in my chosen browser so my accounts stay separate.
-- As a user, I want to open a link in a different browser just once without changing the default assignment.
-- As a keyboard-first user, I want a shortcut to open the browser picker without touching the mouse.
-- As a support agent, I want clear acceptance criteria so I can test internationalized and accessibility scenarios.
-
-## How to Select a Browser (feature summary)
-There are **three** ways to select which browser opens a link:
-
-1. **Right-click → "Open with" (Set / Change assignment)**
-   - Persistent: sets the link's default browser assignment.
-   - UI: context menu shows installed browsers; the selected browser becomes the link's assigned browser.
-
-2. **Modifier key + Click / Enter — One-time choice**
-   - One-time (temporary): Does not change the saved assignment.
-   - Mouse: Hold **Option (⌥)** and click the link → Browser picker appears.
-   - Keyboard: With a link selected, press **Option (⌥) + Enter** → Browser picker appears.
-
-3. **Command panel / Quick Open → Option + Enter**
-   - Quick workflow for power users: open the command panel (⌘⌃K), search for a link, press **⌥Enter** to show the picker, then select browser with ↑/↓ + Return.
 
 > Default behavior: If user does nothing, a link opens in its *assigned browser*. If no assignment exists, it opens in the system default browser.
-
-## UX / UI
-- **Browser badge** (small icon) appears next to saved links showing assigned browser.
-- **Picker layout**: compact popover with installed browsers at top; disabled (grayed) items for unsupported / not installed browsers.
-- **Placement**: picker appears adjacent to the clicked link or the cursor; keyboard-invoked picker appears near the selected item.
-- **Help text**: first-time tooltip explaining `Option + click` and `Right‑click → Open with`.
 
 ## Keyboard Shortcuts
 - `⌥ + Click` — open browser picker (mouse)
@@ -87,25 +47,6 @@ There are **three** ways to select which browser opens a link:
    - If a browser is not found on the system, it must not be selectable and must appear disabled in the picker.
 6. **Edge cases**
    - If the chosen browser fails to open, show a non-blocking error and fallback to the system default browser.
-
-## Analytics / Telemetry
-Track events (anonymized):
-- `browser_assignment_changed {link_id, new_browser}`
-- `browser_picker_opened {link_id, via: 'option_click' | 'option_enter' | 'context_menu'}`
-- `browser_one_time_used {link_id, browser}`
-
-## Accessibility
-- Picker must have appropriate ARIA roles (menu, menuitem) and labels.
-- Provide a text alternative describing the assigned browser for each link.
-- Focus management: trap focus inside picker until closed; restore focus to the link on close.
-
-## Internationalization
-- All UI strings should be externalized for localization.
-
-## Implementation Notes
-- Use macOS `open -a` or equivalent cross-platform abstractions to open a URL with a specific app.
-- Persist assignment in the link object: `link.browser_assignment = {id: 'chrome', name: 'Google Chrome'}`.
-- UI should consult the installed browsers registry at startup and refresh on demand.
 
 ---
 
@@ -181,136 +122,6 @@ The browser picker shows all installed supported browsers:
 - Grayed out or not shown
 - Install browser to enable
 
-[PLACEHOLDER: Screenshot of browser picker showing installed vs not installed browsers]
-
-### Picker Shortcuts
-
-| Action | Shortcut |
-|--------|----------|
-| Show picker (mouse) | **⌥Click** link |
-| Show picker (keyboard) | **⌥Return** on selected link |
-| Navigate browsers | **↑** / **↓** |
-| Select browser | **Return** or **Click** |
-| Cancel | **Esc** or click outside |
-
-## Multi-Browser Workflows
-
-### Dedicate Browsers to Contexts
-
-**Professional Workflow:**
-```
-Work Space:
-├── Gmail (Chrome) - Work account
-├── Slack (Chrome) - Company workspace
-├── Jira (Chrome) - Project tracking
-└── Company Intranet (Chrome) - Corporate browser
-
-Personal Space:
-├── Gmail (Safari) - Personal account
-├── Twitter (Safari) - Social media
-├── Shopping (Safari) - Personal browsing
-└── News (Safari) - Reading
-
-Development Space:
-├── localhost:3000 (Firefox) - Dev server
-├── GitHub (Firefox) - Code repos
-├── Stack Overflow (Firefox) - Documentation
-└── MDN (Firefox) - Web docs
-```
-
-Each space uses dedicated browsers for context isolation.
-
-[PLACEHOLDER: Screenshot showing different spaces with browser badges on links]
-
-### Browser-Based Smart Folders
-
-Automatically organize links by browser:
-
-**Smart Folder: Chrome Work Links**
-1. Create Smart Folder
-2. Add condition: **Browser is "Chrome"**
-3. All Chrome links collected automatically
-
-**Smart Folder: Safari Personal**
-1. Create Smart Folder
-2. Add condition: **Browser is "Safari"**
-3. All Safari links collected automatically
-
-See [Smart Folders](smartFolders) for setup.
-
-### Testing Workflow
-
-Test same link across browsers:
-
-**Method 1: One-Time Selection**
-1. Open link with **⌥Return**
-2. Choose Chrome → Test in Chrome
-3. Open again with **⌥Return**
-4. Choose Firefox → Test in Firefox
-5. Open again with **⌥Return**
-6. Choose Safari → Test in Safari
-
-**Method 2: Active Browser Mode**
-1. Enable "Use active browser" in Preferences
-2. Switch to Chrome, click link → Opens in Chrome
-3. Switch to Firefox, click link → Opens in Firefox
-4. Switch to Safari, click link → Opens in Safari
-
-### Multi-Account Management
-
-**Work vs Personal Accounts:**
-- Gmail (Work) → Chrome with work Google account
-- Gmail (Personal) → Safari with personal Google account
-- Slack (Work) → Chrome workspace
-- Slack (Personal) → Firefox workspace
-
-Browser isolation prevents account conflicts.
-
-### Browser-Specific Features
-
-Some sites work better in specific browsers:
-
-**Safari:** Best for Apple sites (iCloud, Apple Music, etc.)
-**Chrome:** Best for Google services (Gmail, Drive, Meet)
-**Arc:** Best for design tools with workspace features
-**Firefox:** Best for privacy-focused browsing
-**Edge:** Best for Microsoft 365 services
-
-Assign links based on optimal browser performance.
-
-### Supported Browsers
-
-Window adjustment works with:
-- Chrome
-- Edge
-- Brave
-- Vivaldi
-- Safari (limited)
-- Other Chromium-based browsers
-
-**Not Supported:**
-- Firefox (window management API limitations)
-- Arc (custom window behavior)
-- Zen (Firefox-based)
-
-
-## Preferences Configuration
-
-### Link Opening Behavior
-
-**Preferences → General → Link Opening Behavior**
-
-**Options:**
-1. **Use assigned browser** (Default)
-   - Respects per-link browser settings
-   - Consistent behavior
-   - Recommended for most users
-
-2. **Use active browser**
-   - Opens in currently active browser
-   - Dynamic behavior
-   - Best for single-browser workflows
-
 
 ## Keyboard Shortcuts
 
@@ -323,64 +134,6 @@ Window adjustment works with:
 | **Esc** | Cancel browser picker |
 
 See [Global Shortcuts](globalShortcuts) for complete reference.
-
-## Tips & Tricks
-
-### Browser Badges
-
-Links in sidebar show small browser icons indicating assignment:
-- Chrome icon → Opens in Chrome
-- Safari icon → Opens in Safari
-- No icon → Uses system default
-
-Visual indication of which browser will be used.
-
-### Hover for Browser Info
-
-Hover over a link to see:
-- Full URL
-- Assigned browser
-- Last accessed time
-- Other metadata
-
-Quick browser assignment verification.
-
-### Keyboard Navigation in Picker
-
-Browser picker is fully keyboard accessible:
-1. **⌥Return** → Open picker
-2. **↑**/**↓** → Cycle browsers
-3. **Return** → Select
-4. **Esc** → Cancel
-
-Never need mouse for browser selection.
-
-### Test Multiple Browsers Fast
-
-**Quick Testing Workflow:**
-1. Select link in sidebar
-2. **⌥Return** → Choose Chrome → Test
-3. **⌥Return** again → Choose Safari → Test
-4. **⌥Return** again → Choose Firefox → Test
-5. Repeat as needed
-
-Fast cross-browser testing.
-
-### Context Menus Remember Position
-
-Browser picker appears near your cursor:
-- Click top of sidebar → Picker at top
-- Click bottom → Picker at bottom
-- Optimized for quick mouse movement
-
-### Organize by Browser Color
-
-Use browser-themed folders:
-- 🔴 Chrome folder (red theme)
-- 🔵 Safari folder (blue theme)
-- 🟠 Firefox folder (orange theme)
-
-Visual organization matching browser branding.
 
 ## Troubleshooting
 
