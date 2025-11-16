@@ -2,126 +2,91 @@
 
 Choose which browser opens your saved links - assign specific browsers per link, use your active browser dynamically, or pick on demand for ultimate flexibility.
 
-## When to Use
 
-- **Context-based browsing**: Open work links in Chrome, personal in Safari, dev in Firefox
-- **Dynamic workflows**: Use whichever browser you're currently in without manual switching
-- **One-time choices**: Pick a browser for a specific session without changing defaults
-- **Browser-specific features**: Use browsers that work best for certain sites (Arc for design, Safari for Apple sites)
-- **Multi-account management**: Separate work and personal accounts across browsers
-- **Testing workflows**: Open same link in different browsers for cross-browser testing
+## Purpose
+Allow SupaSidebar users to control which browser opens a saved link. Provide simple, discoverable, and accessible ways to choose a browser **per link** or **one-time**, while keeping a sensible default behavior.
 
-## How It Works
+## Scope
+This feature covers: per-link browser assignment, one-time browser choice, keyboard-first flows, and a browser picker UI. It does **not** cover cross-device sync implementation details or low-level OS-level URL handling (those are separate tickets).
 
-[PLACEHOLDER: Video showing user opening links with different browsers, using browser picker, and setting default browsers]
+## Goals
+- Make it easy for non‑technical users to pick a browser for each link.
+- Support power users who prefer keyboard-only flows.
+- Keep default behavior predictable (use assigned browser unless user overrides).
+- Provide clear visual cues (browser badges) and accessible keyboard shortcuts.
 
-SupaSidebar remembers which browser you want to use for each link and provides multiple ways to choose:
+## Key User Stories
+- As a user, I want a link to always open in my chosen browser so my accounts stay separate.
+- As a user, I want to open a link in a different browser just once without changing the default assignment.
+- As a keyboard-first user, I want a shortcut to open the browser picker without touching the mouse.
+- As a support agent, I want clear acceptance criteria so I can test internationalized and accessibility scenarios.
 
-**Per-Link Assignment:**
-Right-click any link → Set Browser → Choose once, use forever
+## How to Select a Browser (feature summary)
+There are **three** ways to select which browser opens a link:
 
-**Active Browser Mode:**
-Links open in whatever browser you're currently using
+1. **Right-click → "Open with" (Set / Change assignment)**
+   - Persistent: sets the link's default browser assignment.
+   - UI: context menu shows installed browsers; the selected browser becomes the link's assigned browser.
 
-**Always Ask Mode:**
-Shows browser picker every time you open a link
+2. **Modifier key + Click / Enter — One-time choice**
+   - One-time (temporary): Does not change the saved assignment.
+   - Mouse: Hold **Option (⌥)** and click the link → Browser picker appears.
+   - Keyboard: With a link selected, press **Option (⌥) + Enter** → Browser picker appears.
 
-**One-Time Selection:**
-⌥Click or ⌥Return to choose browser for just this time
+3. **Command panel / Quick Open → Option + Enter**
+   - Quick workflow for power users: open the command panel (⌘⌃K), search for a link, press **⌥Enter** to show the picker, then select browser with ↑/↓ + Return.
 
-## Browser Opening Behaviors
+> Default behavior: If user does nothing, a link opens in its *assigned browser*. If no assignment exists, it opens in the system default browser.
 
-### Assigned Browser (Default)
+## UX / UI
+- **Browser badge** (small icon) appears next to saved links showing assigned browser.
+- **Picker layout**: compact popover with installed browsers at top; disabled (grayed) items for unsupported / not installed browsers.
+- **Placement**: picker appears adjacent to the clicked link or the cursor; keyboard-invoked picker appears near the selected item.
+- **Help text**: first-time tooltip explaining `Option + click` and `Right‑click → Open with`.
 
-Each link remembers which browser it should open in.
+## Keyboard Shortcuts
+- `⌥ + Click` — open browser picker (mouse)
+- `⌥ + Enter` — open browser picker (keyboard when link selected)
+- `⌘ + ⌃ + K` — open command panel
+- `↑ / ↓` — navigate browser picker
+- `Return` — select browser
+- `Esc` — cancel picker
 
-**How It Works:**
-1. Save a link from Chrome → Automatically assigned to Chrome
-2. Can change assignment: Right-click → Set Browser → Choose new browser
-3. Opening that link always uses assigned browser
+## Acceptance Criteria
+1. **Per-link assignment**
+   - Given a saved link, when I right-click and choose a browser, then that link shows the browser badge and opens in that browser by default.
+2. **One-time selection**
+   - Given a saved link with an existing assignment, when I hold Option and click the link and choose a different browser, then the link opens in the chosen browser but the assignment remains unchanged.
+3. **Active browser mode** (preference)
+   - Given "Use active browser" preference enabled, links open in the currently frontmost browser unless they have an explicit per-link assignment.
+4. **Picker keyboard accessibility**
+   - The picker must be reachable and operable using only keyboard (focus, arrow keys, Return, Esc). Screen reader announces available options.
+5. **Unsupported / Not installed browsers**
+   - If a browser is not found on the system, it must not be selectable and must appear disabled in the picker.
+6. **Edge cases**
+   - If the chosen browser fails to open, show a non-blocking error and fallback to the system default browser.
 
-**Best For:**
-- Consistent workflows
-- Site-specific browser requirements
-- Organizing by context (work vs. personal)
+## Analytics / Telemetry
+Track events (anonymized):
+- `browser_assignment_changed` {link_id, new_browser}
+- `browser_picker_opened` {link_id, via: 'option_click' | 'option_enter' | 'context_menu'}
+- `browser_one_time_used` {link_id, browser}
 
-[PLACEHOLDER: Screenshot showing link with browser badge indicating Chrome]
+## Accessibility
+- Picker must have appropriate ARIA roles (menu, menuitem) and labels.
+- Provide a text alternative describing the assigned browser for each link.
+- Focus management: trap focus inside picker until closed; restore focus to the link on close.
 
-**Example Workflow:**
-- Gmail → Always Chrome (work account)
-- iCloud → Always Safari (personal account)
-- GitHub → Always Firefox (development)
-- Each link opens in its designated browser
+## Internationalization
+- All UI strings should be externalized for localization.
 
-### Active Browser Mode
+## Implementation Notes
+- Use macOS `open -a` or equivalent cross-platform abstractions to open a URL with a specific app.
+- Persist assignment in the link object: `link.browser_assignment = {id: 'chrome', name: 'Google Chrome'}`.
+- UI should consult the installed browsers registry at startup and refresh on demand.
 
-Links open in whichever browser is currently active (frontmost).
+---
 
-**Enable:**
-1. Open **Preferences → General**
-2. Set **Link Opening Behavior** to **Use active browser**
-
-**How It Works:**
-- Click link while Chrome is active → Opens in Chrome
-- Switch to Safari, click same link → Opens in Safari
-- Dynamic behavior based on current browser
-
-**Best For:**
-- Research workflows with single browser
-- Avoiding browser switching
-- Testing links in multiple browsers
-- Ad-hoc browsing sessions
-
-[PLACEHOLDER: Diagram showing same link opening in different browsers based on active browser]
-
-**Example Workflow:**
-1. Working in Chrome all day
-2. All links open in Chrome automatically
-3. Switch to Firefox for testing
-4. Same links now open in Firefox
-5. No manual browser selection needed
-
-### Always Ask Mode
-
-Browser picker appears every time you open a link.
-
-**Enable:**
-1. Open **Preferences → General**
-2. Set **Link Opening Behavior** to **Always ask**
-
-**How It Works:**
-- Click any link
-- Browser picker popover appears
-- Choose browser
-- Link opens
-
-**Best For:**
-- Users who like explicit control
-- Frequently switching between browsers
-- Testing and development workflows
-- Indecisive browser preferences
-
-[PLACEHOLDER: Screenshot showing browser picker popover with all 14 browsers]
-
-**Example Workflow:**
-1. Click link in sidebar
-2. See browser picker: Safari, Chrome, Firefox, Arc...
-3. Choose Firefox for this time
-4. Link opens in Firefox
-5. Next link, repeat choice
-
-## Setting Default Browser for Links
-
-### When Saving Links
-
-Links automatically remember which browser you saved them from:
-
-**Automatic Assignment:**
-- Save from Chrome → Link assigned to Chrome
-- Save from Safari → Link assigned to Safari
-- Save from Firefox → Link assigned to Firefox
-
-[PLACEHOLDER: Screenshot showing newly saved link with browser badge]
 
 ### Changing Browser Assignment
 
@@ -130,8 +95,6 @@ Links automatically remember which browser you saved them from:
 2. Select **Set Browser**
 3. Choose new browser
 4. Assignment updated
-
-[PLACEHOLDER: Screenshot of context menu showing "Set Browser" option]
 
 **For Multiple Links:**
 1. Select multiple links (⇧↑/↓)
@@ -160,8 +123,6 @@ Choose a browser for a single use without changing assignment.
 3. Browser picker appears
 4. Choose browser
 5. Link opens, assignment unchanged
-
-[PLACEHOLDER: Screenshot showing ⌥Click on link triggering browser picker]
 
 ### Using Option Key + Return
 
@@ -295,41 +256,6 @@ Some sites work better in specific browsers:
 
 Assign links based on optimal browser performance.
 
-## Browser Window Adjustment
-
-Automatically resize browser windows to prevent sidebar overlap.
-
-### Enable Window Adjustment
-
-1. Open **Preferences → General**
-2. Set **Browser window adjustment** to desired mode:
-   - **None**: No adjustment
-   - **Minimal**: Small adjustment to prevent overlap
-   - **Fill**: Maximize browser to fill remaining space
-
-[PLACEHOLDER: Before/after screenshots showing browser window adjustment with sidebar visible]
-
-### Adjustment Modes
-
-**None:**
-- Browser windows not adjusted
-- Sidebar may overlap browser content
-- Use if you prefer manual window management
-
-**Minimal:**
-- Browser window shrinks slightly
-- Just enough to prevent sidebar overlap
-- Preserves most of your browser width
-- Recommended for most users
-
-**Fill:**
-- Browser window maximized to fill available space
-- Sidebar and browser perfectly tiled
-- Optimal screen space usage
-- Great for split-screen workflows
-
-[PLACEHOLDER: Diagram showing three adjustment modes side-by-side]
-
 ### Supported Browsers
 
 Window adjustment works with:
@@ -345,27 +271,6 @@ Window adjustment works with:
 - Arc (custom window behavior)
 - Zen (Firefox-based)
 
-## Browser Auto-Visibility
-
-Show sidebar automatically when browsers become active.
-
-### Enable Auto-Visibility
-
-1. Open **Preferences → General**
-2. Enable **Show sidebar when browser is active**
-
-**How It Works:**
-- Switch to any supported browser → Sidebar appears
-- Switch to non-browser app → Sidebar behavior unchanged
-- Automatic context-aware visibility
-
-**Best For:**
-- Research workflows with frequent browser use
-- Saving pages while browsing
-- Reducing manual sidebar toggling
-- Keyboard-first workflows
-
-[PLACEHOLDER: Video showing sidebar appearing when switching to browser]
 
 ## Preferences Configuration
 
@@ -384,28 +289,6 @@ Show sidebar automatically when browsers become active.
    - Dynamic behavior
    - Best for single-browser workflows
 
-3. **Always ask**
-   - Shows browser picker every time
-   - Explicit control
-   - Best for testing and flexibility
-
-[PLACEHOLDER: Screenshot of Preferences showing Link Opening Behavior options]
-
-### Browser Window Adjustment
-
-**Preferences → General → Browser window adjustment**
-
-**Options:**
-- None
-- Minimal (Recommended)
-- Fill
-
-### Auto-Visibility
-
-**Preferences → General → Show sidebar when browser is active**
-
-- ☐ Disabled (Default)
-- ☑ Enabled
 
 ## Keyboard Shortcuts
 
