@@ -2,18 +2,11 @@
 
 Automatic tracking of your browsing history across all supported browsers - see recently visited pages without manually saving them.
 
-## When to Use
-
-- **Research review**: Review sites you visited during research without saving everything
-- **Quick recovery**: Return to a page you closed accidentally
-- **Unified history**: Track browsing history across multiple browsers in one place
-- **Temporary access**: Access pages without cluttering saved links
-- **Browse patterns**: Discover patterns in your browsing habits
 
 ## How It Works
 <br />
 <p align="center">
-  <img src="/assets/recent itmes.jpeg" alt="Recent History" width="800" />
+  <img src="/recent itmes.jpeg" alt="Recent History" width="800" />
 </p>
 
 
@@ -39,17 +32,7 @@ Periodic checks every few seconds via AppleScript.
 
 ### Multi-Browser Support
 
-Recent Items tracks across all supported browsers simultaneously:
-- Safari
-- Chrome
-- Edge
-- Brave
-- Vivaldi
-- Comet
-- Orion
-- Atlas (ChatGPT)
-- Helium
-- Firefox (with keyboard shortcuts enabled)
+Recent Items tracks across all supported browsers simultaneously :  Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Atlas (ChatGPT), Helium, Firefox (with keyboard shortcuts enabled)
 
 See [Browser Integration](browserIntegration) for complete list.
 
@@ -62,46 +45,17 @@ See [Browser Integration](browserIntegration) for complete list.
 3. Configure display limit (default: 30 items)
 <br />
 <p align="center">
-  <img src="/assets/select recent intems.jpeg" alt="select 'recent items' option.jpeg" width="800" />
+  <img src="/recent item option.jpeg" alt="select 'recent items' option.jpeg" width="800" />
 </p>
 
 
 ### Required Permissions
 
-Recent Items requires **Automation permissions**:
-
-1. Go to **System Settings → Privacy & Security → Automation**
-2. Find **SupaSidebar**
-3. Enable checkboxes for all browsers you want to track
-
-For real-time tracking (Direct Distribution):
-- **System Settings → Privacy & Security → Accessibility** → Enable SupaSidebar
-<br />
-<p align="center">
-  <img src="/assets/automation real.jpeg" alt="Automation Permission" width="800" />
-</p>
-
+***refer to***  : [Set Up](SetUp)
 ### Configure Display Limit
 
-Control how many recent items appear:
-
-1. Open **Preferences → Recents**
-2. Set **Display limit** (1-100 items)
-3. Default: 30 items
-
-More items = more history, but longer list to scroll through.
 
 ## Using Recent Items
-
-### Viewing Recent History
-
-Recent items appear in the sidebar's **Recents** section, showing:
-- Page title
-- URL
-- Browser icon (which browser you used)
-- Timestamp (when you visited)
-
-Sorted by most recent first.
 
 ### Opening Recent Pages
 
@@ -151,15 +105,6 @@ Choose between two modes in **Preferences → Recents**:
 
 See [Live Tabs](liveTabs) for details on the alternative mode.
 
-## Automatic Cleanup
-
-Recent items are automatically removed after **30 days** to keep your list relevant. No manual cleanup required.
-
-**Saves vs. Recents:**
-- **Saved links**: Never auto-delete, permanent
-- **Recent items**: Auto-delete after 30 days
-
-If you want to keep something forever, save it.
 
 ## Advanced Features
 
@@ -172,8 +117,6 @@ By default, recent items use the page title from the browser. To customize:
 3. Type custom name
 
 The custom name persists even if you revisit the page - SupaSidebar won't overwrite your custom name.
-
-[PLACEHOLDER: Screenshot showing renamed recent item]
 
 ### Firefox Keyboard Shortcuts
 
@@ -205,51 +148,6 @@ Recent items don't have dedicated shortcuts, but integrate with:
 | **↑** / **↓** | Navigate through recent items in sidebar |
 | **Return** | Open selected recent item |
 
-## Tips & Tricks
-
-### Research Workflow
-1. Browse and research without saving
-2. Review recent items at end of session
-3. Save keepers, let temporary items expire
-
-No need to save every page "just in case" - your recent items serve as temporary storage.
-
-### Cross-Browser History
-Work across Safari, Chrome, and Firefox? Recent Items shows all browser history in one unified list - no more checking each browser's history separately.
-
-### Accidental Closure Recovery
-Closed a tab by accident? Check recent items to quickly reopen it.
-
-### Pattern Discovery
-Review your recent items to discover:
-- Sites you visit frequently (consider saving or pinning)
-- Research rabbit holes
-- Time spent on different topics
-
-### Combine with Smart Folders
-Create a [Smart Folder](smartFolders) to collect recent items:
-- Condition: Created in last 7 days
-- Shows everything you've saved this week, not just visited
-
-### Clean Workflow
-Don't clutter your saved links with one-time research. Let recent items handle temporary pages, save only what matters.
-
-## Privacy & Storage
-
-### Local Only
-Recent items are stored locally on your Mac using Core Data. No browsing history is sent to external servers.
-
-### iCloud Sync (Optional)
-If iCloud sync is enabled, recent items sync across your devices. Disable in **Preferences → Sync** if you prefer local-only.
-
-### Manual Cleanup
-Want to clear recent items manually?
-
-1. Right-click any recent item
-2. Select **Delete**
-3. Removed from recents (doesn't affect browser history)
-
-Or wait 30 days for automatic cleanup.
 
 ## Troubleshooting
 
