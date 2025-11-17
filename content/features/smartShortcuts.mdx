@@ -2,14 +2,6 @@
 
 Context-aware keyboard shortcuts that adapt based on your active application - save browser pages or Finder items, copy URLs or file paths, all with the same shortcuts.
 
-## When to Use
-
-- **Unified workflow**: Use the same shortcuts across different applications without thinking
-- **Browser capture**: Save interesting web pages instantly while researching
-- **File management**: Add files and folders to sidebar without drag-and-drop
-- **Quick URL copying**: Share links from any browser with a single keystroke
-- **Path extraction**: Copy file paths for documentation, terminal, or scripts
-- **Context switching**: Work seamlessly between browser and Finder tasks
 
 ## How It Works
 <p>
@@ -40,6 +32,11 @@ The magic of Smart Shortcuts is their intelligent context detection:
 
 ### In Browsers
 
+<br />
+<p align="center">
+  <img src="/smart save.jpeg" alt="mouse triggers accessibility" width="800" />
+</p>
+
 Press **⌘⌃S** while browsing to instantly capture the current page:
 
 **What Gets Saved:**
@@ -54,30 +51,6 @@ Works with all 14 supported browsers including Safari, Chrome, Firefox, Edge, Ar
 
 See [Browser Support](browserSupport) for complete compatibility details.
 
-**Workflow Example:**
-1. Researching a topic in Chrome
-2. Find useful article
-3. Press **⌘⌃S** - saved instantly
-4. Continue browsing
-5. Find another page
-6. Press **⌘⌃S** again - saved
-7. All pages waiting in sidebar when you're done
-
-No interruption to your flow.
-
-### In Finder
-
-Press **⌘⌃S** in Finder to add selected files and folders:
-
-**What Gets Added:**
-- All selected files
-- All selected folders
-- Full file system paths
-- File type icons
-<br />
-<p align="center">
-  <img src="/assets/saved links.jpeg" alt="Saved Links" width="800" />
-</p>
 
 **Multiple Selection:**
 Select as many files/folders as you want → Press **⌘⌃S** → All added at once
@@ -93,18 +66,14 @@ Select as many files/folders as you want → Press **⌘⌃S** → All added at 
 
 See [Finder Integration](finderIntegration) for more details.
 
-### Custom Link Names
-
-**Browser Pages:**
-SupaSidebar automatically fetches the page title, but you can rename:
-1. Find the saved link in sidebar
-2. Press **Space** or **⌘R**
-3. Type new name
-
-**Finder Items:**
-File and folder names are preserved from Finder. Rename the same way if needed.
 
 ## Smart Copy (⌘⌃C)
+
+
+<br />
+<p align="center">
+  <img src="/smart copy.jpeg" alt="mouse triggers accessibility" width="800" />
+</p>
 
 ### In Browsers
 
@@ -129,58 +98,12 @@ Press **⌘⌃C** to instantly copy the current page URL:
 **Supported Browsers:**
 Works across all 14 supported browsers.
 
-### In Finder
 
-Press **⌘⌃C** in Finder to copy file paths:
-
-**What Gets Copied:**
-Full file system paths of selected items
-
-**Single File:**
-```
-/Users/yourname/Documents/proposal.pdf
-```
-
-**Multiple Files:**
-Each path on a new line:
-```
-/Users/yourname/Documents/file1.pdf
-/Users/yourname/Documents/file2.pdf
-/Users/yourname/Downloads/image.png
-```
-
-**Use Cases:**
-- Terminal commands: `cat /path/to/file`
-- Documentation: Reference file locations
-- Scripts: Process multiple files
-- Sharing: Send file paths to colleagues
 
 ## Setup
 
 ### Required Permissions
-
-Smart Shortcuts require **Automation permissions** for the apps they interact with:
-
-**For Browser Functionality:**
-1. Go to **System Settings → Privacy & Security → Automation**
-2. Find **SupaSidebar** in the list
-3. Enable checkboxes for all browsers you use (Safari, Chrome, etc.)
-
-**For Finder Functionality:**
-1. Go to **System Settings → Privacy & Security → Automation**
-2. Find **SupaSidebar** in the list
-3. Enable the **Finder** checkbox
-
-[PLACEHOLDER: Screenshot showing automation permissions with browsers and Finder enabled]
-
-**First Time Setup:**
-When you first use Smart Shortcuts, macOS will prompt for permission. Click **OK** to grant access.
-
-### Optional: Accessibility Permissions
-
-Some browsers (like Comet) benefit from Accessibility access for enhanced URL extraction:
-
-**System Settings → Privacy & Security → Accessibility** → Enable SupaSidebar
+***refer to***  :  [Set Up](SetUp)
 
 See [Browser Support](browserSupport) for browser-specific requirements.
 
@@ -196,161 +119,6 @@ See [Browser Support](browserSupport) for browser-specific requirements.
 
 See [Global Shortcuts](globalShortcuts) for complete shortcut reference.
 
-## Workflows
-
-### Research & Save Workflow
-
-1. Open browser and start researching
-2. Press **⌘⌃S** on any useful page - saved instantly
-3. Switch to Finder to grab related files
-4. Select files, press **⌘⌃S** - files added
-5. Back to browser, continue research
-6. Press **⌘⌃S** on more pages
-7. Press **⌘⇧Space** to view sidebar - all captures organized together
-
-One unified shortcut for everything.
-
-[PLACEHOLDER: Video showing unified research workflow across browser and Finder]
-
-### Link & File Sharing Workflow
-
-1. Find useful page in browser
-2. Press **⌘⌃C** - URL copied
-3. Paste into Slack or email
-4. Switch to Finder for supporting files
-5. Select files, press **⌘⌃C** - paths copied
-6. Paste paths into message
-7. All references shared without manual copying
-
-### Project Organization Workflow
-
-1. Research project in browser - press **⌘⌃S** on key pages
-2. Open project folder in Finder
-3. Select related files and folders
-4. Press **⌘⌃S** - all added to sidebar
-5. Everything organized in one place
-6. Use [Spaces](spaces) to create project-specific workspace
-7. Keep all project resources accessible
-
-### Quick Capture Workflow
-
-Working fast? Just keep pressing **⌘⌃S**:
-- In browser → Page saved
-- Switch to Finder → Files saved
-- Back to browser → Another page saved
-- To different folder → More files saved
-
-The shortcut follows you everywhere.
-
-## Tips & Tricks
-
-### Muscle Memory Benefits
-
-Use the same shortcuts everywhere:
-- No mental overhead switching between apps
-- Faster workflows without thinking
-- One shortcut combo = multiple uses
-- Perfect for keyboard-first productivity
-
-### Browser + Finder Projects
-
-Create comprehensive project collections:
-1. Save related web documentation (**⌘⌃S** in browser)
-2. Add project files (**⌘⌃S** in Finder)
-3. Add reference PDFs (**⌘⌃S** in Finder)
-4. Save design inspiration (**⌘⌃S** in browser)
-5. Everything organized in sidebar
-
-### URL Sharing Speed
-
-**⌘⌃C** is faster than:
-- Right-click → Copy link
-- Selecting URL in address bar
-- Using browser's share menu
-
-Instant URL copying from any page.
-
-### File Path Efficiency
-
-Copy paths for:
-- **Terminal**: `open /path/to/file`
-- **Documentation**: Reference exact file locations
-- **Scripts**: Process specific files
-- **Collaboration**: Share file locations with team
-
-### Context Detection Reliability
-
-If you're unsure which app is active:
-- Smart Shortcuts detect the **frontmost application**
-- Works even with multiple browser windows
-- Finder must be active (not just visible) for Finder mode
-- When in doubt, click the window first, then use shortcut
-
-### Combine with Command Panel
-
-Save now, find later:
-1. Press **⌘⌃S** throughout your day (browser and Finder)
-2. Later, press **⌘⌃K** to open command panel
-3. Search across everything you saved
-4. Works for both web pages and files
-
-See [Command Panel](commandPanel) for search tips.
-
-### Add Current Folder vs. Selection
-
-**⌘⌃S** in Finder adds what you've selected, but sometimes you want the folder itself:
-
-Use **⌘⌥A** to add the current folder, ignoring any file selection.
-
-**Example:**
-- Browsing ~/Projects/ClientA
-- Files are selected
-- Press **⌘⌥A** → Adds ClientA folder, not selected files
-
-See [Finder Integration](finderIntegration) for details.
-
-## Advanced Features
-
-### Browser Selection for Saved Pages
-
-After saving with **⌘⌃S**, you can choose which browser opens that link:
-
-1. Find saved link in sidebar
-2. Right-click → **Set Browser**
-3. Choose preferred browser
-
-Or use **⌥Click** or **⌥Return** for one-time browser selection.
-
-See [Browser Selection](browserSelection) for multi-browser workflows.
-
-### Multi-Browser Research
-
-Smart Save works across all browsers simultaneously:
-- Save from Chrome
-- Switch to Firefox
-- Save from Firefox
-- Switch to Safari
-- Save from Safari
-- All pages captured in sidebar
-
-See [Browser Support](browserSupport) for supported browsers.
-
-### File Type Organization
-
-Use [Smart Folders](smartFolders) to auto-organize saved items:
-
-**Smart Folder: Recent Web Pages**
-- Type: Website
-- Created: Last 7 days
-
-**Smart Folder: PDF Documents**
-- Type: File System
-- URL ends with: .pdf
-
-**Smart Folder: Project Files**
-- URL contains: /Projects/
-
-Automatic organization for everything you save.
 
 ## Troubleshooting
 
