@@ -12,11 +12,7 @@ const navbar = (
   <Navbar
     logo={
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" fill="#3B82F6" />
-          <circle cx="12" cy="12" r="6" fill="white" />
-          <circle cx="12" cy="12" r="2" fill="#3B82F6" />
-        </svg>
+        <img src="/logo.png" alt="SupaSidebar" width={32} height={32} />
         <span style={{ fontWeight: "bold" }}>SupaSidebar Docs</span>
       </div>
     }
