@@ -1,5 +1,7 @@
 {
-  "sidebar": "Sidebar",
+  "index": "Feature Overview",
+  "setup": "Setup",
+  "sidebar": "Sidebar Panel",
   "spaces": "Spaces",
   "pinnedItems": "Pinned Items",
   "recentItems": "Recent Items",
@@ -9,8 +11,7 @@
   "commandPanel": "Command Panel",
   "floatingButton": "Floating Button",
   "mouseTriggers": "Mouse Triggers",
-  "browserIntegration": "Browser Integration",
-  "browserSupport": "Browser Support",
+  "dockmode": "Dockmode",
   "browserSelection": "Browser Selection",
   "liveTabs": "Live Tabs",
   "finderIntegration": "Finder Integration"

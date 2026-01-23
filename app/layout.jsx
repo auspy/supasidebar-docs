@@ -2,6 +2,7 @@ import { Layout, Navbar } from "nextra-theme-docs";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
+import "./globals.css";
 
 export const metadata = {
   title: "SupaSidebar Documentation",
@@ -32,7 +33,7 @@ const navbar = (
         fontSize: "14px",
         fontWeight: 500,
         color: "white",
-        backgroundColor: "#3B82F6",
+        backgroundColor: "#4338ca",
         textDecoration: "none",
       }}
     >

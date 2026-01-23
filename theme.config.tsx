@@ -64,8 +64,8 @@ const config: DocsThemeConfig = {
   search: {
     placeholder: "Search documentation...",
   },
-  primaryHue: 214, // Blue color matching SupaSidebar branding
-  primarySaturation: 100,
+  primaryHue: 245, // Indigo/purple color matching SupaSidebar branding (#4338ca)
+  primarySaturation: 58,
 };
 
 export default config;
