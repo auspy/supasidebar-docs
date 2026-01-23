@@ -1,58 +1,19 @@
 @import "tailwindcss";
 
-:root, :host {
+:root {
   --background: #ffffff;
   --foreground: #171717;
 
   /* SupaSidebar purple/indigo color scheme (#4338ca) */
-  --nextra-primary-hue: 245 !important;
-  --nextra-primary-saturation: 58% !important;
-  --nextra-primary-lightness: 51% !important;
-
-  /* Direct override of primary colors - indigo palette */
-  --x-color-primary-50: #eef2ff !important;
-  --x-color-primary-100: #e0e7ff !important;
-  --x-color-primary-200: #c7d2fe !important;
-  --x-color-primary-300: #a5b4fc !important;
-  --x-color-primary-400: #818cf8 !important;
-  --x-color-primary-500: #6366f1 !important;
-  --x-color-primary-600: #4f46e5 !important;
-  --x-color-primary-700: #4338ca !important;
-  --x-color-primary-800: #3730a3 !important;
-  --x-color-primary-900: #312e81 !important;
-}
-
-/* Override sidebar active link color */
-.x\:text-primary-600,
-[class*="text-primary-600"] {
-  color: #4f46e5 !important;
-}
-
-.x\:text-primary-800,
-[class*="text-primary-800"] {
-  color: #3730a3 !important;
+  --nextra-primary-hue: 245deg;
+  --nextra-primary-saturation: 58%;
+  --nextra-primary-lightness: 51%;
 }
 
 /* Hide the theme toggle button */
 button[aria-label="Toggle theme"],
-button[title="Toggle theme"],
-[class*="ThemeSwitch"],
-nav button:has(svg[class*="moon"]),
-nav button:has(svg[class*="sun"]) {
+button[title="Toggle theme"] {
   display: none !important;
-}
-
-/* Dark mode - purplish black background */
-.dark,
-.dark body,
-html.dark {
-  --nextra-bg: 12 11 16 !important; /* #0c0b10 in RGB */
-  --background: #0c0b10 !important;
-}
-
-.dark .x\:bg-nextra-bg,
-.dark [class*="bg-nextra-bg"] {
-  background-color: #0c0b10 !important;
 }
 
 @theme inline {
@@ -64,9 +25,8 @@ html.dark {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0b10;
+    --background: #0a0a0a;
     --foreground: #ededed;
-    --nextra-bg: 12 11 16;
   }
 }
 
