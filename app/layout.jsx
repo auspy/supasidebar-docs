@@ -21,7 +21,28 @@ const navbar = (
       </div>
     }
     projectLink="https://github.com/auspy/supasidebar-docs"
-  />
+  >
+    {/* Additional navbar items */}
+    <a
+      href="https://supasidebar.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "4px",
+        padding: "4px 8px",
+        borderRadius: "6px",
+        fontSize: "14px",
+        fontWeight: 500,
+        color: "white",
+        backgroundColor: "#3B82F6",
+        textDecoration: "none",
+      }}
+    >
+      Download
+    </a>
+  </Navbar>
 );
 
 export default async function RootLayout({ children }) {
@@ -33,7 +54,11 @@ export default async function RootLayout({ children }) {
     >
       <Head />
       <body>
-        <Layout pageMap={await getPageMap()} navbar={navbar}>
+        <Layout
+          pageMap={await getPageMap()}
+          navbar={navbar}
+          darkMode={false}
+        >
           {children}
         </Layout>
       </body>
