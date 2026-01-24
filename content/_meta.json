@@ -1,12 +1,6 @@
 {
   "index": "Introduction",
   "gettingStarted": "Getting Started",
-  "installation": "Installation",
-  "browserIntegration": "Browser Support",
-  "features": {
-    "title": "Features",
-    "type": "menu"
-  },
-  "shortcuts": "Shortcuts",
-  "integration": "Integration"
+  "features": "Features",
+  "shortcuts": "Shortcuts"
 }

@@ -50,8 +50,17 @@ h4[id] {
   font-weight: 500 !important;
 }
 
-/* Image styling - full width with rounded corners */
-img {
+/* Video iframe styling - rounded corners with top margin */
+article iframe,
+main iframe,
+.nextra-content iframe {
+  margin-top: 1.5rem !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Image styling - full width with rounded corners (content images only) */
+article img {
   width: 100% !important;
   max-width: 100% !important;
   border-radius: 8px !important;
@@ -67,4 +76,41 @@ p:has(img) {
   padding: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+/* Feature cards */
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.feature-card {
+  display: block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #3f3f46;
+  background-color: #18181b;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+  background-color: #27272a;
+  border-color: #52525b;
+}
+
+.feature-card h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+.feature-card p {
+  font-size: 0.875rem;
+  color: #a1a1aa;
+  margin: 0;
 }

@@ -1,70 +1,51 @@
 # Sidebar Panel
 
-A lightweight, always-accessible floating panel that gives you instant access to all your links, files, and folders from anywhere on your Mac.
+The SupaSidebar panel is a floating sidebar for macOS that provides instant access to your saved links, files, and folders from any application.
 
-## How It Works
+![Sidebar Panel position on macOS](/assets/default%20position%20of%20sidebar.jpeg)
 
+## Features
 
-![Default position of sidebar](/assets/default%20position%20of%20sidebar.jpeg)
+- **Multi-Screen Support** - Automatically appears on your active display
+- **Left or Right Positioning** - Toggle sides instantly with `Cmd Ctrl L`
+- **Auto-hide** - Optionally hides when clicking outside the panel
+- **Resizable** - Drag to adjust panel width
+- **Pin to Spaces** - Follow across all macOS desktop spaces or stay on one
 
-The Sidebar Panel is a floating window that sits on the edge of your screen, ready to appear with a single keystroke. It organizes all your saved content in an easy-to-navigate interface with folders, search, and quick actions.
+## Settings
 
-### Key Features
+Configure the sidebar panel in **Preferences**.
 
-**Multi-Screen Support**
-The sidebar intelligently positions itself on whichever screen you're currently using, automatically adjusting when you move between displays.
+### Appearance
 
-**Flexible Positioning**
-- Place the sidebar on the **left** or **right** side of your screen
-- Toggle between sides instantly with a keyboard shortcut
-- Sidebar remembers your preference for each screen
+Found in Preferences → Appearance.
 
-<div>
-  Watch this video:
-  <a href="https://youtu.be/_P0FHN9yJpg" target="_blank">
-    Sidebar toggle
-  </a>
-</div>
+- **Width** - Drag the sidebar edge to resize
+- **Opacity on focus change** - Dim sidebar when not focused
+- **Glass theme** - Enable translucent background
+- **Show item counts** - Display count badges on folders
+- **Arrow indicator** - Show expand/collapse arrows on folders
 
+### Behavior
 
+Found in Preferences → General.
 
-**Smart Behavior**
-- **Auto-hide**: Sidebar can automatically hide when you click outside of it
-- **Opacity adjustment**: Reduce visual distraction when the sidebar loses focus
-- **Pin to spaces**: Make the sidebar follow you across all macOS desktop spaces, or keep it anchored to specific workspaces
+- **Auto-hide on deactivate** - Hide sidebar when clicking outside
+- **Default side** - Choose left or right screen edge
+- **Auto show with browser** - Show sidebar when browser is active. See [Live Tabs](/features/liveTabs)
+- **Adaptive height** - Adjust sidebar height based on content
+- **Browser integration** - Configure how sidebar interacts with browsers. See [Browser Selection](/features/browserSelection)
 
-**Resizable & Draggable**
-Customize the sidebar to fit your workflow:
-- Drag to resize the panel width
-- Reposition anywhere along the screen edge
-- Settings persist across app restarts
-
-## Setup
-
-The sidebar works out of the box with default settings. To customize:
-
-1. Open **Preferences** (click gear icon in sidebar)
-2. Navigate to **General** tab
-3. Adjust these options:
-   - **Auto-hide on deactivate**: Hide sidebar when clicking outside
-   - **Opacity on focus change**: Reduce opacity when not focused
-   - **Sidebar side**: Choose left or right side (or use ⌘⌃L shortcut)
-
-![Default sidebar position](/assets/default%20sidebar%20position.jpeg)
+![Sidebar settings in Preferences](/assets/default%20sidebar%20position.jpeg)
 
 ## Keyboard Shortcuts
 
+Shortcuts specific to the sidebar panel. For all shortcuts, see [Shortcuts](/shortcuts).
+
 | Shortcut | Action |
 |----------|--------|
-| **⌘⇧Space** | Toggle sidebar visibility |
-| **⌘⌃F** | Focus sidebar (bring to front) |
-| **⌘⌃L** | Toggle between left and right sides |
-| **⌘⌃P** | Pin/unpin sidebar to follow active space |
-| **Esc** | Hide sidebar (when focused) |
-
-## Related Features
-
-- [Global Shortcuts](globalShortcuts) - Complete keyboard shortcut reference
-- [Command Panel](commandPanel) - Quick search across all items
-- [Spaces](spaces) - Organize sidebar content by workspace
-- [Mouse Triggers](mouseTriggers) - Show sidebar by moving mouse to screen edge
+| `Cmd Shift Space` | Show or hide sidebar |
+| `Cmd Ctrl F` | Bring sidebar to front |
+| `Cmd Ctrl L` | Switch between left and right |
+| `Cmd Ctrl P` | Pin or unpin from current space |
+| `Esc` | Hide sidebar |

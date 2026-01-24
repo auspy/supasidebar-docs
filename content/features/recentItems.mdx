@@ -1,159 +1,41 @@
-# Recent Items
+# Recent Links
 
-Automatic tracking of your browsing history across all supported browsers - see recently visited pages without manually saving them.
-
-
-## How It Works
+Automatic tracking of your browsing history across all supported browsers - recently visited pages appear without manual saving.
 
 ![Recent Items](/assets/recent%20itmes.jpeg)
 
+## Features
 
-Recent Items automatically monitors your browsers and tracks pages you visit. No manual saving required - just browse normally and SupaSidebar captures your history.
+- **Auto-Tracking** - Pages you visit are automatically captured
+- **Multi-Browser** - Tracks Safari, Chrome, Edge, Brave, Firefox, and more
+- **30-Day History** - Recent links persist for 30 days
+- **Searchable** - Find recent links via Command Panel (`Cmd Ctrl K`)
 
-### Automatic Tracking
+## Settings
 
-SupaSidebar uses two methods to track browser activity:
+Configure recent links in **Preferences → Recents**.
 
-**Accessibility Observer** (Direct Distribution only)
-Real-time tracking using macOS Accessibility API - instant updates when you navigate.
+- **Mode** - Choose Recent Links or [Live Tabs](/features/liveTabs)
+- **Display limit** - Number of recent links to show (default: 30)
+- **Background tab sync** - Opens existing tab instead of creating duplicates
+- **Clear recents** - Remove all recent links history
 
-**Polling Mode** (All versions)
-Periodic checks every few seconds via AppleScript.
+### Permissions
 
-<div>
-  Watch this video:
-  <a href="https://youtu.be/H8gxuPMwseA" target="_blank">
-    recent items
-  </a>
-</div>
+Browser integration requires Automation permissions. See [Setup](/gettingStarted/SetUp) for details.
 
+## Recent Links vs Live Tabs
 
-### Multi-Browser Support
-
-Recent Items tracks across all supported browsers simultaneously :  Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Atlas (ChatGPT), Helium, Firefox (with keyboard shortcuts enabled)
-
-See [Browser Integration](browserIntegration) for complete list.
-
-## Setup
-
-### Enable Recent Items
-
-1. Open **Preferences → Recents**
-2. Ensure mode is set to **Recent Items** (not Live Tabs)
-3. Configure display limit (default: 30 items)
-
-![Recent Item Option](/assets/recent%20item%20option.jpeg)
-
-
-### Required Permissions  :
-
-Browser integration requires Automation permissions and for Accessibility access for enhanced features,
-[Learn More](SetUp) to learn more about the set up.
-
-
-### Configure Display Limit
-
-
-## Using Recent Items
-
-### Opening Recent Pages
-
-**From Sidebar:**
-1. Navigate to recent item with arrow keys or click
-2. Press **Return** or click to open
-
-**From Command Panel:**
-1. Press **⌘⌃K**
-2. Type part of the page title or URL
-3. Recent items appear in search results
-4. Press **Return** to open
-
-<div>
-  Watch this video:
-  <a href="https://youtu.be/g_8Dfq_RSWI" target="_blank">
-   Recent History Command Panel
-  </a>
-</div>
-
-
-
-### Saving Recent Items
-
-Found something useful in your recent history?
-
-1. Right-click the recent item
-2. Select **Save to Current Space**
-3. Item becomes a permanent saved link
-
-Or simply let it stay as a recent item - it'll remain for 30 days.
-
-### Ignoring Duplicates
-
-If you visit the same page multiple times, Recent Items updates the timestamp instead of creating duplicates. Your list stays clean.
-
-## Recent Items vs. Live Tabs
-
-Choose between two modes in **Preferences → Recents**:
-
-| Feature | Recent Items | Live Tabs |
-|---------|--------------|-----------|
-| Shows | Visited pages (30 day history) | Currently open tabs |
-| Updates | When you navigate to new page | When tabs open/close/switch |
-| Purpose | Historical reference | Real-time tab management |
-| Persists after | Browser closes | Only while tab is open |
-
-See [Live Tabs](liveTabs) for details on the alternative mode.
-
-
-## Advanced Features
-
-### Custom Link Names
-
-By default, recent items use the page title from the browser. To customize:
-
-1. Right-click a recent item
-2. Select **Rename**
-3. Type custom name
-
-The custom name persists even if you revisit the page - SupaSidebar won't overwrite your custom name.
-
+| Mode | Shows | Persists |
+|------|-------|----------|
+| Recent Links | Visited pages (30 days) | After browser closes |
+| Live Tabs | Currently open tabs | Only while open |
 
 ## Keyboard Shortcuts
 
-Recent items don't have dedicated shortcuts, but integrate with:
+Shortcuts specific to recent links. For all shortcuts, see [Shortcuts](/shortcuts).
 
 | Shortcut | Action |
 |----------|--------|
-| **⌘⌃K** | Open command panel (search recent items) |
-| **↑** / **↓** | Navigate through recent items in sidebar |
-| **Return** | Open selected recent item |
-
-
-## Troubleshooting
-
-**Recent items not appearing?**
-- Verify automation permissions are granted for your browsers
-- Ensure **Recent Items** mode is selected (not Live Tabs)
-- Check browser is in the supported list
-- For Firefox: Enable Firefox keyboard shortcuts in preferences
-
-**Duplicate items showing?**
-- This shouldn't happen - report bug to support
-- Recent Items should update timestamp, not create duplicates
-
-**Items disappearing too quickly?**
-- Items auto-delete after 30 days
-- Save important items to make them permanent
-
-**Wrong browser icon showing?**
-- Clear recents and track again
-- Report issue if persists
-
-## Related Features
-
-- [Live Tabs](liveTabs) - Alternative mode for real-time tab tracking
-- [Command Panel](commandPanel) - Search across recent items
-- [Browser Support](browserSupport) - Complete compatibility details for all 14 browsers
-- [Browser Integration](browserIntegration) - Overview of browser features
-- [Smart Shortcuts](smartShortcuts) - Save recent items with ⌘⌃S
-- [Smart Folders](smartFolders) - Auto-organize recent items by rules
+| `Cmd Ctrl K` | Open Command Panel to search recents |
+| `Return` | Open selected link |

@@ -1,0 +1,69 @@
+# Tags
+
+Organize links with color-coded tags. AI can automatically suggest tags based on link content using OpenAI or on-device processing.
+
+## Features
+
+- **Color-Coded** - 9 color options for visual organization
+- **AI Suggestions** - Automatic tag recommendations based on link content
+- **Multiple AI Providers** - OpenAI (cloud) or Local AI (on-device, Apple Silicon)
+- **Bulk Apply** - Find and tag all matching existing links at once
+- **Auto-Tagging** - Optionally tag new links automatically
+
+## Settings
+
+Configure tags in **Preferences → AI Tags**.
+
+**AI Provider**
+- **Manual** - No AI, assign tags yourself
+- **OpenAI** - Cloud-based, requires API key
+- **Local AI** - On-device with Apple Silicon, no API key needed
+
+**Options**
+- **Auto-suggest tags** - Suggest tags when saving new links
+- **Model selection** - Choose AI model for suggestions
+
+## Supported Models
+
+**OpenAI (Cloud)**
+| Model | Best For |
+|-------|----------|
+| gpt-5-nano | Classification (Recommended) |
+| gpt-5-mini | Well-defined tasks |
+| gpt-5 | Coding & agentic tasks |
+| gpt-5.2 | Complex tasks |
+| gpt-5.2-pro | Maximum intelligence |
+
+**Local AI (Apple Silicon)**
+| Model | Size | Speed |
+|-------|------|-------|
+| qwen3-1.7b | ~1GB | Fast & efficient |
+| gemma2-2b | ~1.2GB | Good balance (Recommended) |
+| qwen3-4b | ~2.2GB | Best accuracy |
+
+## AI Descriptions
+
+Tags with AI descriptions get better suggestions. Add a description explaining what the tag is for.
+
+| Tag | Poor Description | Better Description |
+|-----|------------------|-------------------|
+| Work | "Work stuff" | "Links for my job - project docs, tools, team resources" |
+| Reading | "Articles" | "Long-form articles and essays to read later" |
+
+Click **Generate** to create a description from existing tagged links.
+
+## Usage
+
+- **Create tag** - Preferences → AI Tags → Add tag
+- **Assign tags** - Right-click link → Edit Tags
+- **Suggest tags** - Click "Suggest" when creating/editing a link
+- **Bulk apply** - See [Bulk Apply Tags](bulkApply) to tag existing links
+
+## Keyboard Shortcuts
+
+Shortcuts specific to tags. For all shortcuts, see [Shortcuts](/shortcuts).
+
+| Shortcut | Action |
+|----------|--------|
+| `T` | Open tag picker (with link selected) |
+| `Cmd T` | Quick-add tag to selected links |
