@@ -13,7 +13,7 @@ const navbar = (
     logo={
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <img src="/logo.png" alt="SupaSidebar" width={32} height={32} />
-        <span style={{ fontWeight: "bold" }}>SupaSidebar Docs</span>
+        <span style={{ fontWeight: "bold" }}>SupaSidebar / Docs</span>
       </div>
     }
     projectLink="https://github.com/auspy/supasidebar-docs"

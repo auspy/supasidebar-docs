@@ -1,0 +1,17 @@
+export default {
+  index: 'Feature Overview',
+  sidebar: 'Sidebar Panel',
+  spaces: 'Spaces',
+  pinnedItems: 'Pinned Items',
+  recentItems: 'Recent Items',
+  smartFolders: 'Smart Folders',
+  globalShortcuts: 'Global Shortcuts',
+  smartShortcuts: 'Smart Shortcuts',
+  commandPanel: 'Command Panel',
+  floatingButton: 'Floating Button',
+  mouseTriggers: 'Mouse Triggers',
+  dockmode: 'Dockmode',
+  browserSelection: 'Browser Selection',
+  liveTabs: 'Live Tabs',
+  finderIntegration: 'Finder Integration'
+}

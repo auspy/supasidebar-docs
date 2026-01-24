@@ -35,3 +35,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Typography fixes - ensure proper heading hierarchy */
+h2[id] {
+  font-weight: 700 !important;
+}
+
+h3[id] {
+  font-weight: 600 !important;
+}
+
+h4[id] {
+  font-weight: 500 !important;
+}
+
+/* Image styling - full width with rounded corners */
+img {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 8px !important;
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+
+/* Remove padding from image containers */
+p:has(img) {
+  padding: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
