@@ -1,123 +1,41 @@
 # Live Tabs
 
-Real-time mirror of your currently open browser tabs directly in the sidebar - switch between tabs across all browsers without leaving your keyboard.
+Real-time mirror of your browser tabs directly in the sidebar - switch between tabs across all browsers without leaving your keyboard.
 
-## How It Works
-
-
-Live Tabs continuously monitors your supported browsers and displays all open tabs in real-time within the sidebar. Each tab shows its title, URL, and browser icon.
-
-### Real-Time Synchronization
-
-**Accessibility Observer** 
-Instant updates using macOS Accessibility API when tabs are created, switched, or closed - no polling delay.
-<div>
-  Watch this video:
-  <a href="https://youtu.be/ia_F8vYHoUs" target="_blank">
-    Live Tab
-  </a>
-</div>
-
-
-## Multi-Browser Support
-
-Live Tabs works across all supported browsers simultaneously:
-
-**Fully Supported** (Real-time tracking):Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Atlas (ChatGPT), Helium
-
-**In Development**:Firefox, Arc, Dia
-
-
-![Live Tabs in Multiple Browsers](/assets/lifetabsmultiplebrowser.jpeg)
-
-### Browser Order Customization
-
-Organize which browsers appear first in your live tabs list:
-
-1. Open **Preferences → Live Tabs**
-2. Drag browsers to reorder priority
-3. Your most-used browser's tabs will appear first
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/ia_F8vYHoUs"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
 
 ## Setup
 
-### Enable Live Tabs
-
-1. Open **Preferences → Recents**
+1. Open **Preferences → Live Tabs**
 2. Toggle **Live Tabs** mode
 3. Grant browser permissions when prompted
 
-
-
 ![Live Tabs Option](/assets/Live%20Tabs%20Option.jpeg)
 
+For detailed permission setup, see [Permissions Guide](/gettingStarted/permissions).
 
-### Required Permissions
-Browser integration requires Automation permissions and for Accessibility access for enhanced features,
+## Supported Browsers
 
-[Learn More](SetUp)  -  learn more about permissions and set up process
+| Status | Browsers |
+|--------|----------|
+| **Fully Supported** | Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Atlas, Helium |
+| **In Development** | Firefox, Arc, Dia |
 
-
-## Using Live Tabs
-
-### View All Tabs
-
-Press **⌘⌃K** to open the Command Panel - your live tabs appear alongside saved links and recent items.
-
-In the sidebar, live tabs appear in the **Recents** section (when Live Tabs mode is enabled).
-
-### Switch to a Tab
-
-**From Sidebar:**
-1. Navigate to the tab with arrow keys or click
-2. Press **Return** or click to activate
-
-**From Command Panel:**
-1. Press **⌘⌃K**
-2. Type tab title or URL
-3. Press **Return** to switch
-
-<div>
-  Watch this video:
-  <a href="https://youtu.be/ia_F8vYHoUs" target="_blank">
-  Live Tab Update
-  </a>
-</div>
-
-
-
-This keeps your tab count manageable and prevents duplicate research tabs.
-
-
+![Live Tabs in Multiple Browsers](/assets/lifetabsmultiplebrowser.jpeg)
 
 ## Keyboard Shortcuts
 
+Shortcuts specific to Live Tabs. For all shortcuts, see [Shortcuts](/features/shortcuts).
+
 | Shortcut | Action |
 |----------|--------|
-| **⌘⌃K** | Open command panel (shows all tabs) |
-| **↑** / **↓** | Navigate through tabs |
-| **Return** | Switch to selected tab |
-
-
-## Troubleshooting
-
-**Tabs not appearing?**
-- Verify automation permissions are granted in System Settings
-- Ensure Live Tabs mode is enabled in Preferences → Recents
-- Check that your browser is in the supported list
-
-**Tabs updating slowly?**
-- Grant Accessibility permissions for real-time updates (Direct Distribution only)
-- Close unused browsers to improve performance
-
-**Tabs from wrong space showing?**
-- Enable "Filter by current space" in Preferences → Live Tabs
-- Ensure websites are saved to the correct space
-
-## Related Features
-
-- [Command Panel](commandPanel) - Search across all tabs
-- [Browser Support](browserSupport) - Complete compatibility details for all 14 browsers
-- [Browser Integration](browserIntegration) - Overview of browser features
-- [Smart Shortcuts](/shortcuts/smart) - Save tabs with ⌘⌃S while browsing
-- [Recent Items](recentItems) - Alternative mode for browsing history
-- [Spaces](spaces) - Organize tabs by workspace (Premium)
+| **⌘⌃K** | Open command panel |
+| **↑ / ↓** | Navigate tabs |
+| **Return** | Switch to tab |

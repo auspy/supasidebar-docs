@@ -2,98 +2,24 @@
 
 Keep your links, folders, spaces, and tags synchronized across all your Macs using iCloud.
 
-## How It Works
+## What Syncs
 
-SupaSidebar uses CloudKit to automatically sync your data across devices signed into the same iCloud account. Changes made on one Mac appear on your other Macs within seconds.
-
-### What Syncs
-
-- **Links**: All saved websites, files, and folders
-- **Folders**: Your folder structure and organization
-- **Spaces**: Workspace configurations and assignments
-- **Tags**: Tag names, colors, and descriptions
-- **Settings**: Most preferences (excluding device-specific options)
+| Data | Synced |
+|------|--------|
+| Links | All saved websites, files, and folders |
+| Folders | Your folder structure and organization |
+| Spaces | Workspace configurations and assignments |
+| Tags | Tag names, colors, and descriptions |
+| Settings | Most preferences (excluding device-specific options) |
 
 ## Setup
 
-iCloud sync is enabled by default when you're signed into iCloud on your Mac.
+iCloud sync is enabled by default when signed into iCloud on your Mac.
 
-### Verifying Sync Status
-
-1. Open **Preferences** → **General** tab
-2. Look for the **iCloud Sync** status indicator:
-   - **Synced**: All data is up to date
-   - **Syncing**: Changes are being uploaded or downloaded
-   - **Offline**: Not connected to iCloud
-
-### Enabling iCloud for SupaSidebar
+### Enable iCloud for SupaSidebar
 
 If sync isn't working:
 
-1. Open **System Settings** → **Apple ID** → **iCloud**
+1. Open **System Settings → Apple ID → iCloud**
 2. Scroll to **Apps Using iCloud**
 3. Ensure **SupaSidebar** is enabled
-
-## Sync Behavior
-
-### Automatic Sync
-
-- Changes sync automatically in the background
-- No manual intervention required
-- Works even when the app is in the background
-
-### Conflict Resolution
-
-When the same item is edited on multiple devices:
-- Most recent change wins
-- Deleted items stay deleted across all devices
-- New items from other devices appear automatically
-
-### Offline Mode
-
-When offline:
-- All your data remains accessible
-- Changes are saved locally
-- Sync resumes automatically when back online
-
-## Troubleshooting
-
-**Data not appearing on other devices**
-- Verify both devices are signed into the same iCloud account
-- Check that iCloud Drive is enabled on both devices
-- Wait a few minutes - initial sync may take time for large libraries
-
-**Sync status shows "Offline"**
-- Check your internet connection
-- Verify iCloud is working in System Settings
-- Try signing out and back into iCloud
-
-**Duplicate items after sync**
-- This can happen after reinstalling the app
-- Delete duplicates manually - the deletion will sync
-
-**Sync is slow**
-- Large libraries take longer to sync initially
-- Ensure you have sufficient iCloud storage
-- Check iCloud status at apple.com/support/systemstatus
-
-## Privacy & Data
-
-- All data is stored in your private iCloud container
-- SupaSidebar cannot access your data - only you can
-- Data is encrypted in transit and at rest
-- Deleting the app does not delete your iCloud data
-
-### Deleting Synced Data
-
-To remove all synced data:
-
-1. Delete SupaSidebar from all devices
-2. Open **System Settings** → **Apple ID** → **iCloud** → **Manage Storage**
-3. Find and delete SupaSidebar data
-
-## Related Features
-
-- [Spaces](spaces) - Sync workspaces across devices
-- [Tags](tags) - Sync your tag organization
-- [Smart Folders](smartFolders) - Smart folder rules sync automatically

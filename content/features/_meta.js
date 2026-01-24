@@ -9,6 +9,7 @@ export default {
   commandPanel: 'Command Panel',
   sidebarAccess: 'Sidebar Access',
   liveTabs: 'Live Tabs',
-  finderIntegration: 'Finder Integration',
+  browserIntegration: 'Browser Integration',
+  shortcuts: 'Shortcuts',
   sync: 'iCloud Sync'
 }
