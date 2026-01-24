@@ -1,0 +1,110 @@
+# Browser Import
+
+Import your existing bookmarks and spaces from Arc Browser or Chrome to get started quickly.
+
+## How It Works
+
+SupaSidebar can read your browser's bookmark data and import it into your sidebar. The import process preserves your folder structure and organization.
+
+### Supported Browsers
+
+| Browser | What Imports |
+|---------|-------------|
+| **Arc** | Spaces, folders, and bookmarks |
+| **Chrome** | Bookmarks and folders |
+
+## Import from Arc
+
+Arc users can bring over their entire workspace organization, including spaces.
+
+### Prerequisites
+
+- Arc Browser installed on your Mac
+- SupaSidebar has Automation permission for Arc
+
+### Steps
+
+1. Open **Preferences** → **Import** tab
+2. Click **Import from Arc**
+3. Grant Automation permission if prompted
+4. Select which spaces to import (or import all)
+5. Click **Start Import**
+6. Wait for the import to complete
+
+### What Gets Imported
+
+- **Spaces**: Each Arc space becomes a SupaSidebar space
+- **Folders**: Folder structure is preserved within each space
+- **Pinned tabs**: Imported as pinned items
+- **Bookmarks**: All bookmarks with their URLs and titles
+
+## Import from Chrome
+
+Bring your Chrome bookmarks into SupaSidebar.
+
+### Prerequisites
+
+- Chrome installed on your Mac
+- SupaSidebar has Automation permission for Chrome
+
+### Steps
+
+1. Open **Preferences** → **Import** tab
+2. Click **Import from Chrome**
+3. Grant Automation permission if prompted
+4. Select which bookmark folders to import
+5. Click **Start Import**
+6. Wait for the import to complete
+
+### What Gets Imported
+
+- **Bookmarks Bar**: Imported to your default space
+- **Other Bookmarks**: Imported with folder structure preserved
+- **Folders**: All folder hierarchy maintained
+
+## During Import
+
+- A progress indicator shows import status
+- Large imports may take a few minutes
+- You can continue using SupaSidebar during import
+- Imported items appear in the sidebar as they're processed
+
+## After Import
+
+- Review imported items in your sidebar
+- Reorganize into spaces and folders as needed
+- Delete any unwanted imports
+- Set up tags for better organization
+
+## Troubleshooting
+
+**"Browser not found" error**
+- Ensure the browser is installed in /Applications
+- Restart SupaSidebar and try again
+
+**"Permission denied" error**
+1. Open **System Settings** → **Privacy & Security** → **Automation**
+2. Find SupaSidebar in the list
+3. Enable the toggle for your browser (Arc or Chrome)
+4. Restart SupaSidebar
+
+**Import is incomplete**
+- Some bookmarks may fail if URLs are malformed
+- Check the import log in Preferences for details
+- Manually add any missing items
+
+**Duplicate items after import**
+- Running import multiple times creates duplicates
+- Delete duplicates manually before re-importing
+- Use the import feature only once per browser
+
+**Arc spaces not appearing**
+- Ensure Arc is running during import
+- Check that spaces have at least one bookmark
+- Empty spaces may not import
+
+## Related Features
+
+- [Spaces](spaces) - Organize imported content into workspaces
+- [Tags](tags) - Add tags to imported links for better organization
+- [Browser Selection](browserSelection) - Set which browser opens your links
