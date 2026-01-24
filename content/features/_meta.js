@@ -5,6 +5,7 @@ export default {
   pinnedItems: 'Pinned Items',
   recentItems: 'Recent Items',
   smartFolders: 'Smart Folders',
+  tags: 'Tags & AI Tagging',
   globalShortcuts: 'Global Shortcuts',
   smartShortcuts: 'Smart Shortcuts',
   commandPanel: 'Command Panel',
@@ -12,6 +13,8 @@ export default {
   mouseTriggers: 'Mouse Triggers',
   dockmode: 'Dockmode',
   browserSelection: 'Browser Selection',
+  browserImport: 'Browser Import',
   liveTabs: 'Live Tabs',
-  finderIntegration: 'Finder Integration'
+  finderIntegration: 'Finder Integration',
+  sync: 'iCloud Sync'
 }
