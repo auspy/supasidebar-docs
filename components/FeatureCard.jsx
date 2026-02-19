@@ -8,9 +8,9 @@ export function FeatureCards({ children }) {
   )
 }
 
-export function FeatureCard({ title, description, href }) {
+export function FeatureCard({ title, description, href, variant }) {
   return (
-    <Link href={href} className="feature-card">
+    <Link href={href} className={`feature-card${variant === 'accent' ? ' feature-card--accent' : ''}`}>
       <h3>{title}</h3>
       <p>{description}</p>
     </Link>

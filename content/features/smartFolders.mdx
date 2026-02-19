@@ -19,6 +19,7 @@ Smart folders support these condition types:
 - **Source Folder** - Links from specific folder (or unfiled)
 - **Folder Name** - Match parent folder name pattern
 - **Date Range** - `today`, `yesterday`, `last7days`, `last30days`, `thisWeek`, `thisMonth`, `thisYear`
+- **Tags** - Match links by their tags (single tag, ANY of multiple, or ALL of multiple)
 
 **URL**
 - **URL Pattern** - Wildcards supported (e.g., `*.figma.com`)
@@ -28,10 +29,25 @@ Smart folders support these condition types:
 - **File Extension** - Match extension (e.g., `pdf`, `.docx`)
 - **File Path** - Match path pattern (supports `contains:`, `starts:`, `ends:`, wildcards)
 
+### Tag Matching
+
+The Tags condition supports flexible matching:
+
+| Pattern | Matches |
+|---------|---------|
+| `work` | Links with the "work" tag |
+| `any:work,urgent` | Links with "work" OR "urgent" tag |
+| `all:work,important` | Links with BOTH "work" AND "important" tags |
+
+Use the tag picker in the editor to select tags visually, or enter patterns manually.
+
 ## Usage
 
 - **Create** - Right-click in sidebar → New Smart Folder
 - **Edit** - Right-click smart folder → Edit (rules, icon, color)
+- **Custom Icons** - Smart folders support SF Symbols, emoji, or custom image icons. Set in the Edit sheet.
+- **Copy All URLs** - Right-click a smart folder → "Copy All URLs" to copy all contained link URLs to clipboard
+- **Open All** - Right-click → "Open All" to open every link in the folder at once
 - **Duplicate** - Right-click → Duplicate
 
 ## Examples
@@ -41,6 +57,7 @@ Smart folders support these condition types:
 | GitHub Projects | URL pattern `*.github.com` | All GitHub links |
 | PDF Documents | File extension `pdf` | All PDF files |
 | This Week | Date range `last7days` | Recent additions |
+| Work Items | Tags `work` | All work-tagged links |
 
 ## Keyboard Shortcuts
 

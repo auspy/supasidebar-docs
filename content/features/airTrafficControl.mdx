@@ -1,0 +1,54 @@
+# Air Traffic Control
+
+Automatically route links to the right space and browser based on URL patterns, like mail rules for your bookmarks.
+
+## How It Works
+
+When you open any link, SupaSidebar checks its URL against your routing rules. If a rule matches, the link is automatically:
+
+1. **Saved to the target space** (if configured)
+2. **Opened in the target browser** (if configured)
+
+Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules match, the link opens with your default settings.
+
+> Explicit choices always override ATC. If you use `Opt`-click or the browser picker to choose a specific browser, that choice takes priority over any routing rule.
+
+## Setup
+
+1. Open **Preferences → Air Traffic Control**
+2. Toggle **Enable Air Traffic Control**
+3. Click **Add Route** to create your first rule
+
+## Creating a Rule
+
+Each rule has four settings:
+
+| Setting | Description |
+|---------|-------------|
+| **URL Pattern** | The text to match against link URLs |
+| **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
+| **Target Space** | The space to route matching links to (optional) |
+| **Target Browser** | The browser to open matching links in, or "Use default" (optional) |
+
+## Managing Rules
+
+- **Reorder** - Drag rules to change priority (first match wins)
+- **Enable/Disable** - Toggle individual rules without deleting them
+- **Edit** - Click a rule to modify its settings
+- **Delete** - Remove rules you no longer need
+
+## Examples
+
+| URL Pattern | Match Type | Target Space | Target Browser | Effect |
+|------------|------------|-------------|----------------|--------|
+| `github.com` | contains | Development | - | All GitHub links go to Dev space |
+| `figma.com` | contains | Design | Chrome | Figma links open in Chrome, saved to Design space |
+| `docs.google.com` | contains | Work | - | Google Docs go to Work space |
+| `localhost` | contains | Development | Safari | Local dev URLs open in Safari |
+
+## Tips
+
+- **Start broad, refine later** - Begin with domain-level patterns like `github.com`, then add specific patterns if needed
+- **Use "contains" for most rules** - It's more flexible than exact matching
+- **Order matters** - Put more specific rules above general ones
+- **Combine with Spaces** - ATC is most useful when you have multiple spaces for different contexts

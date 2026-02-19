@@ -90,16 +90,16 @@ p:has(img) {
   display: block;
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #3f3f46;
-  background-color: #18181b;
+  border: 1px solid #e4e4e7;
+  background-color: #f4f4f5;
   text-decoration: none;
   color: inherit;
   transition: background-color 0.2s, border-color 0.2s;
 }
 
 .feature-card:hover {
-  background-color: #27272a;
-  border-color: #52525b;
+  background-color: #e4e4e7;
+  border-color: #a1a1aa;
 }
 
 .feature-card h3 {
@@ -111,6 +111,57 @@ p:has(img) {
 
 .feature-card p {
   font-size: 0.875rem;
-  color: #a1a1aa;
+  color: #52525b;
   margin: 0;
+}
+
+.dark .feature-card {
+  border-color: #3f3f46;
+  background-color: #18181b;
+}
+
+.dark .feature-card:hover {
+  background-color: #27272a;
+  border-color: #52525b;
+}
+
+.dark .feature-card p {
+  color: #a1a1aa;
+}
+
+/* Accent variant for "View all" cards */
+.feature-card--accent {
+  background-color: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.feature-card--accent:hover {
+  background-color: #e0e7ff;
+  border-color: #a5b4fc;
+}
+
+.feature-card--accent h3 {
+  color: #4338ca;
+}
+
+.feature-card--accent p {
+  color: #6366f1;
+}
+
+.dark .feature-card--accent {
+  background-color: #1e1b4b;
+  border-color: #3730a3;
+}
+
+.dark .feature-card--accent:hover {
+  background-color: #312e81;
+  border-color: #4f46e5;
+}
+
+.dark .feature-card--accent h3 {
+  color: #a5b4fc;
+}
+
+.dark .feature-card--accent p {
+  color: #818cf8;
 }
