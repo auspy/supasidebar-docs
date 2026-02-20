@@ -1,15 +1,15 @@
 # Air Traffic Control
 
-Automatically route links to the right space and browser based on URL patterns, like mail rules for your bookmarks.
+Create save routes to file links into spaces, and open routes to control which browser opens them  - like mail rules for your bookmarks.
 
 ## How It Works
 
-When you open any link, SupaSidebar checks its URL against your routing rules. If a rule matches, the link is automatically:
+Air Traffic Control has two types of routes:
 
-1. **Saved to the target space** (if configured)
-2. **Opened in the target browser** (if configured)
+- **Save Routes**  - When you save a page (`⌘⌃S`), save routes are checked. The first matching route files the link into the specified space. Save routes can also filter by which browser you're saving from.
+- **Open Routes**  - When you click a link in the sidebar, open routes are checked. The first matching route opens it in the specified browser instead of your default.
 
-Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules match, the link opens with your default settings.
+Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules match, the link uses your current space and default browser.
 
 > Explicit choices always override ATC. If you use `Opt`-click or the browser picker to choose a specific browser, that choice takes priority over any routing rule.
 
@@ -21,34 +21,70 @@ Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules
 
 ## Creating a Rule
 
-Each rule has four settings:
+When you click **Add Route**, you first choose the route type:
+
+### Save Route
+
+Routes saved links to a specific space.
+
+| Setting | Description |
+|---------|-------------|
+| **Source Browser** | Only match when saving from this browser, or "Any Browser" (optional) |
+| **URL Pattern** | The text to match against link URLs (optional if source browser is set) |
+| **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
+| **Save to Space** | The space to file matching links into |
+
+### Open Route
+
+Opens matching links in a specific browser.
 
 | Setting | Description |
 |---------|-------------|
 | **URL Pattern** | The text to match against link URLs |
 | **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
-| **Target Space** | The space to route matching links to (optional) |
-| **Target Browser** | The browser to open matching links in, or "Use default" (optional) |
+| **Open in Browser** | The browser to open matching links in |
+
+A live preview at the bottom of the editor shows exactly what the rule will do as you configure it.
 
 ## Managing Rules
 
-- **Reorder** - Drag rules to change priority (first match wins)
-- **Enable/Disable** - Toggle individual rules without deleting them
-- **Edit** - Click a rule to modify its settings
-- **Delete** - Remove rules you no longer need
+- **Reorder**  - Drag rules to change priority (first match wins)
+- **Enable/Disable**  - Toggle individual rules without deleting them
+- **Edit**  - Click a rule to modify its settings
+- **Delete**  - Remove rules you no longer need
 
 ## Examples
 
-| URL Pattern | Match Type | Target Space | Target Browser | Effect |
-|------------|------------|-------------|----------------|--------|
-| `github.com` | contains | Development | - | All GitHub links go to Dev space |
-| `figma.com` | contains | Design | Chrome | Figma links open in Chrome, saved to Design space |
-| `docs.google.com` | contains | Work | - | Google Docs go to Work space |
-| `localhost` | contains | Development | Safari | Local dev URLs open in Safari |
+### Save Routes
+
+| Source Browser | URL Pattern | Save to Space | Effect |
+|---------------|------------|---------------|--------|
+| Any | `github.com` | Development | All GitHub links go to Dev space |
+| Firefox | *(empty)* | Work | All tabs saved from Firefox go to Work space |
+| Safari | `banking.` | Finance | Banking URLs saved from Safari go to Finance space |
+| Any | `docs.google.com` | Work | Google Docs go to Work space |
+
+### Open Routes
+
+| URL Pattern | Open in Browser | Effect |
+|------------|----------------|--------|
+| `figma.com` | Chrome | Figma links always open in Chrome |
+| `localhost` | Safari | Local dev URLs open in Safari |
+| `github.com` | Chrome | GitHub links open in Chrome |
+
+### Combining Both
+
+Want GitHub links to go to your Dev space **and** always open in Chrome? Create two rules:
+
+1. **Save Route**: `github.com` → Development space
+2. **Open Route**: `github.com` → Chrome
+
+Each rule does one thing clearly  - no ambiguity.
 
 ## Tips
 
-- **Start broad, refine later** - Begin with domain-level patterns like `github.com`, then add specific patterns if needed
-- **Use "contains" for most rules** - It's more flexible than exact matching
-- **Order matters** - Put more specific rules above general ones
-- **Combine with Spaces** - ATC is most useful when you have multiple spaces for different contexts
+- **Start broad, refine later**  - Begin with domain-level patterns like `github.com`, then add specific patterns if needed
+- **Use "contains" for most rules**  - It's more flexible than exact matching
+- **Order matters**  - Put more specific rules above general ones
+- **Source browser filters are powerful**  - Use them to keep different browsers organized into separate spaces automatically
+- **Combine with Spaces**  - ATC is most useful when you have multiple spaces for different contexts
