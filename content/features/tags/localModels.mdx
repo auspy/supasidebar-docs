@@ -1,0 +1,91 @@
+# Local AI Models
+
+SupaSidebar supports two ways to run AI models locally for tag suggestions — no cloud API key required.
+
+## Option 1: Built-in Models (MLX)
+
+The simplest option. Models download and run directly inside SupaSidebar using Apple's MLX framework.
+
+**Requirements:** Apple Silicon Mac (M1, M2, M3, or M4)
+
+**Setup:**
+1. Open **Preferences → AI Tags**
+2. Set AI Provider to **Local AI (MLX)**
+3. Click **Download** on your preferred model
+4. Once downloaded, click **Use This** to activate it
+
+**Available Models:**
+
+| Model | Size | Best For |
+|-------|------|----------|
+| Gemma 2 2B | ~1.2GB | Compact & lightweight |
+| **Phi-4 Mini 3.8B** | **~2.2GB** | **Best for tagging (Recommended)** |
+| Qwen3 4B | ~2.2GB | Good all-round |
+| Qwen 2.5 7B | ~4.3GB | Most accurate (16GB+ RAM) |
+
+**RAM Guide:**
+- **8GB Mac** — Use models up to 3B parameters (Gemma 2 2B, Phi-4 Mini)
+- **16GB+ Mac** — Can use all models including Qwen 2.5 7B
+
+## Option 2: Ollama (Any Local Model)
+
+Use any model you want through Ollama. This gives you access to thousands of models and works on both Apple Silicon and Intel Macs.
+
+### Step 1: Install Ollama
+
+1. Go to [ollama.com](https://ollama.com) and download the macOS app
+2. Open Ollama — it runs quietly in the background
+
+### Step 2: Download a Model
+
+Open **Terminal** and run:
+
+```bash
+ollama pull qwen2.5:3b
+```
+
+This downloads the Qwen 2.5 3B model, which we recommend for tag suggestions. You can also pull other models — any text generation model works.
+
+### Step 3: Configure in SupaSidebar
+
+1. Open **Preferences → AI Tags**
+2. Set AI Provider to **Ollama (Local)**
+3. Click **Check** to verify the connection
+4. Select your model from the dropdown (it auto-populates from Ollama)
+5. Enable **Auto-suggest tags** if you want automatic suggestions
+
+### Recommended Ollama Models
+
+| Model | Command | Size | Best For |
+|-------|---------|------|----------|
+| **Qwen 2.5 3B** | `ollama pull qwen2.5:3b` | 1.9 GB | **Best for tagging (Recommended)** |
+| Phi-4 Mini 3.8B | `ollama pull phi4-mini` | 2.2 GB | Excellent at structured output |
+| Llama 3.2 3B | `ollama pull llama3.2` | 2.0 GB | Balanced speed and accuracy |
+| Gemma 2 2B | `ollama pull gemma2:2b` | 1.6 GB | Google's efficient model |
+| Qwen 2.5 1.5B | `ollama pull qwen2.5:1.5b` | 1.0 GB | Smallest, fastest option |
+
+You can also use larger models for better accuracy:
+
+```bash
+ollama pull qwen2.5:7b    # 4.4 GB, very accurate
+ollama pull llama3.1:8b   # 4.7 GB, excellent quality
+```
+
+### Tips
+
+- **Model names are not case sensitive** — `qwen2.5:3b` and `Qwen2.5:3B` both work
+- **Any text generation model works** — if you already have models in Ollama, they'll appear in the dropdown
+- **The endpoint defaults to `http://localhost:11434`** — only change this if you're running Ollama on another machine
+- **You can use different models** for Voice (in Voice settings) and Tags (in AI Tags settings)
+
+## MLX vs Ollama
+
+| | MLX (Built-in) | Ollama |
+|---|---|---|
+| **Setup** | One-click download | Install Ollama first |
+| **Mac compatibility** | Apple Silicon only | All Macs |
+| **Model choice** | 4 curated models | Thousands of models |
+| **Best for** | Quick setup | Power users, custom models |
+| **Memory usage** | Loaded in app memory | Runs as separate process |
+
+**Our recommendation:** Start with **MLX + Phi-4 Mini** for the easiest setup. Switch to **Ollama** if you want more model choices or have an Intel Mac.

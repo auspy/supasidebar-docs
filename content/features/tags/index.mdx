@@ -1,12 +1,12 @@
 # Tags
 
-Organize links with color-coded tags. AI can automatically suggest tags based on link content using OpenAI or on-device processing.
+Organize links with color-coded tags. AI can automatically suggest tags based on link content using OpenAI, on-device models, or Ollama.
 
 ## Features
 
 - **Color-Coded** - 9 color options for visual organization
 - **AI Suggestions** - Automatic tag recommendations based on link content
-- **Multiple AI Providers** - OpenAI (cloud) or Local AI (on-device, Apple Silicon)
+- **Multiple AI Providers** - OpenAI (cloud), Local AI (on-device), or Ollama (any local model)
 - **Bulk Apply** - Find and tag all matching existing links at once
 - **Auto-Tagging** - Optionally tag new links automatically
 
@@ -17,11 +17,14 @@ Configure tags in **Preferences → AI Tags**.
 **AI Provider**
 - **Manual** - No AI, assign tags yourself
 - **OpenAI** - Cloud-based, requires API key
-- **Local AI** - On-device with Apple Silicon, no API key needed
+- **Local AI (MLX)** - On-device with Apple Silicon, no API key needed
+- **Ollama** - Use any local model via Ollama, works on all Macs
 
 **Options**
 - **Auto-suggest tags** - Suggest tags when saving new links
 - **Model selection** - Choose AI model for suggestions
+
+For detailed setup instructions, see [Local AI Models](localModels).
 
 ## Supported Models
 
@@ -35,11 +38,16 @@ Configure tags in **Preferences → AI Tags**.
 | gpt-5.2-pro | Maximum intelligence |
 
 **Local AI (Apple Silicon)**
-| Model | Size | Speed |
-|-------|------|-------|
-| qwen3-1.7b | ~1GB | Fast & efficient |
-| gemma2-2b | ~1.2GB | Good balance (Recommended) |
-| qwen3-4b | ~2.2GB | Best accuracy |
+| Model | Size | Best For |
+|-------|------|----------|
+| Gemma 2 2B | ~1.2GB | Compact & lightweight |
+| Phi-4 Mini 3.8B | ~2.2GB | Best for tagging (Recommended) |
+| Qwen3 4B | ~2.2GB | Good all-round |
+| Qwen 2.5 7B | ~4.3GB | Most accurate (16GB+ RAM) |
+
+**Ollama (Any Local Model)**
+
+Use any model available through Ollama. See [Local AI Models](localModels) for recommended models and setup instructions.
 
 ## AI Descriptions
 
