@@ -1,0 +1,143 @@
+# Window Tiling
+
+Automatically arrange browser windows as equal-width columns alongside the sidebar.
+
+## Overview
+
+Window Tiling turns your screen into an organized workspace. When you open the sidebar and there are 2-3 browser windows on screen, SupaSidebar automatically arranges them as equal-width columns in the remaining space. The sidebar takes its position at the edge, and the browser windows fill the rest — no manual dragging or resizing needed.
+
+## How the Layout Works
+
+The sidebar docks to the screen edge (left or right, based on your preference). The remaining screen space is divided equally among the browser windows.
+
+### With 2 Windows
+
+The screen is split into three sections:
+
+```
+┌──────────┬──────────────────┬──────────────────┐
+│          │                  │                  │
+│ Sidebar  │   Browser 1      │   Browser 2      │
+│          │                  │                  │
+│          │                  │                  │
+└──────────┴──────────────────┴──────────────────┘
+```
+
+Each browser window gets half of the remaining space.
+
+### With 3 Windows
+
+```
+┌──────────┬────────────┬────────────┬────────────┐
+│          │            │            │            │
+│ Sidebar  │ Browser 1  │ Browser 2  │ Browser 3  │
+│          │            │            │            │
+│          │            │            │            │
+└──────────┴────────────┴────────────┴────────────┘
+```
+
+Each browser window gets one-third of the remaining space.
+
+### With 1 Window or 4+ Windows
+
+Tiling does not activate. The sidebar uses normal attach behavior — it positions next to the frontmost browser window and only adjusts that single window if it overlaps.
+
+SupaSidebar also checks your screen width. If the available space can't fit each window at a minimum usable width (500px per column), tiling won't activate even with 2-3 windows.
+
+## Setup
+
+1. Open **Preferences → General**
+2. Set **Browser Integration** to **Smart Attach**
+3. Find the **Auto-Tile Windows** setting and choose a mode
+
+## Tiling Modes
+
+### Off
+
+No automatic tiling. The sidebar attaches to your frontmost browser window normally.
+
+### Smart
+
+Profile-aware tiling that adapts to your workspace:
+
+- **In a profile space** — only that profile's browser windows are tiled. If you have two Chrome windows open for your "Work" profile, those two get tiled. Other browser windows from different profiles or browsers are left exactly where they are.
+- **In a non-profile space** — all browser windows on the current screen are tiled, regardless of which browser or profile they belong to.
+- **Fallback** — if you're in a profile space but none of that profile's windows are on the current screen, it falls back to tiling all browser windows.
+
+This is the recommended mode if you use [Browser Profiles](/features/profileSpaces).
+
+### All Windows
+
+Always tiles every browser window on the current screen, regardless of profile. Use this if you don't use profile spaces or want consistent behavior everywhere.
+
+## When Tiling Activates
+
+Tiling happens automatically whenever you open the sidebar. It doesn't matter how you open it:
+
+- **Keyboard shortcut** — press your configured sidebar shortcut
+- **Mouse trigger** — hover or click your trigger zone at the screen edge
+- **Auto-show** — switch from a non-browser app to a browser window, and the sidebar appears with windows already tiled
+- **Floating button** — click the floating sidebar button
+
+The key requirement is simple: **2-3 browser windows must be on the current screen**. If that condition is met when the sidebar opens, tiling activates.
+
+### What Happens Step by Step
+
+1. You trigger the sidebar to open
+2. SupaSidebar detects browser windows on the current screen
+3. If 2-3 eligible windows are found, the sidebar moves to the screen edge
+4. The browser windows are resized and positioned as equal columns
+5. All tiled windows are brought to the front so they're visible
+
+This all happens instantly — there's no delay or animation on the browser windows.
+
+## While Tiling Is Active
+
+Once windows are tiled, the layout stays stable:
+
+- **Switching focus between tiled windows** — click any of the tiled windows and it comes to focus. The layout doesn't change; windows stay in their positions.
+- **The sidebar stays docked** — it remains at the screen edge rather than following a specific browser window.
+- **Window order is preserved** — windows maintain their left-to-right positions. The window that was on the left stays on the left, even if you click the one on the right.
+
+## When Tiling Breaks
+
+Tiling is designed to get out of your way when you want to do something different:
+
+- **Drag a tiled window** — if you move a tiled window away from its tiled position, the tiling layout breaks. The sidebar switches back to normal attach mode and follows whichever window you're using.
+- **Click a non-tiled window** — if you click a browser window that isn't part of the tiled layout (for example, a window from a different profile), the tiling breaks and the sidebar attaches to that window instead.
+- **Close the sidebar** — when the sidebar hides, windows return to their original size and position (if "Restore Windows on Hide" is enabled in preferences).
+
+To re-tile, simply open the sidebar again.
+
+## Profile-Aware Tiling in Detail
+
+When using **Smart** mode with [Browser Profiles](/features/profileSpaces), tiling becomes context-aware:
+
+### Example: Work and Personal Profiles
+
+Imagine you have two macOS spaces:
+- **Space 1** is linked to your "Work" Chrome profile
+- **Space 2** is linked to your "Personal" Chrome profile
+
+On Space 1, you have two "Work" profile windows open. When you open the sidebar:
+- Only the two "Work" windows are tiled
+- Any "Personal" windows that happen to be visible are left alone
+- The sidebar tiles specifically with your work context
+
+Switch to Space 2, and the same logic applies — only "Personal" windows tile.
+
+### Mixed Browsers
+
+Smart mode works across browsers too. If your profile space is linked to a Chrome profile but you also have a Safari window open, the Safari window won't be included in the tiling — only Chrome windows matching the profile are tiled.
+
+### Close Tabs on Space Change
+
+If you have **Close Tabs on Space Change** enabled (in **Preferences → Live Tabs → Profile Spaces**), the outgoing profile's browser windows are closed when you switch spaces. This means when you switch back, the browser re-launches with a single window — not enough for tiling to activate.
+
+To use tiling with profile space switching, keep this setting off. Your profile windows will stay open in the background and tile immediately when you return to that space.
+
+## Tips
+
+- **Best on wide screens** — tiling shines on large or ultrawide monitors where there's enough space for the sidebar plus two or more comfortable browser columns.
+- **Combine with Restore on Hide** — enable "Restore Windows on Hide" so your windows return to their original layout when you close the sidebar. This lets you tile temporarily without losing your existing arrangement.
+- **Use with auto-show** — if you enable auto-show (sidebar appears when you switch to a browser), your workspace tiles automatically every time you switch to your browser from another app. This creates a seamless workflow where your browser windows are always organized when you're browsing.

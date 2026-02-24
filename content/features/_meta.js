@@ -2,6 +2,7 @@ export default {
   index: 'Feature Overview',
   sidebar: 'Sidebar Panel',
   spaces: 'Spaces',
+  profileSpaces: 'Browser Profiles',
   pinnedItems: 'Pinned Links',
   recentItems: 'Recent Links',
   smartFolders: 'Smart Folders',
