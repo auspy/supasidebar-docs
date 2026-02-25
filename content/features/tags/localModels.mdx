@@ -1,6 +1,6 @@
 # Local AI Models
 
-SupaSidebar supports two ways to run AI models locally for tag suggestions — no cloud API key required.
+SupaSidebar supports two ways to run AI models locally for tag suggestions  - no cloud API key required.
 
 ## Option 1: Built-in Models (MLX)
 
@@ -24,8 +24,8 @@ The simplest option. Models download and run directly inside SupaSidebar using A
 | Qwen 2.5 7B | ~4.3GB | Most accurate (16GB+ RAM) |
 
 **RAM Guide:**
-- **8GB Mac** — Use models up to 3B parameters (Gemma 2 2B, Phi-4 Mini)
-- **16GB+ Mac** — Can use all models including Qwen 2.5 7B
+- **8GB Mac**  - Use models up to 3B parameters (Gemma 2 2B, Phi-4 Mini)
+- **16GB+ Mac**  - Can use all models including Qwen 2.5 7B
 
 ## Option 2: Ollama (Any Local Model)
 
@@ -34,7 +34,7 @@ Use any model you want through Ollama. This gives you access to thousands of mod
 ### Step 1: Install Ollama
 
 1. Go to [ollama.com](https://ollama.com) and download the macOS app
-2. Open Ollama — it runs quietly in the background
+2. Open Ollama  - it runs quietly in the background
 
 ### Step 2: Download a Model
 
@@ -44,7 +44,7 @@ Open **Terminal** and run:
 ollama pull qwen2.5:3b
 ```
 
-This downloads the Qwen 2.5 3B model, which we recommend for tag suggestions. You can also pull other models — any text generation model works.
+This downloads the Qwen 2.5 3B model, which we recommend for tag suggestions. You can also pull other models  - any text generation model works.
 
 ### Step 3: Configure in SupaSidebar
 
@@ -73,9 +73,9 @@ ollama pull llama3.1:8b   # 4.7 GB, excellent quality
 
 ### Tips
 
-- **Model names are not case sensitive** — `qwen2.5:3b` and `Qwen2.5:3B` both work
-- **Any text generation model works** — if you already have models in Ollama, they'll appear in the dropdown
-- **The endpoint defaults to `http://localhost:11434`** — only change this if you're running Ollama on another machine
+- **Model names are not case sensitive**  - `qwen2.5:3b` and `Qwen2.5:3B` both work
+- **Any text generation model works**  - if you already have models in Ollama, they'll appear in the dropdown
+- **The endpoint defaults to `http://localhost:11434`**  - only change this if you're running Ollama on another machine
 - **You can use different models** for Voice (in Voice settings) and Tags (in AI Tags settings)
 
 ## MLX vs Ollama

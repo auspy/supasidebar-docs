@@ -8,20 +8,31 @@ Configure in **Preferences → General → Browser Integration**.
 
 | Mode | Description |
 |------|-------------|
-| [Attach to Browser](/features/browserIntegration/attach) | Sidebar floats alongside browser |
-| [Smart Positioning](/features/browserIntegration/smart) | Moves overlapping windows |
-| [Window Tiling](/features/browserIntegration/tiling) | Auto-tiles 2-3 windows as columns |
-| [Fill Screen](/features/browserIntegration/fillScreen) | Browser resizes to fill space |
-| [Dock Mode](/features/browserIntegration/dock) | Browser maximizes when sidebar closes |
+| **Independent** | Sidebar opens on the screen edge with no browser interaction |
+| **Smart Attach** | Sidebar attaches to your browser and manages window layout |
 
-**None** mode runs sidebar independently with no window adjustments.
+## Smart Attach
+
+Smart Attach is the recommended mode. When enabled, the sidebar intelligently positions itself next to your browser and adjusts windows to avoid overlap. It includes several features you can enable in Preferences:
+
+| Feature | Description |
+|---------|-------------|
+| [Fill Entire Screen](/features/browserIntegration/fillScreen) | Browser resizes to fill the remaining space alongside the sidebar |
+| [Window Tiling](/features/browserIntegration/tiling) | Auto-tiles 2-3 browser windows as equal-width columns |
+| [Prevent Browser Overlap](/features/browserIntegration/smart) | Automatically moves browser windows out from under the sidebar |
+| Auto-Switch Side | Moves sidebar to the other side when it would cover another app |
+| [When Sidebar Hides](/features/sidebar#behavior) | Choose whether windows fill the remaining space or restore to their original position |
+
+## Independent
+
+The sidebar opens on the screen edge without affecting browser windows. Use this if you prefer full manual control over your window layout.
 
 ## Profile-Aware Behavior
 
-When a space is linked to a browser profile, all integration modes (Attach, Smart, Fill Screen, Dock) automatically target the profile's browser window. Switching spaces re-applies the integration to the new profile's browser.
+When a space is linked to a browser profile, Smart Attach automatically targets the profile's browser window. Switching spaces re-applies the integration to the new profile's browser.
 
 See [Browser Profiles](/features/profileSpaces) for details.
 
 ## Permissions
 
-All modes except None require Accessibility permissions. See [Permissions Guide](/gettingStarted/permissions).
+Smart Attach requires Accessibility permissions. See [Permissions Guide](/gettingStarted/permissions).
