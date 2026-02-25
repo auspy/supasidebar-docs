@@ -3,5 +3,6 @@ export default {
   gettingStarted: 'Getting Started',
   features: 'Features',
   howTo: 'How-To',
-  troubleshooting: 'Troubleshooting'
+  troubleshooting: 'Troubleshooting',
+  community: 'Community'
 }
