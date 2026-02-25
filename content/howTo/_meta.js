@@ -3,5 +3,6 @@ export default {
   browserSelection: 'Open in Any Browser',
   browserImport: 'Import Bookmarks',
   dragAndDrop: 'Drag and Drop',
-  smart: 'Smart Shortcuts'
+  smart: 'Smart Shortcuts',
+  claimDiscount: 'Claim a Discount Code'
 }
