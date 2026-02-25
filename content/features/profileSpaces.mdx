@@ -2,7 +2,7 @@ import { Callout } from 'nextra/components'
 
 # Browser Profiles
 
-Link browser profiles to your spaces for complete session isolation. Each profile has its own cookies, history, and extensions  - switching spaces instantly swaps which profile is visible.
+Link browser profiles or entire browsers to your spaces for complete session isolation. Each profile has its own cookies, history, and extensions - switching spaces instantly swaps which profile is visible.
 
 <Callout type="info">
 Browser Profiles is a Premium feature that extends [Spaces](/features/spaces). [Upgrade](https://supasidebar.com/pricing) for unlimited spaces with profile linking.
@@ -74,6 +74,26 @@ When enabled, switching away from a profile space closes that profile's browser 
 <Callout type="warning">
 Closed tabs will need to reload when you switch back, which may log you out of some websites. Leave this off if you switch spaces frequently.
 </Callout>
+
+## Browser-Level Linking
+
+If you don't use profiles but still want spaces tied to specific browsers, you can link a space directly to a browser instead of a profile. For example, link one space to Safari and another to Chrome.
+
+1. Open a space in the sidebar
+2. In the **Live Tabs** section, click **Link a browser profile**
+3. Select a browser without choosing a specific profile
+
+The space will then track that browser's windows for Live Tabs, auto-hide, and tiling.
+
+## Space Switch Suggestion
+
+When you click on or activate a browser window that belongs to a different linked space, SupaSidebar detects this and suggests switching to the matching space.
+
+- A prompt appears asking if you'd like to switch
+- Choose **Always Switch** to auto-switch without asking in the future
+- Choose **Never** to dismiss and stop suggesting for that space
+
+This keeps your sidebar context in sync with whichever browser or profile you're actively using.
 
 ## Unlinking a Profile
 
