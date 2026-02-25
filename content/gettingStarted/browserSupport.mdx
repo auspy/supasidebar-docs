@@ -1,6 +1,6 @@
 # Browser Support
 
-SupaSidebar supports 14 different web browsers with two levels of integration.
+SupaSidebar supports 14 different web browsers with three levels of integration.
 
 ## Integration Levels
 
@@ -10,27 +10,31 @@ Includes copy URL (⌘⇧C), save page (⌘⇧S) shortcuts, browser history acce
 ### Live Tabs
 Real-time browser tab tracking and switching. See [Live Tabs documentation](LIVE_TABS.md) for details.
 
+### Profile Spaces
+Link a browser or specific browser profile to a space. "Browser" means all tabs from that browser appear in the space. "Profiles" means you can also link individual browser profiles (e.g., Work, Personal) to separate spaces.
+
 ## Supported Browsers
 
-| Browser | Basic Integration | Live Tabs |
-|---------|------------------|-----------|
-| **Safari** | ✅ | ✅ |
-| **Chrome** | ✅ | ✅ |
-| **Firefox** | ✅ | ⏳ |
-| **Edge** | ✅ | ✅ |
-| **Arc** | ✅ | ❌ |
-| **Brave** | ✅ | ✅ |
-| **Vivaldi** | ✅ | ✅ |
-| **Dia** | ✅ | ⏳ |
-| **Comet** | ✅ | ✅ |
-| **Orion** | ✅ | ✅ |
-| **Zen Browser** | ✅ | ❌ |
-| **Atlas** | ✅ | ✅ |
-| **Wavebox** | ✅ | ❌ |
-| **Helium** | ✅ | ✅ |
+| Browser | Basic Integration | Live Tabs | Profile Spaces |
+|---------|------------------|-----------|----------------|
+| **Safari** | ✅ | ✅ | ✅ Profiles |
+| **Chrome** | ✅ | ✅ | ✅ Profiles |
+| **Brave** | ✅ | ✅ | ✅ Profiles |
+| **Edge** | ✅ | ✅ | ✅ Profiles |
+| **Comet** | ✅ | ✅ | ✅ Profiles |
+| **Helium** | ✅ | ✅ | ✅ Profiles |
+| **Vivaldi** | ✅ | ✅ | ✅ Browser |
+| **Orion** | ✅ | ✅ | ✅ Browser |
+| **Atlas** | ✅ | ✅ | ✅ Browser |
+| **Firefox** | ✅ | ⏳ | ❌ |
+| **Dia** | ✅ | ⏳ | ❌ |
+| **Arc** | ✅ | ❌ | ❌ |
+| **Zen Browser** | ✅ | ❌ | ❌ |
+| **Wavebox** | ✅ | ❌ | ❌ |
 
 **Legend:**
-- ✅ Supported
+- ✅ Profiles — Link entire browser or individual profiles to spaces
+- ✅ Browser — Link entire browser to a space (individual profiles not supported)
 - ⏳ In Development
 - ❌ Not Available
 
