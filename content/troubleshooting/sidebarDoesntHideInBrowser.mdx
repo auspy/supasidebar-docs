@@ -1,0 +1,29 @@
+# Sidebar Doesn't Auto-Hide in Browsers
+
+## Problem
+
+You have [mouse triggers](/features/sidebarAccess/mouseTriggers) enabled so the sidebar appears when you hover the screen edge. When you move your mouse away, the sidebar auto-hides in most apps — but **not when a browser is the active window**. In browsers, the sidebar stays visible until you manually dismiss it.
+
+## Cause
+
+When [Browser Integration](/features/browserIntegration) is set to **Smart Attach**, the sidebar's hide behavior in browsers is controlled separately from the general auto-hide setting. This is because Smart Attach actively manages your browser window layout, so hiding the sidebar also affects how your browser windows are positioned.
+
+By default, the sidebar may stay visible in browsers even when mouse triggers would normally hide it in other apps.
+
+## Solution
+
+1. Open **Preferences → Sidebar → Sidebar Behavior**
+2. Look for the browser-related auto-hide setting in that section
+3. Enable auto-hide for browser windows
+
+This tells the sidebar to automatically close when your mouse leaves the sidebar area, even when a browser is the active app.
+
+### Note on timing
+
+After enabling this setting, there may be a brief delay before the sidebar auto-hides in browsers. This is normal — the sidebar waits slightly longer before hiding to avoid flickering while you're moving between the sidebar and your browser window.
+
+## Learn More
+
+- [Mouse Triggers](/features/sidebarAccess/mouseTriggers) — Configure edge hover to show the sidebar
+- [Browser Integration](/features/browserIntegration) — How Smart Attach affects sidebar behavior
+- [Sidebar Panel](/features/sidebar) — All sidebar behavior settings
