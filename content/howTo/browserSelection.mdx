@@ -2,6 +2,19 @@
 
 Choose which browser opens your links - pick on demand, assign per link, or use your active browser.
 
+## Priority Order
+
+When you click a link, SupaSidebar decides which browser to use based on this priority (highest first):
+
+| Priority | Method | Example |
+|----------|--------|---------|
+| **1. Modifier-click** | `Opt`-click, right-click → Open With, `Cmd`-click action | You hold `Opt` and pick Safari - that wins over everything |
+| **2. Air Traffic Control** | URL-pattern rules in Preferences → ATC | Rule says `github.com` → Chrome, so all GitHub links open in Chrome |
+| **3. Link opening behavior** | Global setting: saved browser, frontmost, or default | Your preference is "saved browser" and this link was saved from Firefox |
+| **4. System default browser** | Whatever macOS is configured to use | Falls back to your default browser |
+
+If a higher-priority method applies, lower ones are skipped entirely. For example, if an ATC rule matches a link, it doesn't matter what browser the link was saved from - ATC wins.
+
 ## Ways to Select a Browser
 
 | Method | How |
@@ -10,8 +23,6 @@ Choose which browser opens your links - pick on demand, assign per link, or use 
 | `Opt` click | Hold `Opt` and click a link |
 | `Opt Return` | Select link in Command Panel, press `Opt Return` |
 | Air Traffic Control | Set URL-based routing rules in **Preferences → Air Traffic Control**. See [Air Traffic Control](/features/airTrafficControl) |
-
-Default: Links open in their assigned browser, or system default if none assigned. Explicit choices (`Opt`-click, right-click picker) always override ATC rules.
 
 ## Keyboard Shortcuts
 
