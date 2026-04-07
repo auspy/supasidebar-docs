@@ -1,0 +1,135 @@
+---
+title: "SupaSidebar MCP - AI assistant integration"
+description: "Control SupaSidebar from AI assistants like Claude using the Model Context Protocol. Search, switch spaces, and open links hands-free."
+---
+
+# SupaSidebar MCP
+
+Control SupaSidebar from AI assistants like Claude using the Model Context Protocol (MCP) - search your sidebar, switch spaces, open links, and configure settings hands-free.
+
+**GitHub**: [github.com/auspy/supasidebar-mcp](https://github.com/auspy/supasidebar-mcp)
+
+## How it works
+
+MCP (Model Context Protocol) is an open standard that lets AI assistants interact with external tools. SupaSidebar exposes 25 tools via its MCP server, so any compatible AI assistant can read and control your sidebar programmatically.
+
+## Available actions
+
+### Browse and search
+
+Read your sidebar data - find links, browse spaces, check open tabs, and see recent activity.
+
+| Action | Description |
+|--------|-------------|
+| **Search** | Fuzzy search across all links by name, URL, notes, or tags |
+| **List spaces** | Get all your spaces |
+| **List links** | Get links in a specific space or folder |
+| **List folders** | Get folders in a space |
+| **List recent** | Get recently opened links |
+| **List tags** | Get all tags sorted by usage count |
+| **Get live tabs** | Get currently open browser tabs, optionally filtered by browser |
+
+### Actions
+
+Control SupaSidebar - open links, switch spaces, toggle visibility, and search the web.
+
+| Action | Description |
+|--------|-------------|
+| **Open link** | Open a URL in a specific browser or the default browser |
+| **Switch space** | Switch to a different space |
+| **Toggle sidebar** | Show or hide the sidebar |
+| **Toggle command panel** | Open or close the command panel |
+| **Launch sidebar** | Start SupaSidebar if it's not running |
+| **Web search** | Search the web using Google, DuckDuckGo, Perplexity, or custom search shortcuts |
+
+### Settings and configuration
+
+Read and change SupaSidebar settings, apply feature presets, and open Preferences.
+
+| Action | Description |
+|--------|-------------|
+| **Get settings** | View all 40+ settings grouped by category, or query a specific setting |
+| **Update setting** | Change any setting (toggles, modes, numeric values) |
+| **Enable feature preset** | Apply a preset: Smart Attach, Independent Mode, Space Isolation, Minimal Sidebar, or Full Featured |
+| **Open preferences** | Open the Preferences window, optionally jumping to a specific tab |
+| **Get visibility** | Check if sidebar and command panel are visible without toggling them |
+
+### Keyboard shortcuts
+
+View and rebind SupaSidebar's keyboard shortcuts.
+
+| Action | Description |
+|--------|-------------|
+| **Get shortcuts** | List all keyboard shortcuts with their current bindings |
+| **Update shortcut** | Change a keyboard shortcut binding |
+| **Clear shortcut** | Remove a shortcut binding |
+
+### Custom web search shortcuts
+
+Create shortcuts to search specific websites directly from SupaSidebar. For example, add a "yo" shortcut for YouTube so you can search YouTube without opening it first.
+
+| Action | Description |
+|--------|-------------|
+| **List search shortcuts** | List all available engines (Google, Bing, Perplexity, etc.) and your custom shortcuts |
+| **Add search shortcut** | Create a new shortcut by providing a keyword, name, and the site's search URL |
+| **Remove search shortcut** | Delete a custom shortcut by its keyword |
+
+**Example:** To add a YouTube search shortcut, provide keyword `yo`, name `YouTube`, and search URL `https://www.youtube.com/results?search_query=`. Then ask your AI assistant to "search YouTube for lofi music" and it opens the results directly.
+
+### Guide
+
+| Action | Description |
+|--------|-------------|
+| **Guide** | Get a complete guide to all MCP capabilities, common requests mapped to tool calls, and feature presets |
+
+## Setup with Claude Code
+
+1. Make sure SupaSidebar is running
+2. Open your Claude Code settings or project `.mcp.json` and add:
+
+```json
+{
+  "mcpServers": {
+    "supasidebar": {
+      "command": "npx",
+      "args": ["-y", "supasidebar-mcp"]
+    }
+  }
+}
+```
+
+3. Restart Claude Code. SupaSidebar tools are now available.
+
+## Setup with Claude Desktop
+
+1. Open Claude Desktop settings (**Claude → Settings → Developer → Edit Config**)
+2. Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "supasidebar": {
+      "command": "npx",
+      "args": ["-y", "supasidebar-mcp"]
+    }
+  }
+}
+```
+
+3. Restart Claude Desktop. You can now ask Claude to search your sidebar, switch spaces, open links, and more.
+
+## Setup with Cursor
+
+1. Open Cursor settings (**Cursor → Settings → MCP**)
+2. Click **Add new MCP server**
+3. Set the command to `npx -y supasidebar-mcp`
+4. Save and restart Cursor
+
+## Tips
+
+- Ask your AI assistant to "search my sidebar for [topic]" to find links across all spaces
+- Use "switch to my Work space" to change context without touching the keyboard
+- Combine with [Spaces](/features/spaces) to organize by project, then let your AI switch context for you
+- Use feature presets like "enable minimal sidebar" to quickly reconfigure SupaSidebar for different workflows
+- MCP works alongside [keyboard shortcuts](/features/shortcuts) - use whichever is faster for the task
+- See the full documentation and source code on [GitHub](https://github.com/auspy/supasidebar-mcp)

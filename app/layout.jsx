@@ -48,7 +48,7 @@ const navbar = (
         fontSize: "14px",
         fontWeight: 500,
         color: "white",
-        backgroundColor: "#3B82F6",
+        backgroundColor: "#4338CA",
         textDecoration: "none",
       }}
     >

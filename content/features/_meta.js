@@ -12,5 +12,7 @@ export default {
   liveTabs: 'Live Tabs',
   browserIntegration: 'Browser Integration',
   shortcuts: 'Shortcuts',
+  privacyBlocklist: 'Privacy Blocklist',
+  mcp: 'MCP',
   sync: 'iCloud Sync'
 }

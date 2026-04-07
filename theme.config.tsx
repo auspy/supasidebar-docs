@@ -5,9 +5,9 @@ const config: DocsThemeConfig = {
   logo: (
     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="10" fill="#3B82F6" />
+        <circle cx="12" cy="12" r="10" fill="#4338CA" />
         <circle cx="12" cy="12" r="6" fill="white" />
-        <circle cx="12" cy="12" r="2" fill="#3B82F6" />
+        <circle cx="12" cy="12" r="2" fill="#4338CA" />
       </svg>
       <span style={{ fontWeight: "bold", color: "#1F2937" }}>SupaSidebar Docs</span>
     </div>

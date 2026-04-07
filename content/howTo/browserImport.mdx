@@ -1,25 +1,41 @@
 # Import Bookmarks
 
-Bring your bookmarks from Arc or Chrome into SupaSidebar.
+Bring your bookmarks into SupaSidebar from Arc, Chrome, other Chromium browsers, Firefox, or an HTML bookmarks file.
 
-## Import Steps
+## Import steps
 
-1. Open **Preferences** → **Import**
-2. Click **Import from Arc** or **Import from Chrome**
+1. Open **Preferences → Import**
+2. Select your import source
 3. Grant Automation permission if prompted
 4. Select what to import
 5. Click **Start Import**
 
-## What Gets Imported
+## Supported import sources
 
-| Browser | Imports |
-|---------|---------|
+| Source | Imports |
+|--------|---------|
 | **Arc** | Spaces, folders, pinned tabs, bookmarks |
 | **Chrome** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
+| **Brave** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
+| **Opera** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
+| **Vivaldi** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
+| **Other Chromium browsers** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
+| **HTML bookmarks file** | All bookmarks and folder structure from the exported file |
+| **Firefox** | Bookmarks via exported HTML file (export from Firefox first) |
 
-## Other Browsers
+## Importing from an HTML file
 
-For Safari, Firefox, Edge, or other browsers: first import your bookmarks into Chrome or Arc, then import from there into SupaSidebar.
+Most browsers can export bookmarks as an HTML file. Use this method for any browser not listed above:
 
-*This is a temporary workaround. Direct import for other browsers is coming soon.*
+1. In your browser, go to **Bookmarks → Export Bookmarks** (exact path varies by browser)
+2. Save the `.html` file
+3. In SupaSidebar, open **Preferences → Import**
+4. Select **Import from HTML File**
+5. Choose the exported file
+
+## Tips
+
+- Imported links keep their original folder structure
+- Duplicate links are skipped automatically
+- After import, use [Air Traffic Control](/features/airTrafficControl) to route links to the right spaces
 

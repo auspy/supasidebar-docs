@@ -10,8 +10,9 @@ When you click a link, SupaSidebar decides which browser to use based on this pr
 |----------|--------|---------|
 | **1. Modifier-click** | `Opt`-click, right-click → Open With, `Cmd`-click action | You hold `Opt` and pick Safari - that wins over everything |
 | **2. Air Traffic Control** | URL-pattern rules in Preferences → ATC | Rule says `github.com` → Chrome, so all GitHub links open in Chrome |
-| **3. Link opening behavior** | Global setting: saved browser, frontmost, or default | Your preference is "saved browser" and this link was saved from Firefox |
-| **4. System default browser** | Whatever macOS is configured to use | Falls back to your default browser |
+| **3. Per-space browser** | Space's assigned default browser, set in **Preferences → Air Traffic Control** | Link is from Work space, which uses Chrome |
+| **4. Link opening behavior** | Global setting: saved browser, frontmost, or default | Your preference is "saved browser" and this link was saved from Firefox |
+| **5. System default browser** | Whatever macOS is configured to use | Falls back to your default browser |
 
 If a higher-priority method applies, lower ones are skipped entirely. For example, if an ATC rule matches a link, it doesn't matter what browser the link was saved from - ATC wins.
 

@@ -53,6 +53,18 @@ A live preview at the bottom of the editor shows exactly what the rule will do a
 - **Edit**  - Click a rule to modify its settings
 - **Delete**  - Remove rules you no longer need
 
+## Per-space default browser
+
+Each space can have its own default browser, configured in **Preferences → Air Traffic Control**. When you open a link from that space, it opens in the space's assigned browser instead of the system default.
+
+The priority order for browser selection:
+
+1. ATC open routes (highest priority)
+2. Per-space default browser
+3. System default browser (lowest priority)
+
+ATC open routes always win. If no open route matches, the space's browser is used. If the space has no assigned browser, the system default applies.
+
 ## Examples
 
 ### Save Routes
