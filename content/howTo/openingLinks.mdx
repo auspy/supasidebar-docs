@@ -1,0 +1,96 @@
+---
+title: "All Ways to Open Links - Complete guide"
+description: "Every method for opening links in SupaSidebar - click actions, keyboard shortcuts, Command Panel, context menus, web preview, and smart browser routing."
+---
+
+# All ways to open links
+
+Open links from the sidebar, Command Panel, pinned tabs, or context menus - with full control over which browser handles them.
+
+## Click actions
+
+| Action | What happens |
+|--------|-------------|
+| **Single click** | Opens the link using your preferred browser setting |
+| **`Cmd` click** | Opens a web preview (floating mini-browser). Configurable in **Preferences → General** to open in preferred, frontmost, or default browser instead |
+| **`Opt` click** | Shows a browser picker popover so you can choose which browser to open in |
+| **Click a pinned tab icon** | Opens with smart browser detection, which picks the browser closest to the sidebar |
+
+## Keyboard shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Return` | Open the currently selected link |
+| `Opt Return` | Show browser picker for the selected link |
+| `Cmd Opt 1` through `Cmd Opt 9` | Open pinned links by position |
+| `Cmd Ctrl B` | Open the current browser tab in a different browser (opens Command Panel in browser-selection mode) |
+
+## Command Panel
+
+Open the Command Panel with `Cmd Ctrl K`, then:
+
+- **Type and press `Return`** to open a saved link from search results
+- **Press `Tab` on a result** to switch to browser-selection mode and pick a specific browser
+- **Select a live browser tab** to activate it directly instead of opening a duplicate
+- **Type a URL and press `Return`** to open it, or type a search query to run a web search
+
+## Context menu
+
+Right-click any link to access these options:
+
+| Option | What happens |
+|--------|-------------|
+| **Open** | Opens in your frontmost or preferred browser |
+| **Open With** | Shows a submenu with all installed browsers to choose from |
+| **Open Preview** | Opens the floating mini-browser preview window |
+
+Right-click a folder for an additional option:
+
+| Option | What happens |
+|--------|-------------|
+| **Open All** | Opens every link inside the folder at once |
+
+## Web preview window
+
+When you open a link in the web preview (`Cmd` click or context menu), the preview window has its own controls:
+
+- **"Open in Browser" button** - opens the previewed link in your default browser
+- **Browser picker dropdown** (chevron next to the button) - opens in a specific browser
+
+## Smart features
+
+### Tab reuse
+
+Before opening a new tab, SupaSidebar checks if the URL is already open in any running browser. If a match is found, it activates the existing tab instead of creating a duplicate.
+
+### Air Traffic Control
+
+URL pattern rules that automatically route specific domains to specific browsers. For example, you can send all `github.com` links to Chrome and all `figma.com` links to Arc. Set up rules in **Preferences → Air Traffic Control**.
+
+> Air Traffic Control rules override your saved browser preference. Only modifier-click actions (`Opt` click, `Opt Return`) take priority over Air Traffic Control routing.
+
+### Browser selection priority
+
+When you click a link, SupaSidebar decides which browser to use in this order:
+
+1. Modifier-click (`Opt` click or `Opt Return`)
+2. Air Traffic Control rules
+3. Per-space default browser
+4. Global link opening behavior setting
+5. System default browser
+
+See the [browser selection guide](/howTo/browserSelection) for details on each level.
+
+## Tips
+
+- Use `Cmd` click to preview a link without leaving your current browser context
+- Assign frequently used links to pinned positions and open them instantly with `Cmd Opt 1` through `Cmd Opt 9`
+- Set up [Air Traffic Control](/features/airTrafficControl) rules to stop manually picking browsers for work vs personal links
+- Use the [Command Panel](/features/commandPanel) to search and open links without scrolling through the sidebar
+
+## Learn more
+
+- [Browser Selection](/howTo/browserSelection) - How SupaSidebar decides which browser to use
+- [Air Traffic Control](/features/airTrafficControl) - Automatic URL-based browser routing
+- [Command Panel](/features/commandPanel) - Fuzzy search and link launching
+- [Keyboard Shortcuts](/features/shortcuts) - Complete shortcut reference
