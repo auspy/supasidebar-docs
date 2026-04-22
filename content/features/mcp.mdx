@@ -11,7 +11,7 @@ Control SupaSidebar from AI assistants like Claude using the Model Context Proto
 
 ## How it works
 
-MCP (Model Context Protocol) is an open standard that lets AI assistants interact with external tools. SupaSidebar exposes 25 tools via its MCP server, so any compatible AI assistant can read and control your sidebar programmatically.
+MCP (Model Context Protocol) is an open standard that lets AI assistants interact with external tools. SupaSidebar exposes 29 tools via its MCP server, so any compatible AI assistant can read and control your sidebar programmatically.
 
 ## Available actions
 
@@ -63,6 +63,17 @@ View and rebind SupaSidebar's keyboard shortcuts.
 | **Get shortcuts** | List all keyboard shortcuts with their current bindings |
 | **Update shortcut** | Change a keyboard shortcut binding |
 | **Clear shortcut** | Remove a shortcut binding |
+
+### Create and organize
+
+Add new content and reorganize your sidebar - create spaces, folders, save links, and move items between spaces.
+
+| Action | Description |
+|--------|-------------|
+| **Add link** | Save a new link to SupaSidebar. If name is omitted, the page title is fetched automatically |
+| **Create space** | Create a new space to organize your links |
+| **Create folder** | Create a new folder inside a space |
+| **Move link** | Move an existing link to a different space or folder |
 
 ### Custom web search shortcuts
 
@@ -128,6 +139,7 @@ Create shortcuts to search specific websites directly from SupaSidebar. For exam
 ## Tips
 
 - Ask your AI assistant to "search my sidebar for [topic]" to find links across all spaces
+- Say "save this link to my Work space" to add links without opening the sidebar
 - Use "switch to my Work space" to change context without touching the keyboard
 - Combine with [Spaces](/features/spaces) to organize by project, then let your AI switch context for you
 - Use feature presets like "enable minimal sidebar" to quickly reconfigure SupaSidebar for different workflows

@@ -1,3 +1,8 @@
+---
+title: "Command Panel - Search, navigate, and control SupaSidebar"
+description: "Lightning-fast search and command palette for instant navigation across saved links, browser tabs, settings, and web search with draggable positioning and AI chat."
+---
+
 # Command Panel
 
 Lightning-fast search and command palette for instant navigation.
@@ -18,19 +23,40 @@ Press `Cmd Ctrl K` from anywhere.
 | Shortcut | Action |
 |----------|--------|
 | `Cmd Ctrl K` | Open panel |
-| `↑` `↓` | Navigate results |
+| `Up` `Down` | Navigate results |
 | `Return` | Open selected |
-| `Opt Return` | Choose browser |
+| `Opt Return` | Actions panel (choose browser, reveal in sidebar/Finder) |
+| `Shift Tab` | Cycle search scope |
+| `Ctrl Return` | [Ask AI](/features/askAI) |
+| `Cmd Return` | Search the web directly |
 | `Escape` | Close panel |
 
-## What You Can Search
+## What you can search
 
 - **Saved Links** - All your saved websites, files, and folders
 - **Recent Items** - Recently visited pages you haven't saved
 - **Live Tabs** - Currently open browser tabs
+- **Folders** - Browse and search inside folders
+- **Settings** - Toggle preferences and run commands
 - **Web Search** - Search the web with your preferred engine
 
-## Fuzzy Search
+## Search scopes
+
+Press `Shift Tab` to cycle through focused search scopes, or type `/` to pick one from a list. You can also type a scope keyword and press `Tab` to activate it.
+
+| Scope | Icon | Activation keywords |
+|-------|------|---------------------|
+| **All** | Grid | (default) |
+| **Recents** | Clock | "recents", "recent" |
+| **Live Tabs** | Globe | "live tabs", "tabs" |
+| **Saved** | Tray | "saved" |
+| **Spaces** | Stack | "spaces", "space" |
+| **Folders** | Folder | "folders", "folder" |
+| **Settings** | Gear | "settings", "tools", "commands", "actions" |
+
+The Spaces, Folders, and Settings scopes show items even with an empty search query, so you can browse without typing.
+
+## Fuzzy search
 
 The search is forgiving and intelligent:
 - "fecebook" finds "Facebook"
@@ -39,18 +65,67 @@ The search is forgiving and intelligent:
 
 ![Fuzzy Search Power](/assets/fuzzy%20search.jpeg)
 
-## Live Tab Switching
+## Search history
 
-Search for an open tab by title and press Return to switch instantly.
+The Command Panel remembers your past search queries. When you start typing, matching previous queries appear as suggestions, helping you quickly repeat frequent searches.
+
+## Frequent items
+
+When you open the Command Panel with an empty query, your most frequently used items appear at the top for quick access.
+
+## Actions panel
+
+Press `Opt Return` on any selected item to see available actions:
+
+| Action | When available |
+|--------|---------------|
+| **Copy URL** | Always |
+| **Reveal in Sidebar** | Saved links |
+| **Save to Sidebar** | Unsaved items (uses your search query) |
+| **Reveal in Finder** | Local file and folder links |
+| **Open in [Browser]** | One entry per installed browser |
+
+Press `Escape` to dismiss the actions panel and return to search results.
+
+## Clipboard awareness
+
+When you open the Command Panel with a URL on your clipboard, a "Paste and Go" row appears at the top of the results. Press `Return` to open the URL directly.
+
+## Toggle settings
+
+Switch to the Settings scope (`Shift Tab` to cycle, or type "settings" then `Tab`) to toggle SupaSidebar preferences directly from the Command Panel without opening Preferences.
+
+## Draggable positioning
+
+Drag the Command Panel anywhere on screen. It magnetically snaps to center with visual guide lines when you drag near the default position. Release near center to reset, or drop anywhere else to save that position across sessions.
+
+The Command Panel uses a frosted glass design that blends with your desktop while keeping content readable.
+
+## Live tab switching
+
+Search for an open tab by title and press `Return` to switch instantly.
+
+## Ask AI
+
+Press `Ctrl Return` to chat with an AI assistant inside the Command Panel. Search your sidebar, open links, create folders, and more using natural language. See [Ask AI](/features/askAI) for details.
 
 ## AI assistant integration
 
 SupaSidebar can also be controlled by AI assistants via the Model Context Protocol (MCP). Search your sidebar, switch spaces, and open links hands-free. See [SupaSidebar MCP](/features/mcp) for setup.
 
-## Web Search
+## Web search
 
-1. Open **Preferences → Command Panel**
+1. Open **Preferences - Command Panel**
 2. Enable **Web search suggestions**
 3. Choose your engine (Google, DuckDuckGo, Bing, Yahoo, Perplexity)
 
+Press `Cmd Return` to search the web directly with your current query.
+
 ![Command Panel Settings](/assets/command%20panel%20settings.jpeg)
+
+## Tips
+
+- Use `Shift Tab` to quickly narrow results to a specific scope instead of scrolling through everything.
+- The Settings scope lets you toggle preferences without leaving what you're doing.
+- Drag the panel to a comfortable position - it remembers where you left it.
+- See [Shortcuts](/features/shortcuts) for the complete keyboard shortcut reference.

@@ -1,3 +1,8 @@
+---
+title: "Sidebar Panel - Your central workspace"
+description: "A floating sidebar for macOS that provides instant access to your saved links, files, and folders from any application."
+---
+
 # Sidebar Panel
 
 The SupaSidebar panel is a floating sidebar for macOS that provides instant access to your saved links, files, and folders from any application.
@@ -9,31 +14,33 @@ The SupaSidebar panel is a floating sidebar for macOS that provides instant acce
 - **Multi-Screen Support** - Automatically appears on your active display
 - **Left or Right Positioning** - Toggle sides instantly with `Cmd Ctrl L`
 - **Auto-hide** - Optionally hides when clicking outside the panel
-- **Resizable** - Drag to adjust panel width
+- **Drag-to-Resize** - Drag the inner edge of the sidebar to adjust its width
 - **Pin to Spaces** - Follow across all macOS desktop spaces or stay on one
 - **Slide Animation** - Smoothly slides in and out when opening or closing. The animation direction is context-aware based on the sidebar's screen position
+- **Noise Texture** - A subtle texture overlay for a more tactile feel (10% opacity by default, configurable in Appearance)
 
 ## Quick settings menu
 
-The ••• menu in the sidebar top bar provides quick access to common sidebar settings without opening full Preferences. Use it to toggle appearance options and adjust frequently changed behavior on the fly.
+The ••• menu in the sidebar top bar provides quick access to common sidebar settings without opening full Preferences. It also includes a **Keyboard Shortcuts** item that shows your configured shortcuts, and a **Quit** option to close SupaSidebar.
 
 ## Settings
 
-Configure the sidebar panel in **Preferences**.
+Configure the sidebar panel in **Preferences**. Sidebar preferences use a split-panel layout with use case presets on the left and individual settings on the right. Settings have clear descriptions to help you understand what each option does.
 
 ### Appearance
 
-Found in Preferences → Appearance.
+Found in **Preferences - Appearance**.
 
-- **Width** - Drag the sidebar edge to resize
+- **Width** - Drag the sidebar inner edge to resize
 - **Opacity on focus change** - Dim sidebar when not focused
 - **Glass theme** - Enable translucent background
+- **Noise texture** - Adjust the overlay texture intensity (0-100%)
 - **Show item counts** - Display count badges on folders
 - **Arrow indicator** - Show expand/collapse arrows on folders
 
 ### Behavior
 
-Found in Preferences → General.
+Found in **Preferences - General**.
 
 - **Auto-hide on deactivate** - Hide sidebar when clicking outside
 - **Default side** - Choose left or right screen edge
@@ -41,8 +48,8 @@ Found in Preferences → General.
 - **Adaptive height** - Adjust sidebar height based on content
 - **Browser integration** - Configure how sidebar interacts with browsers. See [Browser Integration](/features/browserIntegration)
 - **When Sidebar Hides** - Control what happens to browser windows when the sidebar is hidden:
-  - **Fill Remaining Space** (default)  - browser windows expand to fill the full screen. Tiled windows re-tile across the entire screen width; filled windows take up the whole screen. Only applies when [Fill Entire Screen](/features/browserIntegration/fillScreen) or [Auto-Tile](/features/browserIntegration/tiling) is active.
-  - **Restore Original Position**  - browser windows return to their size and position from before the sidebar was opened.
+  - **Fill Remaining Space** (default) - browser windows expand to fill the full screen. Tiled windows re-tile across the entire screen width; filled windows take up the whole screen. Only applies when [Fill Entire Screen](/features/browserIntegration/fillScreen) or [Auto-Tile](/features/browserIntegration/tiling) is active.
+  - **Restore Original Position** - browser windows return to their size and position from before the sidebar was opened.
 
 ![Sidebar settings in Preferences](/assets/default%20sidebar%20position.jpeg)
 
@@ -57,3 +64,9 @@ Shortcuts specific to the sidebar panel. For all shortcuts, see [Shortcuts](/fea
 | `Cmd Ctrl L` | Switch between left and right |
 | `Cmd Ctrl P` | Pin or unpin from current space |
 | `Esc` | Hide sidebar |
+
+## Tips
+
+- Use the presets panel in **Preferences - Sidebar** for one-click configuration of sidebar behavior. Choose from Minimal, Bookmark Manager, Workspace Switcher, or Browser Companion.
+- The noise texture pairs well with the glass theme for a polished look.
+- See [Sidebar Access](/features/sidebarAccess) for all the ways to open the sidebar - floating button, mouse triggers, and more.

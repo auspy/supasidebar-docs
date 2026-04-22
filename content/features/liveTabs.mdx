@@ -1,3 +1,8 @@
+---
+title: "Live Tabs - Real-time browser tab access"
+description: "Mirror your open browser tabs in SupaSidebar for instant switching across Safari, Chrome, Firefox, Edge, Arc, and 20+ other browsers."
+---
+
 # Live Tabs
 
 Real-time mirror of your browser tabs directly in the sidebar - switch between tabs across all browsers without leaving your keyboard.
@@ -11,22 +16,40 @@ Real-time mirror of your browser tabs directly in the sidebar - switch between t
 
 ## Setup
 
-1. Open **Preferences → Live Tabs**
-2. Toggle **Live Tabs** mode
+1. Open **Preferences - Tabs & History**
+2. Choose your mode using the card selector: **Currently open tabs**, **Browsing history**, or both
 3. Grant browser permissions when prompted
 
 ![Live Tabs Option](/assets/Live%20Tabs%20Option.jpeg)
 
 For detailed permission setup, see [Permissions Guide](/gettingStarted/permissions).
 
-## Supported Browsers
+## Supported browsers
+
+SupaSidebar supports Live Tabs across 20+ browsers. Each installed browser shows its real app icon in the sidebar.
 
 | Status | Browsers |
 |--------|----------|
-| **Fully Supported** | Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Helium, Dia |
+| **Fully Supported** | Safari, Chrome, Edge, Brave, Vivaldi, Comet, Orion, Helium, Dia, and 13 additional Chromium-based variants |
 | **In Development** | Atlas, Firefox, Arc |
 
 ![Live Tabs in Multiple Browsers](/assets/lifetabsmultiplebrowser.jpeg)
+
+See [Browser Support](/gettingStarted/browserSupport) for the full compatibility table.
+
+## Collapsible browser sections
+
+Each browser appears as a collapsible section in the Live Tabs list. Click the browser header to expand or collapse its tabs. This keeps the list manageable when you have tabs open across multiple browsers.
+
+## Switch to Tab
+
+Search for an open tab by title in the [Command Panel](/features/commandPanel) or click it in the Live Tabs list to switch to it instantly. SupaSidebar activates the existing tab in the correct browser window.
+
+Duplicate tabs are automatically deduplicated in the list, so you see each unique page only once.
+
+## Drag and drop
+
+Drag tabs from the Live Tabs list to save them as links in your sidebar. Drop them into folders, spaces, or the pinned section to organize them.
 
 ## Active tab highlight
 
@@ -40,7 +63,7 @@ You can hide specific sites, domains, or entire browsers from the Live Tabs list
 
 When you click a saved link that's already open in a browser tab, SupaSidebar activates the existing tab instead of opening a duplicate. Tracking parameters (`utm_*`, `gclid`, `fbclid`) are ignored when matching URLs, so a link will still match its open tab even if the saved URL has different tracking params.
 
-## Profile Filtering
+## Profile filtering
 
 When a space is linked to a browser profile, Live Tabs automatically filters to show only tabs from that profile. Tabs from other profiles are hidden.
 
@@ -48,12 +71,12 @@ Spaces without a linked profile show all browser tabs as usual.
 
 See [Browser Profiles](/features/profileSpaces) for how to link profiles to spaces.
 
-## Keyboard Shortcuts
+## Keyboard shortcuts
 
 Shortcuts specific to Live Tabs. For all shortcuts, see [Shortcuts](/features/shortcuts).
 
 | Shortcut | Action |
 |----------|--------|
-| **⌘⌃K** | Open command panel |
-| **↑ / ↓** | Navigate tabs |
-| **Return** | Switch to tab |
+| `Cmd Ctrl K` | Open Command Panel (search tabs from there) |
+| `Up` `Down` | Navigate tabs |
+| `Return` | Switch to tab |

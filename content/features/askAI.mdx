@@ -1,0 +1,69 @@
+---
+title: "Ask AI - Chat with your sidebar"
+description: "Chat with an AI assistant inside the Command Panel to search, open links, create folders, and control SupaSidebar with natural language."
+---
+
+# Ask AI
+
+Chat with an AI assistant directly inside the Command Panel. Ask questions, search your sidebar, open links, and manage your workspace using natural language.
+
+## How to access
+
+Open the Command Panel with `Cmd Ctrl K`, then activate AI mode in one of three ways:
+
+- **`Ctrl Return`** - Activates AI mode. If you have a search query with no results, it pre-fills that query.
+- **"Ask AI" row** - When a search returns no results, an "Ask AI" row appears in the results list. Press `Return` to activate it.
+
+## What the AI can do
+
+The AI assistant can interact with your sidebar through natural language. It has access to these capabilities:
+
+| Category | Actions |
+|----------|---------|
+| **Search and browse** | Search saved links, list spaces, folders, tags, recent items, live tabs |
+| **Open and navigate** | Open links in any browser, switch spaces, perform web searches |
+| **Create and organize** | Save new links, create folders and spaces, move links between spaces |
+| **Settings** | View current settings, shortcuts, and visibility options, open preferences |
+| **Sidebar control** | Toggle sidebar visibility |
+
+Some actions (like opening links or creating folders) may ask for your permission before executing. You can choose to deny, allow once, or always allow each action type.
+
+## Slash commands
+
+Type `/` in the AI input field to see all available commands:
+
+| Command | Description |
+|---------|-------------|
+| `/guide` | Shows a summary of everything the AI can help with |
+| `/model` | Opens the model picker to switch AI models |
+| `/clear` | Clears the current chat history |
+| `/help` | Lists all available slash commands |
+
+## AI providers and models
+
+Configure your AI provider in **Preferences - AI** under the "Features" section for "AI Chat."
+
+| Provider | Models | Requires |
+|----------|--------|----------|
+| **Anthropic** | Claude 4.5 Haiku, Claude 4.6 Sonnet, Claude 4.6 Opus | API key |
+| **OpenAI** | GPT-5 Nano, GPT-5 Mini, GPT-5, GPT-5.2, GPT-5.2 Pro | API key |
+| **Ollama** | Any locally pulled model | Ollama running locally |
+| **MLX** | Gemma 2 2B, Llama 3.2 3B, Phi-4 Mini 3.8B, Qwen3 4B, Mistral 7B, Qwen 2.5 7B | Apple Silicon Mac, model downloaded |
+
+Use the `/model` slash command to switch between models for the current provider without leaving the chat.
+
+## Keyboard shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl Return` | Activate AI mode from Command Panel |
+| `Escape` | Exit AI mode and return to search |
+| `/` | Show slash command menu |
+
+## Tips
+
+- The AI remembers context within a conversation. Ask follow-up questions without repeating yourself.
+- Use `/guide` when you first try Ask AI to see everything it can help with.
+- Local models (MLX, Ollama) keep your conversations completely private - nothing leaves your Mac.
+- Combine Ask AI with [Spaces](/features/spaces) to quickly organize links across workspaces using natural language.
+- See [Command Panel](/features/commandPanel) for other search and navigation features.

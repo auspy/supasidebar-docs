@@ -8,6 +8,7 @@ export default {
   smartFolders: 'Smart Folders',
   tags: 'Tags',
   commandPanel: 'Command Panel',
+  askAI: 'Ask AI',
   sidebarAccess: 'Sidebar Access',
   liveTabs: 'Live Tabs',
   browserIntegration: 'Browser Integration',
