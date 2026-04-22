@@ -1,0 +1,107 @@
+---
+title: "Link Preview - Built-in mini browser"
+description: "Preview links without leaving SupaSidebar using a built-in WebKit browser with Safari cookie sharing, persistent sessions, and native macOS security."
+---
+
+import { Callout } from 'nextra/components'
+
+# Link Preview
+
+Preview any link in a floating mini-browser without switching to a full browser. The preview uses macOS's native WebKit engine, the same technology that powers Safari.
+
+## How to open a preview
+
+| Method | Action |
+|--------|--------|
+| **`Cmd` click** | Click any link while holding `Cmd` |
+| **Right-click > Open Preview** | Context menu on any link |
+
+The preview opens in a floating window that stays on top of other windows. You can resize it, scroll, and interact with the page like a normal browser.
+
+<Callout type="info">
+`Cmd` click behavior is configurable. If it opens a browser instead of the preview, check **Preferences > General** and set `Cmd` click to "Open Preview".
+</Callout>
+
+## Opening in a full browser
+
+The preview window includes:
+
+- **Open in Browser** button - sends the link to your default browser
+- **Browser picker dropdown** (chevron next to the button) - choose a specific browser
+
+## Is the Link Preview safe to log into?
+
+Yes. SupaSidebar's Link Preview is as safe as Safari. It uses macOS's built-in WebKit engine with the default persistent data store (`WKWebsiteDataStore.default()`), which means it runs under the exact same security model, TLS enforcement, and credential handling as Safari. SupaSidebar itself never reads, stores, or transmits your web passwords or session cookies. All credential management is handled by macOS Keychain and iCloud Keychain, the same system Safari uses.
+
+## Cookie and session sharing
+
+The preview shares cookies and login sessions with **Safari**. If you are logged into a site in Safari, the preview shows the logged-in version automatically with no need to sign in again. This works because both Safari and the preview use macOS's shared WebKit data store.
+
+**What this means in practice:**
+
+- Academic portals, Microsoft 365, Google Workspace, and other login-protected pages display correctly if you are already signed into them in Safari
+- Sessions persist across preview uses and app restarts
+- You do not need to log in again each time you preview a link
+
+**What does not carry over:**
+
+- Cookies from **Chrome, Firefox, Arc, Edge, Brave**, or other non-WebKit browsers. These browsers maintain their own separate cookie stores and do not share sessions with WebKit
+- If you only use Chrome and never Safari, the preview shows the logged-out version of protected pages
+
+## Does SupaSidebar save my passwords?
+
+No. SupaSidebar never accesses, stores, or transmits your web passwords. When you enter credentials in the Link Preview, password saving and autofill are handled entirely by macOS Keychain, the same system that manages passwords in Safari. SupaSidebar's own Keychain usage is limited to your license key, trial information, device identifier, and OpenAI API key (if you use Ask AI). None of these are related to your web browsing credentials.
+
+## Security and privacy details
+
+The preview runs inside macOS's native WebKit framework with the same security model as Safari:
+
+| Aspect | How it works |
+|--------|-------------|
+| **Credential storage** | Handled by macOS Keychain and iCloud Keychain. SupaSidebar never accesses or stores your web passwords |
+| **Autofill** | macOS may offer to save passwords you enter in the preview, exactly as it does in Safari |
+| **Data isolation** | The preview runs in a sandboxed WebKit content process, separate from SupaSidebar's own app process |
+| **Network security** | Standard WebKit TLS/SSL enforcement applies. Invalid certificates are rejected |
+| **SupaSidebar's access** | The app reads only the current page URL (for the "Open in Browser" button). It cannot read page content, form data, cookies, or passwords |
+
+### How the Link Preview compares to a regular browser
+
+SupaSidebar's Link Preview uses the same WebKit engine, security policies, and credential handling as Safari. The differences are about scope, not safety:
+
+- **No browser extensions** - ad blockers and third-party password managers do not load in the preview since it is a standalone WebKit view
+- **No browsing history** - SupaSidebar does not record which pages you visit in the preview
+- **No tab or bookmark management** - the preview is designed for quick checks, not extended browsing sessions
+
+If you need full browser features, click "Open in Browser" to send the page to any installed browser.
+
+## Frequently asked questions
+
+**Can I use Microsoft SSO or university login in the preview?**
+Yes. If you have already signed in through Safari, the preview picks up that session automatically. If you have not, you can sign in directly in the preview and macOS handles credential storage through Keychain, the same as Safari.
+
+**Does the preview work with two-factor authentication?**
+Yes. 2FA flows (including Microsoft Authenticator, Duo, and TOTP codes) work in the preview the same way they do in Safari.
+
+**Will my saved passwords from Chrome or Firefox appear in the preview?**
+No. The preview only has access to credentials stored in macOS Keychain and iCloud Keychain (shared with Safari). Passwords stored in Chrome, Firefox, Arc, or other non-WebKit browsers are not available.
+
+**What if I use multiple browser profiles?**
+The preview only shares cookies with Safari's default profile. If you use multiple Safari profiles, only sessions from the default profile carry over. Chrome, Firefox, and Arc profiles are entirely separate since those browsers do not use WebKit's data store.
+
+**Which Safari profile does the preview use?**
+Safari's default profile (usually labeled "Personal"). Sessions from other named Safari profiles are not available in the preview.
+
+**Does SupaSidebar track which pages I preview?**
+No. SupaSidebar does not record browsing history from the Link Preview. The only data it reads is the current page URL, which it needs to power the "Open in Browser" button.
+
+## Tips
+
+- Use the preview to quickly check a link before deciding which browser to open it in
+- If a page requires login and shows the logged-out version, sign into that site once in Safari and future previews will be logged in automatically
+- For pages you need to interact with extensively, use the "Open in Browser" button to switch to a full browser
+
+## Learn more
+
+- [All Ways to Open Links](/howTo/openingLinks) - Every method for opening links from the sidebar
+- [Privacy Blocklist](/features/privacyBlocklist) - Hide specific sites from Live Tabs and Recents
+- [Shortcuts](/features/shortcuts) - Complete keyboard shortcut reference

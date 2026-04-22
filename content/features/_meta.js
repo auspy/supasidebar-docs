@@ -12,6 +12,7 @@ export default {
   sidebarAccess: 'Sidebar Access',
   liveTabs: 'Live Tabs',
   browserIntegration: 'Browser Integration',
+  linkPreview: 'Link Preview',
   shortcuts: 'Shortcuts',
   privacyBlocklist: 'Privacy Blocklist',
   mcp: 'MCP',
