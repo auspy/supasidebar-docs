@@ -1,6 +1,6 @@
 # Browser Selection
 
-Choose which browser opens your links - pick on demand, assign per link, or use your active browser.
+Choose which browser - or browser profile - opens your links. Pick on demand, assign per link, or use your active browser.
 
 ## Priority Order
 
@@ -20,27 +20,49 @@ If a higher-priority method applies, lower ones are skipped entirely. For exampl
 
 | Method | How |
 |--------|-----|
-| Right-click link | Right-click link → **Open With** → choose browser |
+| Right-click link | Right-click link → **Open With** → choose browser or profile |
 | Right-click folder | Right-click folder → **Open All With** → choose browser for all links |
 | `Opt` click | Hold `Opt` and click a link |
 | `Opt Return` | Select link in Command Panel, press `Opt Return` |
 | Air Traffic Control | Set URL-based routing rules in **Preferences → Air Traffic Control**. See [Air Traffic Control](/features/airTrafficControl) |
 
+## Browser Profiles
+
+The **Open With** menu shows individual browser profiles when a browser has two or more profiles set up. For example, if Chrome has "Work" and "Personal" profiles, both appear as separate options under Chrome in the picker.
+
+**Where profiles appear:**
+- Right-click context menu (as a submenu under each browser)
+- `Opt`-click popover (as indented rows under each browser)
+- Command Panel browser selection (`Opt Return`)
+
+**How profiles are discovered:**
+- Profiles are automatically detected from installed browsers (Chrome, Brave, Edge, Safari, Firefox, and more)
+- Discovery runs in the background shortly after app launch
+- Results are cached, so profiles appear instantly on subsequent opens
+- To manually refresh, search "Refresh Browser Profiles" in the Command Panel
+
+**Supported browsers:**
+- **Chromium-based** (Chrome, Brave, Edge, Vivaldi, etc.) - reads profile directories
+- **Safari** - reads profiles from the File menu (Safari must have been running at least once)
+- **Firefox** - reads profiles from profiles.ini
+
 ## Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
-| `Opt` click | Show browser picker |
-| `Opt Return` | Show browser picker (Command Panel) |
+| `Opt` click | Show browser and profile picker |
+| `Opt Return` | Show browser and profile picker (Command Panel) |
 | `↑` `↓` | Navigate picker |
-| `Return` | Select browser |
+| `Return` | Select browser or profile |
 | `Escape` | Cancel |
 
 ## Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| Browser not in picker | Install in Applications folder, restart app |
+| Browser not in picker | Only installed browsers are shown. Install in Applications folder and restart the app |
+| Profiles not showing | Profiles appear when a browser has 2+ profiles. Search "Refresh Browser Profiles" in the Command Panel to re-scan |
+| Safari profiles missing | Safari must have been running at least once for profile discovery. Open Safari, then refresh profiles |
 | Wrong browser opens | Right-click link → Set Browser → choose correct one |
 | Picker doesn't appear | Hold `Opt` while clicking/pressing Return |
 | Assignment not saving | Use "Set Browser" (right-click), not one-time `Opt` click |
