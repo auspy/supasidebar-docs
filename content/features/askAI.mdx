@@ -48,10 +48,28 @@ Configure your AI provider in **Preferences - AI** under the "Features" section 
 | **Anthropic** | Claude 4.5 Haiku, Claude 4.6 Sonnet, Claude 4.6 Opus | API key |
 | **OpenAI** | GPT-5 Nano, GPT-5 Mini, GPT-5, GPT-5.2, GPT-5.2 Pro | API key |
 | **Google Gemini** | Gemini 2.5 Flash, Gemini 2.5 Pro, and more | API key |
+| **OpenAI-Compatible** | Any model the server offers | Base URL, optional API key |
 | **Ollama** | Any locally pulled model | Ollama running locally |
 | **MLX** | Gemma 2 2B, Llama 3.2 3B, Phi-4 Mini 3.8B, Qwen3 4B, Mistral 7B, Qwen 2.5 7B | Apple Silicon Mac, model downloaded |
 
 Use the `/model` slash command to switch between models for the current provider without leaving the chat.
+
+### OpenAI-Compatible provider
+
+Many AI services and local servers use the same API format as OpenAI. The OpenAI-Compatible provider lets you connect to any of them - just provide a base URL and you're ready to go.
+
+**Works with:** Groq, Together AI, LM Studio, vLLM, Mistral, Fireworks, and any other service that exposes an OpenAI-compatible `/chat/completions` endpoint.
+
+**Setup:**
+
+1. Go to **Preferences - AI**
+2. Under the feature you want to configure (e.g. AI Chat), select **OpenAI-Compatible** as the provider
+3. Enter the **Base URL** of your server (e.g. `http://localhost:1234/v1` for LM Studio, or `https://api.groq.com/openai/v1` for Groq)
+4. Enter your **API key** if the service requires one (local servers like LM Studio typically don't)
+5. Click **Save & Test** - SupaSidebar will verify the connection
+6. Type the **model name** you want to use (e.g. `llama-3.3-70b-versatile` for Groq, or whatever model your server provides)
+
+SupaSidebar automatically sends requests to the right endpoint (`/chat/completions`) using the standard OpenAI format. Streaming and tool calling are supported when the server supports them.
 
 ## Keyboard shortcuts
 
