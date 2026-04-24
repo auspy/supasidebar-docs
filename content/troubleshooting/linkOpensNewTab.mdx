@@ -1,0 +1,26 @@
+# Link Opens a New Tab Instead of Switching to Existing One
+
+## Problem
+
+You open a link from the Command Panel or sidebar, but instead of switching to the existing tab, a new tab opens - even though the site is already open in your browser.
+
+## Why This Happens
+
+SupaSidebar matches URLs by comparing the exact path. Some websites redirect after loading - for example, `x.com` redirects to `x.com/home`, and `github.com` redirects to `github.com/dashboard`. Since the path you opened (`/`) differs from the path the browser ended up on (`/home`), SupaSidebar doesn't recognize them as the same tab.
+
+## Solutions
+
+### Save the link with Smart Save
+
+Use **Smart Save** (`Cmd Shift S`) while you're on the page. This saves the actual URL the browser is showing (e.g., `x.com/home` instead of `x.com`), so tab reuse works correctly next time you open it.
+
+### Use Live Tabs to switch directly
+
+Instead of typing the URL, search for the tab by its title using the **Live Tabs** scope in the Command Panel:
+
+1. Open the Command Panel (`Cmd Ctrl K`)
+2. Type `/tabs` then press `Tab` to enter the Live Tabs scope
+3. Search by page title (e.g., "Home / X")
+4. Press `Return` to switch to that exact tab
+
+This finds the open tab regardless of URL redirects.
