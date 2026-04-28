@@ -111,6 +111,8 @@ Create shortcuts to search specific websites directly from SupaSidebar. For exam
 
 3. Restart Claude Code. SupaSidebar tools are now available.
 
+> **Troubleshooting:** If you see "Failed to spawn process", you likely use a Node version manager (fnm, nvm, volta). Replace the command with `"/bin/zsh"` and args with `["-lc", "npx -y supasidebar-mcp"]` to load your shell profile.
+
 ## Setup with Claude Desktop
 
 1. Open Claude Desktop settings (**Claude → Settings → Developer → Edit Config**)
@@ -129,12 +131,16 @@ Create shortcuts to search specific websites directly from SupaSidebar. For exam
 
 3. Restart Claude Desktop. You can now ask Claude to search your sidebar, switch spaces, open links, and more.
 
+> **Troubleshooting:** If you see "Failed to spawn process", you likely use a Node version manager (fnm, nvm, volta). Replace the command with `"/bin/zsh"` and args with `["-lc", "npx -y supasidebar-mcp"]` to load your shell profile.
+
 ## Setup with Cursor
 
 1. Open Cursor settings (**Cursor → Settings → MCP**)
 2. Click **Add new MCP server**
 3. Set the command to `npx -y supasidebar-mcp`
 4. Save and restart Cursor
+
+> **Troubleshooting:** If you see "Failed to spawn process", you likely use a Node version manager (fnm, nvm, volta). Replace the command with `"/bin/zsh"` and args with `["-lc", "npx -y supasidebar-mcp"]` to load your shell profile.
 
 ## Tips
 
