@@ -1,0 +1,122 @@
+# MCP Setup Troubleshooting
+
+Common issues when setting up the SupaSidebar MCP server with Claude Code, Claude Desktop, Cursor, Codex, or any other MCP-compatible AI client.
+
+For initial setup steps, see [SupaSidebar MCP](/features/mcp).
+
+## `npx: command not found`
+
+### Problem
+
+Your AI client tries to start `npx -y supasidebar-mcp` and fails with `npx: command not found` or `command failed: npx`.
+
+### Solution
+
+You don't have Node.js installed. SupaSidebar MCP requires Node.js 18 or newer.
+
+- **With Homebrew:**
+  ```bash
+  brew install node
+  ```
+- **Without Homebrew:** download the LTS installer from [nodejs.org/en/download](https://nodejs.org/en/download) and run it. The macOS `.pkg` installer puts `node` and `npx` on your PATH automatically.
+
+Restart your terminal and AI client afterwards.
+
+## Tools don't appear in Claude Code
+
+### Problem
+
+You added the supasidebar MCP server, but `mcp__supasidebar__*` tools never appear in your Claude Code session.
+
+### Solution
+
+Run through this checklist:
+
+1. **Verify registration:**
+   ```bash
+   claude mcp list
+   # expected: supasidebar    ✓ Connected
+   ```
+   If `supasidebar` isn't there, registration failed. Re-run:
+   ```bash
+   claude mcp add -s user supasidebar -- npx -y supasidebar-mcp
+   ```
+2. **Confirm config location.** MCP config must live in `~/.claude.json` under `mcpServers`, **not** `~/.claude/settings.json`. Claude Code silently ignores unknown keys in `settings.json`, so the server appears to "register" but no tools load.
+3. **Restart Claude Code** after any MCP change. Servers are spawned once at session start and won't pick up config changes mid-session.
+4. **For verbose handshake logs:** run `claude --mcp-debug` to see exactly what happens during the MCP handshake.
+
+## "Failed to connect to SupaSidebar" / `fetch failed`
+
+### Problem
+
+Tool calls fail with `Failed to connect to SupaSidebar: fetch failed` or similar.
+
+### Solution
+
+The MCP server can't reach the SupaSidebar app on `127.0.0.1:9847`. Make sure SupaSidebar is running, then check the bridge:
+
+```bash
+curl http://127.0.0.1:9847/api/v1/health
+# expected: {"app":"SupaSidebar","status":"ok",...}
+```
+
+If the bridge responds but tool calls still fail, restart your AI client to re-establish the MCP connection.
+
+## "Failed to spawn process"
+
+### Problem
+
+Your AI client logs `Failed to spawn process` or similar when trying to start the MCP server.
+
+### Solution
+
+This usually means you're using a Node.js version manager (fnm, nvm, volta) and your AI client doesn't see the shell PATH where Node lives. Replace the command and args in your MCP config with:
+
+```json
+"command": "/bin/zsh",
+"args": ["-lc", "npx -y supasidebar-mcp"]
+```
+
+The `-lc` flag tells zsh to load your login profile, which sets up the version manager's PATH.
+
+## Codex's `/mcp` panel shows fewer tools than expected
+
+### Problem
+
+In Codex CLI, typing `/mcp` shows only a handful of supasidebar tools (or none) even though the server is registered.
+
+### Solution
+
+This is a known display bug in Codex CLI ([openai/codex#17021](https://github.com/openai/codex/issues/17021)) - the `/mcp` view under-reports MCP tools, but **all of them are registered and callable**.
+
+To verify what's actually available, ask the agent directly:
+
+> List every SupaSidebar tool you have access to - there should be at least 35.
+
+If Codex returns fewer, fall back to the MCP Inspector below for the ground truth.
+
+## See exactly which tools are exposed
+
+### Problem
+
+You want to confirm what the MCP server is actually exposing, independent of what your AI client shows.
+
+### Solution
+
+Use the official MCP Inspector - it works without any AI client and gives a complete view of every registered tool and its schema:
+
+```bash
+npx @modelcontextprotocol/inspector npx -y supasidebar-mcp
+```
+
+Open the printed URL in a browser, click **Connect**, then **List Tools**. You'll see all 36 tools with their schemas and can test-call any of them. This is the fastest way to confirm whether a tool-count problem is in the server or in the client.
+
+For the in-client view:
+
+- **Claude Code:** type `/mcp` in a session - reliably lists each connected server and its tool count.
+- **Codex:** type `/mcp` (often under-reports - see entry above; prefer asking the agent or using the Inspector).
+
+## Learn More
+
+- [SupaSidebar MCP](/features/mcp) - setup guide, available tools, supported clients
+- [Setting up permissions](/gettingStarted/permissions) - macOS permissions required for browser integration

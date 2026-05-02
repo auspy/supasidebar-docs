@@ -11,13 +11,13 @@ Control SupaSidebar from AI assistants like Claude using the Model Context Proto
 
 ## How it works
 
-MCP (Model Context Protocol) is an open standard that lets AI assistants interact with external tools. SupaSidebar exposes 35 tools via its MCP server, so any compatible AI assistant can read and control your sidebar programmatically.
+MCP (Model Context Protocol) is an open standard that lets AI assistants interact with external tools. SupaSidebar exposes 36 tools via its MCP server, so any compatible AI assistant can read and control your sidebar programmatically.
 
 ## Available actions
 
 ### Browse and search
 
-Read your sidebar data - find links, browse spaces, check open tabs, and see recent activity.
+Read your sidebar data - find links, browse spaces, check open tabs, see recent activity, and inspect browser availability.
 
 | Action | Description |
 |--------|-------------|
@@ -25,9 +25,11 @@ Read your sidebar data - find links, browse spaces, check open tabs, and see rec
 | **List spaces** | Get all your spaces |
 | **List links** | Get links in a specific space or folder |
 | **List folders** | Get folders in a space |
-| **List recent** | Get recently opened links |
+| **List recent** | Get recently opened links, with pagination and date filters (`day`, `since`, `until`) |
 | **List tags** | Get all tags sorted by usage count |
 | **Get live tabs** | Get currently open browser tabs, optionally filtered by browser |
+| **List browser profiles** | Get browser profile IDs for profile-specific opening and routing |
+| **List installed browsers** | See which supported browsers are actually installed, running, and default |
 
 ### Actions
 
@@ -35,12 +37,12 @@ Control SupaSidebar - open links, switch spaces, toggle visibility, and search t
 
 | Action | Description |
 |--------|-------------|
-| **Open link** | Open a URL in a specific browser or the default browser |
+| **Open link** | Open a URL in a specific browser, browser profile, or the default browser |
 | **Switch space** | Switch to a different space |
 | **Toggle sidebar** | Show or hide the sidebar |
 | **Toggle command panel** | Open or close the command panel |
 | **Launch sidebar** | Start SupaSidebar if it's not running |
-| **Web search** | Search the web using Google, DuckDuckGo, Perplexity, or custom search shortcuts |
+| **Web search** | Search the web using Google, Bing, DuckDuckGo, Yahoo, Perplexity, Brave, Kagi, or any custom shortcut |
 
 ### Settings and configuration
 
@@ -48,7 +50,7 @@ Read and change SupaSidebar settings, apply feature presets, and open Preference
 
 | Action | Description |
 |--------|-------------|
-| **Get settings** | View all 40+ settings grouped by category, or query a specific setting |
+| **Get settings** | View all 40+ settings grouped by category, or query a specific setting by key or natural-language alias |
 | **Update setting** | Change any setting (toggles, modes, numeric values) |
 | **Enable feature preset** | Apply a preset: Smart Attach, Independent Mode, Space Isolation, Minimal Sidebar, or Full Featured |
 | **Open preferences** | Open the Preferences window, optionally jumping to a specific tab |
@@ -75,6 +77,18 @@ Add new content and reorganize your sidebar - create spaces, folders, save links
 | **Create folder** | Create a new folder inside a space |
 | **Move link** | Move an existing link to a different space or folder |
 
+### Air Traffic Control
+
+Create and manage URL routing rules. Save rules route saved links into spaces. Open rules route matching URLs to specific browsers or browser profiles.
+
+| Action | Description |
+|--------|-------------|
+| **List ATC rules** | List all URL routing rules in priority order |
+| **Add ATC rule** | Create a save or open routing rule |
+| **Update ATC rule** | Change an existing rule without recreating it |
+| **Delete ATC rule** | Remove a routing rule |
+| **Reorder ATC rules** | Change rule priority; rules are evaluated top-to-bottom |
+
 ### Custom web search shortcuts
 
 Create shortcuts to search specific websites directly from SupaSidebar. For example, add a "yo" shortcut for YouTube so you can search YouTube without opening it first.
@@ -91,27 +105,70 @@ Create shortcuts to search specific websites directly from SupaSidebar. For exam
 
 | Action | Description |
 |--------|-------------|
-| **Guide** | Get a complete guide to all MCP capabilities, common requests mapped to tool calls, and feature presets |
+| **Guide** | Get a complete guide to all MCP capabilities, common requests mapped to tool calls, and feature presets. Ask your AI to "use the supasidebar guide tool" first if it's unsure which tool to pick |
+
+## Prerequisites
+
+You need **Node.js 18 or newer** (which provides `npx`). Check with:
+
+```bash
+node --version    # should print v18.x or higher
+npx --version     # should print a version number, not "command not found"
+```
+
+If `npx` isn't found, install Node. Pick whichever you prefer:
+
+- **With Homebrew** (easiest if you already have `brew`):
+  ```bash
+  brew install node
+  ```
+- **Without Homebrew** - download the LTS installer from [nodejs.org/en/download](https://nodejs.org/en/download) and run it. The macOS `.pkg` installer puts `node` and `npx` on your PATH automatically; just restart your terminal afterwards.
+
+The SupaSidebar app must also be running (the MCP server talks to it on `127.0.0.1:9847`).
+
+### macOS permissions
+
+SupaSidebar needs **Accessibility** and **Automation** permissions for the MCP tools to work end-to-end - browser integration, tab access, window control, and global shortcuts all rely on these.
+
+See the full setup guide: [Setting up permissions](/gettingStarted/permissions)
 
 ## Setup with Claude Code
 
-1. Make sure SupaSidebar is running
-2. Open your Claude Code settings or project `.mcp.json` and add:
+The recommended way - register at user scope so it's available in every project:
 
-```json
-{
-  "mcpServers": {
-    "supasidebar": {
-      "command": "npx",
-      "args": ["-y", "supasidebar-mcp"]
-    }
-  }
-}
+```bash
+claude mcp add -s user supasidebar -- npx -y supasidebar-mcp
 ```
 
-3. Restart Claude Code. SupaSidebar tools are now available.
+Verify it registered:
 
-> **Troubleshooting:** If you see "Failed to spawn process", you likely use a Node version manager (fnm, nvm, volta). Replace the command with `"/bin/zsh"` and args with `["-lc", "npx -y supasidebar-mcp"]` to load your shell profile.
+```bash
+claude mcp list
+# expected: supasidebar    ✓ Connected
+```
+
+Inside a Claude Code session, type `/mcp` to see connected servers and tool counts.
+
+> **Just for one project?** Drop `-s user`:
+> ```bash
+> claude mcp add supasidebar -- npx -y supasidebar-mcp
+> ```
+
+> **⚠️ Do not put MCP config in `~/.claude/settings.json`.** That file is for hooks, permissions, and env vars only - Claude Code silently ignores unknown keys there, so the server appears to "register" but no tools will load. The correct location is `~/.claude.json` under `mcpServers` (which `claude mcp add` writes to automatically).
+
+> **Prefer to hand-edit?** Add to `~/.claude.json` (note: `.claude.json`, not `.claude/settings.json`):
+> ```json
+> {
+>   "mcpServers": {
+>     "supasidebar": {
+>       "type": "stdio",
+>       "command": "npx",
+>       "args": ["-y", "supasidebar-mcp"]
+>     }
+>   }
+> }
+> ```
+> Restart Claude Code after editing.
 
 ## Setup with Claude Desktop
 
@@ -131,8 +188,6 @@ Create shortcuts to search specific websites directly from SupaSidebar. For exam
 
 3. Restart Claude Desktop. You can now ask Claude to search your sidebar, switch spaces, open links, and more.
 
-> **Troubleshooting:** If you see "Failed to spawn process", you likely use a Node version manager (fnm, nvm, volta). Replace the command with `"/bin/zsh"` and args with `["-lc", "npx -y supasidebar-mcp"]` to load your shell profile.
-
 ## Setup with Cursor
 
 1. Open Cursor settings (**Cursor → Settings → MCP**)
@@ -140,7 +195,21 @@ Create shortcuts to search specific websites directly from SupaSidebar. For exam
 3. Set the command to `npx -y supasidebar-mcp`
 4. Save and restart Cursor
 
-> **Troubleshooting:** If you see "Failed to spawn process", you likely use a Node version manager (fnm, nvm, volta). Replace the command with `"/bin/zsh"` and args with `["-lc", "npx -y supasidebar-mcp"]` to load your shell profile.
+## Setup with Codex
+
+1. Make sure Codex CLI is installed and SupaSidebar is running
+2. Register the MCP server:
+   ```bash
+   codex mcp add supasidebar -- npx -y supasidebar-mcp
+   ```
+3. Verify with `codex mcp list` and `codex mcp get supasidebar`
+4. Inside a Codex session, ask the agent to *"list every SupaSidebar tool you have access to - there should be at least 35"* to confirm all tools are wired up. Codex's `/mcp` panel sometimes under-reports, but the tools are still callable.
+
+## Troubleshooting
+
+Setup issues - tools not appearing, can't reach SupaSidebar, `npx` not found, Codex showing fewer tools than expected, version-manager spawn errors - are covered on a dedicated page:
+
+[MCP Setup Troubleshooting →](/troubleshooting/mcp)
 
 ## Tips
 
