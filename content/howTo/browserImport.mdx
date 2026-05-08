@@ -21,6 +21,7 @@ Bring your bookmarks into SupaSidebar from Arc, Chrome, other Chromium browsers,
 | **Vivaldi** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
 | **Other Chromium browsers** | Bookmarks Bar, Other Bookmarks, folder hierarchy |
 | **Firefox** | Bookmarks imported directly from Firefox's database (no export needed) |
+| **Safari** | Bookmarks imported directly from Safari's database (no export needed) |
 | **HTML bookmarks file** | All bookmarks and folder structure from the exported file |
 
 ## Importing from Firefox
@@ -33,6 +34,17 @@ SupaSidebar reads Firefox bookmarks directly from its internal database - no man
 4. Choose what to import and click **Start Import**
 
 > Firefox must be closed during import for best results, as the database may be locked while Firefox is running.
+
+## Importing from Safari
+
+Safari import reads bookmarks directly from Safari's internal database. The flow guides you through granting Full Disk Access, which macOS requires for any app to read Safari's bookmark file.
+
+1. In SupaSidebar, open **Preferences - Import**
+2. Select **Safari**
+3. Follow the prompt to grant SupaSidebar **Full Disk Access** in System Settings, then return to the import flow
+4. Choose what to import and click **Start Import**
+
+If Full Disk Access can't be granted (for example on a managed device), SupaSidebar falls back to importing from a Safari HTML bookmarks export. Use **File - Export Bookmarks** in Safari to create the file, then choose **Import from HTML File** in SupaSidebar.
 
 ## Importing from an HTML file
 

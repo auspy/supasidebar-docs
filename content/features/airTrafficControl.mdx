@@ -29,20 +29,20 @@ Routes saved links to a specific space.
 
 | Setting | Description |
 |---------|-------------|
-| **Source Browser** | Only match when saving from this browser, or "Any Browser" (optional) |
+| **Source Browser** | Only match when saving from this browser, or "Any Browser" (optional). You can narrow to a specific browser profile, so saves from Chrome Work and Chrome Personal can route to different spaces |
 | **URL Pattern** | The text to match against link URLs (optional if source browser is set) |
 | **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
 | **Save to Space** | The space to file matching links into |
 
 ### Open Route
 
-Opens matching links in a specific browser.
+Opens matching links in a specific browser, or in a specific browser profile.
 
 | Setting | Description |
 |---------|-------------|
 | **URL Pattern** | The text to match against link URLs |
 | **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
-| **Open in Browser** | The browser to open matching links in |
+| **Open in Browser** | The browser to open matching links in. You can also pick a specific profile (e.g. Chrome Work, Safari Personal) so matching links always open in the right session |
 
 A live preview at the bottom of the editor shows exactly what the rule will do as you configure it.
 

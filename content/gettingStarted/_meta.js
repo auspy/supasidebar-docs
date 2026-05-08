@@ -1,5 +1,6 @@
 export default {
   index: 'Getting Started',
   permissions: 'Permissions',
-  browserSupport: 'Browser Support'
+  browserSupport: 'Browser Support',
+  languages: 'Languages'
 }

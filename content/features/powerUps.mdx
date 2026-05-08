@@ -1,0 +1,52 @@
+---
+title: "Power-ups - Saved link superpowers"
+description: "Power-ups give individual saved links extra behavior. Auto-update Link makes a saved link follow you through episodic content like anime, manga, web serials, and courses."
+---
+
+# Power-ups
+
+Power-ups add extra behavior to individual saved links. Right-click any saved link and choose **Power-ups** to see what's available.
+
+## Auto-update Link (Beta)
+
+Auto-update Link makes a saved link follow you as you progress through episodic content - anime, manga, web serials, courses, multi-page articles. Instead of saving "Episode 1" and updating it manually as you watch, you save it once and SupaSidebar advances the link as you go.
+
+### How it works
+
+1. Open the page you want to follow (e.g. `example.com/anime/some-show/episode/12`)
+2. Save it to SupaSidebar
+3. Right-click the saved link and choose **Power-ups - Auto-update link**
+4. A popover appears with every number in the URL highlighted as a token. Pick the one that represents the episode or chapter (in the example above, `12`)
+5. Done - SupaSidebar now stores the URL as a template like `example.com/anime/some-show/episode/{N}` and watches for you to navigate forward in that browser
+
+When you visit a new URL that matches the template (e.g. episode 13, then 14), the saved link updates automatically. The next time you click it, you go to where you left off.
+
+### Episode kind
+
+SupaSidebar derives the episode kind ("Ep", "Ch", "Part", "Lesson", etc.) from the words just before the number in the URL, and shows it as a small badge on the link.
+
+### URLs without numbers
+
+Some sites don't put the episode in the URL (paths like `/watch` with the episode in a query parameter, or single-page apps). For those, Auto-update falls back to a path-prefix mode: SupaSidebar updates the link whenever you navigate within the same site section, with no badge.
+
+### Update timing
+
+The link updates after **30 seconds of continuous time on a new page**. This avoids churning the saved link while you're scrubbing through pages or skipping episodes - the link only advances to pages you actually settled on.
+
+### History
+
+Right-click the saved link and open **Power-ups - History** to see the last 20 URLs the link has pointed at. Click any entry to jump back to a previous episode without losing your current position.
+
+### Per-device flag, synced URL
+
+The Auto-update flag itself is stored locally - turning it on for a link on one Mac doesn't enable it on another. The **URL** the link points at, however, syncs across devices through iCloud as usual, so progress made on one Mac is reflected on all of them when you next click the link.
+
+### Disabling Auto-update
+
+Right-click the link and choose **Power-ups - Auto-update link** again to toggle it off. The link keeps whatever URL it's currently pointing at - it just stops advancing.
+
+## Tips
+
+- Auto-update is great for ongoing content (currently airing anime, in-progress courses) where the URL pattern is predictable
+- Pair it with [Pinned Links](/features/pinnedItems) so your "currently watching" show is always one click away and always on the right episode
+- If a site changes its URL structure mid-series, the saved link stops advancing - just re-open the popover and pick the new number token

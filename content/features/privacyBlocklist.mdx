@@ -17,7 +17,20 @@ The Privacy Blocklist filters what appears in Live Tabs and Recents. Any URL, do
 |------|---------|--------|
 | **URL** | `https://example.com/private` | Hides this specific page |
 | **Domain** | `example.com` | Hides all pages from this domain |
-| **Browser** | Safari | Hides all tabs and history from Safari |
+| **Browser** | Safari | Excludes the browser entirely - see below |
+
+### Blocking a whole browser
+
+When you add a browser to the blocklist, SupaSidebar stops every automatic behavior for that browser:
+
+- Its tabs do not appear in [Live Tabs](/features/liveTabs)
+- Its history does not appear in [Recent Items](/features/recentItems)
+- The sidebar does not auto-show when that browser is focused
+- The sidebar does not attach to or resize with that browser's windows
+- `Cmd Ctrl T` (Save All Tabs) ignores that browser
+- Smart Save (`Cmd Ctrl S`) and Smart Copy (`Cmd Ctrl C`) skip the browser
+
+This makes browser-blocking the right choice when you have a personal or work browser you want SupaSidebar to ignore completely.
 
 ## Setup
 

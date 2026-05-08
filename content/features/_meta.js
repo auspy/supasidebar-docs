@@ -5,6 +5,7 @@ export default {
   profileSpaces: 'Browser Profiles',
   pinnedItems: 'Pinned Links',
   recentItems: 'Recent Links',
+  powerUps: 'Power-ups',
   smartFolders: 'Smart Folders',
   tags: 'Tags',
   commandPanel: 'Command Panel',
