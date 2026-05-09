@@ -79,7 +79,7 @@ Open the item options menu (the ⋯ button on a result row) to clean up what sho
 
 ## Frequent items
 
-When you open the Command Panel with an empty query, your most frequently used items appear at the top for quick access.
+When you open the Command Panel with an empty query, your most frequently used items appear at the top for quick access. The Command Panel also learns which saved links you open most and surfaces them first for short queries (one or two letters), so a single keystroke often gets you to the right link.
 
 ## Actions panel
 
@@ -89,11 +89,16 @@ Press `Opt Return` on any selected item to see available actions:
 |--------|---------------|
 | **Copy URL** | Always |
 | **Reveal in Sidebar** | Saved links |
+| **Add note** | Saved links - opens the note editor for the selected link |
 | **Save to Sidebar** | Unsaved items (uses your search query) |
 | **Reveal in Finder** | Local file and folder links |
 | **Open in [Browser]** | One entry per installed browser |
 
 Press `Escape` to dismiss the actions panel and return to search results.
+
+## Domain autocomplete
+
+Typing a partial host like `lo` completes to `localhost:3000` instead of dropping the port. Domain suggestions preserve the original port, path, and casing of the link they came from.
 
 ## Clipboard awareness
 

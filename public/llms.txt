@@ -1,0 +1,48 @@
+# SupaSidebar
+
+> A macOS sidebar app that works with any browser - Safari, Chrome, Firefox, Edge, Arc, Brave (including Brave Origin), and 25+ more. SupaSidebar gives you Spaces, Pinned Links, Live Tabs, a Command Panel, Smart Folders, and Air Traffic Control routing, with iCloud sync across Macs.
+
+## Getting started
+
+- [Installation and setup](https://docs.supasidebar.com/gettingStarted): Install and configure SupaSidebar on macOS 14+
+- [Permissions](https://docs.supasidebar.com/gettingStarted/permissions): Required macOS Automation and Accessibility permissions
+- [Browser Support](https://docs.supasidebar.com/gettingStarted/browserSupport): All 25+ supported browsers and their integration levels (Basic, Live Tabs, Profile Spaces)
+- [Languages](https://docs.supasidebar.com/gettingStarted/languages): Supported localization languages
+
+## Features
+
+- [Sidebar Panel](https://docs.supasidebar.com/features/sidebar): The floating sidebar interface, multi-screen support, left/right positioning, drag-to-resize
+- [Spaces](https://docs.supasidebar.com/features/spaces): Workspace organization with per-space group-by, collapse/expand all folders, and the space options menu
+- [Browser Profiles](https://docs.supasidebar.com/features/profileSpaces): Link a browser profile or whole browser to a space for session isolation
+- [Pinned Links](https://docs.supasidebar.com/features/pinnedItems): Up to 12 pin slots with `Cmd Opt 1-9` and `Cmd Opt 0`, custom shortcuts for slots 11 and 12, and optional numpad shortcuts
+- [Recent Links](https://docs.supasidebar.com/features/recentItems): Auto-tracked browsing history across all supported browsers
+- [Smart Folders](https://docs.supasidebar.com/features/smartFolders): Rule-based folders that auto-organize by URL, tag, or date
+- [Tags](https://docs.supasidebar.com/features/tags): Organize and filter saved links with tags
+- [Command Panel](https://docs.supasidebar.com/features/commandPanel): Fuzzy-search command palette with most-used boost, scopes, Add note action, and domain autocomplete
+- [Ask AI](https://docs.supasidebar.com/features/askAI): Natural-language AI assistant inside the Command Panel
+- [Sidebar Access](https://docs.supasidebar.com/features/sidebarAccess): Floating button, mouse triggers, and dock mode
+- [Live Tabs](https://docs.supasidebar.com/features/liveTabs): Real-time browser tab access with `Cmd Opt Click` to replace the active tab on saved links and pinned tabs
+- [Browser Integration](https://docs.supasidebar.com/features/browserIntegration): Attach, dock, fill-screen, and tiling modes
+- [Link Preview](https://docs.supasidebar.com/features/linkPreview): Mini preview window for saved links
+- [Shortcuts](https://docs.supasidebar.com/features/shortcuts): Complete keyboard shortcut reference
+- [Privacy Blocklist](https://docs.supasidebar.com/features/privacyBlocklist): Permanently hide specific sites, domains, or browsers from Live Tabs and Recents
+- [Incognito Mode](https://docs.supasidebar.com/features/incognitoMode): Pause Recents, Live Tabs, search history, and link ranking for the rest of your session
+- [MCP](https://docs.supasidebar.com/features/mcp): Model Context Protocol integration for AI assistants
+- [iCloud Sync](https://docs.supasidebar.com/features/sync): Multi-device sync via iCloud across all your Macs
+
+## How to
+
+- [Save links](https://docs.supasidebar.com/howTo/savingLinks): Every method for saving links and adding notes
+- [Open links](https://docs.supasidebar.com/howTo/openingLinks): All ways to open saved links
+- [Browser selection](https://docs.supasidebar.com/howTo/browserSelection): Choose default and per-link browsers
+- [Drag and drop](https://docs.supasidebar.com/howTo/dragAndDrop): Add files and folders from Finder
+- [Browser import](https://docs.supasidebar.com/howTo/browserImport): Import bookmarks from any browser
+- [Smart Save and Smart Copy](https://docs.supasidebar.com/howTo/smart): Context-aware shortcuts that adapt to the frontmost app
+- [Claim discount](https://docs.supasidebar.com/howTo/claimDiscount): Apply discounts at checkout
+
+## Troubleshooting
+
+- [Sidebar stays on top](https://docs.supasidebar.com/troubleshooting/sidebarStaysOnTop): Fix the sidebar always staying above other windows
+- [Sidebar doesn't hide in browser](https://docs.supasidebar.com/troubleshooting/sidebarDoesntHideInBrowser): Fix auto-hide not triggering when a browser is focused
+- [Link opens new tab instead of switching](https://docs.supasidebar.com/troubleshooting/linkOpensNewTab): Fix Smart Tab Reuse not activating the existing tab
+- [MCP issues](https://docs.supasidebar.com/troubleshooting/mcp): Common Model Context Protocol problems and fixes

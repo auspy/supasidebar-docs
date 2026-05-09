@@ -16,6 +16,7 @@ export default {
   linkPreview: 'Link Preview',
   shortcuts: 'Shortcuts',
   privacyBlocklist: 'Privacy Blocklist',
+  incognitoMode: 'Incognito Mode',
   mcp: 'MCP',
   sync: 'iCloud Sync'
 }
