@@ -5,8 +5,23 @@ import "nextra-theme-docs/style.css";
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://docs.supasidebar.com"),
   title: "SupaSidebar Documentation",
   description: "Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features.",
+  openGraph: {
+    title: "SupaSidebar Documentation",
+    description: "Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features.",
+    siteName: "SupaSidebar Docs",
+    type: "website",
+    url: "https://docs.supasidebar.com",
+    images: ["/opengraph-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SupaSidebar Documentation",
+    description: "Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features.",
+    images: ["/opengraph-image.png"],
+  },
 };
 
 const navbar = (

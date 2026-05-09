@@ -40,6 +40,9 @@ const config: DocsThemeConfig = {
         property="og:description"
         content="Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features."
       />
+      <meta property="og:image" content="https://docs.supasidebar.com/opengraph-image.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://docs.supasidebar.com/opengraph-image.png" />
       <link rel="icon" href="/favicon.ico" />
     </>
   ),
