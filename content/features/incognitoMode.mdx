@@ -1,15 +1,15 @@
 ---
 title: "Incognito Mode - Pause history and ranking"
-description: "Pause Recents, Live Tabs, search history, and link ranking in SupaSidebar for the rest of your session, without changing your browser's privacy settings."
+description: "Pause Recents, search history, and link ranking in SupaSidebar for the rest of your session, without changing your browser's privacy settings."
 ---
 
 # Incognito Mode
 
-Incognito Mode in SupaSidebar pauses Recents, Live Tabs, search history, and link ranking for the rest of your session, without changing your browser's own privacy settings.
+Incognito Mode in SupaSidebar pauses Recents, search history, and link ranking for the rest of your session, without changing your browser's own privacy settings. Live Tabs keep working normally - they are a live preview of open tabs, not stored history.
 
 ## What is Incognito Mode?
 
-Incognito Mode is a session-wide privacy switch inside SupaSidebar. Turning it on freezes every tracker that normally watches your browsing: nothing new is recorded to Recents, no new search queries are remembered, and the most-used boost in the Command Panel stops learning. Existing saved links are untouched. The mode lasts until you turn it off or quit SupaSidebar.
+Incognito Mode is a session-wide privacy switch inside SupaSidebar. Turning it on freezes every tracker that normally watches your browsing: nothing new is recorded to Recents, no new search queries are remembered, and the most-used boost in the Command Panel stops learning. Existing saved links are untouched, and Live Tabs still mirror your open browser tabs because that view is a live preview that saves nothing. The mode lasts until you turn it off or quit SupaSidebar.
 
 ## How to turn it on
 
@@ -27,11 +27,14 @@ A visible indicator appears in the sidebar while Incognito Mode is on, so you al
 | Surface | Behavior with Incognito Mode on |
 |---------|---------------------------------|
 | **Recents** | New page visits are not recorded. Existing recents stay where they are |
-| **Live Tabs** | Tabs from your browser still open and work normally, but they are not surfaced in the sidebar's Live Tabs list |
 | **Command Panel search history** | Queries you type are not remembered for future suggestions |
 | **Link ranking and most-used boost** | Saved-link rankings stop learning. The most-used boost for short queries pauses |
 
 Saving links manually, opening pinned items, switching spaces, and every other intentional action still works. Incognito Mode only stops the automatic recording.
+
+## What keeps working
+
+Live Tabs still mirror your open browser tabs in the sidebar. Live Tabs is a live preview of what is currently open, not a record, so nothing is written to disk and nothing carries over after the tab closes. You can keep using it for tab switching, drag-and-drop, and `Cmd Opt Click` replace-active-tab while Incognito Mode is on.
 
 ## When it ends
 
@@ -39,12 +42,13 @@ Incognito Mode lasts for the rest of your session. It turns off automatically wh
 
 ## Incognito Mode vs Privacy Blocklist
 
-Both features keep things out of Recents and Live Tabs, but they target different use cases:
+Both features stop things from being recorded, but they target different use cases:
 
 | | Incognito Mode | [Privacy Blocklist](/features/privacyBlocklist) |
 |---|----------------|--------------------|
-| **Scope** | Whole session, all sites and browsers | Specific URLs, domains, or browsers |
+| **Scope** | Whole session, pauses Recents and ranking | Specific URLs, domains, or browsers, hides from Live Tabs and Recents |
 | **Duration** | Until toggled off or app quit | Permanent, until removed |
+| **Affects Live Tabs** | No, Live Tabs keep mirroring open tabs | Yes, blocked sites and browsers are hidden |
 | **Best for** | One-off private sessions | Sites or browsers you always want SupaSidebar to ignore |
 
 Use Incognito Mode for a quick private window, and the Privacy Blocklist for a permanent rule.
@@ -53,4 +57,4 @@ Use Incognito Mode for a quick private window, and the Privacy Blocklist for a p
 
 - Incognito Mode pairs well with a [Browser Profile](/features/profileSpaces) linked to a personal space when you want both browser-side and SupaSidebar-side privacy.
 - If you want a single site or browser hidden permanently, the [Privacy Blocklist](/features/privacyBlocklist) is the better fit.
-- See [Live Tabs](/features/liveTabs) and [Recent Links](/features/recentItems) for what gets paused under the hood.
+- See [Recent Links](/features/recentItems) for what stops recording, and [Live Tabs](/features/liveTabs) for what keeps working.

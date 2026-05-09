@@ -26,7 +26,7 @@
 - [Link Preview](https://docs.supasidebar.com/features/linkPreview): Mini preview window for saved links
 - [Shortcuts](https://docs.supasidebar.com/features/shortcuts): Complete keyboard shortcut reference
 - [Privacy Blocklist](https://docs.supasidebar.com/features/privacyBlocklist): Permanently hide specific sites, domains, or browsers from Live Tabs and Recents
-- [Incognito Mode](https://docs.supasidebar.com/features/incognitoMode): Pause Recents, Live Tabs, search history, and link ranking for the rest of your session
+- [Incognito Mode](https://docs.supasidebar.com/features/incognitoMode): Pause Recents, search history, and link ranking for the rest of your session. Live Tabs keep working because they save nothing
 - [MCP](https://docs.supasidebar.com/features/mcp): Model Context Protocol integration for AI assistants
 - [iCloud Sync](https://docs.supasidebar.com/features/sync): Multi-device sync via iCloud across all your Macs
 
