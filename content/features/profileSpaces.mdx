@@ -62,17 +62,18 @@ In profile mode, the sidebar stays paired with its linked browser:
 
 This prevents the sidebar from blocking other windows when you're not using the linked browser.
 
-## Close Tabs on Space Change
+## Auto-Launch Browser/Profile
 
-By default, the outgoing profile's browser windows stay open in the background. If you prefer to keep things clean:
+When you arrive at a profile-linked space whose browser is not currently running, SupaSidebar can cold-launch the browser into the right profile for you. Enable **Auto-Launch Browser/Profile** in **Preferences -> Tabs & History -> Profile Spaces**.
 
-1. Open **Preferences**
-2. Enable **Close tabs on space change**
+This is independent of [Link Open Tabs to Space](/features/linkOpenTabs) - turn it on if you just want the right browser raised when you switch, even without per-space tab memory.
 
-When enabled, switching away from a profile space closes that profile's browser windows. Tabs are saved as a snapshot and restored when you return to the space.
+## Close and Reopen Tabs Per Space
+
+If you want each space to remember its own tabs and reopen them on return, enable [Link Open Tabs to Space](/features/linkOpenTabs) in **Preferences -> Tabs & History -> Advanced**. The flow works identically for profile-linked and regular spaces, and restores tabs in their original browser and profile.
 
 <Callout type="warning">
-Closed tabs will need to reload when you switch back, which may log you out of some websites. Leave this off if you switch spaces frequently.
+Closing and reopening tabs across browsers depends on AppleScript timing and may log you out of some websites. Lock tabs you want to keep open across every space.
 </Callout>
 
 ## Browser-Level Linking

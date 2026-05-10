@@ -1,0 +1,79 @@
+---
+title: "Link Open Tabs to Space - Per-space tab memory"
+description: "Close a space's tabs when you leave and reopen them in the right browser and profile when you come back. Lock tabs to keep them open across every space."
+---
+
+# Link Open Tabs to Space
+
+Link Open Tabs to Space gives every SupaSidebar space its own per-tab memory. When you leave a space, its open tabs are closed in the browser. When you come back, those same tabs reopen in the exact browser and profile they came from. Lock specific tabs to keep them open across every space.
+
+## What is Link Open Tabs to Space?
+
+Link Open Tabs to Space is an opt-in advanced flow that turns each space into a self-contained tab session. Every space remembers which tabs were open when you left, including which browser and which profile each tab belonged to. When you switch back, those tabs are restored in place. The feature works for both profile-linked spaces and regular spaces, so a "Work" space and a "Personal" space can keep entirely different sets of live tabs open without bleeding into each other.
+
+## How to turn it on
+
+The master toggle lives in **Preferences -> Tabs & History -> Advanced -> Link Open Tabs to Space**. The feature is off by default because it changes how your tabs behave across spaces, and it depends on browser AppleScript timing for the close-and-reopen step.
+
+When you flip the master toggle on, two settings activate:
+
+- **Auto-link tabs on leave** (sub-toggle, on by default) - Snapshots every open tab as "linked" when you leave a space, so the next visit restores the full set
+- **Auto-Launch Browser/Profile** (independent, in **Profile Spaces**) - Cold-launches the browser when you land on a profile-linked space whose browser is not running
+
+Turn off Auto-link if you want to choose which tabs each space remembers, instead of capturing everything automatically.
+
+## What happens on a space switch
+
+A switch with the feature on runs the same five steps for both profile-linked and regular spaces:
+
+1. **Snapshot** - If Auto-link is on, the outgoing space's open tabs are saved as linked
+2. **Close** - The outgoing space's tabs are closed in the browser, one tab at a time, skipping any locked tabs
+3. **Switch** - The sidebar flips to the new space immediately
+4. **Launch** - For profile-linked spaces, the linked browser is raised or cold-launched if needed
+5. **Restore** - Any URL the new space remembers as linked, but isn't already open in any browser, is reopened in its original `(browser, profile)`
+
+A small **phase banner** appears in the sidebar during the switch ("Closing 4 tabs...", "Opening 6 linked tabs...") with a one-click link to turn the feature off in Preferences.
+
+Rapid arrow presses through several spaces are coalesced after a short pause, so intermediate spaces are skipped instead of running their full close-and-reopen cycle.
+
+## Locks: keep a tab open everywhere
+
+Lock a tab to mark it as exempt from the auto-close step. Locked tabs stay open across every space switch, no matter which space owns them. This is what you want for a music player, a chat app, a long-running dashboard, or anything that should never disappear when you change context.
+
+Locks are per-machine (they don't sync) and live independently of the Auto-link snapshot. You can have a locked tab that isn't auto-linked, and an auto-linked tab that isn't locked.
+
+To lock or unlock a tab, hover over the live tab row and use the lock icon, or use the right-click menu.
+
+## Manually linking a tab
+
+If you turn Auto-link off, the master toggle still tracks individually linked tabs. Hover over a live tab and use the link icon (or the right-click menu) to add or remove it from the current space's linked set. Manually linked tabs follow the same close-and-reopen rules as auto-linked ones.
+
+## Profile-aware restore
+
+When SupaSidebar restores a linked tab, it remembers which browser profile the tab came from. A tab opened in **Brave - Work** is reopened in **Brave - Work**, not in **Brave - Personal** or in your default browser. If the tab cannot be mapped to a known profile (Safari pre-multi-profile, Firefox without per-profile launch, or a window that can't be introspected), it falls back to opening in the originating browser without a profile target.
+
+This is what makes the feature work for mixed setups where one space is linked to a profile and another space lives across regular browser windows.
+
+## Why it's off by default
+
+Closing and reopening tabs across browsers via AppleScript is inherently fragile. AppleScript timing varies per tab, profile lock-files can contend at launch, and browser cold-start times are unpredictable. Beyond the fragility, the feature is also a workflow shift: a casual user expects their tabs to stay where they left them. The master toggle is gated behind the Advanced section so a regular Mac user never encounters this behavior accidentally.
+
+If you turn it on and find a particular browser fights the close-and-reopen cycle, lock the affected tabs or turn Auto-link off and link tabs manually.
+
+## When to use Link Open Tabs to Space vs. Browser Profiles
+
+| | Link Open Tabs to Space | [Browser Profiles](/features/profileSpaces) |
+|---|---|---|
+| **What it does** | Per-space close and reopen of tabs in their original browser/profile | Per-space link to a specific browser profile, with filtered Live Tabs |
+| **Browser behavior** | Tabs close and reopen on switch | Browser profiles raise and lower; tabs stay open |
+| **Use when** | You want each space to feel like a clean, dedicated session | You want each space tied to a separate browser identity |
+| **Combine?** | Yes - profile-linked spaces use the same close-and-reopen flow on top of profile switching | Yes |
+
+You can use both at the same time. A profile-linked space that also has Link Open Tabs to Space enabled gets profile-aware tab memory: the right tabs in the right profile when you come back.
+
+## Tips
+
+- Lock anything you do not want closed: music, chat, dashboards, in-progress forms.
+- Pair this with [Browser Profiles](/features/profileSpaces) when you want both browser identity and tab memory per space.
+- The phase banner is your kill switch - one click takes you straight to the master toggle.
+- See [Live Tabs](/features/liveTabs) for the basics of what tabs SupaSidebar can see.

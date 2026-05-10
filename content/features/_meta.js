@@ -3,6 +3,7 @@ export default {
   sidebar: 'Sidebar Panel',
   spaces: 'Spaces',
   profileSpaces: 'Browser Profiles',
+  linkOpenTabs: 'Link Open Tabs to Space',
   pinnedItems: 'Pinned Links',
   recentItems: 'Recent Links',
   powerUps: 'Power-ups',

@@ -45,6 +45,14 @@ The Auto-update flag itself is stored locally - turning it on for a link on one 
 
 Right-click the link and choose **Power-ups - Auto-update link** again to toggle it off. The link keeps whatever URL it's currently pointing at - it just stops advancing.
 
+### Open Next episode
+
+Once a link has Auto-update enabled in template mode (with a tracked number), the link's right-click menu adds a third action after **Open** and **Open With**: **Open Next episode**. It opens the next-numbered URL (current episode + 1) in the frontmost browser, without changing what the saved link points at - the regular 30-second dwell rule still decides when the link itself advances.
+
+Beside the action, a small inline tag shows whether the next episode is reachable: **checking...** while SupaSidebar runs a quick request, then **live** or **not live** so you know before you click. If the check times out or errors, the tag drops silently rather than mislead.
+
+This is the fastest way to "peek ahead" to the next episode without waiting for the auto-update to catch up after you watch it.
+
 ## Tips
 
 - Auto-update is great for ongoing content (currently airing anime, in-progress courses) where the URL pattern is predictable
