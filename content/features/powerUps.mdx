@@ -31,7 +31,7 @@ Some sites don't put the episode in the URL (paths like `/watch` with the episod
 
 ### Update timing
 
-The link updates after **30 seconds of continuous time on a new page**. This avoids churning the saved link while you're scrubbing through pages or skipping episodes - the link only advances to pages you actually settled on.
+The link updates after **60 seconds of continuous time on a new page**. This avoids churning the saved link while you're scrubbing through pages or skipping episodes - the link only advances to pages you actually settled on.
 
 ### History
 
@@ -47,7 +47,7 @@ Right-click the link and choose **Power-ups - Auto-update link** again to toggle
 
 ### Open Next episode
 
-Once a link has Auto-update enabled in template mode (with a tracked number), the link's right-click menu adds a third action after **Open** and **Open With**: **Open Next episode**. It opens the next-numbered URL (current episode + 1) in the frontmost browser, without changing what the saved link points at - the regular 30-second dwell rule still decides when the link itself advances.
+Once a link has Auto-update enabled in template mode (with a tracked number), the link's right-click menu adds a third action after **Open** and **Open With**: **Open Next episode**. It opens the next-numbered URL (current episode + 1) using the same routing as a regular sidebar click - any matching [Air Traffic Control](/features/airTrafficControl) open route or per-space default browser applies. The saved link itself stays untouched, and the regular 60-second dwell rule still decides when it advances.
 
 Beside the action, a small inline tag shows whether the next episode is reachable: **checking...** while SupaSidebar runs a quick request, then **live** or **not live** so you know before you click. If the check times out or errors, the tag drops silently rather than mislead.
 
