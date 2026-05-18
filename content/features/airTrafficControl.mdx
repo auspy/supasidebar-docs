@@ -1,6 +1,11 @@
+---
+title: "Air Traffic Control - Route links to spaces and browsers"
+description: "Auto-route saved links into the right SupaSidebar space and open them in the right browser, with URL-pattern rules that work like mail filters for bookmarks."
+---
+
 # Air Traffic Control
 
-Create save routes to file links into spaces, and open routes to control which browser opens them  - like mail rules for your bookmarks.
+Create save routes to file links into spaces, and open routes to control which browser opens them - like mail rules for your bookmarks.
 
 ## How It Works
 
@@ -25,7 +30,7 @@ When you click **Add Route**, you first choose the route type:
 
 ### Save Route
 
-Routes saved links to a specific space.
+Routes saved links to a specific space, and optionally a specific folder inside that space.
 
 | Setting | Description |
 |---------|-------------|
@@ -33,6 +38,7 @@ Routes saved links to a specific space.
 | **URL Pattern** | The text to match against link URLs (optional if source browser is set) |
 | **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
 | **Save to Space** | The space to file matching links into |
+| **Save to Folder** | Optional. A folder inside the chosen space. Matching saves land directly in this folder instead of at the space root |
 
 ### Open Route
 
@@ -45,6 +51,15 @@ Opens matching links in a specific browser, or in a specific browser profile.
 | **Open in Browser** | The browser to open matching links in. You can also pick a specific profile (e.g. Chrome Work, Safari Personal) so matching links always open in the right session |
 
 A live preview at the bottom of the editor shows exactly what the rule will do as you configure it.
+
+## Smart Suggestions
+
+Air Traffic Control watches what you open from the sidebar and suggests new rules based on patterns it sees, so you don't have to invent every rule from scratch.
+
+- **From the Command Panel** - When the URL you're about to open matches a strong pattern (e.g. you've opened the same domain in the same browser repeatedly), the Command Panel offers a one-click row to create the rule and open the link in the suggested browser at the same time.
+- **From Preferences** - Open **Preferences - Air Traffic Control** to see suggestions based on your recent open history. Click a suggestion to convert it into a regular rule that you can then edit or reorder like any other.
+
+Suggestions stay out of the way until they're confident. You can ignore them and your existing rules keep working unchanged.
 
 ## Managing Rules
 
@@ -69,12 +84,12 @@ ATC open routes always win. If no open route matches, the space's browser is use
 
 ### Save Routes
 
-| Source Browser | URL Pattern | Save to Space | Effect |
-|---------------|------------|---------------|--------|
-| Any | `github.com` | Development | All GitHub links go to Dev space |
-| Firefox | *(empty)* | Work | All tabs saved from Firefox go to Work space |
-| Safari | `banking.` | Finance | Banking URLs saved from Safari go to Finance space |
-| Any | `docs.google.com` | Work | Google Docs go to Work space |
+| Source Browser | URL Pattern | Save to Space | Save to Folder | Effect |
+|---------------|------------|---------------|----------------|--------|
+| Any | `github.com` | Development | *(none)* | All GitHub links go to Dev space root |
+| Firefox | *(empty)* | Work | *(none)* | All tabs saved from Firefox go to Work space |
+| Safari | `banking.` | Finance | Statements | Banking URLs from Safari land in Finance - Statements |
+| Any | `docs.google.com` | Work | Docs | Google Docs go to Work - Docs |
 
 ### Open Routes
 

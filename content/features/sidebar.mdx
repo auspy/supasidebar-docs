@@ -18,6 +18,7 @@ The SupaSidebar panel is a floating sidebar for macOS that provides instant acce
 - **Pin to Spaces** - Follow across all macOS desktop spaces or stay on one
 - **Slide Animation** - Smoothly slides in and out when opening or closing. The animation direction is context-aware based on the sidebar's screen position
 - **Noise Texture** - A subtle texture overlay for a more tactile feel (10% opacity by default, configurable in Appearance)
+- **Custom Colors** - Pick any color for an individual link or folder so it stands out. Available from the right-click menu under **Color**, and applied in both the full sidebar and compact mode.
 
 ## Quick settings menu
 
@@ -31,7 +32,8 @@ Configure the sidebar panel in **Preferences**. Sidebar preferences use a split-
 
 Found in **Preferences - Appearance**.
 
-- **Theme** - Choose System, Light, or Dark. System follows your macOS appearance. The choice applies across the sidebar, command panel, web preview, notifications, tooltips, and floating button. You can also switch it from the macOS menu bar under **SupaSidebar - Appearance**.
+- **Theme** - Choose System, Light, or Dark. System follows your macOS appearance. The choice applies across the sidebar, command panel, web preview, notifications, tooltips, and floating button. You can also switch it from the macOS menu bar under **SupaSidebar - Appearance**, or by typing "dark", "light", "theme", or "appearance" in the [Command Panel](/features/commandPanel).
+- **Text size** - Slider that scales sidebar text from 85% to 150%. Applied live across the app, including the command panel and notes.
 - **Width** - Drag the sidebar inner edge to resize
 - **Opacity on focus change** - Dim sidebar when not focused
 - **Glass theme** - Enable translucent background
@@ -66,8 +68,19 @@ Shortcuts specific to the sidebar panel. For all shortcuts, see [Shortcuts](/fea
 | `Cmd Ctrl P` | Pin or unpin from current space |
 | `Esc` | Hide sidebar |
 
+## Notes
+
+Add a note to any saved link to capture context, instructions, or anything else you want surfaced when you find the link later.
+
+- **From the sidebar** - Click the **Edit Note** button that appears on a link row on hover, or right-click and choose **Add note** / **Edit note**.
+- **From the Command Panel** - With a result selected, press `Opt Return` to open the actions panel, then **Add note**.
+- **Save and dismiss** - `Cmd Return` saves, `Escape` cancels.
+
+Notes are indexed by search. Typing a word that appears in a note surfaces the saved link, with the matching text highlighted in the result.
+
 ## Tips
 
 - Use the presets panel in **Preferences - Sidebar** for one-click configuration of sidebar behavior. Choose from Minimal, Bookmark Manager, Workspace Switcher, or Browser Companion.
+- Set a custom color on a single link to flag your "currently working on" item without pinning it.
 - The noise texture pairs well with the glass theme for a polished look.
 - See [Sidebar Access](/features/sidebarAccess) for all the ways to open the sidebar - floating button, mouse triggers, and more.

@@ -4,6 +4,35 @@ import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import "./globals.css";
 
+const SITE_URL = "https://supasidebar.com";
+const DOCS_URL = "https://docs.supasidebar.com";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${DOCS_URL}/#website`,
+      name: "SupaSidebar Documentation",
+      url: DOCS_URL,
+      description:
+        "Official documentation for SupaSidebar, the macOS sidebar app that works with every browser.",
+      inLanguage: "en",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#software` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${DOCS_URL}/?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
+};
+
 export const metadata = {
   metadataBase: new URL("https://docs.supasidebar.com"),
   title: "SupaSidebar Documentation",
@@ -79,7 +108,12 @@ export default async function RootLayout({ children }) {
       dir="ltr"
       suppressHydrationWarning
     >
-      <Head />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </Head>
       <body>
         <Layout
           pageMap={await getPageMap()}

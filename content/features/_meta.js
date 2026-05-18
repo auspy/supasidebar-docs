@@ -1,6 +1,7 @@
 export default {
   index: 'Feature Overview',
   sidebar: 'Sidebar Panel',
+  folderBrowser: 'Folder Browser',
   spaces: 'Spaces',
   profileSpaces: 'Browser Profiles',
   linkOpenTabs: 'Link Open Tabs to Space',

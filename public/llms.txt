@@ -11,19 +11,21 @@
 
 ## Features
 
-- [Sidebar Panel](https://docs.supasidebar.com/features/sidebar): The floating sidebar interface, multi-screen support, left/right positioning, drag-to-resize
+- [Sidebar Panel](https://docs.supasidebar.com/features/sidebar): The floating sidebar interface, multi-screen support, left/right positioning, drag-to-resize, custom per-link colors, adjustable text size, notes on links
+- [Folder Browser](https://docs.supasidebar.com/features/folderBrowser): Finder-style column popover for saved folders, single-click open, Quick Look, Open With, Move to Trash, hover preview, and Finder actions on file-type links
 - [Spaces](https://docs.supasidebar.com/features/spaces): Workspace organization with per-space group-by, collapse/expand all folders, and the space options menu
 - [Browser Profiles](https://docs.supasidebar.com/features/profileSpaces): Link a browser profile or whole browser to a space for session isolation
 - [Link Open Tabs to Space](https://docs.supasidebar.com/features/linkOpenTabs): Per-space tab memory that closes tabs on leave and reopens them in the original browser and profile on return, with lockable tabs that persist everywhere
 - [Pinned Links](https://docs.supasidebar.com/features/pinnedItems): Up to 12 pin slots with `Cmd Opt 1-9` and `Cmd Opt 0`, custom shortcuts for slots 11 and 12, and optional numpad shortcuts
-- [Recent Links](https://docs.supasidebar.com/features/recentItems): Auto-tracked browsing history across all supported browsers
+- [Recent Links](https://docs.supasidebar.com/features/recentItems): Auto-tracked 30-day browsing history across all supported browsers, with compact / detailed view modes
+- [Air Traffic Control](https://docs.supasidebar.com/features/airTrafficControl): URL-pattern rules that auto-route saved links into the right space (and optional folder), and open links in the right browser. Includes smart history-based suggestions and a one-click rule prompt from the Command Panel
 - [Power-ups](https://docs.supasidebar.com/features/powerUps): Per-link superpowers including Auto-update Link for episodic content and Open Next episode
 - [Smart Folders](https://docs.supasidebar.com/features/smartFolders): Rule-based folders that auto-organize by URL, tag, or date
 - [Tags](https://docs.supasidebar.com/features/tags): Organize and filter saved links with tags
-- [Command Panel](https://docs.supasidebar.com/features/commandPanel): Fuzzy-search command palette with most-used boost, scopes, Add note action, and domain autocomplete
+- [Command Panel](https://docs.supasidebar.com/features/commandPanel): Single-keyboard-shortcut launcher (`Cmd Ctrl K`) that searches saved links, open browser tabs, recent pages, files, folders, and SupaSidebar settings at once. Includes most-used boost, scopes, Add note action, domain autocomplete, theme toggle, and one-click Air Traffic Control rule suggestions
 - [Ask AI](https://docs.supasidebar.com/features/askAI): Natural-language AI assistant inside the Command Panel
 - [Sidebar Access](https://docs.supasidebar.com/features/sidebarAccess): Floating button, mouse triggers, and dock mode
-- [Live Tabs](https://docs.supasidebar.com/features/liveTabs): Real-time browser tab access with `Cmd Opt Click` to replace the active tab on saved links and pinned tabs
+- [Live Tabs](https://docs.supasidebar.com/features/liveTabs): Real-time bird's-eye view of every open tab across every browser on your Mac, with per-URL custom colors, view-mode switch (compact / detailed), and `Cmd Opt Click` to replace the active tab on saved links and pinned tabs
 - [Browser Integration](https://docs.supasidebar.com/features/browserIntegration): Attach, dock, fill-screen, and tiling modes
 - [Link Preview](https://docs.supasidebar.com/features/linkPreview): Mini preview window for saved links
 - [Shortcuts](https://docs.supasidebar.com/features/shortcuts): Complete keyboard shortcut reference
@@ -38,7 +40,7 @@
 - [Open links](https://docs.supasidebar.com/howTo/openingLinks): All ways to open saved links
 - [Browser selection](https://docs.supasidebar.com/howTo/browserSelection): Choose default and per-link browsers
 - [Drag and drop](https://docs.supasidebar.com/howTo/dragAndDrop): Add files and folders from Finder
-- [Browser import](https://docs.supasidebar.com/howTo/browserImport): Import bookmarks from any browser
+- [Browser import](https://docs.supasidebar.com/howTo/browserImport): Import bookmarks from Arc, Chrome, Brave, Edge, Vivaldi, Firefox, Safari, or an HTML file. Chromium and Firefox imports support a profile picker so each browser profile becomes its own SupaSidebar space
 - [Smart Save and Smart Copy](https://docs.supasidebar.com/howTo/smart): Context-aware shortcuts that adapt to the frontmost app
 - [Claim discount](https://docs.supasidebar.com/howTo/claimDiscount): Apply discounts at checkout
 

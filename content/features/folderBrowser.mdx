@@ -1,0 +1,73 @@
+---
+title: "Folder Browser - Finder-style column view in the sidebar"
+description: "Browse saved folders in a Finder-style column popover with single-click open, right-click file actions, Quick Look, and a hover preview."
+---
+
+# Folder Browser
+
+A Finder-style column popover for any folder-type link in your sidebar. Hover or click a saved folder to walk through its files and subfolders without leaving the sidebar, and act on any file with the same actions you'd expect in Finder.
+
+Works in both the full sidebar and compact mode.
+
+## How it works
+
+When you hover (or click) a folder link, a column appears next to the row showing the folder's contents. Hover a subfolder and a second column slides in to the right. Each column is anchored to the row you hovered, so you can move the mouse straight right into the next column without crossing other rows.
+
+Contents are read from disk on demand. Nothing is indexed or persisted beyond the saved folder link itself.
+
+## Opening files
+
+- **Single-click** a file to open it in its default app.
+- **Single-click** a subfolder to step into it, or hover to peek without committing.
+- The popover closes automatically once you click outside it or hide the sidebar.
+
+## Right-click actions
+
+Right-click any file or subfolder inside the folder browser for direct Finder actions:
+
+| Action | What it does |
+|--------|--------------|
+| **Open** | Opens the file in its default app, or opens the subfolder in Finder |
+| **Quick Look** | Previews the file with macOS Quick Look |
+| **Open With** | Pick from installed apps that handle this file type, or **Other…** to browse |
+| **Reveal in Finder** | Reveals the file in a new Finder window |
+| **Copy Pathname** | Copies the file's full path to the clipboard |
+| **Move to Trash** | Sends the file to the Trash |
+
+## Hover preview for files
+
+Hover a file long enough and a deeper preview column appears to the right of the listing with file details - kind, size, modified date, and a thumbnail where one is available. Move the mouse off the file and the preview dismisses.
+
+## Finder actions on file-type links
+
+The same Finder actions are available on any **file-type link** sitting directly in your sidebar (not just inside the folder browser). Right-click a saved file link for Reveal in Finder, Quick Look, Open With, Copy Pathname, and Move to Trash.
+
+## Drag and drop
+
+Files surfaced in the folder browser are real file references, so you can drag them out to the Desktop, into a Mail compose window, or into any app that accepts file drops. The drag carries the actual file on disk, not just a placeholder.
+
+## Frequently asked questions
+
+### Does the folder browser index my files?
+
+No. Contents are read from disk on demand only when you hover or click into a folder. Nothing is cached or persisted beyond the saved folder link's path, so files stay private to your filesystem and the browser stays accurate even if you add or remove files outside SupaSidebar.
+
+### Can I drag files from the folder browser into other apps?
+
+Yes. Files surfaced in the folder browser are real file references, not placeholders. You can drag them to the Desktop, into a Mail compose window, into Slack, or any app that accepts file drops, and the real file goes with the drag.
+
+### What's the difference between Folder Browser and Smart Folders?
+
+The folder browser is a live view of an actual filesystem folder you've saved to the sidebar - it always reflects what's on disk. [Smart Folders](/features/smartFolders) are rule-based collections of saved links (e.g. "all PDFs", "everything tagged work") that span your whole SupaSidebar library, not a single disk location.
+
+## Tips
+
+- Save a long-lived working folder (e.g. your active project directory) to the sidebar and use the folder browser to jump straight to files without opening Finder.
+- Combine with [Smart Folders](/features/smartFolders) for rule-based collections, and use the folder browser for ad-hoc filesystem navigation.
+- See [Saving Links](/howTo/savingLinks) for how to add a folder to the sidebar in the first place.
+
+## Learn more
+
+- [Sidebar Panel](/features/sidebar) - where folder links live
+- [Smart Folders](/features/smartFolders) - rule-based dynamic folders
+- [Drag and Drop](/howTo/dragAndDrop) - moving items in and out of the sidebar
