@@ -1,0 +1,122 @@
+# Reset permissions
+
+If you've granted Accessibility or Automation to SupaSidebar but shortcuts still don't work, the macOS TCC database is most likely in a confused state. Resetting the permission entry is almost always the fix.
+
+This page covers:
+
+- Symptoms that point to a permissions problem
+- The standard "quit, remove, re-add" fix
+- A full reset using `tccutil` when the toggle is stuck
+- Reinstalling as a last resort
+
+## Symptoms
+
+You probably have a permissions issue if:
+
+- The Accessibility toggle is **on** in System Settings but `Cmd Shift C` or `Cmd Shift S` still doesn't capture your URL.
+- You keep getting the Accessibility permission notification every time you try to Save Page or Copy URL, even though you already granted access. This means macOS no longer trusts the existing TCC entry - the toggle is "on" but the system has invalidated it under the hood.
+- macOS never prompted you for permission, even on first use.
+- The sidebar can't position itself next to your browser (Smart Attach does nothing).
+- After a macOS update or SupaSidebar update, browser actions silently fail.
+- You see SupaSidebar listed twice in the Accessibility or Automation list.
+
+If macOS shows error **-1743** in a notification, that's specifically an Automation denial - see [Automation fix](#automation-isnt-prompting-or-is-denied).
+
+## Quick fix: re-add SupaSidebar
+
+This works ~80% of the time:
+
+1. **Quit SupaSidebar completely.** Right-click the menu bar icon -> Quit. Don't just close the sidebar window.
+2. Open **System Settings -> Privacy & Security -> Accessibility**.
+3. Find **SupaSidebar** in the list, select it, and click the **`-`** (minus) button to remove it.
+4. Repeat for **System Settings -> Privacy & Security -> Automation** if Automation is the problem - expand SupaSidebar and uncheck the browsers, or remove the row.
+5. **Relaunch SupaSidebar.**
+6. When it asks for permission again, click **Open System Settings** and enable the toggle.
+
+If a permission was already on when you launched, macOS sometimes won't re-prompt. In that case, use the reset command below.
+
+## Full reset using `tccutil`
+
+If the toggle is stuck, greyed out, or removing+re-adding doesn't help, reset the TCC entry directly.
+
+**Quit SupaSidebar first**, then run one of these in Terminal:
+
+```bash
+# Reset Accessibility only
+tccutil reset Accessibility com.supasidebar
+
+# Reset Automation (AppleEvents) only
+tccutil reset AppleEvents com.supasidebar
+
+# Reset everything for SupaSidebar
+tccutil reset All com.supasidebar
+```
+
+You'll see `Successfully reset ...` if it worked. Now:
+
+1. Relaunch SupaSidebar.
+2. Accept the permission prompts when they appear.
+3. If you reset AppleEvents, **restart each browser** you use - macOS won't re-prompt for Automation until the browser is freshly launched.
+
+> `tccutil` doesn't need `sudo` for app-specific resets. If you see "no such bundle identifier", confirm SupaSidebar is installed in `/Applications` and the bundle id is `com.supasidebar`.
+
+## Automation isn't prompting or is denied
+
+The Automation prompt only appears the first time SupaSidebar tries to talk to a specific browser. If you denied it once, macOS won't ask again - it just silently blocks future attempts (you may see error **-1743** in the Console).
+
+To recover:
+
+1. Open **System Settings -> Privacy & Security -> Automation**.
+2. Expand **SupaSidebar** and tick every browser you actually use.
+3. If SupaSidebar isn't listed at all, run `tccutil reset AppleEvents com.supasidebar`, relaunch SupaSidebar, and trigger a shortcut (`Cmd Shift C` while your browser is frontmost). The prompt should appear.
+4. If the prompt still doesn't appear, quit and relaunch the browser - macOS sometimes caches the denial against the browser process.
+
+## Multiple SupaSidebar entries in the list
+
+If you see two SupaSidebar rows, you probably have two copies of the app on disk (e.g. one in `/Applications` and one in `~/Downloads`). macOS treats them as different apps because the path differs.
+
+1. Quit SupaSidebar.
+2. In Finder, search for "SupaSidebar" and **delete every copy except the one in `/Applications`**.
+3. Empty the Trash.
+4. Run `tccutil reset All com.supasidebar`.
+5. Relaunch from `/Applications` and re-grant permissions.
+
+## Permissions lost after an update
+
+Rarely, a SupaSidebar or macOS update can invalidate the existing permission entry (usually because the code signature changed). Symptoms: everything worked yesterday, today nothing does.
+
+Fix is the same as the full reset:
+
+```bash
+tccutil reset All com.supasidebar
+```
+
+Then relaunch and re-grant.
+
+## Last resort: clean reinstall
+
+If none of the above helps:
+
+1. Quit SupaSidebar.
+2. Delete `/Applications/SupaSidebar.app` (drag to Trash, empty Trash).
+3. Run `tccutil reset All com.supasidebar`.
+4. Download the latest build from [supasidebar.com](https://supasidebar.com) and reinstall.
+5. Grant permissions when prompted.
+
+Your data (links, spaces, folders) lives in Core Data / iCloud and survives the reinstall - this only clears app binary and permission state.
+
+## Still stuck?
+
+[Email us](mailto:admin@supasidebar.com) with:
+
+- Your macOS version
+- Which permission is failing (Accessibility, Automation, both)
+- The exact error message or behaviour (a screenshot of the relevant System Settings page helps)
+
+Replies usually go out within 1-2 hours during waking hours.
+
+## Related
+
+- [Permissions setup](/gettingStarted/permissions) - First-time grant flow
+- [License troubleshooting](/troubleshooting/license) - For reactivation and Mac transfer issues
+- [Browser Profiles troubleshooting](/troubleshooting/profileSpaces) - Profile detection problems

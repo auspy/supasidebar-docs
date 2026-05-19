@@ -1,0 +1,56 @@
+# Dia browser integration
+
+Dia is supported in SupaSidebar with one caveat: you can link Dia as a whole to a space, but you can't link individual Dia profiles to spaces yet. Everything else works.
+
+## What works
+
+- **Copy URL** (`Cmd Shift C`) and **Save Page** (`Cmd Shift S`) global shortcuts.
+- **Open links from the sidebar** in Dia. If Dia isn't running, SupaSidebar launches it first.
+- **[Live Tabs](/features/liveTabs)** - the sidebar shows Dia's open tabs in real time and lets you switch between them.
+- **[Air Traffic Control](/features/airTrafficControl)** - URL rules can route links into Dia.
+- **History access** for command-panel search.
+
+## What doesn't work yet
+
+- **Per-profile [Profile Spaces](/features/profileSpaces).** You can link the whole Dia browser to a space, but you can't link individual Dia profiles to separate spaces (the way you can with Chrome, Brave, or Edge). If you need profile-level isolation, use one of those browsers instead.
+
+See the full matrix in [Browser Support](/gettingStarted/browserSupport).
+
+## How tab switching works (auto-detected shortcuts)
+
+Unlike Chrome or Safari, Dia is newer and its tab-switching shortcuts aren't hardcoded into SupaSidebar. The first time you fetch Live Tabs from Dia, SupaSidebar runs a one-time discovery pass:
+
+1. Walks Dia's menu bar looking for the "Next Tab" / "Previous Tab" menu items.
+2. Reads the keyboard shortcut assigned to each via the macOS accessibility API.
+3. Caches both for future tab switches.
+
+The lookup recognises those menu names in 23 languages (English, French, German, Spanish, Italian, Portuguese, Dutch, Japanese, Chinese, Korean, Russian, Polish, Turkish, Swedish, Danish, Norwegian, Finnish, Czech, Hebrew, Arabic, Thai, Vietnamese, Ukrainian), so it works on most localised macOS setups out of the box.
+
+**If discovery fails** (Dia wasn't running on first try, your system language isn't in the list, or Dia renamed its menus in an update), SupaSidebar falls back to `Cmd Shift ]` for Next Tab and `Cmd Shift [` for Previous Tab. If your Dia uses a different shortcut, tab switching from the sidebar won't work until discovery succeeds.
+
+**To re-run discovery**: make sure Dia is running, then restart SupaSidebar. On the next Live Tabs fetch it tries again.
+
+There's no manual override in Preferences - it's auto-detect or fall back to defaults. If you're stuck, [email us](mailto:admin@supasidebar.com) with your system language so we can add it to the discovery list.
+
+## Permissions
+
+Dia is different from Chrome or Safari: most of what SupaSidebar does with Dia goes through the macOS accessibility API, not AppleScript.
+
+| What you do | Permission needed |
+|---|---|
+| Copy URL (`Cmd Shift C`) | Accessibility |
+| Save Page (`Cmd Shift S`) | Accessibility |
+| [Smart Attach](/features/browserIntegration/smart) window positioning | Accessibility |
+| Open a link from the sidebar into Dia | Automation (Dia) |
+| Live Tabs and tab switching | Automation (Dia) |
+
+If you only use Copy URL and Save Page, granting **Accessibility** to SupaSidebar is enough - you don't need to enable Automation for Dia. Add Automation later only if you want Live Tabs or to open links from the sidebar.
+
+See [Permissions](/gettingStarted/permissions) for setup steps, or [Reset Permissions](/troubleshooting/permissions) if a toggle is on but shortcuts still fail.
+
+## Related
+
+- [Browser Integration](/features/browserIntegration) - Overview of integration modes
+- [Browser Support](/gettingStarted/browserSupport) - Full matrix of per-browser capabilities
+- [Live Tabs](/features/liveTabs) - Real-time tab tracking
+- [Browser Profiles](/features/profileSpaces) - Per-profile space linking (Chrome/Brave/Edge)

@@ -3,9 +3,15 @@ title: "Import Bookmarks - Bring your data into SupaSidebar"
 description: "Import bookmarks from Arc, Chrome, Brave, Edge, Vivaldi, Firefox, Safari, or an HTML file. Each Chromium profile becomes its own SupaSidebar space."
 ---
 
+import { Callout } from 'nextra/components'
+
 # Import Bookmarks
 
 Bring your bookmarks into SupaSidebar from Arc, Chrome, other Chromium browsers, Firefox, or an HTML bookmarks file.
+
+<Callout type="info">
+**On a managed or corporate Mac?** IT policies often block **Full Disk Access** (needed for Safari import) and can hide browser profiles from other apps (Chromium import). When the native flow fails, the [HTML bookmarks export](#importing-from-an-html-file) at the bottom of this page works for every browser and needs no special permissions.
+</Callout>
 
 ## Import steps
 
@@ -24,6 +30,10 @@ When importing from a Chromium browser (Chrome, Brave, Edge, Vivaldi, other Chro
 - **Pick none** - SupaSidebar skips the profile-specific bookmark trees and imports only the default tree, if any.
 
 Linked browser profiles can then be used with [Browser Profiles](/features/profileSpaces) to keep separate work and personal sessions properly siloed.
+
+<Callout type="info">
+**No profiles showing up?** Some Chrome enterprise installs and sandboxed builds hide their profile folder from other apps. In that case, sign into each profile, run **Bookmarks -> Bookmark Manager -> Export Bookmarks** for one profile at a time, and use the [HTML bookmarks import](#importing-from-an-html-file) below. You'll get one HTML file per profile - import each into its own space.
+</Callout>
 
 ## Supported import sources
 
@@ -59,7 +69,9 @@ Safari import reads bookmarks directly from Safari's internal database. The flow
 3. Follow the prompt to grant SupaSidebar **Full Disk Access** in System Settings, then return to the import flow
 4. Choose what to import and click **Start Import**
 
-If Full Disk Access can't be granted (for example on a managed device), SupaSidebar falls back to importing from a Safari HTML bookmarks export. Use **File - Export Bookmarks** in Safari to create the file, then choose **Import from HTML File** in SupaSidebar.
+<Callout type="warning">
+**Managed or corporate Mac?** Full Disk Access is often disabled by IT policy and the toggle may be greyed out entirely. Skip ahead to the [HTML bookmarks export](#importing-from-an-html-file) fallback below - use **File -> Export Bookmarks** in Safari and import the resulting `.html` file. No FDA needed.
+</Callout>
 
 ## Importing from an HTML file
 
