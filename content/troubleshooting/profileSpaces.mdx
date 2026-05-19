@@ -1,0 +1,92 @@
+---
+title: "Browser Profiles troubleshooting"
+description: "Fix profile detection, wrong browser launches, missing space switch prompts, and other issues with profile-linked spaces."
+---
+
+import { Callout } from 'nextra/components'
+
+# Browser Profiles troubleshooting
+
+[Browser Profiles](/features/profileSpaces) link a space to a specific browser profile. When something feels off - wrong tabs, wrong browser, missing prompt - it's usually one of the cases below.
+
+<Callout type="info">
+Browser Profiles is a Premium feature. If the option isn't visible, check your plan or [upgrade](https://supasidebar.com/pricing).
+</Callout>
+
+## A profile isn't showing up in the picker
+
+SupaSidebar auto-discovers profiles from each browser. If a profile is missing:
+
+1. **Open the browser at least once** so the profile is fully created on disk. A profile that has never been opened may not appear yet.
+2. **Restart SupaSidebar** to re-scan profiles.
+3. Check that **Automation** permission is granted for the browser - see [Permissions](/gettingStarted/permissions).
+4. For Chromium browsers (Brave, Chrome, Edge, Vivaldi), profiles are read from disk. For Firefox and Zen, they're read from `profiles.ini`. For Safari, profiles come from the system menu. If the browser was just updated, give it one full launch before re-scanning.
+
+If the profile still doesn't appear, the browser may store profiles in a non-standard location (managed-device installs, portable installs). Email `admin@supasidebar.com` with your browser name, version, and a screenshot of the picker.
+
+## The wrong browser launches when I open a link
+
+The most common cause is **rule precedence**. Browser selection runs in this order:
+
+1. Modifier-click actions (`Opt`-click, right-click -> Open With)
+2. [Air Traffic Control](/features/airTrafficControl) open routes
+3. The space's linked profile / default browser
+4. System default browser
+
+So if you have an ATC open route for `youtube.com -> Brave`, that wins even if your current space is linked to Safari. Check **Preferences -> Air Traffic Control** for a rule matching the URL.
+
+To fix:
+
+- If the ATC rule is what you want: leave it.
+- If the space's browser should win: disable or delete the ATC rule, or scope it tighter.
+
+See [Browser Selection Priority](/howTo/browserSelection) for the full priority order.
+
+## Live Tabs shows tabs from the wrong profile
+
+When a profile is linked to a space, Live Tabs filters to that profile. If you're seeing the wrong tabs:
+
+1. Open the space and check the **Live Tabs** header - it should show the linked profile name (e.g. "Live Tabs - Brave Work"). If it shows nothing or "All tabs", the link was lost.
+2. Click **Link a browser profile** and re-select the correct profile.
+3. If the linked profile's browser isn't running, Live Tabs shows a prompt to launch it. Click that, or enable [Auto-Launch Browser/Profile](/features/profileSpaces#auto-launch-browserprofile) in **Preferences -> Tabs & History -> Profile Spaces**.
+
+## The space switch prompt isn't appearing
+
+The space switch suggestion appears when you focus a browser window that belongs to a different linked space. If it's not showing:
+
+- Check that the source space and the target space both have **linked profiles** (not just browsers). The prompt is profile-aware.
+- Make sure you didn't previously choose **Never** for that space - that dismisses suggestions for it.
+- Confirm Automation permission is granted for the browser you're switching to.
+
+To reset suggestions, go to **Preferences -> Spaces** and toggle the space switch suggestion off and back on. {/* VERIFY: exact toggle name in current build */}
+
+## Auto-Launch isn't launching the browser
+
+When you arrive at a profile-linked space whose browser isn't running, SupaSidebar can cold-launch the browser into the right profile. If it doesn't:
+
+1. Enable **Auto-Launch Browser/Profile** in **Preferences -> Tabs & History -> Profile Spaces**.
+2. Make sure the browser is installed at its default macOS location.
+3. Some browsers (Firefox, Zen) need a per-profile launch argument that SSB calculates from `profiles.ini`. If you've manually edited that file, the launch may fail. Restore the file and re-link the profile.
+
+## The sidebar doesn't hide when I click away from the profile browser
+
+In profile mode, the sidebar auto-hides when the linked browser loses focus. If it stays visible:
+
+- Check **Preferences -> Sidebar -> Auto-hide** is enabled. {/* VERIFY: exact path */}
+- Confirm Accessibility permission is granted - see [Permissions](/gettingStarted/permissions).
+- Browser-interaction settings are under active redesign as of 0.19.x - if you upgraded recently and behavior changed, restart SupaSidebar once to pick up the new defaults.
+
+## My profile link broke after a browser update
+
+Some browsers reshuffle their profile folders during major updates. If your space suddenly shows "All tabs" instead of the linked profile:
+
+1. Open the space and click the **profile indicator** in the Live Tabs header.
+2. Choose **Unlink**, then **Link a browser profile** again.
+3. Re-select the same profile name from the picker.
+
+## Related
+
+- [Browser Profiles](/features/profileSpaces) - Full feature reference
+- [Air Traffic Control](/features/airTrafficControl) - Rule precedence and per-space default browsers
+- [Permissions](/gettingStarted/permissions) - Automation and Accessibility setup
+- [Spaces vs Folders vs Tags](/features/mentalModel) - When a linked profile actually earns its keep

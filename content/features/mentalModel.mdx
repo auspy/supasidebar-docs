@@ -1,0 +1,95 @@
+---
+title: "Spaces, Folders, and Tags - When to use which"
+description: "Understand how SupaSidebar organizes links so you can build a system that scales. Three tools, three jobs."
+---
+
+# Spaces, Folders, and Tags
+
+Three ways to organize. They look similar at first - here's how to pick the right one.
+
+## The 30-second answer
+
+| Tool | Job | Use when |
+|------|-----|----------|
+| **[Space](/features/spaces)** | A separate context with its own browser, pinned tabs, and view | You want everything to switch together - links, tabs, browser identity |
+| **[Folder](/features/spaces#usage)** | A grouping inside a space | You want organization without switching context |
+| **[Tag](/features/tags)** | A cross-cutting label | A link belongs to multiple categories, or you want AI to organize for you |
+
+The most common mistake new users make: treating spaces like folders. Don't make 10 spaces. Make 1 or 2 spaces with folders inside them.
+
+## When to use a Space
+
+A Space is the right choice when you want to **shift everything at once**: bookmarks, browser, pinned tabs, even the sidebar's color tint.
+
+Examples:
+
+- **Work vs Personal**: a Work space linked to your Chrome work profile, and a Personal space linked to Safari.
+- **Client A vs Client B**: separate spaces with their own pinned tools and tab sets per client.
+- **Side project**: a focused space for that one thing, kept out of your main view.
+
+What a space gives you that a folder can't:
+
+- A [per-space default browser](/features/airTrafficControl#per-space-default-browser)
+- A [linked browser profile](/features/profileSpaces) for session isolation
+- Per-space pinned tabs (separate from the global Pinned Links)
+- [Link Open Tabs to Space](/features/linkOpenTabs) - close and reopen the right tabs on every switch
+- A color tint so you can tell at a glance which space you're in
+
+If none of those matter, you don't need a separate space. Use a folder.
+
+## When to use a Folder
+
+A folder is just a grouping inside a space. Use folders when you want **organization without context switching**.
+
+Examples:
+
+- A Work space with folders for "Clients", "Tools", "Reading", "Reference docs".
+- A Personal space with folders for "Recipes", "Bookmarks I'll read later", "Apps".
+
+Folders are unlimited and free. Spaces beyond 3 require Premium. So when in doubt, use a folder.
+
+## When to use a Tag
+
+Tags are cross-cutting labels. A link can have multiple tags, and tags don't live inside any one folder or space.
+
+Use tags when:
+
+- A link genuinely fits more than one category ("AI" and "tools" and "to-read").
+- You want [AI to organize for you](/features/tags#ai-descriptions) - SupaSidebar can suggest tags from link content using OpenAI, on-device models, or Ollama.
+- You filter by topic across folders ("show me everything tagged `to-read`").
+- You want a folder that **auto-populates from a tag**. Pair tags with [Smart Folders](/features/smartFolders): create a smart folder with a Tags condition, and every link you tag (in any space) shows up there automatically. You can also scope the smart folder to a single space with a Source Space condition if you want the aggregation to stay local.
+
+Tags don't replace folders. Most people use both: folders for structure, tags for topic - and smart folders to tie them together.
+
+## What switching a space actually changes
+
+When you flip from one space to another:
+
+- The sidebar's list of links and folders changes to the new space.
+- The Live Tabs section filters to the new space's [linked browser profile](/features/profileSpaces), if any.
+- Per-space pinned tabs change (if you've enabled per-space pinned tabs in **Preferences -> Spaces**).
+- The color tint and icon at the top of the sidebar change.
+- If [Link Open Tabs to Space](/features/linkOpenTabs) is on, the previous space's tabs close and the new space's tabs reopen in their original browsers and profiles.
+
+What does **not** change:
+
+- Your global [Pinned Links](/features/pinnedItems) at the top of the sidebar. Those stay across all spaces unless you've turned on per-space pinned tabs.
+- Your browser's native pinned tabs (the ones pinned in Chrome's or Safari's tab bar). SupaSidebar doesn't touch those.
+
+## A starting setup we'd recommend
+
+If you're new to SupaSidebar, start here and expand later:
+
+1. **One space** called "Main" with folders for the categories you care about.
+2. **5-10 Pinned Links** at the top for sites you open every day - access with `Cmd Opt 1` through `Cmd Opt 9`.
+3. **A second space** only if you actually want a different browser or set of pinned tabs (e.g. a Work profile in Chrome).
+4. **Tags** later, once you notice you're saving the same kind of link to different folders.
+
+## Related
+
+- [Spaces](/features/spaces) - Full feature reference
+- [Smart Folders](/features/smartFolders) - Rule-based folders that auto-populate (including from tags)
+- [Browser Profiles](/features/profileSpaces) - Link a browser profile to a space
+- [Tags](/features/tags) - Color-coded labels and AI suggestions
+- [Pinned Links](/features/pinnedItems) - Top-of-sidebar shortcuts
+- [Link Open Tabs to Space](/features/linkOpenTabs) - Per-space tab memory

@@ -1,0 +1,78 @@
+---
+title: "License issues - Move to a new Mac, reactivate after reinstall"
+description: "Fix common SupaSidebar license errors, free up device slots from the Manage License page, and recover lost license keys."
+---
+
+import { Callout } from 'nextra/components'
+
+# License issues
+
+Most license problems are solved by a restart, or by freeing a device slot from the Manage License page on the web.
+
+<Callout type="info">
+License **deactivation is web-only**. There is no in-app deactivate button - all device management happens through the Manage License page on supasidebar.com. {/* VERIFY: confirm exact URL, e.g. supasidebar.com/manage */}
+</Callout>
+
+## Try a restart first
+
+A quick restart clears most transient activation issues.
+
+1. Quit SupaSidebar (right-click the menu bar icon -> Quit).
+2. Reopen the app.
+
+If the license is still flagged after a restart, continue below.
+
+## Free a device slot from Manage License
+
+Use this if you reinstalled SupaSidebar, replaced your Mac, or hit the device limit. You don't need access to the old Mac - everything happens in your browser.
+
+1. Open the [Manage License](https://supasidebar.com) page on supasidebar.com. {/* VERIFY: exact URL and link copy */}
+2. Sign in with the email you used at purchase.
+3. Remove the device you no longer need.
+4. On the Mac where you want to activate, open SupaSidebar and paste your license key when prompted.
+
+{/* Screenshot: Manage License device list */}
+
+## Moving to a new Mac
+
+1. On the **new Mac**: install SupaSidebar from [supasidebar.com](https://supasidebar.com).
+2. Paste your license key when prompted.
+3. If activation fails because the old Mac is still using the slot, open [Manage License](https://supasidebar.com) and remove the old device. {/* VERIFY: exact URL */}
+
+You don't need to do anything on the old Mac. License deactivation only happens on the web.
+
+## Common activation errors
+
+If activation fails, the error message usually points to one of these causes:
+
+| Cause | What's happening | Fix |
+|-------|------------------|-----|
+| Device limit reached | This license has been activated on too many Macs. | Remove an old device from Manage License. |
+| Invalid license key | The key has a typo or extra whitespace. | Copy-paste from your purchase email - don't retype. |
+| Email not found | The email doesn't match any purchase record. | Check the inbox you used at purchase. BundleHunt customers see below. |
+| License revoked | The license was disabled (refund, chargeback, or compromise). | Email `admin@supasidebar.com` if this is unexpected. |
+
+{/* VERIFY: confirm the exact error message strings the app shows */}
+
+## BundleHunt customers
+
+If you bought SupaSidebar through BundleHunt, your license key is in your **BundleHunt order email**, not from SupaSidebar. Search your inbox for "supasidebar" or "BundleHunt order" to find the key. Use the email tied to your BundleHunt order on the Manage License page.
+
+## Discount and promo codes
+
+Licenses bought with a [discount code](/howTo/claimDiscount) behave exactly the same as full-price ones - same Manage License page, same device limit. The discount only affects the price.
+
+## Still stuck?
+
+Email `admin@supasidebar.com` with:
+
+- The email you used at purchase
+- The license key (or a screenshot of the error)
+- The exact error message you're seeing
+
+We reply within 1-2 hours during waking hours, and within 12 hours at the latest.
+
+## Related
+
+- [Permissions](/gettingStarted/permissions) - Automation and Accessibility setup after a fresh install
+- [Claim a discount code](/howTo/claimDiscount) - Where discount codes apply at checkout

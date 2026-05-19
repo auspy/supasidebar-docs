@@ -1,6 +1,7 @@
 export default {
   index: 'Feature Overview',
   sidebar: 'Sidebar Panel',
+  mentalModel: 'Spaces vs Folders vs Tags',
   folderBrowser: 'Folder Browser',
   spaces: 'Spaces',
   profileSpaces: 'Browser Profiles',
