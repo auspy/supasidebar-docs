@@ -1,0 +1,39 @@
+# Sidebar Appears in a Browser I Don't Use
+
+## Problem
+
+You only want SupaSidebar to attach to one browser - say Vivaldi - but it also auto-shows and attaches when you switch to a secondary browser like Arc. This is especially disruptive in browsers with their own native sidebar (Arc, Dia), where you end up with two sidebars stacked on top of each other.
+
+## Cause
+
+By default, SupaSidebar auto-shows and attaches for every supported browser the moment that browser becomes frontmost. There is no "primary browser" mode - the supported way to scope SupaSidebar to a single browser is to tell it which browsers to ignore.
+
+Revoking Automation permission in System Settings is not a reliable fix - SupaSidebar can still detect the frontmost app and react to it, so the sidebar may still appear.
+
+## Solution - Block the unwanted browser
+
+1. Open **SupaSidebar Preferences -> Tabs & History**
+2. Scroll to **Privacy Blocklist**
+3. Click **Add to Blocklist -> Block Browser**
+4. Select the browser you want SupaSidebar to ignore (e.g. Arc)
+
+After blocking, when that browser is frontmost SupaSidebar will not:
+
+- auto-show the sidebar
+- attach to or resize the browser's windows
+- intercept `Cmd Ctrl T`, Smart Save (`Cmd Ctrl S`), or Smart Copy (`Cmd Ctrl C`) in that browser
+- list its tabs in [Live Tabs](/features/liveTabs) or its history in [Recent Items](/features/recentItems)
+
+The sidebar still works normally everywhere else. Blocking is per-browser, and you can block more than one.
+
+## What this is not
+
+- **Not a permission revocation.** Leave Automation access ON for the browser in System Settings - the in-app blocklist is the correct off-switch.
+- **Not an app-wide disable.** The menubar icon, global shortcuts (`Cmd Shift Space` etc.), and manual sidebar access keep working in the blocked browser if you trigger them yourself.
+- **Not reversible only by reinstall.** To re-enable SupaSidebar for that browser, just remove the entry from the Privacy Blocklist.
+
+## Learn More
+
+- [Privacy Blocklist](/features/privacyBlocklist) - full feature reference for blocking URLs, domains, and browsers
+- [Browser Integration](/features/browserIntegration) - how attach and auto-show work
+- [Sidebar Doesn't Hide in Browser](/troubleshooting/sidebarDoesntHideInBrowser) - related auto-hide issue
