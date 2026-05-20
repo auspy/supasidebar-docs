@@ -80,6 +80,22 @@ The priority order for browser selection:
 
 ATC open routes always win. If no open route matches, the space's browser is used. If the space has no assigned browser, the system default applies.
 
+## Per-link Preferred Browser
+
+You can also set a browser on one specific saved link, independent of any ATC rule. Open the **Add Link** sheet and pick a value in **Preferred Browser**, or right-click an existing link and choose **Set Browser**. The link's icon switches to match the chosen browser, so you can see at a glance which links open where.
+
+Use this when one particular link should open differently from every other URL on the same domain. For example, a single Figma file in your Design space that should always open in Arc, while every other Figma link uses your default.
+
+**When to use which:**
+
+| Situation | Use |
+|-----------|-----|
+| Many URLs follow the same pattern (e.g. all `github.com`) | ATC Open Route |
+| One specific saved link needs a different browser | Per-link Preferred Browser |
+| All links in a space should open in one browser | Per-space default browser |
+
+Per-link Preferred Browser sits below ATC in the resolution order. If both apply to the same URL, the ATC rule wins. See [Browser Selection Priority](/howTo/browserSelection#priority-order) for the full order.
+
 ## Examples
 
 ### Save Routes
