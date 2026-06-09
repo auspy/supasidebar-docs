@@ -1,27 +1,38 @@
 # Fill Screen
 
-Browser automatically resizes to fill the remaining screen space.
+Browser automatically resizes to fill the remaining screen space alongside the sidebar.
+
+Fill Screen is one of the three options in the **When Sidebar Opens** menu. Pick it to share the screen between your browser and the sidebar with no overlap - the browser shrinks to the freed column when the sidebar appears, and the **When Sidebar Hides** menu controls what happens to the browser afterwards.
 
 ## How It Works
 
 {/* TODO: Add image showing Fill Screen mode behavior */}
 {/* ![Fill Screen Mode](/assets/browser-integration/fill-screen.jpeg) */}
 
-When the sidebar opens, your browser shrinks to fit the remaining space. When closed, the browser expands back to fill the screen.
+When the sidebar opens, your browser shrinks to fit the remaining space. When the sidebar hides, what happens to the browser depends on the **When Sidebar Hides** setting (see [Sidebar Panel - Behavior](/features/sidebar#behavior)).
 
 ## Setup
 
-1. Open **Preferences → General**
-2. Set **Browser Integration** to **Smart Attach**
-3. Enable **Fill Entire Screen**
-4. Grant Accessibility permissions when prompted
+1. Open **Preferences - General**
+2. Under **When Sidebar Opens**, choose **Fill Freed Space**
+3. Grant Accessibility permissions when prompted
+
+## Works in both attached and independent layouts
+
+Fill Screen runs whether the sidebar is attached to your browser or floating independently on the screen edge. The Fill toolbar control lives in the top toolbar in both layouts, so a one-click fill is always available regardless of how you've positioned the sidebar.
 
 ## When Sidebar Hides
 
-By default, browser windows expand to fill the full screen when the sidebar hides. You can change this behavior in **Preferences → General → When Sidebar Hides**. See [Sidebar Panel  - Behavior](/features/sidebar#behavior) for all options.
+The **When Sidebar Hides** menu picks one of three behaviors once the sidebar goes away:
+
+- **Expand to Fill** - browser windows grow to fill the full screen.
+- **Restore Browser** - browser windows return to the size and position they had before the sidebar opened, so an overlay panel doesn't permanently reshape your window.
+- **Leave It** - do nothing; the browser stays in its filled shape.
+
+See [Sidebar Panel - Behavior](/features/sidebar#behavior) for the full picker.
 
 ## When to Use
 
-- You want a split-screen layout
+- You want a split-screen layout between sidebar and browser
 - You always use sidebar and browser together
-- You prefer maximized use of screen space
+- You prefer maximized use of screen space with no overlap

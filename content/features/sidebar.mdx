@@ -49,10 +49,18 @@ Found in **Preferences - General**.
 - **Default side** - Choose left or right screen edge
 - **Auto show with browser** - Show sidebar when browser is active. See [Live Tabs](/features/liveTabs)
 - **Adaptive height** - Adjust sidebar height based on content
-- **Browser integration** - Configure how sidebar interacts with browsers. See [Browser Integration](/features/browserIntegration)
-- **When Sidebar Hides** - Control what happens to browser windows when the sidebar is hidden:
-  - **Fill Remaining Space** (default) - browser windows expand to fill the full screen. Tiled windows re-tile across the entire screen width; filled windows take up the whole screen. Only applies when [Fill Entire Screen](/features/browserIntegration/fillScreen) or [Auto-Tile](/features/browserIntegration/tiling) is active.
-  - **Restore Original Position** - browser windows return to their size and position from before the sidebar was opened.
+- **Auto-Switch Side on Clipped Browser** - Flips the sidebar to the opposite side when your preferred side would be cut off by an adjacent monitor. Off by default.
+- **Bring Browser to Front on Show** - When on, opening the sidebar also brings your browser forward. Turn off to keep your current app frontmost when the sidebar opens.
+- **When Sidebar Opens** - Choose what happens to your browser window the moment the sidebar appears:
+  - **Do Nothing** - leave the browser window exactly where it is.
+  - **Prevent Overlap** - shift the browser sideways so the sidebar isn't covering it. See [Prevent Browser Overlap](/features/browserIntegration/smart).
+  - **Fill Freed Space** - resize the browser to take up the screen minus the sidebar's column, so the two share the screen with no overlap. See [Fill Entire Screen](/features/browserIntegration/fillScreen). Works in both attached and independent sidebar layouts.
+- **When Sidebar Hides** - Choose what happens to your browser window when the sidebar goes away:
+  - **Expand to Fill** (default when "Fill Freed Space" or [Auto-Tile](/features/browserIntegration/tiling) is on) - browser windows grow to fill the full screen. Tiled windows re-tile across the entire screen width.
+  - **Restore Browser** - browser windows return to their size and position from before the sidebar was opened, so an overlay panel doesn't permanently reshape your window.
+  - **Leave It** - do nothing; the browser stays exactly where it was while the sidebar was open.
+
+  > **Firefox and Zen users:** the resize options shape browser windows. Firefox and Zen accept resizes in small steps via the macOS accessibility API, so the window will visibly settle into its target size over about a second instead of snapping. This is a Gecko engine limitation, not a SupaSidebar bug. See [Browser Integration](/features/browserIntegration) for details.
 
 ![Sidebar settings in Preferences](/assets/default%20sidebar%20position.jpeg)
 

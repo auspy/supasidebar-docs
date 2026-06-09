@@ -7,7 +7,7 @@ description: "Mirror your open browser tabs in SupaSidebar for instant switching
 
 Real-time mirror of your browser tabs directly in the sidebar - switch between tabs across all browsers without leaving your keyboard.
 
-Live Tabs gives you a single bird's-eye view of every open tab across every browser on your Mac. Safari, Chrome, Firefox, Edge, Brave, Vivaldi, and 20+ other browsers all appear in one collapsible list in the SupaSidebar panel, so you can search, switch to, close, or save any tab from any browser without alt-tabbing through windows. When a SupaSidebar space is linked to a browser profile, the list filters to only that profile's tabs, so work and personal sessions stay siloed.
+Live Tabs gives you a single bird's-eye view of every open tab across every browser on your Mac. Safari (including Safari Technology Preview), Chrome, Firefox, Edge, Brave, Vivaldi, DuckDuckGo, and 20+ other browsers all appear in one collapsible list in the SupaSidebar panel, so you can search, switch to, close, or save any tab from any browser without alt-tabbing through windows. Right-click any tab to send it to a different browser or profile, so a link you opened in the wrong app is one menu away from the right one. When a SupaSidebar space is linked to a browser profile, the list filters to only that profile's tabs, so work and personal sessions stay siloed.
 
 {/* <YouTubeVideo
   id="ia_F8vYHoUs"
@@ -32,7 +32,7 @@ SupaSidebar supports Live Tabs across 20+ browsers. Each installed browser shows
 
 | Status | Browsers |
 |--------|----------|
-| **Fully Supported** | Safari, Chrome, Edge, Brave (incl. Brave Origin), Vivaldi, Comet, Orion, Helium, Dia, Norton Private Browser, Firefox (stable, Nightly, Developer Edition), and additional Chromium-based variants |
+| **Fully Supported** | Safari (incl. Safari Technology Preview), Chrome, Edge, Brave (incl. Brave Origin), Vivaldi, Comet, Orion, Helium, Dia, DuckDuckGo, Norton Private Browser, Firefox (stable, Nightly, Developer Edition), and additional Chromium-based variants |
 | **In Development** | Atlas, Arc |
 
 ![Live Tabs in Multiple Browsers](/assets/lifetabsmultiplebrowser.jpeg)
@@ -59,18 +59,22 @@ Search for an open tab by title in the [Command Panel](/features/commandPanel) o
 
 Duplicate tabs are automatically deduplicated in the list, so you see each unique page only once.
 
-## Close and save tabs
+## Right-click actions
 
 Right-click any live tab to manage it directly from the sidebar. Works in both expanded mode and compact mode.
 
 | Action | What it does |
 |--------|--------------|
+| **Activate Tab** | Switches your browser to that tab (the same as single-clicking) |
+| **Open With > Browser** | Sends the tab's URL to a different browser. Choose a specific Chrome, Safari, or Vivaldi profile when the picked browser has profiles |
 | **Close Tab** | Closes the tab |
 | **Close Other Tabs in Window** | Closes every other tab in the same browser window |
 | **Close Other Tabs in Browser** | Closes every other tab in that browser, across all windows |
 | **Close Tabs Above / Below** | Closes tabs above or below this one in the strip |
 | **Close All Tabs** | Closes every tab across every browser |
 | **Save Tab** / **Save Other Tabs** | Saves selected tabs to your sidebar in one go |
+
+**Open With** sends the tab's URL to the new browser - it does not move the tab itself. Use it when you opened a link in the wrong browser (or wrong profile) and want to continue in another, without re-typing or re-copying the URL.
 
 ## Drag and drop
 
@@ -105,6 +109,20 @@ When a space is linked to a browser profile, Live Tabs automatically filters to 
 Spaces without a linked profile show all browser tabs as usual.
 
 See [Browser Profiles](/features/profileSpaces) for how to link profiles to spaces.
+
+## Frequently asked questions
+
+### Can I send an open tab from one browser to another on macOS?
+
+Yes. Right-click any tab in the Live Tabs list and choose **Open With** to send its URL to a different browser. If the destination browser has profiles (Chrome, Safari, Vivaldi, Edge, Brave), you can pick a specific profile so the tab opens in the right session. The Live Tabs list spans every installed browser, so the source and destination can be any combination across Safari, Chrome, Firefox, Edge, Brave, Vivaldi, DuckDuckGo, and 20+ others.
+
+### Does Live Tabs work with Safari Technology Preview and DuckDuckGo?
+
+Yes. Both browsers are fully supported alongside regular Safari, Chrome, Firefox, and the rest. Their tabs appear in the same Live Tabs list with their real app icons, and right-click actions including Open With and Save Tab work the same way.
+
+### How do I see every open tab across every browser at once?
+
+Open the SupaSidebar panel. The Live Tabs section shows one collapsible list per browser, with every open tab in every window across every installed browser on your Mac. Fuzzy-search by title in the [Command Panel](/features/commandPanel) to jump straight to a tab without scrolling.
 
 ## Keyboard shortcuts
 
