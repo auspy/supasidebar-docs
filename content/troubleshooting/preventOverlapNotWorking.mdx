@@ -1,0 +1,50 @@
+# Prevent Overlap Isn't Working
+
+## Problem
+
+The sidebar opens, but browser windows still sit under it (or won't move out of the way) even though you expect [Prevent Browser Overlap](/features/browserIntegration/smart) to push them aside.
+
+Work through the checks below in order. The first two rule out the common setup mistakes; the last one covers a third-party conflict that's easy to miss.
+
+## 1. Confirm the feature is actually on
+
+Prevent Overlap only runs in Smart mode:
+
+1. Open **Preferences → General**
+2. Set **Browser Integration** to **Smart**
+3. Make sure **Prevent Browser Overlap** is enabled
+
+If Browser Integration is set to anything else (or Smart is on but Prevent Overlap is off), the sidebar won't reposition windows by design.
+
+## 2. Confirm Accessibility is granted
+
+Smart Attach moves windows through macOS Accessibility. If that permission is missing or in a confused state, the sidebar opens but nothing shifts - even when the toggle in System Settings looks correct.
+
+1. Open **System Settings → Privacy & Security → Accessibility**
+2. Confirm **SupaSidebar** is present and toggled **on**
+
+If it's already on but windows still don't move, the permission entry is likely stale. Follow [Reset Permissions](/troubleshooting/permissions) to remove and re-add SupaSidebar (or reset it with `tccutil`). This is the single most common cause of "Smart Attach does nothing."
+
+## 3. Check for a conflicting window app
+
+If the feature is on and Accessibility is healthy but overlap still isn't prevented, a third-party app that also manages or watches your windows is fighting SupaSidebar for control of the browser window position.
+
+The most common culprit is **[HazeOver](https://hazeover.com/)**, the "Distraction Dimmer" that highlights the front window by dimming the others. Because HazeOver continuously reacts to which window is frontmost, it can interfere with the window moves SupaSidebar makes when the sidebar opens, so Prevent Overlap appears to do nothing. Other window managers, dimmers, and focus utilities that reposition or track the active window can cause the same conflict.
+
+You don't have to quit HazeOver - it supports per-app exceptions:
+
+1. Open **HazeOver Preferences**
+2. Add **SupaSidebar** to its exception / excluded apps list
+3. Re-test the sidebar - browser windows should now move correctly when it opens
+
+If you use a different window or focus tool, add SupaSidebar to its exception list the same way.
+
+### Isolating the conflict
+
+Not sure which app is responsible? Quit your window and focus tools one at a time, testing Prevent Overlap after each. When the conflict disappears, you've found the app to add an exception for.
+
+## Learn More
+
+- [Prevent Browser Overlap](/features/browserIntegration/smart) - How Smart Attach repositions browser windows
+- [Browser Integration](/features/browserIntegration) - All Smart Attach behaviors
+- [Reset Permissions](/troubleshooting/permissions) - Restore Accessibility and Automation access

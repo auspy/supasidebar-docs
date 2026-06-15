@@ -3,6 +3,7 @@ export default {
   sidebarStaysOnTop: 'Sidebar Stays on Top',
   sidebarDoesntHideInBrowser: "Sidebar Doesn't Hide in Browser",
   sidebarAppearsInWrongBrowser: "Sidebar Appears in Wrong Browser",
+  preventOverlapNotWorking: "Prevent Overlap Isn't Working",
   linkOpensNewTab: "Link Opens New Tab Instead of Switching",
   permissions: 'Reset Permissions',
   license: 'License Issues',
