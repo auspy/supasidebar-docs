@@ -71,6 +71,19 @@ Many AI services and local servers use the same API format as OpenAI. The OpenAI
 
 SupaSidebar sends chat requests to `<base URL>/chat/completions` in the standard OpenAI format. Tool calling (letting the AI search and open your links) is sent to the server too, but it only works if the underlying model supports OpenAI-style function calling - many local models don't, in which case the AI still replies normally with text.
 
+### Ollama
+
+[Ollama](https://ollama.com) runs open models locally on your Mac. SupaSidebar talks to it directly - no API key, and nothing leaves your machine.
+
+**Setup:**
+
+1. Install Ollama and pull a model, e.g. `ollama pull qwen2.5`
+2. In **Preferences - AI**, select **Ollama** as the provider for AI Chat
+3. The **Endpoint** defaults to `http://localhost:11434`. Change it only if Ollama runs on a custom port or another machine, then click **Check** to confirm the connection
+4. Pick your model from the dropdown
+
+**Tool calling:** Models that support function calling (Qwen 2.5, Llama 3.1+, and similar) can use SupaSidebar's tools to search and open your links. Older models that don't support tools still chat normally - SupaSidebar falls back to a plain reply automatically.
+
 ## Keyboard shortcuts
 
 | Shortcut | Action |
