@@ -58,18 +58,18 @@ Use the `/model` slash command to switch between models for the current provider
 
 Many AI services and local servers use the same API format as OpenAI. The OpenAI-Compatible provider lets you connect to any of them - just provide a base URL and you're ready to go.
 
-**Works with:** Groq, Together AI, LM Studio, vLLM, Mistral, Fireworks, and any other service that exposes an OpenAI-compatible `/chat/completions` endpoint.
+**Works with:** Groq, Together AI, LM Studio, vLLM, Mistral, Fireworks, [oMLX](https://omlx.ai/) and other local MLX servers, and any other service that exposes an OpenAI-compatible `/chat/completions` endpoint.
 
 **Setup:**
 
 1. Go to **Preferences - AI**
 2. Under the feature you want to configure (e.g. AI Chat), select **OpenAI-Compatible** as the provider
-3. Enter the **Base URL** of your server (e.g. `http://localhost:1234/v1` for LM Studio, or `https://api.groq.com/openai/v1` for Groq)
-4. Enter your **API key** if the service requires one (local servers like LM Studio typically don't)
-5. Click **Save & Test** - SupaSidebar will verify the connection
-6. Type the **model name** you want to use (e.g. `llama-3.3-70b-versatile` for Groq, or whatever model your server provides)
+3. Enter the **Base URL** of your server, pointing at its `/v1` root (e.g. `http://localhost:8000/v1` for oMLX, `http://localhost:1234/v1` for LM Studio, or `https://api.groq.com/openai/v1` for Groq)
+4. Enter an **API key** only if the service requires one. Local servers (oMLX, LM Studio, vLLM) usually don't - just leave it blank
+5. Click **Save & Test**. SupaSidebar checks the connection by listing models at `<base URL>/models`, so make sure your server is running first
+6. **Pick the model** from the dropdown. After a successful test, SupaSidebar lists the models your server reports - choose a chat/instruct model (e.g. a Qwen *Instruct* model for oMLX). Embedding-only models such as `all-MiniLM` can't chat. If the list is empty (server unreachable), you can still type the model name manually.
 
-SupaSidebar automatically sends requests to the right endpoint (`/chat/completions`) using the standard OpenAI format. Streaming and tool calling are supported when the server supports them.
+SupaSidebar sends chat requests to `<base URL>/chat/completions` in the standard OpenAI format. Tool calling (letting the AI search and open your links) is sent to the server too, but it only works if the underlying model supports OpenAI-style function calling - many local models don't, in which case the AI still replies normally with text.
 
 ## Keyboard shortcuts
 
