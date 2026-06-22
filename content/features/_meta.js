@@ -11,6 +11,7 @@ export default {
   powerUps: 'Power-ups',
   smartFolders: 'Smart Folders',
   tags: 'Tags',
+  trash: 'Trash',
   commandPanel: 'Command Panel',
   askAI: 'Ask AI',
   sidebarAccess: 'Sidebar Access',

@@ -1,6 +1,11 @@
+---
+title: "Local and custom AI models for tag suggestions"
+description: "Run tag suggestions on-device with MLX, through Ollama, or against any OpenAI-compatible server. No cloud API key required for local models."
+---
+
 # Local AI Models
 
-SupaSidebar supports two ways to run AI models locally for tag suggestions  - no cloud API key required.
+SupaSidebar supports three ways to run AI models for tag suggestions without sending your links to a hosted cloud service: built-in MLX models, Ollama, and any OpenAI-compatible server you point it at. The first two need no API key at all, and all three let you pick a model and see live connection status before you rely on them.
 
 ## Option 1: Built-in Models (MLX)
 
@@ -78,14 +83,29 @@ ollama pull llama3.1:8b   # 4.7 GB, excellent quality
 - **The endpoint defaults to `http://localhost:11434`**  - only change this if you're running Ollama on another machine
 - **You can use different models** for Voice (in Voice settings) and Tags (in AI Tags settings)
 
-## MLX vs Ollama
+## Option 3: OpenAI-Compatible Server
 
-| | MLX (Built-in) | Ollama |
-|---|---|---|
-| **Setup** | One-click download | Install Ollama first |
-| **Mac compatibility** | Apple Silicon only | All Macs |
-| **Model choice** | 4 curated models | Thousands of models |
-| **Best for** | Quick setup | Power users, custom models |
-| **Memory usage** | Loaded in app memory | Runs as separate process |
+Many local and self-hosted model runners (LM Studio, llama.cpp, vLLM, text-generation-webui) and most hosted gateways expose an OpenAI-compatible API. SupaSidebar can talk to any of them, so you can use a model running on another machine on your network or behind your own endpoint.
 
-**Our recommendation:** Start with **MLX + Phi-4 Mini** for the easiest setup. Switch to **Ollama** if you want more model choices or have an Intel Mac.
+### Setup
+
+1. Open **Preferences → AI Tags**
+2. Set AI Provider to **OpenAI-Compatible**
+3. Enter the server's **base URL** (for example `http://localhost:1234/v1`)
+4. Add an **API key** if your server requires one. Leave it blank for local servers that don't.
+5. Click **Check** to verify the connection and see live status
+6. Pick your model from the dropdown, or type the model name if the server doesn't list one
+
+The model dropdown auto-populates from servers that report their available models. If your server doesn't, the model field accepts a name you type in.
+
+## MLX vs Ollama vs OpenAI-Compatible
+
+| | MLX (Built-in) | Ollama | OpenAI-Compatible |
+|---|---|---|---|
+| **Setup** | One-click download | Install Ollama first | Enter base URL (and key if needed) |
+| **Mac compatibility** | Apple Silicon only | All Macs | All Macs |
+| **Model choice** | 4 curated models | Thousands of models | Whatever your server runs |
+| **Best for** | Quick setup | Power users, custom models | Self-hosted or remote endpoints |
+| **Memory usage** | Loaded in app memory | Runs as separate process | Runs on the server you point to |
+
+**Our recommendation:** Start with **MLX + Phi-4 Mini** for the easiest setup. Switch to **Ollama** if you want more model choices or have an Intel Mac, or use **OpenAI-Compatible** to reach a model running on another machine or your own endpoint.
