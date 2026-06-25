@@ -2,17 +2,64 @@
 
 ## Problem
 
-You open a link from the Command Panel or sidebar, but instead of switching to the existing tab, a new tab opens - even though the site is already open in your browser.
+You open a link from the Command Panel or sidebar, but instead of switching to the tab you already have open, a new tab appears, even though the site is already open in your browser.
 
-## Why This Happens
+This usually comes down to one of two things: SupaSidebar isn't currently watching your tabs, or the URL it saved doesn't match the URL your browser ended up on. Work through the checks below in order.
 
-SupaSidebar matches URLs by comparing the exact path. Some websites redirect after loading - for example, `x.com` redirects to `x.com/home`, and `github.com` redirects to `github.com/dashboard`. Since the path you opened (`/`) differs from the path the browser ended up on (`/home`), SupaSidebar doesn't recognize them as the same tab.
+## First, the quick checks
 
-## Solutions
+### 1. Update to the latest version
+
+Switching to an existing tab relies on tab tracking and URL matching that were stabilized in **version 0.19 and later**. If you're on an older build, the feature may not work reliably.
+
+Open the SupaSidebar menu bar icon and choose **Check for Updates**, then install whatever it offers. The latest version is always recommended.
+
+### 2. Check browser permissions
+
+To find and switch to an open tab, SupaSidebar needs **Automation** permission for the browsers you use, and **Accessibility** permission to bring the right window forward. If either is missing, it falls back to opening a new tab.
+
+- Open **System Settings -> Privacy & Security -> Automation** and make sure SupaSidebar is enabled for your browser.
+- Open **System Settings -> Privacy & Security -> Accessibility** and make sure SupaSidebar is enabled.
+
+If you granted a permission while SupaSidebar was running, quit and relaunch it. For stuck toggles or repeated permission prompts, see [Reset Permissions](/troubleshooting/permissions).
+
+## Make sure tab switching is actually on
+
+SupaSidebar can only switch to an existing tab when it's actively watching your open tabs. Whether it is depends on the mode you picked in **Preferences -> Tabs & History**:
+
+| Your mode | Does tab switching work? | What to check |
+|-----------|--------------------------|---------------|
+| **Live Tabs** | Yes, always | Nothing. Live Tabs already mirrors every open tab. |
+| **Recents** | Only with Background Tab Sync on | Turn on **Background Tab Sync** (see below). |
+| **None** | No | Switch to **Live Tabs** or **Recents** to enable it. |
+
+### If you use Recents mode
+
+In Recents mode, the **Background Tab Sync** toggle is what lets SupaSidebar see your open tabs and switch to them instead of opening duplicates. It's on by default, but if you turned it off to save battery, tab switching stops working.
+
+1. Open **Preferences -> Tabs & History**
+2. Select the **Recents** card
+3. Under **Recents Settings**, turn on **Background Tab Sync**
+
+With this on, SupaSidebar keeps a lightweight background check of your tabs. With it off, the app shows a warning that it cannot switch to existing browser tabs, by design.
+
+### If you use Live Tabs mode
+
+You're already covered. [Live Tabs](/features/liveTabs) mirrors every open tab in real time, so switching to an existing one works without any extra setting.
+
+### If you use None mode
+
+In None mode, SupaSidebar isn't tracking tabs at all, so every link opens fresh. Switch to **Live Tabs** or **Recents** in **Preferences -> Tabs & History** to get tab switching back.
+
+## Still opening a new tab? It's probably a redirect
+
+If tab switching is on and a new tab still opens for one specific site, the cause is usually a redirect.
+
+SupaSidebar matches tabs by comparing the exact URL path. Some websites redirect after loading. For example, `x.com` redirects to `x.com/home`, and `github.com` redirects to `github.com/dashboard`. Since the path you opened (`/`) differs from the path the browser ended up on (`/home`), SupaSidebar doesn't recognize them as the same tab.
 
 ### Save the link with Smart Save
 
-Use **Smart Save** (`Cmd Shift S`) while you're on the page. This saves the actual URL the browser is showing (e.g., `x.com/home` instead of `x.com`), so tab reuse works correctly next time you open it.
+Use **Smart Save** (`Cmd Shift S`) while you're on the page. This saves the actual URL the browser is showing (for example `x.com/home` instead of `x.com`), so tab reuse works correctly the next time you open it.
 
 ### Use Live Tabs to switch directly
 
@@ -20,7 +67,7 @@ Instead of typing the URL, search for the tab by its title using the **Live Tabs
 
 1. Open the Command Panel (`Cmd Ctrl K`)
 2. Type `/tabs` then press `Tab` to enter the Live Tabs scope
-3. Search by page title (e.g., "Home / X")
+3. Search by page title (for example "Home / X")
 4. Press `Return` to switch to that exact tab
 
 This finds the open tab regardless of URL redirects.
