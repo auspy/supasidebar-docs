@@ -38,7 +38,7 @@ const config: DocsThemeConfig = {
       <meta property="og:title" content="SupaSidebar Documentation" />
       <meta
         property="og:description"
-        content="Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features."
+        content="Complete guide to SupaSidebar, the macOS app that brings Arc's sidebar to every browser - one sidebar for tabs, bookmarks, files, and apps across Safari, Chrome, and more."
       />
       <meta property="og:image" content="https://docs.supasidebar.com/opengraph-image.png" />
       <meta name="twitter:card" content="summary_large_image" />

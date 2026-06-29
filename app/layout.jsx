@@ -36,10 +36,10 @@ const structuredData = {
 export const metadata = {
   metadataBase: new URL("https://docs.supasidebar.com"),
   title: "SupaSidebar Documentation",
-  description: "Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features.",
+  description: "Complete guide to SupaSidebar, the macOS app that brings Arc's sidebar to every browser - one sidebar for tabs, bookmarks, files, and apps across Safari, Chrome, and more.",
   openGraph: {
     title: "SupaSidebar Documentation",
-    description: "Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features.",
+    description: "Complete guide to SupaSidebar, the macOS app that brings Arc's sidebar to every browser - one sidebar for tabs, bookmarks, files, and apps across Safari, Chrome, and more.",
     siteName: "SupaSidebar Docs",
     type: "website",
     url: "https://docs.supasidebar.com",
@@ -48,7 +48,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SupaSidebar Documentation",
-    description: "Complete guide to using SupaSidebar - enhance your macOS Finder with powerful sidebar features.",
+    description: "Complete guide to SupaSidebar, the macOS app that brings Arc's sidebar to every browser - one sidebar for tabs, bookmarks, files, and apps across Safari, Chrome, and more.",
     images: ["/opengraph-image.png"],
   },
 };
