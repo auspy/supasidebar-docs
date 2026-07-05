@@ -6,5 +6,6 @@ export default {
   browserImport: 'Import Bookmarks',
   dragAndDrop: 'Drag and Drop',
   smart: 'Smart Shortcuts',
-  claimDiscount: 'Claim a Discount Code'
+  claimDiscount: 'Claim a Discount Code',
+  claimShipatonDiscount: 'Claim Your Shipaton Discount'
 }
