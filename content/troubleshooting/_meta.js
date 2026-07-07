@@ -2,11 +2,13 @@ export default {
   index: 'Troubleshooting',
   sidebarStaysOnTop: 'Sidebar Stays on Top',
   sidebarDoesntHideInBrowser: "Sidebar Doesn't Hide in Browser",
+  sidebarAutoAppears: "Sidebar Appears Automatically",
   sidebarAppearsInWrongBrowser: "Sidebar Appears in Wrong Browser",
   preventOverlapNotWorking: "Prevent Overlap Isn't Working",
   linkOpensNewTab: "Link Opens New Tab Instead of Switching",
   permissions: 'Reset Permissions',
   license: 'License Issues',
   profileSpaces: 'Browser Profiles',
+  browserProfilesMissing: 'Missing Browser Profiles',
   mcp: 'MCP Setup Issues'
 }

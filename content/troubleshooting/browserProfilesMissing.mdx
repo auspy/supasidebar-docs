@@ -1,0 +1,77 @@
+---
+title: "Some browser profiles are missing"
+description: "Fix Chrome, Brave, or Edge profiles that don't show up in SupaSidebar's profile picker, with a one-line diagnostic to confirm the cause."
+---
+
+import { Callout } from 'nextra/components'
+
+# Some browser profiles are missing
+
+## Problem
+
+You have several profiles in Chrome (or another Chromium browser like Brave or Edge), but SupaSidebar only shows some of them in the profile picker. One or more profiles are missing when you try to [link a profile to a space](/features/profileSpaces) or open a link in a specific profile.
+
+## Cause
+
+SupaSidebar does not guess your profiles. For Chromium browsers it reads them straight from the browser's own `Local State` file, the same list Chrome uses for its profile menu. A profile only shows up in SupaSidebar if the browser has written it into that file.
+
+A profile is usually missing for one of these reasons:
+
+- The profile was **created but never fully opened**, so the browser hasn't registered it yet.
+- SupaSidebar **scanned before the profile existed** and hasn't re-scanned since.
+- The browser stores its data in a **non-standard location** (managed-device or portable installs that use a custom `--user-data-dir`).
+
+## Diagnostic: see exactly what the browser reports
+
+This is the fastest way to tell whether the problem is on the browser's side or SupaSidebar's side. Ask the user to open **Terminal** and paste this (for Chrome):
+
+```bash
+python3 -c "import json,os; d=json.load(open(os.path.expanduser('~/Library/Application Support/Google/Chrome/Local State'))); [print(f'{k}  ->  {v.get(\"name\")}') for k,v in d['profile']['info_cache'].items()]"
+```
+
+It prints one line per profile the browser knows about, for example:
+
+```
+Default    ->  Personal
+Profile 1  ->  Work
+Profile 3  ->  Side project
+```
+
+For other browsers, swap the path in the command:
+
+| Browser | Path fragment |
+|---------|---------------|
+| Chrome | `Google/Chrome` |
+| Brave | `BraveSoftware/Brave-Browser` |
+| Edge | `Microsoft Edge` |
+| Vivaldi | `Vivaldi` |
+
+Now compare that list to what SupaSidebar shows:
+
+- **Profile is missing from the Terminal list too** - the browser itself hasn't registered it. This is a browser-side state, not a SupaSidebar bug. Open the profile once (see below) so the browser writes it to `Local State`.
+- **Profile is in the Terminal list but not in SupaSidebar** - the app has a stale scan. Restart SupaSidebar to re-discover profiles.
+
+## Solution
+
+1. **Open the missing profile once in the browser.** Launch Chrome, switch into that profile, and let it load fully. This forces the browser to write the profile into `Local State`.
+2. **Restart SupaSidebar** so it re-reads the profile list.
+3. **Grant Automation permission** for the browser if you haven't. See [Permissions](/gettingStarted/permissions).
+4. Re-open the profile picker and confirm the profile now appears.
+
+<Callout type="info">
+[Browser Profiles](/features/profileSpaces) is a Premium feature. If no profile options appear at all, check your plan or [upgrade](https://supasidebar.com/pricing).
+</Callout>
+
+## If the profile still doesn't appear
+
+If the diagnostic command lists the profile but SupaSidebar still won't show it after a restart, the browser is likely installed in a non-standard location (managed device, portable install, or a custom profile directory). Email `admin@supasidebar.com` with:
+
+- The browser name and version
+- The output of the diagnostic command above
+- A screenshot of SupaSidebar's profile picker
+
+## Learn more
+
+- [Browser Profiles](/features/profileSpaces) - Link a space to a specific browser profile
+- [Browser Profiles troubleshooting](/troubleshooting/profileSpaces) - Wrong browser launches, missing prompts, Live Tabs showing wrong tabs
+- [Permissions](/gettingStarted/permissions) - Automation and Accessibility setup
