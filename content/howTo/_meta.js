@@ -7,6 +7,7 @@ export default {
   browserImport: 'Import Bookmarks',
   dragAndDrop: 'Drag and Drop',
   smart: 'Smart Shortcuts',
+  activateLicense: 'Activate a License',
   betaUpdates: 'Beta Updates',
   claimDiscount: 'Claim a Discount Code',
   claimShipatonDiscount: 'Claim Your Shipaton Discount'
