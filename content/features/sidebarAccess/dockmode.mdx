@@ -1,1 +1,41 @@
-hi
+# Dock Mode
+
+Pin the sidebar to the screen edge and let your browser resize around it automatically as the sidebar shows and hides.
+
+## Enable Dock Mode
+
+1. Open **Preferences → Sidebar**
+2. Set **Sidebar Browser Integration** to **Independent**
+3. Set **When Sidebar Opens** to **Maximize Browser Window**
+4. Set **When Sidebar Hides** to **Expand Browser to Fill Screen**
+5. Grant Accessibility permission when prompted
+
+Requires [Accessibility permission](/gettingStarted/permissions#accessibility): **System Settings → Privacy & Security → Accessibility → SupaSidebar**
+
+## How It Works
+
+- **Docks to the edge** - the sidebar stays fixed at the screen edge instead of following the browser window
+- **Browser fills the gap** - when the sidebar opens, your browser resizes to use the remaining space, mimicking the built-in sidebar of a browser
+- **Browser expands back** - when the sidebar hides, the browser automatically returns to full width
+- **Multi-display aware** - works whether the sidebar and browser are on the same screen or different ones
+
+## Settings
+
+| Setting | Description |
+|---------|-------------|
+| Sidebar Browser Integration | Set to **Independent** to keep the sidebar pinned to the screen edge. **Smart Attach** instead moves the sidebar to follow the browser window - a different feature |
+| When Sidebar Opens | Set to **Maximize Browser Window** so the browser fills the space next to the sidebar |
+| When Sidebar Hides | Set to **Expand Browser to Fill Screen** so the browser returns to full width |
+
+Positioning (Independent vs Smart Attach) and the open/hide behavior are independent settings, so you can combine them either way.
+
+See [Browser Integration](/features/browserIntegration) for the full set of Smart Attach options.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Browser doesn't resize when sidebar opens | Grant Accessibility permission, confirm Independent + Maximize Browser Window are set |
+| Browser doesn't expand when sidebar hides | Set **When Sidebar Hides** to **Expand Browser to Fill Screen** |
+| Not working in full-screen apps or Split View | Expected - macOS owns window layout there, so dock behavior is skipped |
+| Sidebar seems slow to disappear | Browser windows resize as part of the hide sequence, just before the sidebar itself animates out |
