@@ -49,5 +49,13 @@
 
 - [Sidebar stays on top](https://docs.supasidebar.com/troubleshooting/sidebarStaysOnTop): Fix the sidebar always staying above other windows
 - [Sidebar doesn't hide in browser](https://docs.supasidebar.com/troubleshooting/sidebarDoesntHideInBrowser): Fix auto-hide not triggering when a browser is focused
+- [Sidebar appears automatically](https://docs.supasidebar.com/troubleshooting/sidebarAutoAppears): Turn off Auto-show with Browser when the sidebar pops up on its own every time you open a browser
+- [Sidebar appears in the wrong browser](https://docs.supasidebar.com/troubleshooting/sidebarAppearsInWrongBrowser): Block a secondary browser with the Privacy Blocklist so the sidebar stops auto-showing and attaching there
+- [Prevent Overlap isn't working](https://docs.supasidebar.com/troubleshooting/preventOverlapNotWorking): Fix Prevent Overlap by checking Smart mode, Accessibility permission, and conflicting window apps like HazeOver
 - [Link opens new tab instead of switching](https://docs.supasidebar.com/troubleshooting/linkOpensNewTab): Fix Smart Tab Reuse not activating the existing tab
+- [Duplicate tabs in Live Tabs and your browser](https://docs.supasidebar.com/troubleshooting/duplicateTabs): Stop seeing the same tabs in both Live Tabs and your browser by choosing one surface as your hub
+- [Reset permissions](https://docs.supasidebar.com/troubleshooting/permissions): Reset a stuck Accessibility or Automation permission with tccutil when shortcuts stop capturing your URL
+- [License issues](https://docs.supasidebar.com/troubleshooting/license): Free a device slot or move your license to a new Mac from the web-only Manage License page
+- [Browser Profiles troubleshooting](https://docs.supasidebar.com/troubleshooting/profileSpaces): Fix missing profiles, wrong browser launches, and Live Tabs showing the wrong profile's tabs
+- [Missing browser profiles](https://docs.supasidebar.com/troubleshooting/browserProfilesMissing): Diagnose whether a missing Chrome, Brave, or Edge profile is a browser-side or SupaSidebar-side issue
 - [MCP issues](https://docs.supasidebar.com/troubleshooting/mcp): Common Model Context Protocol problems and fixes

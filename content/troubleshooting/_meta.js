@@ -6,6 +6,7 @@ export default {
   sidebarAppearsInWrongBrowser: "Sidebar Appears in Wrong Browser",
   preventOverlapNotWorking: "Prevent Overlap Isn't Working",
   linkOpensNewTab: "Link Opens New Tab Instead of Switching",
+  duplicateTabs: "Duplicate Tabs",
   permissions: 'Reset Permissions',
   license: 'License Issues',
   profileSpaces: 'Browser Profiles',

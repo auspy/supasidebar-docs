@@ -1,3 +1,8 @@
+---
+title: "Reset permissions - Fix stuck or denied SupaSidebar access"
+description: "Fix stuck, denied, or missing Accessibility and Automation permissions for SupaSidebar, including per-browser Automation grants and full TCC resets."
+---
+
 # Reset permissions
 
 If you've granted Accessibility or Automation to SupaSidebar but shortcuts still don't work, the macOS TCC database is most likely in a confused state. Resetting the permission entry is almost always the fix.
@@ -70,6 +75,25 @@ To recover:
 2. Expand **SupaSidebar** and tick every browser you actually use.
 3. If SupaSidebar isn't listed at all, run `tccutil reset AppleEvents com.supasidebar`, relaunch SupaSidebar, and trigger a shortcut (`Cmd Shift C` while your browser is frontmost). The prompt should appear.
 4. If the prompt still doesn't appear, quit and relaunch the browser - macOS sometimes caches the denial against the browser process.
+
+If Automation works for one browser but not another, see [Live Tabs works in one browser but not another](#live-tabs-works-in-one-browser-but-not-another) below.
+
+## Live Tabs works in one browser but not another
+
+**Symptom:** Live Tabs mirrors tabs from Chrome but shows nothing for Safari. Or **Auto Show on Browser Focus** is already checked in **Preferences → Sidebar**, but nothing happens when Safari becomes the active app - it only fires for Chrome.
+
+### Cause
+
+Automation permission is granted per browser, not once globally. macOS lists a separate checkbox for every app SupaSidebar wants to control inside **System Settings → Privacy & Security → Automation**. If you only granted access for the browser you were using when SupaSidebar first prompted you, you never saw a prompt for the second browser - SupaSidebar has no way to talk to it yet.
+
+### Fix
+
+1. Open **System Settings → Privacy & Security → Automation**.
+2. Find **SupaSidebar** and expand it.
+3. Confirm there is a checkbox ticked for **every browser you use**, not only the one you set up first.
+4. Relaunch SupaSidebar after granting.
+
+If a browser is missing from the list entirely, with no checkbox to tick, see [Automation isn't prompting or is denied](#automation-isnt-prompting-or-is-denied) above for the reset steps that force macOS to prompt again. For what Automation and Accessibility each unlock, see the [Permissions setup guide](/gettingStarted/permissions).
 
 ## Multiple SupaSidebar entries in the list
 

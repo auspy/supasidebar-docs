@@ -1,3 +1,8 @@
+---
+title: "Permissions setup - Automation and Accessibility explained"
+description: "What SupaSidebar's Automation and Accessibility permissions do, why granting them is safe, and how to scope them with the Privacy Blocklist."
+---
+
 # Setting Up Permissions
 
 SupaSidebar requires **Automation** and **Accessibility** permissions for browser integration and shortcuts.
@@ -25,6 +30,31 @@ Accessibility permission is required for copying text, mouse triggers, and inter
 > If you grant a permission while SupaSidebar is running, quit and relaunch the app so it picks up the new permission.
 
 > If a browser shortcut doesn't respond, check Accessibility permission first. SupaSidebar shows a note on shortcuts that require this permission in **Preferences → Shortcuts**.
+
+## Is it safe to grant Automation and Accessibility to SupaSidebar?
+
+Yes. These permissions let SupaSidebar ask a browser for its tab URLs and titles and move its windows - the standard macOS mechanism every window manager and clipboard tool uses. Here is exactly what each one is used for, and what stops working without it.
+
+### What Accessibility is used for
+
+- **Mouse-edge auto-show** - Detects the mouse reaching a screen edge so the sidebar can appear
+- **Window positioning** - Reads and sets a browser window's position and size via AXUIElement, which powers Smart Attach, window following, and resizing
+- **Tab lists for Firefox and DuckDuckGo** - Enumerates open tabs for these two browsers specifically, since neither exposes an AppleScript tab dictionary the way Safari or Chrome do
+
+Without Accessibility: mouse-edge auto-show, Smart Attach / follow / resize, and Live Tabs for Firefox and DuckDuckGo stop working.
+
+### What Automation is used for
+
+- **Reading the current tab** - Sends AppleScript to a browser to read the current tab's URL and title, open URLs, and switch or close tabs
+- **Live Tabs for AppleScript-capable browsers** - Safari, Chrome, Arc, Brave, Edge, Vivaldi, Orion, Opera, and others
+
+Without Automation: Smart Save, tab switching commands, and Live Tabs for those browsers stop working.
+
+Automation is granted per browser, not once globally - see [Live Tabs works in one browser but not another](/troubleshooting/permissions#live-tabs-works-in-one-browser-but-not-another) if a browser you granted access to later stops responding.
+
+### Don't want SupaSidebar touching a specific browser or site?
+
+Grant the permissions above and then use the **Privacy Blocklist** at **Preferences → Tabs & History → Privacy Blocklist** to make SupaSidebar ignore a chosen browser or site entirely. Use it when a browser or site should stay entirely out of SupaSidebar's reach. See the [Privacy Blocklist guide](/features/privacyBlocklist) for setup.
 
 ## Permissions stuck or not working?
 

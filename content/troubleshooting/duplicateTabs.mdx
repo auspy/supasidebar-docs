@@ -1,0 +1,56 @@
+---
+title: "Duplicate tabs in Live Tabs and your browser"
+description: "Fix seeing the same open tabs in both SupaSidebar's Live Tabs and your browser's tab bar by choosing one surface as your hub."
+---
+
+# Duplicate tabs in Live Tabs and your browser
+
+## Problem
+
+You see the same tabs twice - once in SupaSidebar's [Live Tabs](/features/liveTabs) list, and again in your browser's own tab strip. It feels like duplicate information cluttering both places at once.
+
+## Cause
+
+Live Tabs is a real-time mirror of your open tabs, not a replacement for your browser's tab strip. Nothing is actually duplicated - no extra tab exists anywhere. You're looking at one set of open tabs shown on two surfaces at the same time, and that's by design: Live Tabs is meant to give you a second, searchable view of what's already open, not to hide the browser's own tabs from you.
+
+The doubled feeling goes away once you pick one surface as the one you actually read, and quiet the other one down.
+
+## Solution
+
+### If SupaSidebar is your hub
+
+Hide or shrink the browser's own tab bar so your tab list lives in one place. Safari gives you two options:
+
+- **Hide Tab Bar** - Open the **View** menu in Safari and choose **Hide Tab Bar**. Safari offers this while a single tab is open, so it fits a workflow where one page stays in front of you and the rest are reached through Live Tabs.
+- **Compact tab layout** - Open **Safari → Settings → Tabs** and choose the **Compact** layout. This folds the tab bar into the toolbar rather than removing it, which cuts the doubling without limiting how many tabs stay open.
+
+Other browsers vary. Most Chromium-based browsers (Chrome, Edge, Brave, Vivaldi) do not offer a native way to hide the tab strip, so check that browser's own **View** menu to confirm what it supports.
+
+### If your browser's tab strip is your hub
+
+Turn Live Tabs off instead, or switch to Recents.
+
+1. Open **Preferences → Tabs & History**.
+2. Choose your mode using the card selector: **Recents** to see recently visited pages instead of a live mirror, or **None** to stop tab tracking entirely.
+
+With Live Tabs off, SupaSidebar stops showing a live list of your open tabs, and your browser's tab bar becomes the only place you see them.
+
+## Frequently asked questions
+
+### Does hiding the browser tab bar close my tabs?
+
+No. Hiding a tab bar only changes what your browser displays. Every tab stays open exactly as it was, and SupaSidebar's Live Tabs list keeps mirroring them in real time.
+
+### Will I lose any tabs if I turn off Live Tabs?
+
+No. Live Tabs never stores or owns your tabs, it only mirrors what your browser already has open. Switching to **Recents** or **None** in **Preferences → Tabs & History** stops the mirror, not your browsing session.
+
+### Can I hide the tab strip in Chrome, Edge, or Brave?
+
+Most Chromium-based browsers don't offer a native setting to hide their tab strip. Check that browser's own **View** menu to confirm, since this varies by browser and by version.
+
+## Learn more
+
+- [Live Tabs](/features/liveTabs) - How the real-time tab mirror works across every browser
+- [Recent Links](/features/recentItems) - The lighter-weight alternative to Live Tabs
+- [Link opens new tab instead of switching](/troubleshooting/linkOpensNewTab) - Fix tab-reuse issues once Live Tabs or Recents is on
