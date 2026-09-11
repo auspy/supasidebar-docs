@@ -1,0 +1,48 @@
+# Search Shortcuts
+
+Type a keyword then a space to search one website directly from the Command Panel - no scope switch required.
+
+## How It Works
+
+Type a shortcut's keyword followed by a space, and the Command Panel scopes your query to that site. Typing `gh` then space searches GitHub; typing `yo` then space searches YouTube. Whatever you type next is sent straight to that site's search.
+
+A pill next to the search field shows which shortcut is active. Click the pill (or clear the query back to empty) to leave the shortcut and return to normal search.
+
+## Default Shortcuts
+
+| Keyword | Site |
+|---------|------|
+| `yo` | YouTube |
+| `reddit` | Reddit |
+| `gh` | GitHub |
+| `wiki` | Wikipedia |
+| `tw` | Twitter |
+| `go` | Google |
+| `bi` | Bing |
+| `dd` | DuckDuckGo |
+| `ya` | Yahoo |
+| `px` | Perplexity |
+
+## Tab as the Alternative Trigger
+
+Press `Tab` instead of Space to activate a shortcut. Tab is more forgiving - it matches on a close or partial keyword, not just an exact one, so a near-miss like `gth` can still activate GitHub. Space only activates on an exact keyword match.
+
+## Add Your Own
+
+1. Open **Preferences - Command Panel**
+2. Under **Website Search Shortcuts**, click **Add Shortcut**
+3. Fill in:
+   - **Keyword** - the short trigger you'll type (no spaces)
+   - **Website Name** - the display name shown in the active pill
+   - **Search URL** - the site's search URL with the query parameter left dangling (e.g. `https://www.youtube.com/results?search_query=`)
+4. Click **Save**
+
+Your query is appended to the Search URL automatically, so the URL should end right where the search term belongs.
+
+Edit or delete an existing shortcut from the same **Website Search Shortcuts** list.
+
+## Tips
+
+- Keywords can't contain spaces and must be unique across your shortcuts.
+- Search URLs must start with `http://` or `https://`.
+- See [Command Panel](/features/commandPanel) for the rest of the search and navigation features.

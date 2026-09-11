@@ -78,6 +78,66 @@ p:has(img) {
   margin-right: 0 !important;
 }
 
+/* "Crafted by AI" badge, next to the navbar search box */
+.ai-crafted-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 999px;
+  border: 1px solid #c7d2fe;
+  background-color: #eef2ff;
+  color: #4338ca;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ai-crafted-badge:hover {
+  background-color: #e0e7ff;
+  border-color: #a5b4fc;
+}
+
+.ai-crafted-badge:focus-visible {
+  outline: 2px solid #4338ca;
+  outline-offset: 2px;
+}
+
+.ai-crafted-badge__icon {
+  flex-shrink: 0;
+}
+
+.dark .ai-crafted-badge {
+  border-color: #3730a3;
+  background-color: #1e1b4b;
+  color: #a5b4fc;
+}
+
+.dark .ai-crafted-badge:hover {
+  background-color: #312e81;
+  border-color: #4f46e5;
+}
+
+.dark .ai-crafted-badge:focus-visible {
+  outline-color: #a5b4fc;
+}
+
+/* Icon-only on narrower headers, so it never crowds search or nav links */
+@media (max-width: 1024px) {
+  .ai-crafted-badge__label {
+    display: none;
+  }
+
+  .ai-crafted-badge {
+    padding: 0.375rem;
+  }
+}
+
 /* Feature cards */
 .feature-cards {
   display: grid;
@@ -164,4 +224,12 @@ p:has(img) {
 
 .dark .feature-card--accent p {
   color: #818cf8;
+}
+
+/* Header search slot: the "Crafted by AI" badge, then Nextra's search box.
+   Keep in sync with: app/layout.jsx (search prop) and components/AiCraftedBadge.jsx */
+.ai-crafted-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

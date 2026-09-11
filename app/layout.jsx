@@ -1,6 +1,7 @@
 import { Layout, Navbar } from "nextra-theme-docs";
-import { Head } from "nextra/components";
+import { Head, Search } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
+import { AiCraftedBadge } from "@/components/AiCraftedBadge";
 import "nextra-theme-docs/style.css";
 import "./globals.css";
 
@@ -119,6 +120,12 @@ export default async function RootLayout({ children }) {
           pageMap={await getPageMap()}
           navbar={navbar}
           darkMode={false}
+          search={
+            <div className="ai-crafted-search">
+              <AiCraftedBadge />
+              <Search />
+            </div>
+          }
         >
           {children}
         </Layout>
