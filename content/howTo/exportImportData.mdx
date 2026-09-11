@@ -1,0 +1,102 @@
+---
+title: "Export & Import Data - Back up, move, or leave with your data"
+description: "Export your spaces as a SupaSidebar backup, plain JSON, or browser bookmarks. Import a backup file to restore your spaces, or move them to any other app."
+---
+
+import { Callout } from 'nextra/components'
+
+# Export & Import Data
+
+Take your spaces, folders, and links out of SupaSidebar - to back them up, move to a new Mac, or hand them to any other app that reads bookmarks. Everything lives in **Preferences → Import & Export**.
+
+<Callout type="info">
+**Beta:** Some of what this page covers is in the SupaSidebar 1.1.0 beta, available to Pro users who turn on [beta updates](/howTo/betaUpdates). It is planned for the stable 1.1.0 release. The table below shows what you can use today.
+</Callout>
+
+| Feature | Stable version | 1.1.0 beta |
+|---|---|---|
+| Export spaces as a `.ssb` backup | Yes | Yes |
+| Import `.ssb`, `.json`, or browser bookmark `.html` files | Yes | Yes |
+| Export as `.json` or `.html` | No | Yes |
+| Include settings and Air Traffic Control rules in a `.ssb` backup | No | Yes |
+| Restore settings from a `.ssb` file | No | Yes |
+| Air Traffic Control rules check after import | No | Yes |
+
+## Exporting
+
+1. Open **Preferences → Import & Export**
+2. In the **Export** section, check the spaces you want to include
+3. Click **Export N Spaces**
+4. Pick a **Format**, and for `.ssb`, what to include
+5. Click **Export**, then choose where to save the file
+
+## Choosing a format
+
+| Format | Contains | Use it for |
+|---|---|---|
+| **`.ssb`** - SupaSidebar Backup | Spaces, folders, links, tags, notes, smart folders, plus app settings, keyboard shortcuts, search shortcuts, and Air Traffic Control rules | Moving your whole setup to a new Mac |
+| **`.json`** | Same content as `.ssb`, without app settings. Plain, readable JSON | Scripts, or keeping a readable copy of your data |
+| **`.html`** - Browser Bookmarks | Links and folder structure only | Importing into Chrome, Firefox, Safari, Edge, Brave, Arc, or any bookmark service |
+
+<Callout type="warning">
+**`.html` drops more than it keeps.** Tags, smart folders, notes, and app settings have no equivalent in the browser bookmark format, so none of them make the trip. SupaSidebar shows this same warning in the export dialog when you pick `.html`.
+</Callout>
+
+## Including settings in a `.ssb` backup
+
+Settings only ever travel in `.ssb` files - `.json` and `.html` never carry them.
+
+When you pick `.ssb` in the export dialog, an **Include** section appears with four toggles, all on by default:
+
+- **App settings and preferences**
+- **Keyboard shortcuts**
+- **Search shortcuts**
+- **Air Traffic Control rules**
+
+Turn any of them off if you just want your spaces and links, not your setup.
+
+<Callout type="info">
+Your analytics preference and license details never leave the machine in any export file, regardless of format or which toggles you pick.
+</Callout>
+
+## Importing
+
+Preferences → Import & Export gives you two ways to bring a file back in:
+
+| Button | Accepts | What it does |
+|---|---|---|
+| **From Backup File** | `.ssb`, `.json` | Previews the spaces in the file - pick which ones to bring in |
+| **From HTML File** | Browser bookmark `.html` exports | Imports links and folders directly, from SupaSidebar or any other browser |
+
+For live imports straight from an installed browser instead of a file, see [Import Bookmarks](/howTo/browserImport).
+
+### Restoring settings from a `.ssb` file
+
+When the file you're importing contains a settings block, SupaSidebar shows which settings it found and lets you choose which ones to restore. Every option is **off by default**.
+
+That's deliberate: a `.ssb` file might have come from someone else, and restoring settings overwrites your own preferences on this Mac. You opt in per import, every time.
+
+Settings restore covers:
+
+- App settings and preferences
+- Keyboard shortcuts
+- Search shortcuts
+- Air Traffic Control rules
+
+<Callout type="info">
+Your analytics preference and license details are never in the file to begin with, so there's nothing to restore or overwrite there.
+</Callout>
+
+## Air Traffic Control rules after import
+
+[Air Traffic Control](/features/airTrafficControl) rules can reference a space and, for save routes, a specific folder inside it. Folders are tied to the Mac they were created on, so folder references can't transfer between machines.
+
+- **Rules that pointed at a folder** come back pointing at the space instead. SupaSidebar tells you which rules need a folder reassigned, so you can point them at the right one again.
+- **Rules that pointed at a space you didn't import** have that target cleared. These are reported too, so a rule never silently stops matching without you knowing why.
+
+## Tips
+
+- Export regularly if you don't use iCloud sync - a `.ssb` file is your offline backup
+- Use `.json` when you want to see exactly what's in your data, or feed it into a script
+- Use `.html` when you're leaving SupaSidebar for another bookmark manager or browser
+- On a new Mac, importing a `.ssb` file is the fastest way to bring your whole setup over in one step

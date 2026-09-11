@@ -5,6 +5,7 @@ export default {
   browserSelection: 'Open in Any Browser',
   sidebarSide: 'Keep Sidebar Left or Right',
   browserImport: 'Import Bookmarks',
+  exportImportData: 'Export & Import Data',
   dragAndDrop: 'Drag and Drop',
   smart: 'Smart Shortcuts',
   activateLicense: 'Activate a License',
