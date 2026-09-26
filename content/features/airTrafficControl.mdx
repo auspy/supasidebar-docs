@@ -16,7 +16,7 @@ Air Traffic Control has two types of routes:
 
 Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules match, the link uses your current space and default browser.
 
-> ATC rules override your saved browser preference and default browser. Only modifier-click actions (`Opt`-click, right-click → Open With) take priority over ATC. See [Browser Selection Priority](/howTo/browserSelection#priority-order) for the full order.
+> An explicit per-link **Preferred Browser** overrides ATC. ATC rules take priority over the source browser recorded when a link was saved and the default browser. One-time browser choices (`Opt`-click, right-click → Open With) take priority over ATC. See [Browser Selection Priority](/howTo/browserSelection#priority-order) for the full order.
 
 ## Setup
 
@@ -72,17 +72,11 @@ Suggestions stay out of the way until they're confident. You can ignore them and
 
 Each space can have its own default browser, configured in **Preferences → Air Traffic Control**. When you open a link from that space, it opens in the space's assigned browser instead of the system default.
 
-The priority order for browser selection:
-
-1. ATC open routes (highest priority)
-2. Per-space default browser
-3. System default browser (lowest priority)
-
-ATC open routes always win. If no open route matches, the space's browser is used. If the space has no assigned browser, the system default applies.
+For links without an explicit **Preferred Browser**, matching open routes take priority over the space default. A one-time **Open With** choice overrides both. See [Browser Selection](/howTo/browserSelection#priority-order) for the full order.
 
 ## Per-link Preferred Browser
 
-You can also set a browser on one specific saved link, independent of any ATC rule. Open the **Add Link** sheet and pick a value in **Preferred Browser**, or right-click an existing link and choose **Set Browser**. The link's icon switches to match the chosen browser, so you can see at a glance which links open where.
+Right-click a saved web link and choose **Preferred Browser** to set its default browser. Choose **None** to clear the preference and use automatic routing again.
 
 Use this when one particular link should open differently from every other URL on the same domain. For example, a single Figma file in your Design space that should always open in Arc, while every other Figma link uses your default.
 
@@ -94,7 +88,11 @@ Use this when one particular link should open differently from every other URL o
 | One specific saved link needs a different browser | Per-link Preferred Browser |
 | All links in a space should open in one browser | Per-space default browser |
 
-Per-link Preferred Browser sits below ATC in the resolution order. If both apply to the same URL, the ATC rule wins. See [Browser Selection Priority](/howTo/browserSelection#priority-order) for the full order.
+An explicit per-link Preferred Browser takes precedence over ATC. If both apply to the same URL, the saved link preference wins. See [Browser Selection Priority](/howTo/browserSelection#priority-order) for the full order.
+
+## Route suggestions
+
+SupaSidebar can suggest routes based on how you open links. Turn **Show Route Suggestions** on or off in **Preferences → Air Traffic Control**. This controls suggestions in Preferences, the Command Panel, and browser pickers; turning suggestions off leaves your existing rules in place.
 
 ## Examples
 

@@ -1,13 +1,15 @@
 ---
 title: "Command Panel - Search, navigate, and control SupaSidebar"
-description: "Lightning-fast search and command palette for instant navigation across saved links, browser tabs, settings, and web search with draggable positioning and AI chat."
+description: "Find live tabs, saved links, and recent pages in grouped results. Browse website scopes, choose a browser, and search the web from SupaSidebar."
 ---
 
 # Command Panel
 
-Lightning-fast search and command palette for instant navigation.
+Find an open tab, a saved link, or a recently visited page from one panel. Press `Cmd Ctrl K`, type what you need, and press `Return` to open the result or switch to its existing browser tab.
 
-The SupaSidebar Command Panel is a single keyboard shortcut (`Cmd Ctrl K`) that jumps you to any resource on your Mac - saved links, browser tabs across every installed browser, recently visited pages, files, folders, apps, and SupaSidebar settings. Fuzzy search matches across all of those sources at once, so you don't have to know where you saved something to find it. Press `Return` to open the result in your default browser, `Opt Return` for a per-item actions menu (choose a different browser, reveal in Finder, add a note), `Ctrl Return` to ask an AI assistant, or `Cmd Return` to search the web.
+Results appear in labeled groups such as **Live tabs**, **Pinned**, **Saved**, and **Recently visited**. Browser, window, and visit details help you tell similar pages apart. A page can be both saved and open, with both states shown on its row.
+
+The footer shows where the selected result will open. Use `Opt Return` to choose another browser or profile, `Ctrl Return` to [Ask AI](/features/askAI), or `Cmd Return` to search the web.
 
 {/* ![Fuzzy match](/assets/fuzzy%20match.jpeg) */}
 
@@ -28,9 +30,11 @@ In the **compact sidebar**, the top bar has a magnifying-glass button that opens
 |----------|--------|
 | `Cmd Ctrl K` | Open panel |
 | `Up` `Down` | Navigate results |
-| `Return` | Open selected |
-| `Opt Return` | Actions panel (choose browser, reveal in sidebar/Finder) |
-| `Shift Tab` | Cycle search scope |
+| `Return` | Open the selected result or switch to its open tab |
+| `Opt Return` | Open With: choose a browser or profile, or another item action |
+| `Tab` / `Shift Tab` | Next / previous scope in the scope bar |
+| `/` | Open the scope picker |
+| `Opt Tab` | Expand or collapse web suggestions |
 | `Ctrl Return` | [Ask AI](/features/askAI) |
 | `Cmd Return` | Search the web directly |
 | `Escape` | Close panel |
@@ -46,7 +50,9 @@ In the **compact sidebar**, the top bar has a magnifying-glass button that opens
 
 ## Search scopes
 
-Press `Shift Tab` to cycle through focused search scopes, or type `/` to pick one from a list. You can also type a scope keyword and press `Tab` to activate it.
+Use **All**, **Live tabs**, **Saved**, or **Recent** in the scope bar to focus your results. Website icons in the same bar let you browse pages from a particular site. Press `Tab` or `Shift Tab` to move through the bar without using the mouse.
+
+For more scopes, type `/` to open the picker, then part of a scope name or website keyword. Press `Space` or `Return` to select the match. Selecting a website preserves your existing search query; closing the picker with `Escape` restores your previous search.
 
 | Scope | Icon | Activation keywords |
 |-------|------|---------------------|
@@ -64,7 +70,11 @@ Saved-link search spans every Space, not just the one you're currently in. You c
 
 ## Site search shortcuts
 
-Type a keyword then a space to search a specific website directly, without a scope switch - `gh` then space searches GitHub, `yo` then space searches YouTube. See [Search Shortcuts](/features/commandPanel/searchShortcuts) for the default set and how to add your own.
+Choose a website icon, or type `/` and part of its name or keyword, then press `Space` or `Return`. For example, `/gh` selects GitHub and `/yo` selects YouTube from the picker.
+
+A website scope shows matching live tabs, saved links, and recent visits from that site, even before you type a query. Type to narrow those pages or use the website search action to find something new. Clearing the query keeps the website selected. Choose **All** to return to all results.
+
+This works across website scopes, not only YouTube. See [Search Shortcuts](/features/commandPanel/searchShortcuts) to add and arrange your own sites.
 
 ## Fuzzy search
 
@@ -89,11 +99,13 @@ Open the item options menu (the ⋯ button on a result row) to clean up what sho
 
 ## Frequent items
 
-When you open the Command Panel with an empty query, your most frequently used items appear at the top for quick access. The Command Panel also learns which saved links you open most and surfaces them first for short queries (one or two letters), so a single keystroke often gets you to the right link.
+Open the panel with an empty query to browse useful pages in their result groups. Frequently opened saved links receive a ranking boost for short queries, helping you get back to them with less typing.
 
 ## Actions panel
 
 Press `Opt Return` on any selected item to see available actions:
+
+**Open With** ranks your browser and profile choices by use. Press a displayed number key (`1` through `9`) to choose a destination, or use the arrow keys and `Return`. The footer's destination hint follows the same browser routing used when you open a result.
 
 | Action | When available |
 |--------|---------------|
@@ -116,7 +128,7 @@ When you open the Command Panel with a URL on your clipboard, a "Paste and Go" r
 
 ## Toggle settings
 
-Switch to the Settings scope (`Shift Tab` to cycle, or type "settings" then `Tab`) to toggle SupaSidebar preferences directly from the Command Panel without opening Preferences.
+Type `/settings` and press `Return` to select the Settings scope. Search for a preference to toggle it or open its section. You can also [search inside Preferences](/howTo/searchSettings).
 
 Useful entries to know about:
 
@@ -127,6 +139,8 @@ Useful entries to know about:
 ## Air Traffic Control suggestions
 
 When the URL you're about to open matches a strong pattern (you've consistently opened the same domain in the same browser, for example), the Command Panel shows a one-click row that creates an [Air Traffic Control](/features/airTrafficControl) open route and opens the link in the suggested browser at the same time. You can decline the suggestion and just open the link as usual.
+
+Control these prompts in **Preferences → Air Traffic Control** using **Show Route Suggestions**.
 
 ## Draggable positioning
 
@@ -154,11 +168,13 @@ SupaSidebar can also be controlled by AI assistants via the Model Context Protoc
 
 Press `Cmd Return` to search the web directly with your current query.
 
+Web suggestions sit in a separate expandable section below your local results. They open automatically when there is room. Click **Web suggestions** or press `Opt Tab` to expand or collapse the section yourself.
+
 ![Command Panel Settings](/assets/command%20panel%20settings.jpeg)
 
 ## Tips
 
-- Use `Shift Tab` to quickly narrow results to a specific scope instead of scrolling through everything.
+- Use `Tab` and `Shift Tab` to move between the visible scopes, or `/` to find one by name.
 - The Settings scope lets you toggle preferences without leaving what you're doing.
 - Drag the panel to a comfortable position - it remembers where you left it.
 - See [Shortcuts](/features/shortcuts) for the complete keyboard shortcut reference.

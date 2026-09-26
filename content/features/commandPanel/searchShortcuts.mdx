@@ -1,17 +1,22 @@
 ---
 title: "Search Shortcuts - Search any site from the Command Panel"
-description: "Type a keyword and a space in SupaSidebar's Command Panel to search GitHub, YouTube, Google, and other sites directly, or add your own shortcuts."
+description: "Browse and search website scopes in SupaSidebar's Command Panel. Select sites with the scope bar or / picker, and add your own search shortcuts."
 ---
 
 # Search Shortcuts
 
-Type a keyword then a space to search one website directly from the Command Panel - no scope switch required.
+Choose a website scope to find its open tabs, saved links, and recent pages, or search that website for something new.
 
-## How It Works
+## Choose a website
 
-Type a shortcut's keyword followed by a space, and the Command Panel scopes your query to that site. Typing `gh` then space searches GitHub; typing `yo` then space searches YouTube. Whatever you type next is sent straight to that site's search.
+1. Open the [Command Panel](/features/commandPanel) with `Cmd Ctrl K`.
+2. Click a website icon in the scope bar, or type `/` to open the scope picker.
+3. In the picker, type part of the site's name or keyword, such as `gh` for GitHub or `yo` for YouTube.
+4. Press `Space` or `Return` to select it.
 
-A pill next to the search field shows which shortcut is active. Click the pill (or clear the query back to empty) to leave the shortcut and return to normal search.
+Selecting a website keeps your existing query. With an empty query, you can browse matching live tabs, saved pages, and recent visits from that site. Type to narrow the results, or choose the website search action to search online.
+
+Clearing the query keeps the website selected. Click **All** to leave it, or use `Tab` and `Shift Tab` to switch scopes. Pressing `Escape` while the scope picker is open restores your previous search.
 
 ## Default Shortcuts
 
@@ -28,9 +33,9 @@ A pill next to the search field shows which shortcut is active. Click the pill (
 | `ya` | Yahoo |
 | `px` | Perplexity |
 
-## Tab as the Alternative Trigger
+## Search any website scope
 
-Press `Tab` instead of Space to activate a shortcut. Tab is more forgiving - it matches on a close or partial keyword, not just an exact one, so a near-miss like `gth` can still activate GitHub. Space only activates on an exact keyword match.
+The same browsing and search behavior applies across website scopes, including your own shortcuts. YouTube is one example, not a separate search mode. The picker accepts partial website names or keywords, so you do not need to remember an exact trigger.
 
 ## Add Your Own
 
@@ -38,13 +43,13 @@ Press `Tab` instead of Space to activate a shortcut. Tab is more forgiving - it 
 2. Under **Website Search Shortcuts**, click **Add Shortcut**
 3. Fill in:
    - **Keyword** - the short trigger you'll type (no spaces)
-   - **Website Name** - the display name shown in the active pill
+   - **Website Name** - the display name shown for the website scope
    - **Search URL** - the site's search URL with the query parameter left dangling (e.g. `https://www.youtube.com/results?search_query=`)
 4. Click **Save**
 
 Your query is appended to the Search URL automatically, so the URL should end right where the search term belongs.
 
-Edit or delete an existing shortcut from the same **Website Search Shortcuts** list.
+Edit, delete, or drag to reorder shortcuts in the same **Website Search Shortcuts** list. Their order carries through to the scope bar.
 
 ## Tips
 

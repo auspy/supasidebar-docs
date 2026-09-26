@@ -1,3 +1,8 @@
+---
+title: "Browser selection - Choose where links open"
+description: "Choose a browser or profile for one visit, save a preferred browser per link, and understand how SupaSidebar applies automatic routing."
+---
+
 # Browser Selection
 
 Choose which browser - or browser profile - opens your links. Pick on demand, assign per link, or use your active browser.
@@ -9,12 +14,14 @@ When you click a link, SupaSidebar decides which browser to use based on this pr
 | Priority | Method | Example |
 |----------|--------|---------|
 | **1. Modifier-click** | `Opt`-click, right-click → Open With, `Cmd`-click action | You hold `Opt` and pick Safari - that wins over everything |
-| **2. Air Traffic Control** | URL-pattern rules in Preferences → ATC | Rule says `github.com` → Chrome, so all GitHub links open in Chrome |
-| **3. Per-space browser** | Space's assigned default browser, set in **Preferences → Air Traffic Control** | Link is from Work space, which uses Chrome |
-| **4. Link opening behavior** | Global setting: saved browser, frontmost, or default. In "saved browser" mode, each link's [Preferred Browser](/features/airTrafficControl#per-link-preferred-browser) is used | Your preference is "saved browser" and this link was saved from Firefox |
-| **5. System default browser** | Whatever macOS is configured to use | Falls back to your default browser |
+| **2. Preferred Browser** | An explicit preference on a saved link | One project link always opens in Firefox |
+| **3. Air Traffic Control** | URL-pattern rules and per-space defaults in **Preferences → Air Traffic Control** | GitHub links open in Chrome unless a saved link has its own preference |
+| **4. Link opening behavior** | The configured saved/source browser, frontmost browser, or default browser behavior | A link opens in the browser it was saved from |
+| **5. System default browser** | The fallback when no more specific destination applies | macOS chooses the browser |
 
-If a higher-priority method applies, lower ones are skipped entirely. For example, if an ATC rule matches a link, it doesn't matter what browser the link was saved from - ATC wins.
+A one-time **Open With** choice overrides the saved preference for that open. An explicit **Preferred Browser** takes precedence over automatic routes. **None** clears the per-link preference and restores automatic routing.
+
+An already open page can be activated instead of opening a duplicate. The [Command Panel](/features/commandPanel) footer shows whether it will switch to a tab or open in a browser.
 
 ## Ways to Select a Browser
 
@@ -25,6 +32,8 @@ If a higher-priority method applies, lower ones are skipped entirely. For exampl
 | `Opt` click | Hold `Opt` and click a link |
 | `Opt Return` | Select link in Command Panel, press `Opt Return` |
 | Air Traffic Control | Set URL-based routing rules in **Preferences → Air Traffic Control**. See [Air Traffic Control](/features/airTrafficControl) |
+
+The Command Panel ranks browser and profile choices by use. Check the displayed destination and number before selecting.
 
 ## Browser Profiles
 
@@ -54,6 +63,7 @@ The **Open With** menu shows individual browser profiles when a browser has two 
 | `Opt Return` | Show browser and profile picker (Command Panel) |
 | `↑` `↓` | Navigate picker |
 | `Return` | Select browser or profile |
+| `1` through `9` | Choose a numbered destination in the Command Panel picker |
 | `Escape` | Cancel |
 
 ## Troubleshooting
@@ -63,6 +73,6 @@ The **Open With** menu shows individual browser profiles when a browser has two 
 | Browser not in picker | Only installed browsers are shown. Install in Applications folder and restart the app |
 | Profiles not showing | Profiles appear when a browser has 2+ profiles. Search "Refresh Browser Profiles" in the Command Panel to re-scan |
 | Safari profiles missing | Safari must have been running at least once for profile discovery. Open Safari, then refresh profiles |
-| Wrong browser opens | Right-click link → Set Browser → choose correct one |
+| Wrong browser opens | Right-click link → Preferred Browser → choose correct one |
 | Picker doesn't appear | Hold `Opt` while clicking/pressing Return |
-| Assignment not saving | Use "Set Browser" (right-click), not one-time `Opt` click |
+| Assignment not saving | Use "Preferred Browser" (right-click), not one-time `Opt` click |

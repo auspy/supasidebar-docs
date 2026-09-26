@@ -78,19 +78,30 @@ Before opening a new tab, SupaSidebar checks if the URL is already open in any r
 
 URL pattern rules that automatically route specific domains to specific browsers. For example, you can send all `github.com` links to Chrome and all `figma.com` links to Arc. Set up rules in **Preferences → Air Traffic Control**.
 
-> Air Traffic Control rules override your saved browser preference. Only modifier-click actions (`Opt` click, `Opt Return`) take priority over Air Traffic Control routing.
+> A saved link's explicit **Preferred Browser** takes precedence over automatic routing. A one-time **Open With** choice takes precedence over that saved preference.
 
 ### Browser selection priority
 
-When you click a link, SupaSidebar decides which browser to use in this order:
-
-1. Modifier-click (`Opt` click or `Opt Return`)
-2. Air Traffic Control rules
-3. Per-space default browser
-4. Global link opening behavior setting
+1. One-time **Open With** choice (`Opt` click or `Opt Return`)
+2. The saved link's **Preferred Browser**
+3. Air Traffic Control rules and per-space defaults
+4. Global link opening behavior
 5. System default browser
 
 See the [browser selection guide](/howTo/browserSelection) for details on each level.
+
+## Set a preferred app for a file or folder
+
+Saved files and folders can each remember which app should open them. For example, a project folder can open directly in Visual Studio Code.
+
+1. Save the file or folder to SupaSidebar, such as by dragging it from Finder.
+2. Right-click the saved item and open **Preferred App**.
+3. Choose an app, or **Other…** to select an installed application.
+4. Click the saved item to open it with that app.
+
+The preference applies to that saved asset. It does not change the macOS default for other files. Choose **Preferred App → None** to return to the system default. If the chosen app is unavailable or cannot open the item, SupaSidebar keeps the preference and offers recovery options.
+
+For a saved website, use **Preferred Browser** in the same right-click menu. See [Browser Selection](/howTo/browserSelection) for how this interacts with routing rules.
 
 ## Tips
 

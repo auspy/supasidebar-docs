@@ -3,6 +3,8 @@ export default {
   openingLinks: 'All Ways to Open Links',
   savingLinks: 'All Ways to Save Links',
   browserSelection: 'Open in Any Browser',
+  searchSettings: 'Search Settings',
+  sendFeedback: 'Send Feedback',
   sidebarSide: 'Keep Sidebar Left or Right',
   browserImport: 'Import Bookmarks',
   exportImportData: 'Export & Import Data',
