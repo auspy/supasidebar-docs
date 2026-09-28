@@ -1,56 +1,59 @@
 ---
-title: "Recent Links - Auto-tracked browsing history"
-description: "SupaSidebar automatically captures pages you visit across Safari, Chrome, Edge, Brave, Firefox and 20+ other browsers, with a 30-day history searchable from the Command Panel."
+title: "Recent Links - Search recent visits and browser history"
+description: "Find pages from the last 30 days, including supported browser history recorded while SupaSidebar was closed. Control imports and clear activity without deleting saved links."
 ---
 
 # Recent Links
 
-Automatic tracking of your browsing history across all supported browsers - recently visited pages appear without manual saving.
+Find a page you visited without having to save it first. Recent combines pages recorded while SupaSidebar is running with imported browser history from the last 30 days.
 
 ![Recent Items](/assets/recent%20itmes.jpeg)
 
-## Features
+## Search browser history
 
-- **Auto-Tracking** - Pages you visit are automatically captured
-- **Multi-Browser** - Tracks Safari, Chrome, Edge, Brave, Firefox, and more
-- **30-Day History** - Recent links persist for 30 days
-- **Available in every space** - Recently visited links appear in all your spaces, not only the space you were in when you opened them
-- **Searchable** - Find recent links via Command Panel (`Cmd Ctrl K`)
-- **Privacy Blocklist** - Blocked sites and browsers are excluded from recent items. See [Privacy Blocklist](/features/privacyBlocklist)
+1. Open the [Command Panel](/features/commandPanel) with `Cmd Ctrl K`.
+2. Choose **Recent** to browse visits, or type a page title or website name to search.
+3. Select a result and press `Return` to open it.
 
-## Settings
+Imported history includes eligible visits made while SupaSidebar was closed. Results use the actual visit time, not the time they were imported. In Recent searches, clear matches appear first and newer visits come before older visits within that group.
 
-Configure recent links in **Preferences → Recents**.
+Recent pages are available in every Space. Imported history is stored locally on your Mac and is not added to your iCloud saved-link library.
 
-- **Mode** - Choose Recent Links or [Live Tabs](/features/liveTabs)
-- **Display limit** - Number of recent links to show (default: 30)
-- **Background tab sync** - Opens existing tab instead of creating duplicates
-- **Clear recents** - Remove all recent links history
+## Supported history imports
 
-### Permissions
+History imports are available for Chrome, Brave, Edge, Vivaldi, Arc, Firefox, Zen, Atlas, Comet, Helium, Firefox Developer Edition, and Orion.
 
-Browser integration requires Automation permissions. See [Setup](/gettingStarted/SetUp) for details.
+Other supported browsers can still contribute activity recorded while SupaSidebar is running. Safari and DuckDuckGo history imports are not available in this version. History support is separate from Live Tabs support.
 
-## View-mode switch
+Open **Preferences → Privacy & Browsers** and use the **History** checkbox beside each browser to control imports. A dash means history importing is not supported. An access error or an empty browser profile does not change your saved choice.
 
-The Recent Links section header has a toggle that switches the list between **compact** and **detailed** views. Compact shows favicon and title on one line, detailed adds the URL. The same toggle is on the [Live Tabs](/features/liveTabs) header, and the choice is remembered per section.
+## Display settings
+
+Open **Preferences → Browser Activity** to choose **Recents**, **Live Tabs**, or **None**, and set the number of Recent links shown in the sidebar.
+
+The Recent header switches between **compact** and **detailed** views. Compact shows the favicon and title on one line; detailed adds the URL. This choice is remembered separately from the Live Tabs view.
 
 ## Save or remove a recent page
 
-Use the star button beside a recent page to save it to your sidebar. Removing a page from Recent clears its recent entry without deleting a saved copy from Unfiled or its folder.
+Use the star button beside a Recent page to save it to your sidebar. Removing a page from Recent removes its recent entry and hides older imported visits for that page. It does not delete a saved copy from Unfiled or a folder. A newer visit can appear again.
+
+## Pause or clear activity
+
+Open **Preferences → Privacy & Browsers** to pause recording for one browser, turn on Incognito Mode for all browsers, or clear activity from a browser's **•••** menu.
+
+Turning collection off keeps existing records. **Clear imported history…** removes only imported visits; **Clear history & unsaved Recents…** also removes unsaved Recent pages attributed to that browser. Saved links and your browser's own history remain unchanged.
+
+See [Privacy & Browsers](/features/privacyBlocklist) for the differences between pausing, blocking, and clearing.
+
+## Missing or out-of-date history
+
+Open **Preferences → Privacy & Browsers → Stored Activity** and choose **Refresh**. If history still needs repair, **Reset & rebuild history** recovers eligible visits from the last 30 days. Cleared visits and visits made during Private Mode stay excluded.
+
+Imports depend on access to the browser's history files. Check the browser's status in Privacy & Browsers if no history appears. For browser integration permissions, see [Permissions](/gettingStarted/permissions).
 
 ## Recent Links vs Live Tabs
 
-| Mode | Shows | Persists |
-|------|-------|----------|
-| Recent Links | Visited pages (30 days) | After browser closes |
-| Live Tabs | Currently open tabs | Only while open |
-
-## Keyboard Shortcuts
-
-Shortcuts specific to recent links. For all shortcuts, see [Shortcuts](/features/shortcuts).
-
-| Shortcut | Action |
-|----------|--------|
-| `Cmd Ctrl K` | Open Command Panel to search recents |
-| `Return` | Open selected link |
+| Mode | Shows | After a tab closes |
+|------|-------|--------------------|
+| Recent Links | Eligible visits from the last 30 days | The visit remains until it expires or you clear it |
+| Live Tabs | Currently open tabs | The tab disappears from the list |

@@ -7,6 +7,14 @@ description: "What SupaSidebar's Automation and Accessibility permissions do, wh
 
 SupaSidebar requires **Automation** and **Accessibility** permissions for browser integration and shortcuts.
 
+## Check Permission Status
+
+Open **Preferences → Permission Status** to check Accessibility and browser Automation access, see which features depend on each permission, and open the relevant System Settings page. Use **Check again** after changing a permission.
+
+**Ready** means the required permission is granted; the feature can still be turned off in its own settings. Browser Automation access is separate for each browser. **Grant access** may open a browser and show a macOS permission prompt.
+
+You can also search for “Permission Status” in Preferences or the [Command Panel](/features/commandPanel).
+
 ## Automation
 
 Automation permission allows SupaSidebar to interact with your browsers to save tabs, copy URLs, and detect the current page.
@@ -46,7 +54,7 @@ Without Accessibility: mouse-edge auto-show, Smart Attach / follow / resize, and
 ### What Automation is used for
 
 - **Reading the current tab** - Sends AppleScript to a browser to read the current tab's URL and title, open URLs, and switch or close tabs
-- **Live Tabs for AppleScript-capable browsers** - Safari, Chrome, Arc, Brave, Edge, Vivaldi, Orion, Opera, and others
+- **Live Tabs for AppleScript-capable browsers** - Safari, Chrome, Brave, Edge, Vivaldi, Orion, Opera, and other supported browsers
 
 Without Automation: Smart Save, tab switching commands, and Live Tabs for those browsers stop working.
 
@@ -54,7 +62,7 @@ Automation is granted per browser, not once globally - see [Live Tabs works in o
 
 ### Don't want SupaSidebar touching a specific browser or site?
 
-Grant the permissions above and then use the **Privacy Blocklist** at **Preferences → Tabs & History → Privacy Blocklist** to make SupaSidebar ignore a chosen browser or site entirely. Use it when a browser or site should stay entirely out of SupaSidebar's reach. See the [Privacy Blocklist guide](/features/privacyBlocklist) for setup.
+Use **Preferences → Privacy & Browsers** to choose Live Tabs, Recents, and history imports separately, pause recording, or block a browser or website. Blocking does not clear older Recents. See [Privacy & Browsers](/features/privacyBlocklist) for the controls and clearing options.
 
 ## Permissions stuck or not working?
 

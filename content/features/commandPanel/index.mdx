@@ -7,7 +7,7 @@ description: "Find live tabs, saved links, and recent pages in grouped results. 
 
 Find an open tab, a saved link, or a recently visited page from one panel. Press `Cmd Ctrl K`, type what you need, and press `Return` to open the result or switch to its existing browser tab.
 
-Results appear in labeled groups such as **Live tabs**, **Pinned**, **Saved**, and **Recently visited**. Browser, window, and visit details help you tell similar pages apart. A page can be both saved and open, with both states shown on its row.
+In **All** search results, a new **Recommended** section brings together up to five of the strongest matches from Live Tabs, saved links, and recent visits. It does not guarantee one result from each section, and pages shown here are not repeated below. The remaining results appear in labeled groups such as **Live tabs**, **Pinned**, **Saved**, **Recently visited**, and **Settings**. Browser, window, and visit details help you tell similar pages apart. A page can be both saved and open, with both states shown on its row.
 
 The footer shows where the selected result will open. Use `Opt Return` to choose another browser or profile, `Ctrl Return` to [Ask AI](/features/askAI), or `Cmd Return` to search the web.
 
@@ -42,7 +42,7 @@ In the **compact sidebar**, the top bar has a magnifying-glass button that opens
 ## What you can search
 
 - **Saved Links** - All your saved websites, files, and folders, from every Space rather than only the one you're currently in
-- **Recent Items** - Recently visited pages you haven't saved
+- **Recent Items** - Recent visits and imported browser history from the last 30 days, including eligible visits made while SupaSidebar was closed. See [Recent Links](/features/recentItems) for supported browsers and privacy controls.
 - **Live Tabs** - Currently open browser tabs
 - **Folders** - Browse and search inside folders
 - **Settings** - Toggle preferences and run commands
@@ -67,6 +67,14 @@ For more scopes, type `/` to open the picker, then part of a scope name or websi
 The Recents, Saved, Spaces, Folders, and Settings scopes show items even with an empty search query, so you can browse without typing. Switch to Recents to flip through pages you've visited recently, or to Saved to skim everything you've added to the sidebar.
 
 Saved-link search spans every Space, not just the one you're currently in. You can find a link you filed in any Space without switching to it first, so you never have to remember where you put something to get back to it.
+
+## Resume your search
+
+Reopen the Command Panel within 60 seconds to return to the same scope, query, selected result, and scroll position. After 60 seconds, it opens a fresh session in **All**.
+
+When browsing Live Tabs without a query, existing tabs keep their positions while the panel is open. New tabs are added and closed tabs disappear. Reopening the panel refreshes the browsing order; typed searches continue to sort by relevance.
+
+A thin progress bar below the search field shows when the local search index is updating.
 
 ## Site search shortcuts
 
@@ -95,7 +103,11 @@ Open the item options menu (the ⋯ button on a result row) to clean up what sho
 
 - **Remove from suggestions** - Drops an old search query or recent link from future suggestions
 - **Delete saved link** - Removes a saved link from your sidebar
-- **Reset ranking** - Clears the recency boost on a single item so it stops dominating results
+- **Reset ranking** - Clears the item's learned query choices and usage ranking signals
+
+### Remembered choices
+
+Explicitly opening a matching result can help it rank for the same or a closely related query later. Highlighting a row does not teach a choice. In **Recent**, visit time still decides the order within each match-quality group. Incognito Mode pauses query-choice learning.
 
 ## Frequent items
 
@@ -128,12 +140,12 @@ When you open the Command Panel with a URL on your clipboard, a "Paste and Go" r
 
 ## Toggle settings
 
-Type `/settings` and press `Return` to select the Settings scope. Search for a preference to toggle it or open its section. You can also [search inside Preferences](/howTo/searchSettings).
+Search for a preference in **All**, or type `/settings` and press `Return` to use the Settings scope. Select a result to open the matching setting; supported actions can toggle a preference directly. Try “Permission Status”, “Privacy & Browsers”, or “learning tips”. You can also [search inside Preferences](/howTo/searchSettings).
 
 Useful entries to know about:
 
 - **Dark / Light / Theme** - Flips between Light and Dark mode. Search for `dark`, `light`, `theme`, or `appearance` to find it.
-- **Incognito Mode** - Pauses recents, search history, and link ranking for the rest of your session. See [Incognito Mode](/features/incognitoMode).
+- **Incognito Mode** - Pauses Recents, history imports, search history, and ranking signals while enabled. See [Incognito Mode](/features/incognitoMode).
 - **Auto-Tile Windows** - Toggles auto-tiling on and off. See [Tiling](/features/browserIntegration/tiling).
 
 ## Air Traffic Control suggestions

@@ -1,48 +1,61 @@
 ---
-title: "Privacy Blocklist - Hide sites from Live Tabs and Recents"
-description: "Keep certain sites, domains, or browsers out of Live Tabs and Recents in SupaSidebar to protect your personal browsing."
+title: "Privacy & Browsers - Control browser activity"
+description: "Choose which browsers share Live Tabs, Recent activity, and history with SupaSidebar. Pause recording, block browsers or websites, and clear stored activity."
 ---
 
-# Privacy Blocklist
+# Privacy & Browsers
 
-Keep certain sites or browsers out of [Live Tabs](/features/liveTabs) and [Recent Items](/features/recentItems) so your personal browsing stays private.
+Open **Preferences → Privacy & Browsers** to choose what each browser shares with SupaSidebar. Live Tabs, Recent activity, and imported history have separate controls.
 
-## How it works
+## Choose features for each browser
 
-The Privacy Blocklist filters what appears in Live Tabs and Recents. Any URL, domain, or entire browser you add to the blocklist is hidden from both surfaces. The blocklist only affects visibility in SupaSidebar - it does not block or alter your actual browsing.
+| Checkbox | What it controls |
+|----------|------------------|
+| **Live Tabs** | Shows currently open tabs from this browser |
+| **Recents** | Records pages you visit while SupaSidebar is running |
+| **History** | Imports eligible visits from the browser's last 30 days, including visits made while SupaSidebar was closed |
 
-## What you can block
+Turning a feature off stops its collection and keeps previously stored activity. A dash means that feature is not supported for the browser. An empty history or an access problem does not turn off your saved History choice.
 
-| Type | Example | Effect |
-|------|---------|--------|
-| **URL** | `https://example.com/private` | Hides this specific page |
-| **Domain** | `example.com` | Hides all pages from this domain |
-| **Browser** | Safari | Excludes the browser entirely - see below |
+For display mode, Recent limits, and profile settings, use **Preferences → Browser Activity**.
 
-### Blocking a whole browser
+## Pause activity recording
 
-When you add a browser to the blocklist, SupaSidebar stops every automatic behavior for that browser:
+Check a browser's **Privacy** checkbox to turn on its **Private Mode**. This pauses new Recents and history imports for that browser while keeping Live Tabs available. Existing activity and feature choices stay in place.
 
-- Its tabs do not appear in [Live Tabs](/features/liveTabs)
-- Its history does not appear in [Recent Items](/features/recentItems)
-- The sidebar does not auto-show when that browser is focused
-- The sidebar does not attach to or resize with that browser's windows
-- `Cmd Ctrl T` (Save All Tabs) ignores that browser
-- Smart Save (`Cmd Ctrl S`) and Smart Copy (`Cmd Ctrl C`) skip the browser
+Visits made during the private period stay excluded after you turn Private Mode off, including after a history rebuild. To pause all browsers together, turn on [Incognito Mode](/features/incognitoMode) at the top of the page.
 
-This makes browser-blocking the right choice when you have a personal or work browser you want SupaSidebar to ignore completely.
+**SupaSidebar does not detect private windows in every browser.** Turn on Incognito Mode or the browser's Private Mode checkbox before browsing privately. These controls do not change your browser's own privacy settings.
 
-If you have a secondary browser (such as Arc with its own native sidebar) where SupaSidebar keeps appearing on top, see [Sidebar Appears in a Browser I Don't Use](/troubleshooting/sidebarAppearsInWrongBrowser).
+## Block a browser
 
-## Setup
+Check **Blocking** beside a browser to hide its Live Tabs and imported history, stop new Recent recording and history imports, and stop automatic sidebar attachment. Uncheck it to restore the browser's previous feature choices.
 
-1. Open **Preferences -> Tabs & History**, scroll to **Privacy Blocklist**
-2. Click **Add to Blocklist**
-3. Enter a URL, domain, or select a browser
-4. The item is immediately hidden from Live Tabs and Recents
+**Older Recents are kept until you clear them.** Blocking is not a delete action. Saved links remain available.
 
-## Tips
+If the sidebar appears in an unwanted browser, see [Sidebar Appears in a Browser I Don't Use](/troubleshooting/sidebarAppearsInWrongBrowser).
 
-- Blocking a browser hides all its tabs from [Live Tabs](/features/liveTabs) and all its history from [Recent Items](/features/recentItems)
-- Domain blocking matches all subdomains - blocking `example.com` also hides `mail.example.com`
-- Blocked items can still be saved to your sidebar manually - the blocklist only affects automatic tracking
+## Block a website
+
+Expand **Blocked Websites** and add a website or URL rule. Domain rules include subdomains, so `example.com` also matches `mail.example.com`.
+
+Blocked pages are hidden from Live Tabs and imported history, and new Recent activity is not recorded for them. Existing foreground Recent records are not removed automatically. You can still save a link manually, and these rules do not block the website in your browser.
+
+## Clear stored activity
+
+Open the **•••** menu beside a browser:
+
+| Action | What it removes from SupaSidebar |
+|--------|----------------------------------|
+| **Clear imported history…** | History imported from this browser; separately recorded Recent activity remains |
+| **Clear history & unsaved Recents…** | Imported history plus unsaved Recent pages attributed to this browser |
+
+Both actions keep saved links and your browser's own history. Older cleared visits stay excluded after a rebuild. A new visit can appear again, and a page visited in another browser may still appear.
+
+Under **Stored Activity**, you can clear Recents, refresh history, or reset and rebuild eligible imported history from the last 30 days. A rebuild preserves privacy exclusions and previous clearing choices.
+
+## Learn more
+
+- [Recent Links and browser history](/features/recentItems)
+- [Incognito Mode](/features/incognitoMode)
+- [Browser permissions](/gettingStarted/permissions)

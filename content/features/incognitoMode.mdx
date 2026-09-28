@@ -1,60 +1,47 @@
 ---
-title: "Incognito Mode - Pause history and ranking"
-description: "Pause Recents, search history, and link ranking in SupaSidebar for the rest of your session, without changing your browser's privacy settings."
+title: "Incognito Mode - Pause activity recording"
+description: "Pause Recents, history imports, search history, and ranking signals for all browsers in SupaSidebar while keeping Live Tabs available."
 ---
 
 # Incognito Mode
 
-Incognito Mode in SupaSidebar pauses Recents, search history, and link ranking for the rest of your session, without changing your browser's own privacy settings. Live Tabs keep working normally - they are a live preview of open tabs, not stored history.
+Incognito Mode pauses new Recents, browser-history imports, search history, and ranking signals for all browsers. Live Tabs stay available, and your existing activity and saved links remain in place.
 
-## What is Incognito Mode?
+## Turn it on
 
-Incognito Mode is a session-wide privacy switch inside SupaSidebar. Turning it on freezes every tracker that normally watches your browsing: nothing new is recorded to Recents, no new search queries are remembered, and the most-used boost in the Command Panel stops learning. Existing saved links are untouched, and Live Tabs still mirror your open browser tabs because that view is a live preview that saves nothing. The mode lasts until you turn it off or quit SupaSidebar.
+- **Preferences** - Open **Preferences → Privacy & Browsers** and turn on **Incognito Mode**.
+- **Sidebar ••• menu** - Choose **Incognito Mode**.
+- **Command Panel** - Open the Settings scope and choose **Incognito Mode**.
+- **Floating button** - Open its menu and choose **Incognito Mode**.
 
-## How to turn it on
-
-You can toggle Incognito Mode from any of these places:
-
-- **Floating button** - Click the floating sidebar button and choose **Incognito Mode**
-- **Sidebar `•••` menu** - Open the menu in the sidebar top bar and pick **Incognito Mode**
-- **Command Panel** - Open the Command Panel with `Cmd Ctrl K`, switch to the Settings scope, and run **Toggle Incognito Mode**
-- **Preferences** - Open **Preferences → Tabs & History** and flip the **Incognito Mode** switch
-
-A visible indicator appears in the sidebar while Incognito Mode is on, so you always know whether tracking is paused.
+A visible sidebar indicator shows when Incognito Mode is on. Turn it off from the same controls when you want recording to resume.
 
 ## What gets paused
 
-| Surface | Behavior with Incognito Mode on |
-|---------|---------------------------------|
-| **Recents** | New page visits are not recorded. Existing recents stay where they are |
-| **Command Panel search history** | Queries you type are not remembered for future suggestions |
-| **Link ranking and most-used boost** | Saved-link rankings stop learning. The most-used boost for short queries pauses |
+| Activity | While Incognito Mode is on |
+|----------|----------------------------|
+| **Recents** | New page visits are not recorded |
+| **Browser-history imports** | New imports pause; visits made during the private period stay excluded after you resume |
+| **Command Panel search history** | New queries are not remembered |
+| **Ranking signals** | Query-choice learning and usage ranking pause |
 
-Saving links manually, opening pinned items, switching spaces, and every other intentional action still works. Incognito Mode only stops the automatic recording.
+Saving links manually, opening pinned items, and switching Spaces still work. Incognito Mode does not clear previous activity. To remove it, use the clearing controls in [Privacy & Browsers](/features/privacyBlocklist).
 
-## What keeps working
+## Pause just one browser
 
-Live Tabs still mirror your open browser tabs in the sidebar. Live Tabs is a live preview of what is currently open, not a record, so nothing is written to disk and nothing carries over after the tab closes. You can keep using it for tab switching, drag-and-drop, and `Cmd Opt Click` replace-active-tab while Incognito Mode is on.
+Open **Preferences → Privacy & Browsers** and check **Privacy** beside the browser. Its **Private Mode** pauses Recents and history imports while keeping Live Tabs available.
 
-## When it ends
+Global Incognito Mode temporarily applies the pause to all browsers without overwriting their individual Private Mode choices. When global Incognito ends, each browser returns to its own settings.
 
-Incognito Mode lasts for the rest of your session. It turns off automatically when you quit SupaSidebar, or when you toggle it off from any of the entry points listed above. The next time you launch SupaSidebar, tracking resumes by default.
+## Browser private windows
 
-## Incognito Mode vs Privacy Blocklist
+SupaSidebar's privacy controls are separate from your browser's private-window settings. **Private windows are not detected in every browser.** Turn on Incognito Mode or the browser's Private Mode checkbox before browsing privately.
 
-Both features stop things from being recorded, but they target different use cases:
+## Pause, block, or clear?
 
-| | Incognito Mode | [Privacy Blocklist](/features/privacyBlocklist) |
-|---|----------------|--------------------|
-| **Scope** | Whole session, pauses Recents and ranking | Specific URLs, domains, or browsers, hides from Live Tabs and Recents |
-| **Duration** | Until toggled off or app quit | Permanent, until removed |
-| **Affects Live Tabs** | No, Live Tabs keep mirroring open tabs | Yes, blocked sites and browsers are hidden |
-| **Best for** | One-off private sessions | Sites or browsers you always want SupaSidebar to ignore |
+- **Incognito Mode** pauses recording across all browsers and also pauses search history and ranking signals.
+- **Per-browser Private Mode** pauses Recents and history imports for one browser.
+- **Blocking** hides a browser's Live Tabs and imported history and stops new recording and auto-attach. Older Recents remain until cleared.
+- **Clearing** removes selected stored activity from SupaSidebar while keeping saved links and browser-owned history.
 
-Use Incognito Mode for a quick private window, and the Privacy Blocklist for a permanent rule.
-
-## Tips
-
-- Incognito Mode pairs well with a [Browser Profile](/features/profileSpaces) linked to a personal space when you want both browser-side and SupaSidebar-side privacy.
-- If you want a single site or browser hidden permanently, the [Privacy Blocklist](/features/privacyBlocklist) is the better fit.
-- See [Recent Links](/features/recentItems) for what stops recording, and [Live Tabs](/features/liveTabs) for what keeps working.
+See [Privacy & Browsers](/features/privacyBlocklist) for the controls and clearing options.

@@ -5,10 +5,10 @@ SupaSidebar supports 25+ web browsers with three levels of integration.
 ## Integration Levels
 
 ### Basic Integration
-Includes copy URL (⌘⇧C), save page (⌘⇧S) shortcuts, browser history access, and ability to open links in the browser.
+Includes saving the current page, copying its URL, recording foreground Recent activity, and opening links in the browser. Imported browser history is a separate capability; see below.
 
 ### Live Tabs
-Real-time browser tab tracking and switching. See [Live Tabs documentation](LIVE_TABS.md) for details.
+Real-time browser tab tracking and switching. See [Live Tabs documentation](/features/liveTabs) for details.
 
 ### Profile Spaces
 Link a browser or specific browser profile to a space. "Browser" means all tabs from that browser appear in the space. "Profiles" means you can also link individual browser profiles (e.g., Work, Personal) to separate spaces.
@@ -58,6 +58,14 @@ Link a browser or specific browser profile to a space. "Browser" means all tabs 
 - ⏳ In Development
 - ❌ Not Available
 
+## Browser history imports
+
+In 1.2.0, SupaSidebar can import eligible visits from the last 30 days from Chrome, Brave, Edge, Vivaldi, Arc, Firefox, Zen, Atlas, Comet, Helium, Firefox Developer Edition, and Orion. This includes visits made while SupaSidebar was closed.
+
+History import support is independent of Live Tabs support. Safari and DuckDuckGo imports are not available in this version. **Preferences → Privacy & Browsers** shows a dash for unsupported features, and reports missing or unreadable history sources separately.
+
+See [Recent Links](/features/recentItems) to search history and [Privacy & Browsers](/features/privacyBlocklist) to control collection.
+
 ## Setup
 
 See [Permissions](/gettingStarted/permissions) for setup details.
@@ -69,4 +77,4 @@ See [Permissions](/gettingStarted/permissions) for setup details.
 
 ---
 
-**Last Updated**: 2026-06-09
+**Last Updated**: 2026-09-29

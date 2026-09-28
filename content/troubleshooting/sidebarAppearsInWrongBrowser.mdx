@@ -17,17 +17,18 @@ Revoking Automation permission in System Settings is not a reliable fix - SupaSi
 
 ## Solution - Block the unwanted browser
 
-1. Open **SupaSidebar Preferences -> Tabs & History**
-2. Scroll to **Privacy Blocklist**
-3. Click **Add to Blocklist -> Block Browser**
-4. Select the browser you want SupaSidebar to ignore (e.g. Arc)
+1. Open **SupaSidebar Preferences → Privacy & Browsers**.
+2. Find the unwanted browser in the browser table.
+3. Check its **Blocking** checkbox.
 
 After blocking, when that browser is frontmost SupaSidebar will not:
 
 - auto-show the sidebar
 - attach to or resize the browser's windows
 - intercept `Cmd Ctrl T`, Smart Save (`Cmd Ctrl S`), or Smart Copy (`Cmd Ctrl C`) in that browser
-- list its tabs in [Live Tabs](/features/liveTabs) or its history in [Recent Items](/features/recentItems)
+- list its tabs in [Live Tabs](/features/liveTabs) or its imported history in [Recent Items](/features/recentItems)
+
+Older Recents remain until cleared. To remove this browser's stored history and unsaved Recents, use **Clear history & unsaved Recents…** in its **•••** menu. Saved links and the browser's own history remain unchanged.
 
 The sidebar still works normally everywhere else. Blocking is per-browser, and you can block more than one.
 
@@ -35,7 +36,7 @@ The sidebar still works normally everywhere else. Blocking is per-browser, and y
 
 - **Not a permission revocation.** Leave Automation access ON for the browser in System Settings - the in-app blocklist is the correct off-switch.
 - **Not an app-wide disable.** The menubar icon, global shortcuts (`Cmd Shift Space` etc.), and manual sidebar access keep working in the blocked browser if you trigger them yourself.
-- **Not reversible only by reinstall.** To re-enable SupaSidebar for that browser, just remove the entry from the Privacy Blocklist.
+- **Not reversible only by reinstall.** To re-enable SupaSidebar for that browser, uncheck its **Blocking** checkbox.
 
 ## Learn More
 

@@ -28,33 +28,13 @@ To find and switch to an open tab, SupaSidebar needs **Automation** permission f
 
 If you granted a permission while SupaSidebar was running, quit and relaunch it. For stuck toggles or repeated permission prompts, see [Reset Permissions](/troubleshooting/permissions).
 
-## Make sure tab switching is actually on
+## Check this browser's tab controls
 
-SupaSidebar can only switch to an existing tab when it's actively watching your open tabs. Whether it is depends on the mode you picked in **Preferences -> Tabs & History**:
+Open **Preferences → Privacy & Browsers** and check that **Live Tabs** is enabled for the browser and **Blocking** is off. A dash means Live Tabs is not supported for that browser.
 
-| Your mode | Does tab switching work? | What to check |
-|-----------|--------------------------|---------------|
-| **Live Tabs** | Yes, always | Nothing. Live Tabs already mirrors every open tab. |
-| **Recents** | Only with Background Tab Sync on | Turn on **Background Tab Sync** (see below). |
-| **None** | No | Switch to **Live Tabs** or **Recents** to enable it. |
+The **Live Tabs**, **Recents**, and **None** choices in **Browser Activity** control the sidebar display. Background tab syncing no longer has a separate toggle. Use the per-browser controls in Privacy & Browsers to choose which browsers contribute tabs.
 
-### If you use Recents mode
-
-In Recents mode, the **Background Tab Sync** toggle is what lets SupaSidebar see your open tabs and switch to them instead of opening duplicates. It's on by default, but if you turned it off to save battery, tab switching stops working.
-
-1. Open **Preferences -> Tabs & History**
-2. Select the **Recents** card
-3. Under **Recents Settings**, turn on **Background Tab Sync**
-
-With this on, SupaSidebar keeps a lightweight background check of your tabs. With it off, the app shows a warning that it cannot switch to existing browser tabs, by design.
-
-### If you use Live Tabs mode
-
-You're already covered. [Live Tabs](/features/liveTabs) mirrors every open tab in real time, so switching to an existing one works without any extra setting.
-
-### If you use None mode
-
-In None mode, SupaSidebar isn't tracking tabs at all, so every link opens fresh. Switch to **Live Tabs** or **Recents** in **Preferences -> Tabs & History** to get tab switching back.
+Use **Preferences → Permission Status** to check the permissions needed by that browser. Then try finding the tab in the Command Panel's **Live Tabs** scope.
 
 ## Still opening a new tab? It's probably a redirect
 
@@ -71,7 +51,7 @@ Use **Smart Save** (`Cmd Shift S`) while you're on the page. This saves the actu
 Instead of typing the URL, search for the tab by its title using the **Live Tabs** scope in the Command Panel:
 
 1. Open the Command Panel (`Cmd Ctrl K`)
-2. Type `/tabs` then press `Tab` to enter the Live Tabs scope
+2. Type `/tabs` then press `Return` to enter the Live Tabs scope
 3. Search by page title (for example "Home / X")
 4. Press `Return` to switch to that exact tab
 

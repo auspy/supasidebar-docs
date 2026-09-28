@@ -20,7 +20,7 @@ export default {
   browserIntegration: 'Browser Integration',
   linkPreview: 'Link Preview',
   shortcuts: 'Shortcuts',
-  privacyBlocklist: 'Privacy Blocklist',
+  privacyBlocklist: 'Privacy & Browsers',
   incognitoMode: 'Incognito Mode',
   mcp: 'MCP',
   sync: 'iCloud Sync'
