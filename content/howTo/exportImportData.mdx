@@ -7,9 +7,13 @@ import { Callout } from 'nextra/components'
 
 # Export & Import Data
 
-Take your spaces, folders, and links out of SupaSidebar - to back them up, move to a new Mac, or hand them to any other app that reads bookmarks. Everything lives in **Preferences → Import & Export**.
+Take your spaces, folders, and links out of SupaSidebar - to back them up, move to a new Mac, or hand them to any other app that reads bookmarks. Manual exports and imports live in **Preferences → Import & Export**. Scheduled backups have a separate **Preferences → Backups** screen.
 
 All three export formats and optional settings backups are available in SupaSidebar 1.1.0.
+
+## Automatic backups and recovery
+
+Open **Preferences → Backups** to schedule dated `.ssb` copies and restore your saved links. See [Backups & Recovery](/howTo/backups) for setup, frequencies, folder selection, and recovery steps.
 
 ## Exporting
 
@@ -85,7 +89,7 @@ Your analytics preference and license details are never in the file to begin wit
 
 ## Tips
 
-- Export regularly if you don't use iCloud sync - a `.ssb` file is your offline backup
+- Turn on automatic backups to keep dated copies alongside [iCloud sync](/features/sync)
 - Use `.json` when you want to see exactly what's in your data, or feed it into a script
 - Use `.html` when you're leaving SupaSidebar for another bookmark manager or browser
 - On a new Mac, importing a `.ssb` file is the fastest way to bring your whole setup over in one step

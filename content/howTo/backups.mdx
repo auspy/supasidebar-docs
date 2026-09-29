@@ -1,0 +1,70 @@
+---
+title: "Backups & Recovery"
+description: "Schedule daily, weekly, monthly, or quarterly SupaSidebar backups and recover your saved links from an SSB file."
+---
+
+import { Callout } from 'nextra/components'
+
+# Backups & Recovery
+
+Keep dated copies of your saved links in **Preferences → Backups**, and use the same screen to recover them.
+
+## Automatic backups
+
+Save dated `.ssb` copies of your spaces and saved links to a folder you choose. Automatic backups start with a **weekly schedule, every 7 days**, once you turn them on.
+
+1. Open **Preferences → Backups**.
+2. Turn on **Automatic Backups** and choose a folder. Canceling the folder picker leaves backups off.
+3. Keep **Weekly (every 7 days)**, or choose another **Backup Frequency**.
+4. Use **Next Backup** to change the next date and time.
+5. Check **Last Successful Backup**, or click **Back Up Now** to save a copy immediately.
+
+| Frequency | Next copy |
+|---|---|
+| Daily | One calendar day after the last successful backup |
+| Weekly (default) | Seven calendar days after the last successful backup |
+| Monthly | One calendar month after the last successful backup |
+| Every 3 months | Three calendar months after the last successful backup |
+
+The first backup runs after you enable the default schedule. Each successful backup, including **Back Up Now**, starts the next interval. Changing the frequency schedules the next copy from the time you make the change. For months without the same day, the date falls on that month's last day.
+
+SupaSidebar must be open to save a backup. If your Mac is asleep or SupaSidebar is closed when a backup is due, it saves one catch-up copy when you next open the app or wake your Mac. It does not create a separate file for each missed interval.
+
+### What's included
+
+- All spaces, folders, saved links, space-pinned links, tags, notes, and smart folders.
+- Saved links outside spaces, collected into **Other Saved Links** for recovery.
+- App and file shortcuts keep their references. The target apps and files are not copied.
+
+Automatic backups exclude Trash, browsing history, Live Tabs, and app settings. To include preferences, shortcuts, or Air Traffic Control rules, open **Preferences → Import & Export → Export** and select `.ssb` with settings enabled.
+
+### Choosing and maintaining a backup folder
+
+Use **Backup Folder → Choose Folder…** to change the destination, and **Show in Finder** to see it. Each copy has a date and a unique filename. SupaSidebar keeps old copies until you delete them; changing folders or turning backups off does not remove existing files.
+
+Changing the folder while automatic backups are on schedules a copy in the new location immediately. **Last Successful Backup** then reports backups saved to that folder.
+
+For protection against losing your Mac's drive, choose a folder on another drive or a folder managed by your cloud storage provider. A successful local write does not confirm that your cloud provider finished uploading it. The `.ssb` file is readable and is not encrypted by SupaSidebar, so use a private folder.
+
+If a drive is disconnected, a folder is unavailable, or saving fails, the app shows the error and keeps the previous successful backup date. Reconnect the drive or choose a writable folder, then click **Back Up Now**. Scheduled failures retry after one hour while the app is open.
+
+Backup schedules and folder permissions belong to this Mac. Set them up again on a new Mac.
+
+### Recovering your links
+
+1. Open **Preferences → Backups** and click **Restore Backup…**. You can also use **Preferences → Import & Export → From Backup File → Choose File…**.
+2. Open a dated `.ssb` file from your backup folder. Choose an older copy if the newest one was saved after you lost or changed a link.
+3. Review the spaces in the preview and select the ones you want to recover.
+4. Click **Import**. The button also shows how many spaces are selected.
+5. Check the recovered links before removing any duplicate spaces.
+
+<Callout type="info">
+Recovery adds new spaces and keeps your current data. It does not replace or merge existing spaces. Importing the same file again can create duplicate spaces. Links that were saved outside spaces are recovered inside **Other Saved Links**.
+</Callout>
+
+On a new Mac, install and open SupaSidebar, then follow the same steps with your copied `.ssb` file. Automatic backups contain no app settings to restore; manually exported files may offer [optional settings controls](/howTo/exportImportData#restoring-settings-from-a-ssb-file).
+
+## Related guides
+
+- [Manual export and import](/howTo/exportImportData)
+- [iCloud sync](/features/sync)

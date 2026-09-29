@@ -7,6 +7,7 @@ export default {
   sendFeedback: 'Send Feedback',
   sidebarSide: 'Keep Sidebar Left or Right',
   browserImport: 'Import Bookmarks',
+  backups: 'Backups & Recovery',
   exportImportData: 'Export & Import Data',
   dragAndDrop: 'Drag and Drop',
   smart: 'Smart Shortcuts',
