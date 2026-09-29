@@ -7,7 +7,7 @@ export default {
   preventOverlapNotWorking: "Prevent Overlap Isn't Working",
   linkOpensNewTab: "Link Opens New Tab Instead of Switching",
   duplicateTabs: "Duplicate Tabs",
-  permissions: 'Reset Permissions',
+  permissions: 'Accessibility & Browser Access',
   license: 'License Issues',
   profileSpaces: 'Browser Profiles',
   browserProfilesMissing: 'Missing Browser Profiles',

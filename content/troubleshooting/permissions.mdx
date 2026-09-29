@@ -1,146 +1,123 @@
 ---
-title: "Reset permissions - Fix stuck or denied SupaSidebar access"
-description: "Fix stuck, denied, or missing Accessibility and Automation permissions for SupaSidebar, including per-browser Automation grants and full TCC resets."
+title: "Fix Accessibility and browser access"
+description: "Check actual browser window access, troubleshoot Smart Attach, and recover Accessibility or Automation permissions for SupaSidebar."
 ---
 
-# Reset permissions
+# Fix Accessibility and browser access
 
-If you've granted Accessibility or Automation to SupaSidebar but shortcuts still don't work, the macOS TCC database is most likely in a confused state. Resetting the permission entry is almost always the fix.
+An enabled Accessibility toggle and successful browser access are different checks. If macOS reports permission granted but Smart Attach does not work, start by checking whether SupaSidebar can read a browser window. A failure can involve permissions, browser communication, or the current window; it does not identify the cause by itself.
 
-This page covers:
+## Check browser access in Preferences
 
-- Symptoms that point to a permissions problem
-- The standard "quit, remove, re-add" fix
-- A full reset using `tccutil` when the toggle is stuck
-- Reinstalling as a last resort
+1. Open your browser and a normal browser window.
+2. Open **SupaSidebar Preferences > Permission Status**.
+3. Select your browser from the menu beside **Attached to my browser**.
+4. Click **Check again**.
 
-## Symptoms
+The browser access check is available in builds that include this browser selector. Older builds may display **Ready** based only on the permission flag.
 
-You probably have a permissions issue if:
+| Result | What to do |
+| --- | --- |
+| **Access verified** | SupaSidebar read a window's position and size in the selected browser. If Smart Attach still fails, check its settings below. |
+| **Access check failed** | macOS reports permission granted, but the read failed. Follow the recovery steps below. |
+| **Needs permission** | Allow SupaSidebar in Accessibility settings, then check again. |
+| **Open a browser / Open a browser window** | Open the selected browser with a window and check again. This is not a permission failure. |
+| **Excluded** | The browser is excluded in **Privacy & Browsers**, so the check does not access it. Review that choice if you want to use it with Smart Attach. |
+| **Try again shortly** | Wait for the browser to respond, then check again. |
 
-- The Accessibility toggle is **on** in System Settings but `Cmd Shift C` or `Cmd Shift S` still doesn't capture your URL.
-- You keep getting the Accessibility permission notification every time you try to Save Page or Copy URL, even though you already granted access. This means macOS no longer trusts the existing TCC entry - the toggle is "on" but the system has invalidated it under the hood.
-- macOS never prompted you for permission, even on first use.
-- The sidebar can't position itself next to your browser (Smart Attach does nothing).
-- After a macOS update or SupaSidebar update, browser actions silently fail.
-- You see SupaSidebar listed twice in the Accessibility or Automation list.
+**Access verified** applies to the selected browser at the last check time. It does not test sidebar movement, Live Tabs, mouse triggers, or browser Automation. The check does not open browsers, move windows, or read page content.
 
-If macOS shows error **-1743** in a notification, that's specifically an Automation denial - see [Automation fix](#automation-isnt-prompting-or-is-denied).
+## Mouse to edge
+
+**Mouse to edge** checks its own mouse listener. It does not reuse the browser window result.
+
+After opening Permission Status or clicking **Check again**, move your mouse normally. You do not need to move it to a screen edge to verify input.
+
+| Result | Meaning and next step |
+| --- | --- |
+| **Input verified** | The existing mouse listener is active and has received movement since this check started. |
+| **Move mouse to verify** | The listener is active, but no movement has been received for this check yet. Move the pointer. |
+| **Mouse access failed** | The listener is missing or inactive. Reopen SupaSidebar, then try the Accessibility recovery steps below if necessary. |
+| **Needs permission** | Allow SupaSidebar in Accessibility settings, then reopen the app. |
+| **No edge selected** | Select Left Edge or Right Edge in **Preferences > Mouse Triggers**. |
+| **Turned off** | Mouse Triggers is disabled in its settings. |
+
+**Input verified** confirms mouse input, not a completed sidebar reveal. If the sidebar still does not appear, check the selected edges and hover delay in Mouse Triggers settings, then try the edge with no modifier keys held.
+
+## If access is verified but Smart Attach still fails
+
+- Check **Preferences > Sidebar** and make sure **Smart Attach** is selected.
+- Check **Privacy & Browsers** for exclusions.
+- Try a normal browser window outside full screen, and show the sidebar beside it.
+- Move the browser window and check whether the sidebar follows.
+
+If it still fails, use the support details at the end of this page. Resetting permissions is not a guaranteed fix for an attachment or window-selection problem.
 
 ## Quick fix: re-add SupaSidebar
 
-This works ~80% of the time:
+Try these steps when browser access fails even though Accessibility is enabled:
 
-1. **Quit SupaSidebar completely.** Right-click the menu bar icon -> Quit. Don't just close the sidebar window.
-2. Open **System Settings -> Privacy & Security -> Accessibility**.
-3. Find **SupaSidebar** in the list, select it, and click the **`-`** (minus) button to remove it.
-4. Repeat for **System Settings -> Privacy & Security -> Automation** if Automation is the problem - expand SupaSidebar and uncheck the browsers, or remove the row.
-5. **Relaunch SupaSidebar.**
-6. When it asks for permission again, click **Open System Settings** and enable the toggle.
+1. Save any work in the browser. Quit and reopen the browser and SupaSidebar, then check again.
+2. If the check still fails, **quit SupaSidebar completely** using its Quit command. Closing the sidebar alone is not the same as quitting the app.
+3. Open **System Settings > Privacy & Security > Accessibility**.
+4. Select SupaSidebar and use the **Remove (-)** button to remove its Accessibility entry. Authenticate if macOS asks. If the controls are unavailable on a managed Mac, contact your administrator.
+5. Use **Add (+)** to select the SupaSidebar app you normally launch, usually in **Applications**. Enable its toggle.
+6. Relaunch that copy of SupaSidebar, open a browser window, and return to **Permission Status > Check again**.
 
-If a permission was already on when you launched, macOS sometimes won't re-prompt. In that case, use the reset command below.
-
-## Full reset using `tccutil`
-
-If the toggle is stuck, greyed out, or removing+re-adding doesn't help, reset the TCC entry directly.
-
-**Quit SupaSidebar first**, then run one of these in Terminal:
-
-```bash
-# Reset Accessibility only
-tccutil reset Accessibility com.supasidebar
-
-# Reset Automation (AppleEvents) only
-tccutil reset AppleEvents com.supasidebar
-
-# Reset everything for SupaSidebar
-tccutil reset All com.supasidebar
-```
-
-You'll see `Successfully reset ...` if it worked. Now:
-
-1. Relaunch SupaSidebar.
-2. Accept the permission prompts when they appear.
-3. If you reset AppleEvents, **restart each browser** you use - macOS won't re-prompt for Automation until the browser is freshly launched.
-
-> `tccutil` doesn't need `sudo` for app-specific resets. If you see "no such bundle identifier", confirm SupaSidebar is installed in `/Applications` and the bundle id is `com.supasidebar`.
-
-## Automation isn't prompting or is denied
-
-The Automation prompt only appears the first time SupaSidebar tries to talk to a specific browser. If you denied it once, macOS won't ask again - it just silently blocks future attempts (you may see error **-1743** in the Console).
-
-To recover:
-
-1. Open **System Settings -> Privacy & Security -> Automation**.
-2. Expand **SupaSidebar** and tick every browser you actually use.
-3. If SupaSidebar isn't listed at all, run `tccutil reset AppleEvents com.supasidebar`, relaunch SupaSidebar, and trigger a shortcut (`Cmd Shift C` while your browser is frontmost). The prompt should appear.
-4. If the prompt still doesn't appear, quit and relaunch the browser - macOS sometimes caches the denial against the browser process.
-
-If Automation works for one browser but not another, see [Live Tabs works in one browser but not another](#live-tabs-works-in-one-browser-but-not-another) below.
-
-## Live Tabs works in one browser but not another
-
-**Symptom:** Live Tabs mirrors tabs from Chrome but shows nothing for Safari. Or **Auto Show on Browser Focus** is already checked in **Preferences → Sidebar**, but nothing happens when Safari becomes the active app - it only fires for Chrome.
-
-### Cause
-
-Automation permission is granted per browser, not once globally. macOS lists a separate checkbox for every app SupaSidebar wants to control inside **System Settings → Privacy & Security → Automation**. If you only granted access for the browser you were using when SupaSidebar first prompted you, you never saw a prompt for the second browser - SupaSidebar has no way to talk to it yet.
-
-### Fix
-
-1. Open **System Settings → Privacy & Security → Automation**.
-2. Find **SupaSidebar** and expand it.
-3. Confirm there is a checkbox ticked for **every browser you use**, not only the one you set up first.
-4. Relaunch SupaSidebar after granting.
-
-If a browser is missing from the list entirely, with no checkbox to tick, see [Automation isn't prompting or is denied](#automation-isnt-prompting-or-is-denied) above for the reset steps that force macOS to prompt again. For what Automation and Accessibility each unlock, see the [Permissions setup guide](/gettingStarted/permissions).
+This is a recovery step, not proof that the permission entry caused the failure. Apple's [Accessibility permission guide](https://support.apple.com/guide/mac-help/allow-accessibility-apps-to-access-your-mac-mh43185/mac) explains how to add an app and enable access.
 
 ## Multiple SupaSidebar entries in the list
 
-If you see two SupaSidebar rows, you probably have two copies of the app on disk (e.g. one in `/Applications` and one in `~/Downloads`). macOS treats them as different apps because the path differs.
-
-1. Quit SupaSidebar.
-2. In Finder, search for "SupaSidebar" and **delete every copy except the one in `/Applications`**.
-3. Empty the Trash.
-4. Run `tccutil reset All com.supasidebar`.
-5. Relaunch from `/Applications` and re-grant permissions.
+Check whether you have been launching different copies of SupaSidebar, such as one in Applications and another in Downloads. Quit SupaSidebar, choose the copy you intend to use, and add that copy in Accessibility settings. Avoid launching another copy while checking access.
 
 ## Permissions lost after an update
 
-Rarely, a SupaSidebar or macOS update can invalidate the existing permission entry (usually because the code signature changed). Symptoms: everything worked yesterday, today nothing does.
+Run the browser access check again. If it fails, try reopening both apps and then the re-add steps above. The timing of an update alone does not establish why access failed.
 
-Fix is the same as the full reset:
+## Last resort: reinstall the app
 
-```bash
-tccutil reset All com.supasidebar
-```
+If reopening and re-adding do not help:
 
-Then relaunch and re-grant.
+1. [Export a backup of your saved items](/howTo/exportImportData) from **Preferences > Import & Export** before reinstalling.
+2. Quit SupaSidebar.
+3. Download SupaSidebar from [the official website](https://supasidebar.com) and replace the app in Applications.
+4. Open that copy, review its Accessibility entry, and repeat the browser access check.
 
-## Last resort: clean reinstall
+Replace the app itself. Do not use an app cleaner or delete SupaSidebar's settings or application data as part of these steps. Reinstalling is not guaranteed to reset macOS permissions or fix a browser communication problem.
 
-If none of the above helps:
+## Automation isn't prompting or is denied
 
-1. Quit SupaSidebar.
-2. Delete `/Applications/SupaSidebar.app` (drag to Trash, empty Trash).
-3. Run `tccutil reset All com.supasidebar`.
-4. Download the latest build from [supasidebar.com](https://supasidebar.com) and reinstall.
-5. Grant permissions when prompted.
+Automation is separate from Accessibility. To check it:
 
-Your data (links, spaces, folders) lives in Core Data / iCloud and survives the reinstall - this only clears app binary and permission state.
+1. Open the browser you want to use.
+2. Open **Preferences > Permission Status > Browser Automation**.
+3. If access is not granted, click **Grant access** for that browser and respond to the macOS prompt, if one appears.
+4. If macOS has already denied access, open **System Settings > Privacy & Security > Automation**, expand SupaSidebar, and enable the relevant browser.
+5. Return to Permission Status and click **Check again**.
+
+The **Check again** action does not request Automation access. **Grant access** can open a browser and request permission.
+
+## Live Tabs works in one browser but not another
+
+Check the individual browser's result under **Browser Automation**. An Automation grant for one browser does not grant access to another. Some browsers use Accessibility instead; see [Permissions setup](/gettingStarted/permissions).
+
+A successful window access check does not verify that tabs can be read. Include which feature fails when contacting support.
 
 ## Still stuck?
 
-[Email us](mailto:admin@supasidebar.com) with:
+[Email support](mailto:admin@supasidebar.com) with:
 
-- Your macOS version
-- Which permission is failing (Accessibility, Automation, both)
-- The exact error message or behaviour (a screenshot of the relevant System Settings page helps)
+- Your macOS version and SupaSidebar version/build
+- The browser name and version
+- The selected browser and result in Permission Status
+- Any error number and failed step shown below the result
+- Whether access is verified but Smart Attach still fails
+- Whether the problem occurs with a normal window, full screen, or multiple displays
 
-Replies usually go out within 1-2 hours during waking hours.
+A screenshot of Permission Status can help. You do not need to share private page content or URLs.
 
 ## Related
 
-- [Permissions setup](/gettingStarted/permissions) - First-time grant flow
-- [License troubleshooting](/troubleshooting/license) - For reactivation and Mac transfer issues
-- [Browser Profiles troubleshooting](/troubleshooting/profileSpaces) - Profile detection problems
+- [Permissions setup](/gettingStarted/permissions)
+- [License troubleshooting](/troubleshooting/license)
+- [Browser Profiles troubleshooting](/troubleshooting/profileSpaces)
