@@ -1,5 +1,6 @@
 export default {
   index: 'Troubleshooting',
+  checkAndRepair: 'Missing Folders or Links',
   sidebarStaysOnTop: 'Sidebar Stays on Top',
   sidebarDoesntHideInBrowser: "Sidebar Doesn't Hide in Browser",
   sidebarAutoAppears: "Sidebar Appears Automatically",

@@ -11,10 +11,10 @@ Keep dated copies of your saved links in **Preferences → Backups**, and use th
 
 ## Automatic backups
 
-Save dated `.ssb` copies of your spaces and saved links to a folder you choose. Automatic backups start with a **weekly schedule, every 7 days**, once you turn them on.
+Automatic backups are **on by default, every 7 days**, when you have never saved a backup preference. SupaSidebar uses its local **Application Support → SupaSidebar → Backups** folder on this Mac. The exact path appears under **Backup Folder**. Existing backup settings, including **Off**, custom folders, and schedules, stay unchanged.
 
 1. Open **Preferences → Backups**.
-2. Turn on **Automatic Backups** and choose a folder. Canceling the folder picker leaves backups off.
+2. Check **Automatic Backups** and **Backup Folder**. If backups are off, turning them on uses the displayed folder immediately; no folder picker is required.
 3. Keep **Weekly (every 7 days)**, or choose another **Backup Frequency**.
 4. Use **Next Backup** to change the next date and time.
 5. Check **Last Successful Backup**, or click **Back Up Now** to save a copy immediately.
@@ -26,7 +26,7 @@ Save dated `.ssb` copies of your spaces and saved links to a folder you choose. 
 | Monthly | One calendar month after the last successful backup |
 | Every 3 months | Three calendar months after the last successful backup |
 
-The first backup runs after you enable the default schedule. Each successful backup, including **Back Up Now**, starts the next interval. Changing the frequency schedules the next copy from the time you make the change. For months without the same day, the date falls on that month's last day.
+The first backup runs when SupaSidebar starts the default schedule, or when you enable backups with no previous schedule. Each successful backup, including **Back Up Now**, starts the next interval. Changing the frequency schedules the next copy from the time you make the change. For months without the same day, the date falls on that month's last day.
 
 SupaSidebar must be open to save a backup. If your Mac is asleep or SupaSidebar is closed when a backup is due, it saves one catch-up copy when you next open the app or wake your Mac. It does not create a separate file for each missed interval.
 
@@ -44,15 +44,15 @@ Automatic backups exclude Trash, browsing history, Live Tabs, and app settings. 
 
 ### Choosing and maintaining a backup folder
 
-Use **Backup Folder → Choose Folder…** to change the destination, and **Show in Finder** to see it. Each copy has a date and a unique filename. SupaSidebar keeps old copies until you delete them; changing folders or turning backups off does not remove existing files.
+Use **Backup Folder → Choose Folder…** to change the destination, and **Show in Finder** to see it. Canceling the picker keeps the current destination and schedule. Use **Use Default Folder** to return to the local app folder. Each copy has a date and a unique filename. SupaSidebar keeps old copies until you delete them; changing folders or turning backups off does not remove existing files.
 
 Changing the folder while automatic backups are on schedules a copy in the new location immediately. **Last Successful Backup** then reports backups saved to that folder.
 
-For protection against losing your Mac's drive, choose a folder on another drive or a folder managed by your cloud storage provider. A successful local write does not confirm that your cloud provider finished uploading it. The `.ssb` file is readable and is not encrypted by SupaSidebar, so use a private folder.
+For protection against losing your Mac's drive, choose a folder on another drive or a folder managed by your cloud storage provider. A successful local write does not confirm that your cloud provider finished uploading it. The `.ssb` file is readable and is not encrypted by SupaSidebar, so use a private folder. The default local copies do not protect against losing the Mac or its drive. Because copies are kept until you delete them, review the backup folder periodically if disk space is limited.
 
 If a drive is disconnected, a folder is unavailable, or saving fails, the app shows the error and keeps the previous successful backup date. Reconnect the drive or choose a writable folder, then click **Back Up Now**. Scheduled failures retry after one hour while the app is open.
 
-Backup schedules and folder permissions belong to this Mac. Set them up again on a new Mac.
+Backup schedules and folder permissions belong to this Mac. On a new Mac with no saved backup preference, the app starts weekly backups in that Mac’s own local folder. Choose your external or cloud folder again if you want to use it there. Switching between the direct and Mac App Store editions may use different local Application Support folders.
 
 ### Recovering your links
 
@@ -67,6 +67,18 @@ Recovery adds new spaces and keeps your current data. It does not replace or mer
 </Callout>
 
 On a new Mac, install and open SupaSidebar, then follow the same steps with your copied `.ssb` file. Automatic backups contain no app settings to restore; manually exported files may offer [optional settings controls](/howTo/exportImportData#restoring-settings-from-a-ssb-file).
+
+## Check & Repair
+
+If saved links appear in search or in a space's count, but their folders are missing from the sidebar, open **Preferences → Backups → Check & Repair**.
+
+The scan lists unassigned folders it can reconnect, with a space dropdown beside each folder name. Clear destinations are selected for you; choose **Choose a space…** to skip a folder. Expand **Links (N)** to inspect the links in a collapsed, scrollable list.
+
+Selecting a space is a preview. **Update** appears to the left of **Check Again** whenever a folder has a selected space, including a suggested space. Click **Update**, then **Save & Update** in the save dialog to save a recovery copy and apply your choices. The scan refreshes after updating.
+
+The recovery copy includes selected empty folders. Already-assigned folders and existing links stay unchanged. Completely unassigned trees also offer a **Delete Folder & Links…** trash button with a confirmation and a separate recovery copy.
+
+See [Missing folders or links: Check & Repair](/troubleshooting/checkAndRepair) for when to use it, every check it performs, and the repair steps.
 
 ## Related guides
 

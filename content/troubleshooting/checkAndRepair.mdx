@@ -1,0 +1,128 @@
+---
+title: "Missing folders or links: Check & Repair"
+description: "Reconnect unassigned folders to a space in SupaSidebar. Learn when to use Check & Repair, how to choose a destination, and how recovery copies work."
+---
+
+import { Callout } from 'nextra/components'
+
+# Missing folders or links: Check & Repair
+
+If links still appear in search or in a space's saved-link count, but their folders are missing from the sidebar, use **Preferences → Backups → Check & Repair**.
+
+Check & Repair finds folders that have no space assigned. It shows the folders it can reconnect, with a space dropdown for each folder tree. When the existing links or hierarchy identify a compatible space, that space is selected for you.
+
+<Callout type="info">
+**Check Now** only scans your data. Choosing a space previews your changes. Click **Update** to save a recovery copy and apply the selected spaces.
+</Callout>
+
+## When to use it
+
+- A space shows fewer folders than you expect, or none at all.
+- You can find a saved link in search, but cannot find its folder in the sidebar.
+- A space's saved-link count includes links that are missing from its visible folders.
+
+For links you deleted, start with [Trash](/features/trash). To recover content from an older `.ssb` file, use [Restore Backup](/howTo/backups#recovering-your-links).
+
+## What is an unassigned folder?
+
+A disconnected, or **orphan**, folder still exists but has no space assigned to it. Its links may still belong to a space, which can leave those links searchable while the folder is missing from the sidebar.
+
+Different space assignments within a folder tree do not mean the folder is duplicated or needs to be moved. Check & Repair does not list already-assigned folders just because their links refer to different spaces.
+
+An ordinary **unfiled link** is different: saving a link without putting it in a folder is valid. Global saved links outside spaces are also valid. The scan does not flag those just because they have no folder or space.
+
+## Run a check
+
+1. Open **Preferences → Backups** and find **Check & Repair**.
+2. Click **Check Now**, or **Check Again** if you have already run a scan.
+3. Review the folder rows in the same **Check & Repair** section. Each row has a folder name and a space dropdown.
+4. Expand **Links (N)** to review the links in that folder tree. It shows link titles and addresses, with Trash or history status where relevant. The list starts collapsed and scrolls inside a fixed-height panel, even for folders with hundreds of links.
+5. Choose a space for each folder you want to reconnect. Keep a suggested destination, or choose **Choose a space…** to clear the selection and skip that folder.
+
+**Update** appears to the left of **Check Again** whenever at least one folder has a selected space. Suggested spaces count as selections too. Nothing changes in your library until you click **Update** and save the recovery copy.
+
+A row can describe a whole folder tree. If an assigned parent contains unassigned subfolders, the row is labelled **Unassigned folders in [folder name]**. Updating only changes the unassigned folders.
+
+## What it checks
+
+| Check | What it means | What happens |
+|---|---|---|
+| Folder with no space and a clear destination | Existing folder and link assignments agree on one space. | The folder appears with that space selected. You can clear the selection to skip it. |
+| Unassigned folder with no clear destination | There is not enough information to identify its original space, for example an empty folder with no assigned parent or child. | The folder appears with a dropdown so you can choose a compatible space. |
+| Compatibility with existing content | A proposed destination must agree with the folder tree's existing space assignments, including attached links in Trash or history. | The dropdown offers compatible destinations. Repair does not change existing link assignments. |
+| Folder hierarchy and space identity | A parent loop or a missing or duplicate space identifier prevents the app from reconnecting the tree reliably. Two spaces having the same name alone is not this problem. | The affected tree is left unchanged and is not offered for repair. |
+| Incomplete or conflicting link placement | A saved link in a folder has no space, or the tree refers to multiple spaces. | The affected tree is left unchanged and is not offered for repair. Already-assigned folders are not presented as problems to fix. |
+
+The link list can include saved links, Trash, and history. A completely empty folder tree is labelled as containing no links.
+
+The dropdown only offers destinations that preserve the current spaces of existing links and already-assigned folders. Links in Trash or history can restrict these choices, but cannot identify a destination on their own.
+
+## Choose a space for disconnected folders
+
+An empty folder can still be worth keeping. Each listed folder tree has its own dropdown. You can send separate trees to different compatible spaces.
+
+Your selection applies to the unassigned folders in that tree, keeping the hierarchy together. Selecting a space only updates the repair preview; it does not move anything immediately. Unselected folders stay unchanged.
+
+If no space is available in the dropdown, create a space, then click **Check Again**. A new scan resets your choices and selects any clear suggested destinations, so review them again before updating.
+
+## Apply your selected spaces
+
+In **Check & Repair**:
+
+1. Check the selected space beside each folder.
+2. Click **Update**, to the left of **Check Again**.
+3. Choose where to save the `.ssb` recovery copy, then click **Save & Update**. Canceling the save dialog leaves your folders unchanged.
+4. The selected folder assignments are applied and the scan refreshes. Check the affected spaces in your sidebar.
+5. Use **Show Recovery Copy** to find the saved file in Finder.
+
+Repair reconnects the selected unassigned folders to their chosen spaces. It keeps their links, names, notes, colors, and ordering. It does not move existing links to another space or folder, merge duplicates, or delete content. Already-assigned folders and unselected folders stay unchanged.
+
+### What the recovery copy does
+
+The copy uses the same saved-content format as [automatic backups](/howTo/backups#whats-included). It includes the disconnected folders being repaired and their saved links. Empty folders you select are included under their chosen destination spaces, with their subfolders, before the app changes any folder connections. Unselected empty trees with no connection to a space or saved link are not included and stay unchanged.
+
+To recover from the copy, open **Preferences → Backups → Restore Backup…**, select the `.ssb` file, and choose the spaces to import.
+
+<Callout type="info">
+Restoring adds new spaces and keeps your current data. It does not undo the repair in place. Check the recovered content before removing any duplicate spaces.
+</Callout>
+
+## Delete a folder you no longer want
+
+A trash button, **Delete Folder & Links…**, appears when every folder in the listed tree is unassigned. Use it only when you want to remove the entire listed folder tree. It is not offered for a tree that contains an already-assigned folder.
+
+1. Expand **Links (N)** to review its contents.
+2. Click **Delete Folder & Links…**. The confirmation shows the folder name and total folder and link counts, including Trash and history entries.
+3. Choose **Save Backup & Delete…**, then save the recovery `.ssb` file. Canceling either dialog leaves the folder unchanged.
+4. After saving the copy, the app checks the preview again and permanently deletes that folder tree and all attached links. Other folders and spaces remain.
+
+This action does not move links to Trash. Its recovery file contains only the selected tree, including its saved, trashed, and history links. Open it with **Restore Backup** to recover into a new space named **Recovered folder: [folder name]**. The original space assignments are not recreated. Trashed links retain their Trash state when restored in this version, and normal Trash retention still applies. Older versions may not preserve that state.
+
+Deletion is separate from **Update**. Updating folder assignments never deletes content. If the backup fails or the reviewed content changes, deletion stops.
+
+## If repair cannot continue
+
+| Message or result | Next step |
+|---|---|
+| Saved links are still loading | Wait for the library to load, then click **Check Again**. |
+| Finish saving your current changes | Finish the current edit, then check again. |
+| Folders or links changed after the scan | Click **Check Again** and review the updated destinations. The app also rechecks after saving the recovery copy. |
+| The recovery copy could not be saved | Choose a writable folder or reconnect the backup drive. Repair cannot start without a saved copy. |
+| Update is not shown | Choose a space beside at least one folder. |
+| A selected space is no longer available or conflicts with existing links | Click **Check Again** and select a compatible destination from the refreshed dropdown. |
+| No folders available to reconnect | Unassigned folders exist, but their current links or hierarchy prevent this tool from offering a repair. [Contact support](/howTo/sendFeedback) with the affected space or folder names. |
+| No unassigned folders found, but content is still missing | Check that you are viewing the intended space and have expanded its folders. If the problem continues, contact support with a screenshot. |
+
+## What this check does not do
+
+Check & Repair reconnects eligible unassigned folders. It does not fix individual links with missing space assignments or treat different assignments in an already-assigned tree as an error. It also does not test whether a website still loads, recover permanently deleted content, repair browser profiles, or identify what originally caused a folder connection to break.
+
+If you need help, include your SupaSidebar version, the affected space names, and a screenshot of the scan results in your [feedback](/howTo/sendFeedback).
+
+## Quick summary
+
+- **Check Now** finds unassigned folders that can be reconnected without changing your data.
+- Each folder row has a space dropdown. Clear its selection to skip it.
+- **Update** appears beside **Check Again** when a space is selected. It saves a copy before reconnecting those folders.
+- **Delete Folder & Links…** lets you remove an unwanted tree after confirming and saving its recovery copy.
+- Already-assigned folders and existing link placements stay unchanged.
