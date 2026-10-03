@@ -7,6 +7,10 @@ import { Callout } from 'nextra/components'
 
 # Spaces
 
+<Callout type="info">
+Space linking and settings below describe **SupaSidebar 1.3.0 and later**. [Using 1.2.x?](/versions/1.2/profileSpaces)
+</Callout>
+
 Spaces in SupaSidebar let you organize your links, files, and folders into separate workspaces - switch between work, personal, and projects instantly.
 
 <Callout type="info">
@@ -20,9 +24,9 @@ SupaSidebar has a free plan, and Spaces works on it. Free users get up to 3 spac
 - **Independent Workspaces** - Each space has its own links, folders, and smart folders
 - **Instant Switching** - Jump between spaces with keyboard shortcuts
 - **Color Tint** - Assign a color to a space and it tints the entire sidebar UI, giving an instant visual cue for which space you're in
-- **Per-Space Browser** - Each space can have its own default browser, configured in **Preferences → Air Traffic Control**. Links opened from that space use its assigned browser regardless of the global default
+- **Linked browser or profile** - Choose a default destination for links and filter Live Tabs to that browser or profile. One-time choices, saved-link preferences, and higher-priority Air Traffic Control rules can override the destination
 - **Custom Icons** - Set SF Symbols, emoji, or upload a custom image as the space icon
-- **Filtered Live Tabs** - Browser tabs filtered by current space
+- **Filtered Live Tabs** - A linked space shows tabs from its browser or profile; an unlinked space shows tabs from all enabled, supported browsers
 - **Per-Space Pinned Tabs** - Each space can have its own set of pinned tabs, separate from the global pinned links
 - **Group Unfiled per space** - Each space sets its own group-by mode for the Unfiled section, so loose saved links can be tidied differently per space
 - **Collapse and Expand all folders** - Fold a busy sidebar shut, or open it back up, in one click from the space `•••` options menu
@@ -36,17 +40,25 @@ You can also use `Cmd Ctrl ←` and `Cmd Ctrl →` to move between Spaces, or en
 
 ## Browser Profiles
 
-Link a browser profile to any space for complete session isolation. Each profile has its own cookies, history, and extensions - switching spaces instantly swaps which profile is visible.
+Use the **link icon next to the space name**, or select **Link a browser or profile** when creating a space. Choose a whole browser or one of its available profiles. You can optionally fetch bookmarks and review what to add.
 
-See [Browser Profiles](/features/profileSpaces) for setup and usage.
+See [Link a browser or profile](/features/profileSpaces) for setup, bookmark scope, and link-opening behavior.
 
 ## Per-space tab memory
 
-Want each space to close its tabs when you leave and reopen them when you return, in the same browser and profile they came from? Turn on [Link Open Tabs to Space](/features/linkOpenTabs) in **Preferences -> Browser Activity -> Advanced**. Lock specific tabs to keep them open across every space.
+Want to remember tab URLs and try reopening them when you return? Review [Close and reopen tabs on space change](/features/linkOpenTabs) in **Preferences → Spaces → Switching spaces → Advanced**. This legacy workflow is separate from browser/profile linking. Its close step can affect other profiles in the linked browser, and profile restore is best-effort. Read the scope notes before enabling it; lock tabs you want to keep open.
 
 ## Settings
 
 Configure spaces in **Preferences → Spaces**.
+
+### Connections and switching
+
+- **My spaces** - Select a space to manage its linked browser/profile.
+- **Switching spaces** - Set whether to open a linked browser if it is not running and what happens when a linked browser/profile becomes active.
+- **Advanced** - Keep the optional legacy close-and-reopen behavior here. Existing values are preserved.
+
+Live Tabs and Recents display controls remain in **Preferences → Browser Activity**. Browser permissions live in **Preferences → Permission Status**.
 
 ### Space Management
 
@@ -59,7 +71,7 @@ Configure spaces in **Preferences → Spaces**.
 
 ## Usage
 
-- **Create a space** - Click space selector → + New Space → Name and set color
+- **Create a space** - Click space selector → + New Space → Name and set color. Optionally link a browser/profile and fetch its bookmarks before creating the space
 - **Save to space** - Links saved with `Cmd Ctrl S` go to current space
 - **Move between spaces** - Right-click item → Move to Space
 - **Convert a folder to a space** - Right-click any folder → Convert to Space. The folder's contents move into a new space at the root level, keeping the same name and structure
@@ -69,8 +81,13 @@ Configure spaces in **Preferences → Spaces**.
 
 ## Space options menu
 
-Open the `•••` menu on any space header for per-space actions:
+Use the **link icon beside the space name** for browser/profile linking and bookmark checking. Open the `•••` menu on a space header for other per-space actions:
 
+- **Link a browser or profile… / Linked to…** - Open connection settings for this space
+- **Check for new bookmarks in…** - Review bookmarks from a supported linked browser/profile
+- **Unlink** - Remove this space’s browser/profile connection
+- **Space settings…** - Open this space in Preferences
+- **Space switching settings…** - Open the global switching controls
 - **Collapse all folders** - Fold every folder in the space shut in one click
 - **Expand all folders** - Open every folder in the space in one click
 - **Group Unfiled by** - Pick how loose links in the Unfiled section group (by domain, date, or off). Each space remembers its own choice

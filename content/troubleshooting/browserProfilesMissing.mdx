@@ -3,8 +3,6 @@ title: "Some browser profiles are missing"
 description: "Fix Chrome, Brave, or Edge profiles that don't show up in SupaSidebar's profile picker, with a one-line diagnostic to confirm the cause."
 ---
 
-import { Callout } from 'nextra/components'
-
 # Some browser profiles are missing
 
 ## Problem
@@ -49,22 +47,18 @@ For other browsers, swap the path in the command:
 Now compare that list to what SupaSidebar shows:
 
 - **Profile is missing from the Terminal list too** - the browser itself hasn't registered it. This is a browser-side state, not a SupaSidebar bug. Open the profile once (see below) so the browser writes it to `Local State`.
-- **Profile is in the Terminal list but not in SupaSidebar** - the app has a stale scan. Restart SupaSidebar to re-discover profiles.
+- **Profile is in the Terminal list but not in SupaSidebar** - refresh the profile list in SupaSidebar. If it is still missing, include both lists when reporting the issue.
 
 ## Solution
 
 1. **Open the missing profile once in the browser.** Launch Chrome, switch into that profile, and let it load fully. This forces the browser to write the profile into `Local State`.
-2. **Restart SupaSidebar** so it re-reads the profile list.
-3. **Grant Automation permission** for the browser if you haven't. See [Permissions](/gettingStarted/permissions).
-4. Re-open the profile picker and confirm the profile now appears.
-
-<Callout type="info">
-[Browser Profiles](/features/profileSpaces) is a Premium feature. If no profile options appear at all, check your plan or [upgrade](https://supasidebar.com/pricing).
-</Callout>
+2. In **1.3.0 and later**, click the **link icon beside the space name**, then use **Refresh Profiles**.
+3. Follow any permission warning that appears. See [Permissions](/gettingStarted/permissions).
+4. Check whether the profile now appears. [Using 1.2.x?](/versions/1.2/profileSpaces)
 
 ## If the profile still doesn't appear
 
-If the diagnostic command lists the profile but SupaSidebar still won't show it after a restart, the browser is likely installed in a non-standard location (managed device, portable install, or a custom profile directory). Email `admin@supasidebar.com` with:
+If the diagnostic command lists the profile but SupaSidebar still does not show it after refreshing, email `admin@supasidebar.com` with:
 
 - The browser name and version
 - The output of the diagnostic command above

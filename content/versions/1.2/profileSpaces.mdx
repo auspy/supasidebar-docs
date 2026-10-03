@@ -1,0 +1,45 @@
+---
+title: "Browser profiles in SupaSidebar 1.2.x"
+description: "Find the earlier Live Tabs profile-link controls and Browser Activity settings used before SupaSidebar 1.3.0."
+---
+
+import { Callout } from 'nextra/components'
+
+# Browser profiles in 1.2.x
+
+<Callout type="info">
+This guide describes the interface before **1.3.0**. For the space-header link menu and current Preferences layout, see [Link a browser or profile](/features/profileSpaces).
+</Callout>
+
+## Link a browser or profile
+
+1. Open the space in the sidebar.
+2. In **Live Tabs**, click **Link a browser profile**.
+3. Select the browser or profile.
+
+The Live Tabs header shows the linked profile. To remove it, click the profile indicator in the Live Tabs header and choose **Unlink**.
+
+A profile-linked space filters its tab list to that profile. A whole-browser link filters to that browser. Unlinked spaces show tabs from all enabled, supported browsers.
+
+## Earlier settings locations
+
+| Setting in 1.2.x | Location in 1.2.x |
+|------------------|------------------|
+| Auto-Launch Browser/Profile | Preferences → Browser Activity → Profile Spaces |
+| Link Open Tabs to Space | Preferences → Browser Activity → Advanced |
+| Auto-link tabs on leave | Under Link Open Tabs to Space |
+
+**Link Open Tabs to Space** is the optional close-and-reopen workflow. It is separate from linking a browser profile. Locked tabs are excluded from closing.
+
+## What moved in 1.3.0
+
+| Earlier interface | 1.3.0 interface |
+|-------------------|-----------------|
+| Profile indicator in Live Tabs | Link icon and browser/profile label beside the space name |
+| Profile Spaces settings in Browser Activity | Preferences → Spaces → Switching spaces |
+| Link Open Tabs to Space | Close and reopen tabs on space change, under Switching spaces → Advanced |
+| Auto-link tabs on leave | Remember all open tabs when leaving, under the legacy control |
+
+The new space form also offers linking and optional bookmark fetching. Existing settings are retained when upgrading; the new interface does not require enabling legacy tab closing.
+
+See the [1.3.0 linking guide](/features/profileSpaces) and [current legacy tab guide](/features/linkOpenTabs) for the updated instructions.

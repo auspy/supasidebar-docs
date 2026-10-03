@@ -10,7 +10,7 @@ export default {
   duplicateTabs: "Duplicate Tabs",
   permissions: 'Accessibility & Browser Access',
   license: 'License Issues',
-  profileSpaces: 'Browser Profiles',
+  profileSpaces: 'Linked Browsers & Profiles',
   browserProfilesMissing: 'Missing Browser Profiles',
   mcp: 'MCP Setup Issues'
 }

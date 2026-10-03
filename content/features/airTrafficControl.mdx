@@ -74,9 +74,15 @@ Suggestions stay out of the way until they're confident. You can ignore them and
 
 ## Per-space default browser
 
-Each space can have its own default browser, configured in **Preferences → Air Traffic Control**. When you open a link from that space, it opens in the space's assigned browser instead of the system default.
+In **1.3.0 and later**, the quickest way to give a space a default destination is to [link a browser or profile](/features/profileSpaces) using the icon beside its name. You can also manage it in **Preferences → Spaces → My spaces**.
 
-For links without an explicit **Preferred Browser**, matching open routes take priority over the space default. A one-time **Open With** choice overrides both. See [Browser Selection](/howTo/browserSelection#priority-order) for the full order.
+The connection supplies a default Open route. It also scopes Live Tabs to that browser/profile, even though Live Tabs does not have to be visible for routing to work. A connection with the earlier automatic-opening setting explicitly turned off retains that choice until you enable it for that space.
+
+Turning off Air Traffic Control or disabling the linked-space Open route stops that route from choosing a destination. The connection and its tab filter remain.
+
+If you only want to change where links open, keep using a per-space Open route in **Preferences → Air Traffic Control**. That route does not need to change which Live Tabs appear.
+
+For links without an explicit **Preferred Browser**, Open routes are checked in their displayed order. A matching route above the linked-space default takes priority. A one-time **Open With** choice overrides both. See [Browser Selection](/howTo/browserSelection#priority-order) for the full order.
 
 ## Per-link Preferred Browser
 
@@ -90,7 +96,8 @@ Use this when one particular link should open differently from every other URL o
 |-----------|-----|
 | Many URLs follow the same pattern (e.g. all `github.com`) | ATC Open Route |
 | One specific saved link needs a different browser | Per-link Preferred Browser |
-| All links in a space should open in one browser | Per-space default browser |
+| A space should show one browser/profile’s tabs and open links there | Link a browser or profile |
+| Only change where a space’s links open | Per-space Open route |
 
 An explicit per-link Preferred Browser takes precedence over ATC. If both apply to the same URL, the saved link preference wins. See [Browser Selection Priority](/howTo/browserSelection#priority-order) for the full order.
 

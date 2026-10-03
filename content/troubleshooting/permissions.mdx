@@ -97,6 +97,14 @@ Automation is separate from Accessibility. To check it:
 
 The **Check again** action does not request Automation access. **Grant access** can open a browser and request permission.
 
+## A linked space shows a permission warning
+
+In **1.3.0 and later**, click the browser/profile label beside the space name, then use **Review permissions** for a missing permission. **Live Tabs is turned off** and blocked-browser messages lead to **Browser Activity** or **Privacy & Browsers** instead.
+
+Grant the permission actually named in the warning, return to SupaSidebar, and check again. An unverified preflight result alone does not stop the regular tab loader. **Connected** confirms the saved link to the browser/profile, not every operation the browser supports.
+
+If tabs appear in an unlinked space but not in a linked one, see [Linked browser troubleshooting](/troubleshooting/profileSpaces#live-tabs-is-empty-in-a-linked-space) before resetting permissions.
+
 ## Live Tabs works in one browser but not another
 
 Check the individual browser's result under **Browser Automation**. An Automation grant for one browser does not grant access to another. Some browsers use Accessibility instead; see [Permissions setup](/gettingStarted/permissions).

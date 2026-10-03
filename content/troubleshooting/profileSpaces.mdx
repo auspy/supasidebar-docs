@@ -1,92 +1,93 @@
 ---
-title: "Browser Profiles troubleshooting"
-description: "Fix profile detection, wrong browser launches, missing space switch prompts, and other issues with profile-linked spaces."
+title: "Linked browsers and profiles troubleshooting"
+description: "Find missing tabs, fix link destinations, review permissions, and check bookmark results for a linked space in SupaSidebar 1.3.0."
 ---
 
 import { Callout } from 'nextra/components'
 
-# Browser Profiles troubleshooting
-
-[Browser Profiles](/features/profileSpaces) link a space to a specific browser profile. When something feels off - wrong tabs, wrong browser, missing prompt - it's usually one of the cases below.
+# Linked browsers and profiles troubleshooting
 
 <Callout type="info">
-Browser Profiles is a Premium feature. If the option isn't visible, check your plan or [upgrade](https://supasidebar.com/pricing).
+These instructions apply to **SupaSidebar 1.3.0 and later**. [Using 1.2.x?](/versions/1.2/profileSpaces)
 </Callout>
+
+Start with the **browser/profile label next to the space name**. It shows what the space is linked to. Click it for connection status, bookmark checking, or **Unlink**. You can also find the connection in **Preferences → Spaces → My spaces**.
 
 ## A profile isn't showing up in the picker
 
-SupaSidebar auto-discovers profiles from each browser. If a profile is missing:
+1. Open the profile in its browser so the browser has created its data.
+2. Use **Refresh Profiles** in the picker, then look again.
+3. If an access warning appears, follow it to **Permission Status**.
 
-1. **Open the browser at least once** so the profile is fully created on disk. A profile that has never been opened may not appear yet.
-2. **Restart SupaSidebar** to re-scan profiles.
-3. Check that **Automation** permission is granted for the browser - see [Permissions](/gettingStarted/permissions).
-4. For Chromium browsers (Brave, Chrome, Edge, Vivaldi), profiles are read from disk. For Firefox and Zen, they're read from `profiles.ini`. For Safari, profiles come from the system menu. If the browser was just updated, give it one full launch before re-scanning.
+Some browsers support a whole-browser connection without individual profile linking. Check the choices in the picker and [Browser Support](/gettingStarted/browserSupport). For a Chromium profile still missing after refresh, see [Missing browser profiles](/troubleshooting/browserProfilesMissing).
 
-If the profile still doesn't appear, see [Missing browser profiles](/troubleshooting/browserProfilesMissing) for a one-line diagnostic that confirms whether the browser or SupaSidebar is dropping the profile.
+## Live Tabs is empty in a linked space
 
-## The wrong browser launches when I open a link
+Check the specific condition before changing permissions:
 
-The most common cause is **rule precedence**. Browser selection runs in this order:
+| What you see | What to check |
+|--------------|---------------|
+| A different browser/profile beside the space name | Unlink it, then link the intended browser or profile |
+| **Live Tabs is turned off** | Enable Live Tabs in **Preferences → Browser Activity**, or enable that browser's Live Tabs in **Privacy & Browsers**, as directed by the message |
+| **Allow access to show tabs** | Use **Review permissions**, then grant the permission named in the warning |
+| Browser is blocked or Live Tabs is unavailable | Review **Preferences → Privacy & Browsers** and the [browser support guide](/gettingStarted/browserSupport) |
+| **No tabs to show** with no blocker | Open a window in the linked profile and open a tab; use **Open profile** or **Open browser** if offered |
+| A profile-identification message | Keep the intended browser/profile window open and retry; include the exact message if contacting support |
 
-1. Modifier-click actions (`Opt`-click, right-click -> Open With)
-2. [Air Traffic Control](/features/airTrafficControl) open routes
-3. The space's linked profile / default browser
-4. System default browser
+If tabs appear in an unlinked space but not in the linked space, include that detail when reporting the issue. It helps distinguish reading browser tabs from matching them to a particular profile.
 
-So if you have an ATC open route for `youtube.com -> Brave`, that wins even if your current space is linked to Safari. Check **Preferences -> Air Traffic Control** for a rule matching the URL.
+**Connected** means the space has a saved connection. It is not a claim that every browser operation has been tested. SupaSidebar does not block the normal Live Tabs loader just because a permission check has not yet been verified.
 
-To fix:
+See [Permissions troubleshooting](/troubleshooting/permissions) if a required permission is denied or a browser operation fails.
 
-- If the ATC rule is what you want: leave it.
-- If the space's browser should win: disable or delete the ATC rule, or scope it tighter.
+## The wrong browser opens a link
 
-See [Browser Selection Priority](/howTo/browserSelection) for the full priority order.
+1. Check for an explicit **Preferred Browser** on the saved link.
+2. Check **Preferences → Air Traffic Control**. Open routes are checked in their displayed order; a matching route above the linked-space default wins.
+3. Check that Air Traffic Control and the linked-space Open route are enabled.
+4. Check the selected space’s connection in **Preferences → Spaces → My spaces**. An earlier choice to keep automatic linked-profile opening off is preserved after updating.
 
-## Live Tabs shows tabs from the wrong profile
+A one-time **Open With** choice overrides automatic routing. The saved link's **Preferred Browser** also takes precedence over ATC. See [Browser Selection](/howTo/browserSelection#priority-order) for the complete order.
 
-When a profile is linked to a space, Live Tabs filters to that profile. If you're seeing the wrong tabs:
+If only one link should open elsewhere, use **Open With** or **Preferred Browser** on that link. If the entire space should use its linked browser/profile, choose **Open links in this browser or profile** in the space’s connection settings when the earlier opt-out message appears.
 
-1. Open the space and check the **Live Tabs** header - it should show the linked profile name (e.g. "Live Tabs - Brave Work"). If it shows nothing or "All tabs", the link was lost.
-2. Click **Link a browser profile** and re-select the correct profile.
-3. If the linked profile's browser isn't running, Live Tabs shows a prompt to launch it. Click that, or enable [Auto-Launch Browser/Profile](/features/profileSpaces#auto-launch-browserprofile) in **Preferences -> Browser Activity -> Profile Spaces**.
+## Focusing a browser doesn't switch spaces
 
-## The space switch prompt isn't appearing
+Open **Preferences → Spaces → Switching spaces → When a linked browser/profile becomes active**. Choose **Ask to switch space**, **Switch automatically**, or **Do nothing**.
 
-The space switch suggestion appears when you focus a browser window that belongs to a different linked space. If it's not showing:
+The default is **Do nothing**, so choose one of the other options if you want SupaSidebar to follow the active browser/profile.
 
-- Check that the source space and the target space both have **linked profiles** (not just browsers). The prompt is profile-aware.
-- Make sure you didn't previously choose **Never** for that space - that dismisses suggestions for it.
-- Confirm Automation permission is granted for the browser you're switching to.
+This existing behavior requires Live Tabs to be enabled. It also needs a matching linked space and an identifiable browser/profile. The setting does not add a connection to an unlinked space.
 
-To reset suggestions, go to **Preferences -> Spaces** and toggle the space switch suggestion off and back on. {/* VERIFY: exact toggle name in current build */}
+## The linked browser doesn't launch on a space change
 
-## Auto-Launch isn't launching the browser
+Check **Preferences → Spaces → Switching spaces → Open linked browser if it isn’t running**. This existing behavior requires Live Tabs to be enabled.
 
-When you arrive at a profile-linked space whose browser isn't running, SupaSidebar can cold-launch the browser into the right profile. If it doesn't:
+This option is off by default.
 
-1. Enable **Auto-Launch Browser/Profile** in **Preferences -> Browser Activity -> Profile Spaces**.
-2. Make sure the browser is installed at its default macOS location.
-3. Some browsers (Firefox, Zen) need a per-profile launch argument that SSB calculates from `profiles.ini`. If you've manually edited that file, the launch may fail. Restore the file and re-link the profile.
+Confirm the space is linked to the intended browser/profile and that browser is still installed. Try **Open browser** or **Open profile** from the empty Live Tabs area. If opening fails, include the browser/profile and any permission warning in your report.
 
-## The sidebar doesn't hide when I click away from the profile browser
+## Tabs close when I switch spaces
 
-In profile mode, the sidebar auto-hides when the linked browser loses focus. If it stays visible:
+Check **Preferences → Spaces → Switching spaces → Advanced → Close and reopen tabs on space change**. This is the legacy tab-memory feature, previously named **Link Open Tabs to Space**. It is separate from connecting a browser/profile. Its close step is browser-wide for a linked space, so tabs in another profile of that browser can also close.
 
-- Check **Preferences -> Sidebar -> Auto-hide** is enabled. {/* VERIFY: exact path */}
-- Confirm Accessibility permission is granted - see [Permissions](/gettingStarted/permissions).
-- Browser-interaction settings are under active redesign as of 0.19.x - if you upgraded recently and behavior changed, restart SupaSidebar once to pick up the new defaults.
+Turn it off if you want to keep browser tabs open. If you keep it enabled, [lock individual tabs](/features/linkOpenTabs#locks-keep-a-tab-open-everywhere) that should remain open across spaces.
 
-## My profile link broke after a browser update
+## Bookmarks are missing from the results
 
-Some browsers reshuffle their profile folders during major updates. If your space suddenly shows "All tabs" instead of the linked profile:
+A named profile reads that profile's bookmarks. A whole-browser connection reads all discovered profiles supported by its importer. **Safari reads its bookmark library**, including when a named Safari profile is linked.
 
-1. Open the space and click the **profile indicator** in the Live Tabs header.
-2. Choose **Unlink**, then **Link a browser profile** again.
-3. Re-select the same profile name from the picker.
+A warning names profiles whose bookmark files could not be found or read. This does not mean the browser is uninstalled. You can review bookmarks from the other profiles, then retry after opening the affected profile and saving a bookmark there.
+
+Bookmark fetching is manual. Use **Check for new bookmarks in…** again after adding bookmarks in the browser. Changes made in SupaSidebar are not sent back to the browser. See [Import Bookmarks](/howTo/browserImport) for an HTML import fallback.
+
+## Change or remove the connection
+
+Click the linked browser/profile beside the space name and choose **Unlink**. To replace it, click the link icon and select the new browser/profile. Bookmarks already added to the space remain saved.
 
 ## Related
 
-- [Browser Profiles](/features/profileSpaces) - Full feature reference
-- [Air Traffic Control](/features/airTrafficControl) - Rule precedence and per-space default browsers
-- [Permissions](/gettingStarted/permissions) - Automation and Accessibility setup
-- [Spaces vs Folders vs Tags](/features/mentalModel) - When a linked profile actually earns its keep
+- [Link a browser or profile](/features/profileSpaces)
+- [Close and reopen tabs (Legacy)](/features/linkOpenTabs)
+- [Browser Selection](/howTo/browserSelection)
+- [Permissions](/gettingStarted/permissions)

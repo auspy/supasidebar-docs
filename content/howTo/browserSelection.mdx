@@ -15,9 +15,11 @@ When you click a link, SupaSidebar decides which browser to use based on this pr
 |----------|--------|---------|
 | **1. Modifier-click** | `Opt`-click, right-click → Open With, `Cmd`-click action | You hold `Opt` and pick Safari - that wins over everything |
 | **2. Preferred Browser** | An explicit preference on a saved link | One project link always opens in Firefox |
-| **3. Air Traffic Control** | URL-pattern rules and per-space defaults in **Preferences → Air Traffic Control** | GitHub links open in Chrome unless a saved link has its own preference |
+| **3. Air Traffic Control and the linked-space destination** | The first matching Open route, including the linked browser/profile fallback | A specific route above the linked-space default sends GitHub to Safari; other links use Chrome · Work |
 | **4. Link opening behavior** | The configured saved/source browser, frontmost browser, or default browser behavior | A link opens in the browser it was saved from |
 | **5. System default browser** | The fallback when no more specific destination applies | macOS chooses the browser |
+
+In **1.3.0 and later**, choose a linked browser/profile from the space header or **Preferences → Spaces → My spaces**. It supplies the space’s default Open route. Earlier connections with automatic linked-profile opening explicitly disabled retain that choice until you change it. [Using 1.2.x?](/versions/1.2/profileSpaces)
 
 A one-time **Open With** choice overrides the saved preference for that open. An explicit **Preferred Browser** takes precedence over automatic routes. **None** clears the per-link preference and restores automatic routing.
 
@@ -31,6 +33,7 @@ An already open page can be activated instead of opening a duplicate. The [Comma
 | Right-click folder | Right-click folder → **Open All With** → choose browser for all links |
 | `Opt` click | Hold `Opt` and click a link |
 | `Opt Return` | Select link in Command Panel, press `Opt Return` |
+| Space connection | Click the link icon next to the space name to set its default browser/profile and Live Tabs scope |
 | Air Traffic Control | Set URL-based routing rules in **Preferences → Air Traffic Control**. See [Air Traffic Control](/features/airTrafficControl) |
 
 The Command Panel ranks browser and profile choices by use. Check the displayed destination and number before selecting.

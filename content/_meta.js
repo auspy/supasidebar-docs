@@ -4,5 +4,6 @@ export default {
   features: 'Features',
   howTo: 'How-To',
   troubleshooting: 'Troubleshooting',
+  versions: 'Earlier versions',
   community: 'Community'
 }
