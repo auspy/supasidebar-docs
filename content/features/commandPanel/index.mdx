@@ -7,7 +7,7 @@ description: "Find live tabs, saved links, and recent pages in grouped results. 
 
 Find an open tab, a saved link, or a recently visited page from one panel. Press `Cmd Ctrl K`, type what you need, and press `Return` to open the result or switch to its existing browser tab.
 
-In **All** search results, a new **Recommended** section brings together up to five of the strongest matches from Live Tabs, saved links, and recent visits. It does not guarantee one result from each section, and pages shown here are not repeated below. The remaining results appear in labeled groups such as **Live tabs**, **Pinned**, **Saved**, **Recently visited**, and **Settings**. Browser, window, and visit details help you tell similar pages apart. A page can be both saved and open, with both states shown on its row.
+In **All** search results, a new **Recommended** section brings together up to five of the strongest matches from Live Tabs, saved links, and recent visits. It does not guarantee one result from each section, and pages shown here are not repeated below. The remaining results appear in labeled groups such as **Live tabs**, **Pinned**, **Saved**, **Recently visited**, and **Settings**. Browser logos beside the status labels and recent visit times help you tell similar pages apart. Visit times also appear on unselected open tabs and refresh while the panel is open. A page can be both saved and open, with both states shown on its row.
 
 The footer shows where the selected result will open. Use `Opt Return` to choose another browser or profile, `Ctrl Return` to [Ask AI](/features/askAI), or `Cmd Return` to search the web.
 
@@ -130,6 +130,12 @@ Press `Opt Return` on any selected item to see available actions:
 
 Press `Escape` to dismiss the actions panel and return to search results.
 
+## Choose which browser rules apply
+
+**Preferences → Command Panel → Use current Space rules** is on by default. It lets the current Space contribute its browser connection and Space-specific Air Traffic Control rules when you open a link from the Command Panel.
+
+Turn it off to use only Air Traffic Control rules for all Spaces and your default browser routing. Explicit **Open With** choices still take precedence. This setting affects Command Panel opening; it does not change sidebar routing or remove any saved rules.
+
 ## Domain autocomplete
 
 Typing a partial host like `lo` completes to `localhost:3000` instead of dropping the port. Domain suggestions preserve the original port, path, and casing of the link they came from.
@@ -140,7 +146,7 @@ When you open the Command Panel with a URL on your clipboard, a "Paste and Go" r
 
 ## Toggle settings
 
-Search for a preference in **All**, or type `/settings` and press `Return` to use the Settings scope. Select a result to open the matching setting; supported actions can toggle a preference directly. Try “Permission Status”, “Privacy & Browsers”, or “learning tips”. You can also [search inside Preferences](/howTo/searchSettings).
+Search for a preference in **All**, or type `/settings` and press `Return` to use the Settings scope. Select a result to open the matching setting; supported actions can toggle a preference directly. Try “Permission Status”, “Privacy & Browsers”, “Automation”, “Accessibility”, or “learning tips”. You can also [search inside Preferences](/howTo/searchSettings).
 
 Useful entries to know about:
 

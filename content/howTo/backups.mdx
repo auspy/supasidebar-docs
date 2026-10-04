@@ -68,15 +68,21 @@ Recovery adds new spaces and keeps your current data. It does not replace or mer
 
 On a new Mac, install and open SupaSidebar, then follow the same steps with your copied `.ssb` file. Automatic backups contain no app settings to restore; manually exported files may offer [optional settings controls](/howTo/exportImportData#restoring-settings-from-a-ssb-file).
 
+When importing a `.ssb` or `.json` file, SupaSidebar uses its folder records and the names or paths recorded on links to restore the folder structure. This includes missing parent folders when their paths are recorded clearly. You do not need a separate repair step for folders the importer can recover from the file.
+
 ## Check & Repair
 
 If saved links appear in search or in a space's count, but their folders are missing from the sidebar, open **Preferences → Backups → Check & Repair**.
 
-The scan lists unassigned folders it can reconnect, with a space dropdown beside each folder name. Clear destinations are selected for you; choose **Choose a space…** to skip a folder. Expand **Links (N)** to inspect the links in a collapsed, scrollable list.
+Click **Check Now**, review the folder rows, then click **Update**. The scan reads your current library; you do not need to select a backup first. Each unassigned folder has a space dropdown. Clear destinations are selected for you; choose **Choose a space…** to skip a folder. Expand **Links (N)** to inspect its links in a collapsed, scrollable list.
 
-Selecting a space is a preview. **Update** appears to the left of **Check Again** whenever a folder has a selected space, including a suggested space. Click **Update**, then **Save & Update** in the save dialog to save a recovery copy and apply your choices. The scan refreshes after updating.
+Selecting a space only prepares a preview. **Update** appears to the left of **Check Again** whenever a folder has a selected space, including a suggested space. Click **Update**, then **Save & Update** in the save dialog to save a recovery copy and apply your choices. The scan refreshes after updating.
 
-The recovery copy includes selected empty folders. Already-assigned folders and existing links stay unchanged. Completely unassigned trees also offer a **Delete Folder & Links…** trash button with a confirmation and a separate recovery copy.
+The recovery copy includes selected empty folders. Links stay in their current spaces, and already-filed links keep their folders. Completely unassigned trees also offer a **Delete Folder & Links…** trash button with a confirmation and a separate recovery copy.
+
+If an older import lost folder grouping, an optional **Still missing folders?** section can help. It appears after a scan has no folders it can reconnect but finds unfiled saved links in spaces. Unfiled links are normal; expand this only if you expected them to be in folders. **Choose Older Backup…** then uses an earlier `.ssb` or `.json` file to preview missing folders around links already in your library. It skips ambiguous matches and does not import extra links or spaces.
+
+Keep the original export for this optional recovery. It must still record the missing folder names or paths; a newer export of content that has already lost its grouping cannot provide that information.
 
 See [Missing folders or links: Check & Repair](/troubleshooting/checkAndRepair) for when to use it, every check it performs, and the repair steps.
 

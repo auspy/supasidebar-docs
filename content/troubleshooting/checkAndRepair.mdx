@@ -1,6 +1,6 @@
 ---
 title: "Missing folders or links: Check & Repair"
-description: "Reconnect unassigned folders to a space in SupaSidebar. Learn when to use Check & Repair, how to choose a destination, and how recovery copies work."
+description: "Check your SupaSidebar library, review disconnected folders, and update their spaces. Learn when an older export can help recover missing folders."
 ---
 
 import { Callout } from 'nextra/components'
@@ -9,10 +9,12 @@ import { Callout } from 'nextra/components'
 
 If links still appear in search or in a space's saved-link count, but their folders are missing from the sidebar, use **Preferences → Backups → Check & Repair**.
 
-Check & Repair finds folders that have no space assigned. It shows the folders it can reconnect, with a space dropdown for each folder tree. When the existing links or hierarchy identify a compatible space, that space is selected for you.
+Start with **Check Now**, review the folder rows, then click **Update**. The check reads your current library. You do not need to find or import a backup first.
+
+Each row shows a folder, its links, and a destination space. Where the existing links clearly identify the space, it is already selected for you.
 
 <Callout type="info">
-**Check Now** only scans your data. Choosing a space previews your changes. Click **Update** to save a recovery copy and apply the selected spaces.
+**Check Now** only scans your library. Choosing a space only changes the preview. **Update** saves a recovery copy before applying your choices.
 </Callout>
 
 ## When to use it
@@ -21,7 +23,9 @@ Check & Repair finds folders that have no space assigned. It shows the folders i
 - You can find a saved link in search, but cannot find its folder in the sidebar.
 - A space's saved-link count includes links that are missing from its visible folders.
 
-For links you deleted, start with [Trash](/features/trash). To recover content from an older `.ssb` file, use [Restore Backup](/howTo/backups#recovering-your-links).
+For links you deleted, start with [Trash](/features/trash). If the links themselves are gone, use [Restore Backup](/howTo/backups#recovering-your-links) to import content into new spaces.
+
+New `.ssb` and `.json` imports restore folder structure from the folder records and the names or paths recorded on links. You do not need a separate repair step for folder paths that the importer can recover from the file.
 
 ## What is an unassigned folder?
 
@@ -75,11 +79,13 @@ In **Check & Repair**:
 4. The selected folder assignments are applied and the scan refreshes. Check the affected spaces in your sidebar.
 5. Use **Show Recovery Copy** to find the saved file in Finder.
 
-Repair reconnects the selected unassigned folders to their chosen spaces. It keeps their links, names, notes, colors, and ordering. It does not move existing links to another space or folder, merge duplicates, or delete content. Already-assigned folders and unselected folders stay unchanged.
+Repair restores the selected unassigned folders' connection to their chosen spaces. It does not change the parent connections of existing folders.
+
+Existing links keep their content, notes, tags, and ordering. Already-filed links keep their folder, and links stay in their current spaces. Repair does not merge duplicates or delete content. Unselected changes are not applied.
 
 ### What the recovery copy does
 
-The copy uses the same saved-content format as [automatic backups](/howTo/backups#whats-included). It includes the disconnected folders being repaired and their saved links. Empty folders you select are included under their chosen destination spaces, with their subfolders, before the app changes any folder connections. Unselected empty trees with no connection to a space or saved link are not included and stay unchanged.
+The copy uses the same saved-content format as [automatic backups](/howTo/backups#whats-included). It saves your current content before applying the repair. It includes the disconnected folders being repaired and their saved links. Empty folders you select are included under their chosen destination spaces, with their subfolders, before the app changes any folder connections. Unselected empty trees with no connection to a space or saved link are not included and stay unchanged.
 
 To recover from the copy, open **Preferences → Backups → Restore Backup…**, select the `.ssb` file, and choose the spaces to import.
 
@@ -87,9 +93,29 @@ To recover from the copy, open **Preferences → Backups → Restore Backup…**
 Restoring adds new spaces and keeps your current data. It does not undo the repair in place. Check the recovered content before removing any duplicate spaces.
 </Callout>
 
+## Still missing folders after an older import?
+
+An older import may have kept the links but lost their folder grouping. If the scan has no folders it can reconnect and your spaces still contain unfiled saved links, an optional **Still missing folders?** section appears. It starts collapsed.
+
+Unfiled links are normal. Use this option only if you expected those links to be in folders and still have an earlier export that records their folder names or paths.
+
+1. Expand **Still missing folders?**, then click **Choose Older Backup…**.
+2. Choose the original `.ssb` or `.json` export that still contains the folder names or paths.
+3. Review the proposed folders and destination spaces. Expand **Links (N)** to check the links that will go inside them.
+4. Keep the folders you want to recover selected, then click **Update**.
+5. Save the recovery copy with **Save & Update**. The app creates the selected missing folders and puts the matched, currently unfiled links inside them.
+
+For example, an earlier export may label nine links as belonging to **Help** even though the folder itself was omitted. If those same links are still unfiled in the matching space, this option can recreate **Help** and put those links inside it.
+
+The file must identify one matching space and one matching link for each item. Recovery checks the space identity or name and its link contents, including titles, addresses, saved or pinned status, and order. Ambiguous spaces, links, or folder paths are skipped with an explanation. Edits made since the export can prevent a match.
+
+This option does not import extra links or create new spaces. Already-filed links keep their folders. It can create missing parents needed for a new folder's path, but leaves existing folders and their parent connections unchanged. Links stay in their current spaces.
+
+Keep the original export as well as the recovery copy. The copy saves your library before the new folders are created. If an older import discarded the folder names, exporting that imported library again cannot restore the missing information.
+
 ## Delete a folder you no longer want
 
-A trash button, **Delete Folder & Links…**, appears when every folder in the listed tree is unassigned. Use it only when you want to remove the entire listed folder tree. It is not offered for a tree that contains an already-assigned folder.
+A trash button, **Delete Folder & Links…**, appears when every folder in the listed tree is unassigned. Use it only when you want to remove the entire listed folder tree. It is not offered for a tree that contains an already-assigned folder or for a missing folder that has not been created yet.
 
 1. Expand **Links (N)** to review its contents.
 2. Click **Delete Folder & Links…**. The confirmation shows the folder name and total folder and link counts, including Trash and history entries.
@@ -111,11 +137,15 @@ Deletion is separate from **Update**. Updating folder assignments never deletes 
 | Update is not shown | Choose a space beside at least one folder. |
 | A selected space is no longer available or conflicts with existing links | Click **Check Again** and select a compatible destination from the refreshed dropdown. |
 | No folders available to reconnect | Unassigned folders exist, but their current links or hierarchy prevent this tool from offering a repair. [Contact support](/howTo/sendFeedback) with the affected space or folder names. |
-| No unassigned folders found, but content is still missing | Check that you are viewing the intended space and have expanded its folders. If the problem continues, contact support with a screenshot. |
+| No unassigned folders found, but content is still missing | If **Still missing folders?** appears, expand it to use an earlier export for links that lost their grouping. If the links are gone too, use **Restore Backup…**. |
+| Content from the file could not be matched safely | Read the skipped-content message. Confirm you chose the original export and the intended library. Duplicate spaces, duplicate links, or edits made after the export can prevent a unique match. |
+| The file contains no recoverable folder information | Choose an earlier export that still records the missing folder names or paths. Repair cannot guess a folder from a link's title or website. |
 
 ## What this check does not do
 
-Check & Repair reconnects eligible unassigned folders. It does not fix individual links with missing space assignments or treat different assignments in an already-assigned tree as an error. It also does not test whether a website still loads, recover permanently deleted content, repair browser profiles, or identify what originally caused a folder connection to break.
+The normal check reconnects eligible unassigned folders using your current library. It does not assume an unfiled link is damaged. The optional older-export recovery cannot reconstruct a folder whose name or path is absent from both your library and that file.
+
+It does not fix individual links with missing space assignments or treat different assignments in an already-assigned tree as an error. It also does not test whether a website still loads, recover permanently deleted links, repair browser profiles, or identify what originally caused a folder connection to break.
 
 If you need help, include your SupaSidebar version, the affected space names, and a screenshot of the scan results in your [feedback](/howTo/sendFeedback).
 
@@ -123,6 +153,7 @@ If you need help, include your SupaSidebar version, the affected space names, an
 
 - **Check Now** finds unassigned folders that can be reconnected without changing your data.
 - Each folder row has a space dropdown. Clear its selection to skip it.
-- **Update** appears beside **Check Again** when a space is selected. It saves a copy before reconnecting those folders.
+- **Update** saves a copy before applying the selected folder changes.
+- New imports restore the folder paths recorded in the file. Older imports that lost grouping can use the optional **Still missing folders?** section.
 - **Delete Folder & Links…** lets you remove an unwanted tree after confirming and saving its recovery copy.
-- Already-assigned folders and existing link placements stay unchanged.
+- Already-filed links keep their folders. Unclear matches are skipped, not guessed.
