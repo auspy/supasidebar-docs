@@ -2,13 +2,13 @@
 
 Choose how SupaSidebar interacts with your browser windows.
 
-Configure in **Preferences → General → Browser Integration**.
+Configure in **Preferences → Sidebar → Browser Integration**.
 
 ## Modes
 
 | Mode | Description |
 |------|-------------|
-| **Independent** | Sidebar opens on the screen edge with no browser interaction |
+| **Independent** | Sidebar stays at the screen edge instead of following a browser window |
 | **Smart Attach** | Sidebar attaches to your browser and manages window layout |
 
 ## Smart Attach
@@ -17,20 +17,20 @@ Smart Attach is the recommended mode. When enabled, the sidebar intelligently po
 
 Choose **Preferences → Appearance → Motion → Smart Attach Motion** to adjust how closely the sidebar follows a moving browser: **Tighter**, **Tight**, **Balanced**, or **Loose**. **Tight** is the default. These options change the trailing motion while dragging; all settle beside the browser.
 
-Smart Attach includes several features you can enable in Preferences:
+Browser positioning and resizing are separate controls. Configure these in Preferences:
 
 | Feature | Description |
 |---------|-------------|
-| [Fill Entire Screen](/features/browserIntegration/fillScreen) | Browser resizes to fill the remaining space alongside the sidebar. Works in both attached and independent layouts. |
-| [Window Tiling](/features/browserIntegration/tiling) | Auto-tiles 2-3 browser windows as equal-width columns |
+| [Fill Screen](/features/browserIntegration/fillScreen) | Choose **Maximize Browser Window** to fill the space alongside the sidebar. Works with both **Smart Attach** and **Independent** integration. |
+| [Window Tiling](/features/browserIntegration/tiling) | Choose **Auto-Tile Browser Windows (max 4)** to arrange 2-4 eligible browser windows alongside the sidebar |
 | [Prevent Browser Overlap](/features/browserIntegration/smart) | Automatically moves browser windows out from under the sidebar |
 | Auto-Switch Side on Clipped Browser | Flips the sidebar to the opposite side when your preferred side would be cut off by an adjacent monitor |
-| [When Sidebar Opens](/features/sidebar#behavior) | Pick what happens to your browser when the sidebar appears: do nothing, prevent overlap, or fill the freed space |
-| [When Sidebar Hides](/features/sidebar#behavior) | Pick what happens to your browser when the sidebar goes away: restore the browser, expand it to fill, or leave it as-is |
+| [When Sidebar Opens](/features/sidebar#behavior) | Choose **Off**, **Auto-Tile Browser Windows (max 4)**, or **Maximize Browser Window** |
+| [When Sidebar Hides](/features/sidebar#behavior) | Choose **Restore Browser Position**, **Expand Browser to Fill Screen**, or **Leave Browser As-Is** |
 
 ## Independent
 
-The sidebar opens on the screen edge without affecting browser windows. Use this if you prefer full manual control over your window layout.
+The sidebar stays at the screen edge instead of following the browser. The separate **When Sidebar Opens** and **When Sidebar Hides** settings still control browser resizing. For a browser that fills the space beside the sidebar and expands when it closes, see [Dock Mode](/features/sidebarAccess/dockmode).
 
 ## Profile-Aware Behavior
 

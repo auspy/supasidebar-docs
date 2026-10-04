@@ -57,22 +57,23 @@ Found in **Preferences - Appearance**.
 
 ### Behavior
 
-Found in **Preferences - General**.
+Found in **Preferences → Sidebar**. The browser controls below are in the **Browser Integration** section.
 
 - **Auto-hide on deactivate** - Hide sidebar when clicking outside
 - **Default side** - Choose left or right screen edge
 - **Auto show with browser** - Show sidebar when browser is active. See [Auto-show on browser focus](#auto-show-on-browser-focus) below and [Live Tabs](/features/liveTabs)
 - **Adaptive height** - Adjust sidebar height based on content
 - **Auto-Switch Side on Clipped Browser** - Flips the sidebar to the opposite side when your preferred side would be cut off by an adjacent monitor. Off by default.
-- **Bring Browser to Front on Show** - When on, opening the sidebar also brings your browser forward. Turn off to keep your current app frontmost when the sidebar opens.
+- **Bring Browser to Front** - When on, opening the sidebar also brings your browser forward. Turn off to keep your current app frontmost when the sidebar opens.
 - **When Sidebar Opens** - Choose what happens to your browser window the moment the sidebar appears:
-  - **Do Nothing** - leave the browser window exactly where it is.
-  - **Prevent Overlap** - shift the browser sideways so the sidebar isn't covering it. See [Prevent Browser Overlap](/features/browserIntegration/smart).
-  - **Fill Freed Space** - resize the browser to take up the screen minus the sidebar's column, so the two share the screen with no overlap. See [Fill Entire Screen](/features/browserIntegration/fillScreen). Works in both attached and independent sidebar layouts.
+  - **Off** - disable automatic tiling and maximizing when the sidebar opens. **Prevent Browser Overlap** is a separate setting.
+  - **Auto-Tile Browser Windows (max 4)** - arrange 2-4 eligible browser windows alongside the sidebar.
+  - **Maximize Browser Window** - resize the frontmost browser to fill the space beside the sidebar. See [Fill Screen](/features/browserIntegration/fillScreen). Works with both **Smart Attach** and **Independent** integration.
+- **Prevent Browser Overlap** - a separate toggle that pushes browser windows aside so the sidebar doesn't cover them.
 - **When Sidebar Hides** - Choose what happens to your browser window when the sidebar goes away:
-  - **Expand to Fill** (default when "Fill Freed Space" or [Auto-Tile](/features/browserIntegration/tiling) is on) - browser windows grow to fill the full screen. Tiled windows re-tile across the entire screen width.
-  - **Restore Browser** - browser windows return to their size and position from before the sidebar was opened, so an overlay panel doesn't permanently reshape your window.
-  - **Leave It** - do nothing; the browser stays exactly where it was while the sidebar was open.
+  - **Expand Browser to Fill Screen** - the front browser expands to fill the screen. Tiled windows re-tile across the entire screen width.
+  - **Restore Browser Position** - browser windows return to their size and position from before the sidebar was opened.
+  - **Leave Browser As-Is** - the browser stays where the show behavior left it.
 
   > **Firefox and Zen users:** the resize options shape browser windows. Firefox and Zen accept resizes in small steps via the macOS accessibility API, so the window will visibly settle into its target size over about a second instead of snapping. This is a Gecko engine limitation, not a SupaSidebar bug. See [Browser Integration](/features/browserIntegration) for details.
 
