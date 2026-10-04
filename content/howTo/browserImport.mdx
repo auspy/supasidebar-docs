@@ -67,6 +67,8 @@ Linked browser profiles can then be used with [Browser Profiles](/features/profi
 
 ## Supported import sources
 
+Starting in **SupaSidebar 1.3.1**, Chromium imports check both local and account bookmark stores available in each profile. Firefox and Zen imports include Mobile Bookmarks. Bookmarks must be available on your Mac; a bookmark that has not synced to the profile cannot be imported yet. If a Chromium browser only provides an unsupported encrypted store, use its HTML bookmark export instead.
+
 | Source | Imports |
 |--------|---------|
 | **Arc** | Spaces, folders, pinned tabs, bookmarks |
@@ -88,7 +90,7 @@ SupaSidebar reads Firefox bookmarks directly from its internal database - no man
 3. Grant file access when prompted
 4. Choose what to import and click **Start Import**
 
-> Firefox must be closed during import for best results, as the database may be locked while Firefox is running.
+In **SupaSidebar 1.3.1 and later**, the importer reads a consistent bookmark snapshot while Firefox is running, including recently saved changes. If the browser database cannot be read, close Firefox and try again, or use an HTML bookmark export.
 
 ## Importing from Safari
 
@@ -118,4 +120,3 @@ Most browsers can export bookmarks as an HTML file. Use this method for any brow
 - Imported links keep their original folder structure
 - Duplicate links are skipped automatically
 - After import, use [Air Traffic Control](/features/airTrafficControl) to route links to the right spaces
-

@@ -35,6 +35,8 @@ A switch with the feature on runs the same five steps for both profile-linked an
 
 A small **phase banner** appears in the sidebar during the switch ("Closing 4 tabs...", "Opening 6 linked tabs...") with a shortcut to the legacy control in Preferences.
 
+In **SupaSidebar 1.3.1 and later**, SupaSidebar waits for fresh tab data before saving or closing outgoing tabs. Incomplete reads are retried. If the required tab details remain unavailable, the operation stops with a message so incomplete data does not replace your saved tabs. Let the browser finish loading and try switching again. Your custom Live Tabs browser order is retained during the refresh.
+
 While Close and reopen tabs on space change is on, switching may take longer while SupaSidebar saves, closes, and reopens tabs. Rapid switching requests are combined so the final target runs the close-and-reopen cycle. Turning this off removes that legacy cycle; browser activation or launching may still take time.
 
 ## Locks: keep a tab open everywhere
