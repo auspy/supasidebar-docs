@@ -16,8 +16,9 @@ Automatic backups are **on by default, every 7 days**, when you have never saved
 1. Open **Preferences → Backups**.
 2. Check **Automatic Backups** and **Backup Folder**. If backups are off, turning them on uses the displayed folder immediately; no folder picker is required.
 3. Keep **Weekly (every 7 days)**, or choose another **Backup Frequency**.
-4. Use **Next Backup** to change the next date and time.
-5. Check **Last Successful Backup**, or click **Back Up Now** to save a copy immediately.
+4. Choose a **Backup Limit** of **1, 5, 10, 25, 50, or 100** copies. The default is **10**.
+5. Use **Next Backup** to change the next date and time.
+6. Check **Last Successful Backup**, or click **Back Up Now** to save a copy immediately.
 
 | Frequency | Next copy |
 |---|---|
@@ -44,13 +45,19 @@ Automatic backups exclude Trash, browsing history, Live Tabs, and app settings. 
 
 ### Choosing and maintaining a backup folder
 
-Use **Backup Folder → Choose Folder…** to change the destination, and **Show in Finder** to see it. Canceling the picker keeps the current destination and schedule. Use **Use Default Folder** to return to the local app folder. Each copy has a date and a unique filename. SupaSidebar keeps old copies until you delete them; changing folders or turning backups off does not remove existing files.
+Use **Backup Folder → Choose Folder…** to change the destination, and **Show in Finder** to see it. Canceling the picker keeps the current destination and schedule. Use **Use Default Folder** to return to the local app folder. Each copy has a date and a unique filename. Changing folders or turning backups off does not remove existing files.
+
+**Backup Limit** controls how many automatic backups SupaSidebar keeps in the current backup folder. After a new copy saves successfully, older automatic backups are deleted until the folder meets the limit. This also applies to **Back Up Now**. Changing the limit takes effect after the next successful backup; it does not delete files immediately or change the schedule. Existing installations without a saved limit use 10 copies.
+
+Cleanup recognizes the full automatic-backup filename, including its date and unique ID. It leaves manual exports, renamed files, subfolders, and symbolic links alone. Keep a separate copy using **Import & Export** if you want to retain a backup indefinitely. A backup saved with an older app version still counts if it uses the automatic-backup filename.
 
 Changing the folder while automatic backups are on schedules a copy in the new location immediately. **Last Successful Backup** then reports backups saved to that folder.
 
-For protection against losing your Mac's drive, choose a folder on another drive or a folder managed by your cloud storage provider. A successful local write does not confirm that your cloud provider finished uploading it. The `.ssb` file is readable and is not encrypted by SupaSidebar, so use a private folder. The default local copies do not protect against losing the Mac or its drive. Because copies are kept until you delete them, review the backup folder periodically if disk space is limited.
+For protection against losing your Mac's drive, choose a folder on another drive or a folder managed by your cloud storage provider. A successful local write does not confirm that your cloud provider finished uploading it. The `.ssb` file is readable and is not encrypted by SupaSidebar, so use a private folder. The default local copies do not protect against losing the Mac or its drive. The limit controls the number of automatic backups, not their total size.
 
 If a drive is disconnected, a folder is unavailable, or saving fails, the app shows the error and keeps the previous successful backup date. Reconnect the drive or choose a writable folder, then click **Back Up Now**. Scheduled failures retry after one hour while the app is open.
+
+If the new copy saves but cleanup fails, **Last Successful Backup** still updates and a separate warning explains that the folder may exceed the limit. Check folder permissions or remove older copies in Finder. Cleanup retries after the next successful backup.
 
 Backup schedules and folder permissions belong to this Mac. On a new Mac with no saved backup preference, the app starts weekly backups in that Mac’s own local folder. Choose your external or cloud folder again if you want to use it there. Switching between the direct and Mac App Store editions may use different local Application Support folders.
 
