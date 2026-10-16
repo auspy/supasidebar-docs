@@ -11,7 +11,7 @@ You have several profiles in Chrome (or another Chromium browser like Brave or E
 
 ## Cause
 
-SupaSidebar does not guess your profiles. For Chromium browsers it reads them straight from the browser's own `Local State` file, the same list Chrome uses for its profile menu. A profile only shows up in SupaSidebar if the browser has written it into that file.
+SupaSidebar does not guess your profiles. For Chromium browsers it reads them straight from the browser's own `Local State` file, the same list Chrome uses for its profile menu. A profile only shows up in SupaSidebar if the browser has written it into that file. In 1.3.4 and later, if `Local State` can't be read at all, SupaSidebar lists the `Default` and `Profile N` folders it finds instead.
 
 A profile is usually missing for one of these reasons:
 
