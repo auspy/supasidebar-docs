@@ -36,6 +36,7 @@ Every page answers one question: **"How does this feature work and how do I use 
 - Never say **"we"** - SupaSidebar is a solo project.
 - Never say **"I"** in docs - save that for blog/social.
 - Never use **em-dashes** (—). Use commas, hyphens, or periods instead.
+- Never use **colons** in prose ("Here's how:", "Tip:", "New: ..."). They read AI-written. Use a period, comma, hyphen or line break, or a bold label with no colon. Code, URLs, times and file paths keep theirs.
 - Never use **all-caps headings**. Sentence case everywhere.
 - Never use **"Thank you for reaching out"**, **"we apologize"**, or corporate support language.
 - Never use **"It's important to note that"**, **"It should be noted"**, or similar filler phrases. Just state the fact.
@@ -512,6 +513,7 @@ Run through this before publishing any page:
 - [ ] UI paths use bold with arrow separators
 - [ ] Bullet lists use `**Bold** - description` format
 - [ ] No em-dashes anywhere
+- [ ] No colons in prose (code, URLs, times and file paths excepted)
 - [ ] Tables used for shortcuts, settings, troubleshooting
 - [ ] Callouts used sparingly and with correct type
 
@@ -553,6 +555,7 @@ These existing SupaSidebar pages demonstrate the target quality level. Use them 
 | Starting with "This feature..." | Start with what it does: "Mirror your browser tabs in the sidebar" |
 | Using Unicode keyboard symbols (⌘⇧) | Use backtick code with spelled-out names: `` `Cmd Shift` `` |
 | Mixing em-dashes and hyphens | Always use hyphens or commas |
+| Colon-led lines ("Here's how:", "Note:") | Period, line break, or bold label without the colon |
 | Linking with "click here" | Use descriptive text: "See the [Spaces guide](/features/spaces)" |
 | Leaving TODO comments | Add the content or hide the page |
 | Writing thin stub pages | Either write the full page or don't publish it |
