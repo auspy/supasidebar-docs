@@ -55,9 +55,15 @@ If only one link should open elsewhere, use **Open With** or **Preferred Browser
 
 Open **Preferences → Spaces → Switching spaces → When a linked browser/profile becomes active**. Choose **Ask to switch space**, **Switch automatically**, or **Do nothing**.
 
-The default is **Do nothing**, so choose one of the other options if you want SupaSidebar to follow the active browser/profile.
+In **1.4.0 and later**, the default is **Ask to switch space**, and linking a profile turns on **Switch automatically** if you hadn't chosen a behavior. If you set **Do nothing** earlier, or clicked **Stop switching** on a switch note, choose one of the other options again.
 
-This existing behavior requires Live Tabs to be enabled. It also needs a matching linked space and an identifiable browser/profile. The setting does not add a connection to an unlinked space.
+This behavior requires Live Tabs to be enabled. It also needs a matching linked space and an identifiable browser/profile. The setting does not add a connection to an unlinked space.
+
+## Spaces switch on their own
+
+That is **Switch automatically** following the window you focused. Each automatic switch shows a note in the sidebar naming the window that caused it. Click **Stop switching** on the note to go back to your previous space and turn automatic switching off. To be asked first instead, choose **Ask to switch space** in **Preferences → Spaces → Switching spaces → When a linked browser/profile becomes active**.
+
+Automatic switches move only the sidebar, so your browser windows stay where they are. See [Switching spaces](/features/profileSpaces#switching-spaces) for every option.
 
 ## The linked browser doesn't launch on a space change
 

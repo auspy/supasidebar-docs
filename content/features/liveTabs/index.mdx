@@ -73,6 +73,7 @@ Right-click any live tab to manage it directly from the sidebar. Works in both e
 | Action | What it does |
 |--------|--------------|
 | **Activate Tab** | Switches your browser to that tab (the same as single-clicking) |
+| **Duplicate Tab** | Opens a second copy of the page as a new tab in the same browser |
 | **Open With > Browser** | Sends the tab's URL to a different browser. Choose a specific Chrome, Safari, or Vivaldi profile when the picked browser has profiles |
 | **Move to Browser** | Reopens the tab in another browser and closes the original, so the tab moves instead of being copied |
 | **Close Tab** | Closes the tab |
@@ -80,7 +81,11 @@ Right-click any live tab to manage it directly from the sidebar. Works in both e
 | **Close Tabs Above / Below** | Closes tabs above or below this one in the strip - see [Bulk Closing Tabs](/features/liveTabs/bulkClose) |
 | **Save Tab** / **Save Other Tabs** | Saves selected tabs to your sidebar in one go |
 
-**Open With** copies the tab's URL to the new browser and leaves the original open, so the page ends up in two places. **Move to Browser** does the opposite: it reopens the tab elsewhere and closes the original, a true move rather than a copy. Use Open With when you opened a link in the wrong browser (or wrong profile) and want it in another without re-typing the URL; use Move to Browser when you also want it gone from the first browser.
+**Open With** copies the tab's URL to the new browser and leaves the original open, so the page ends up in two places. **Move to Browser** does the opposite. It reopens the tab elsewhere and closes the original, a true move rather than a copy. Use Open With when you opened a link in the wrong browser (or wrong profile) and want it in another without re-typing the URL; use Move to Browser when you also want it gone from the first browser.
+
+### Close a tab with a middle-click
+
+Middle-click any tab in Live Tabs to close it, the same as clicking its hover close button. This works in the expanded sidebar and on Compact Mode tab icons.
 
 ## Select multiple Live Tabs
 
@@ -98,7 +103,27 @@ You can also drag from Recent Items into Pinned Tabs or saved links the same way
 
 ## Active tab highlight
 
-The currently open tab is visually highlighted in the Live Tabs list, making it easy to spot where you are across multiple browsers.
+The currently open tab is visually highlighted in the Live Tabs list, making it easy to spot where you are across multiple browsers. Compact Mode highlights the current tab's icon too.
+
+## Show open tabs in Saved
+
+**Show Open Tabs in Saved** lights up a saved link while its page is your current browser tab, like a pinned tab in Arc. Your saved links then show which one you're on in Safari, Chrome, Firefox, or any other browser with Live Tabs, without switching to Arc. The highlight uses the same fill as the current tab in Live Tabs and moves as you switch tabs.
+
+A saved link whose page is open in any tab also gets a hover button that closes that tab, and **Duplicate Tab** in its right-click menu.
+
+### Hide saved tabs from Live Tabs
+
+Once Show Open Tabs in Saved is on, you can also turn on **Hide Saved Tabs from Live Tabs**. Open tabs that match a saved link then show only in Saved, and all other tabs stay in Live Tabs.
+
+While this is on and some open tabs match saved links, an eye icon with a count sits beside the Live Tabs title. Click it to bring those tabs back into Live Tabs, and click it again to hide them.
+
+### Turn these settings on
+
+1. Make sure Live Tabs is your mode in **Preferences → Browser Activity**.
+2. In the **Live Tabs** section on the same screen, turn on **Show Open Tabs in Saved**.
+3. Optionally turn on **Hide Saved Tabs from Live Tabs**.
+
+You can also right-click the Live Tabs header to switch either setting. Both are off by default and need **SupaSidebar 1.4.0 or later**.
 
 ## Privacy and filtering
 
@@ -116,7 +141,7 @@ If a link opens a new tab instead of switching to the existing one, see [Link Op
 
 In **1.3.0 and later**, link a browser or profile using the **link icon next to the space name**, or while creating a space. Manage connections in **Preferences → Spaces → My spaces**. [Using 1.2.x?](/versions/1.2/profileSpaces)
 
-When a space is linked to a browser profile, Live Tabs automatically filters to show only tabs from that profile. Tabs from other profiles are hidden.
+When a space is linked to a browser profile, Live Tabs automatically filters to show only tabs from that profile. Tabs from other profiles are hidden. In **1.4.0 and later**, Compact Mode follows the same filter.
 
 A whole-browser link shows tabs from that browser. Spaces without a connection show tabs from all enabled, supported browsers. Linking does not turn on tab closing.
 
@@ -133,6 +158,10 @@ Yes. Right-click any tab in the Live Tabs list and choose **Open With** to send 
 ### Does Live Tabs work with Safari Technology Preview and DuckDuckGo?
 
 Yes. Both browsers are fully supported alongside regular Safari, Chrome, Firefox, and the rest. Their tabs appear in the same Live Tabs list with their real app icons, and right-click actions including Open With and Save Tab work the same way.
+
+### Can SupaSidebar show which saved link is the tab I'm on, like Arc's pinned tabs?
+
+Yes. Turn on **Show Open Tabs in Saved** in **Preferences → Browser Activity → Live Tabs**. A saved link lights up while its page is your current tab in any browser with Live Tabs. Add **Hide Saved Tabs from Live Tabs** if you want those tabs to show only once, in Saved. See [Show open tabs in Saved](#show-open-tabs-in-saved).
 
 ### How do I see every open tab across every browser at once?
 

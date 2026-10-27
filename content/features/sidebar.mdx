@@ -1,6 +1,6 @@
 ---
 title: "Sidebar Panel - Your central workspace"
-description: "A floating sidebar for macOS with instant access to saved links, files, and folders, plus a 60px Compact Mode for laptop screens."
+description: "A floating macOS sidebar for saved links, files, and folders, with tab back and forward, a customizable top bar, and a 60px Compact Mode."
 ---
 
 # Sidebar Panel
@@ -26,7 +26,7 @@ Sidebar sections remember whether you expanded or collapsed them after you relau
 
 ## Select multiple items
 
-In the expanded sidebar, right-click a saved link, Recent item, or Live Tab and choose **Select**. You can also choose **Selection Mode** from the sidebar's **•••** menu, or enter selection with `Shift Click` or `Cmd Shift Click`.
+In the expanded sidebar, right-click a saved link, Recent item, or Live Tab and choose **Select**, or enter selection with `Shift Click` or `Cmd Shift Click`. In **1.4.0 and later**, **Selection Mode** is no longer in the sidebar's ⋯ menu.
 
 Once selection mode is on, click items to add or remove them without opening them. Right-click a folder and choose **Select All Links** to include its contents and subfolders. Smart Folders offer the same action for their matching links.
 
@@ -34,9 +34,41 @@ The selection bar shows the selected count. Its **Actions** menu includes **Copy
 
 `Cmd Click` and `Opt Click` keep their existing opening actions; use the selection controls above to select items.
 
-## Quick settings menu
+## Sidebar top bar
 
-The ••• menu in the sidebar top bar provides quick access to common sidebar settings without opening full Preferences. It also includes a **Keyboard Shortcuts** item that shows your configured shortcuts, and a **Quit** option to close SupaSidebar.
+The top bar runs across the top of the expanded sidebar. By default it shows **Hide Sidebar**, **Settings**, the **Back and Forward** arrows, and **Compact Mode**, with the ⋯ menu always last. In **1.4.0 and later** you can rearrange it.
+
+### Go back and forward through tabs
+
+The **Back and Forward** arrows step through the tabs you used recently, in any browser, the way a browser's back button steps through pages. Click back to return to the Chrome tab you left for Safari a minute ago. SupaSidebar switches to that tab in its own browser and window, skips tabs you have closed, and remembers up to 20 recent tabs.
+
+In a space linked to a browser profile, the arrows stay within that profile's tabs. In an unlinked space they cover every browser. Right-click either arrow to list recent tabs under **This Space** and **Other Tabs**, then pick one to jump straight to it.
+
+This gives Safari, Chrome, Firefox, and the other supported browsers an Arc-style tab history that works across browsers, without changing the browser you use. Tab history comes from [Live Tabs](/features/liveTabs), so it covers browsers with Live Tabs turned on in **Preferences → Privacy & Browsers**.
+
+Four optional shortcuts do the same from the keyboard. They have no default keys. Record them in **Preferences → Shortcuts → Browser Integration**.
+
+| Shortcut | What it does |
+|----------|--------------|
+| **Go Back a Tab** | Returns to the tab you used before, in any browser |
+| **Go Forward a Tab** | Moves forward again after going back |
+| **Go Back a Tab in This Space** | Goes back, staying within this space's linked browser profile |
+| **Go Forward a Tab in This Space** | Goes forward, staying within this space's linked browser profile |
+
+### Customize the top bar
+
+Open **Preferences → Appearance → Top Bar**, or right-click the top bar and choose **Customize Top Bar…**.
+
+- **Reorder** - Drag a button left or right, or right-click it and choose **Move Left** or **Move Right**
+- **Remove** - Drag a button down to **Available**, or right-click it and choose **Remove from Top Bar**
+- **Add** - Drag a button up from **Available**, or right-click it and choose **Add to Top Bar**
+- **Reset** - Restores the default layout
+
+The buttons you can place are **Hide Sidebar**, **Settings**, **Back and Forward**, **Compact Mode**, **Full Screen Browser**, and **Flexible Space**. A Flexible Space pushes the buttons on either side of it apart, and you can add up to four. Buttons you remove stay reachable in the ⋯ menu. When the sidebar is too narrow, buttons that don't fit also move into ⋯, starting with Full Screen Browser.
+
+### The ⋯ menu
+
+The ⋯ menu gives quick access to common sidebar settings without opening Preferences, grouped under headings such as **Browser Window** and **Visibility**. It also holds **Full Screen Browser**, any top bar button you removed or that didn't fit, **Keyboard Shortcuts...**, and **Quit SupaSidebar**.
 
 ## Settings
 
@@ -92,7 +124,10 @@ Compact Mode collapses the sidebar to a narrow 60px icon strip, so it takes up a
 
 - **Folder Browser** - Hovering or clicking a folder still opens the full Finder-style column popover. See [Folder Browser](/features/folderBrowser).
 - **Command Panel** - The top bar keeps a magnifying-glass button that opens the [Command Panel](/features/commandPanel) with one click, so you don't need the keyboard shortcut.
-- **Live Tabs right-click actions** - Every action, including Activate Tab, Open With, Move to Browser, and Save Tab, stays available on a compact live tab. See [Live Tabs](/features/liveTabs).
+- **Live Tabs right-click actions** - Every action, including Activate Tab, Open With, Move to Browser, and Save Tab, stays available on a compact live tab. Middle-click a compact tab icon to close it. See [Live Tabs](/features/liveTabs).
+- **Current tab highlight** - The icon for the tab you're on is highlighted, the same as in the full sidebar.
+- **Linked profiles** - In a space linked to a browser profile, the Live Tabs icons show only that profile's tabs.
+- **Space switch notes** - After an automatic space switch, a **!** badge appears. Click it to read why the space switched and to use **Stop switching**. See [Link a browser or profile](/features/profileSpaces#switching-spaces).
 - **Custom colors** - A link or folder's custom color still shows on its icon.
 
 ### How do I make the sidebar take less space on a laptop?

@@ -19,6 +19,15 @@ description: "All keyboard shortcuts in SupaSidebar for sidebar control, browser
 
 **Toggle Sidebar** hides the sidebar on the first press whenever any part of it is visible, even if another app has keyboard focus. If another window completely covers it, the shortcut brings it forward. If it is hidden or on another macOS desktop Space, the shortcut shows it on the current Space.
 
+## Scoped Search
+
+Open the Command Panel straight into one scope. Both have no default. Record them in **Preferences → Shortcuts → Scoped Search**. See [Open straight into Live Tabs or Saved](/features/commandPanel#open-straight-into-live-tabs-or-saved).
+
+| Shortcut | Action |
+|----------|--------|
+| Custom | **Open Live Tabs Search** - Opens the Command Panel in the Live Tabs scope |
+| Custom | **Open Saved Search** - Opens the Command Panel in the Saved scope |
+
 ## Smart Shortcuts
 
 Context-aware shortcuts. See [Smart Shortcuts](/howTo/smart) for details.
@@ -34,7 +43,10 @@ Shortcuts that interact with browsers require Accessibility permission. If a sho
 
 | Shortcut | Action |
 |----------|--------|
-| `Cmd T` (in browser) | Open Command Panel while a browser is active. Enable in **Preferences - Command Panel**. Skipped if your global Command Panel shortcut is already `Cmd T` |
+| `Cmd N` or `Cmd T` (in browser) | Open Command Panel while a browser is active. Turn on **Use ⌘N or ⌘T in browsers** in **Preferences → Command Panel** and pick the key. `Cmd N` is the default in 1.4.0 and later. Skipped if your global Command Panel shortcut uses the same key. See [Open it from inside your browser](/features/commandPanel#open-it-from-inside-your-browser) |
+| Custom | Go back a tab, in any browser (no default). Record one in **Preferences → Shortcuts** under "Go Back a Tab". See [Go back and forward through tabs](/features/sidebar#go-back-and-forward-through-tabs) |
+| Custom | Go forward a tab, in any browser (no default). Record one under "Go Forward a Tab" |
+| Custom | Go back or forward a tab within the current space's linked browser profile (no default). Record them under "Go Back a Tab in This Space" and "Go Forward a Tab in This Space" |
 | Custom | Save all browser tabs to a new folder (no default). Record one in **Preferences - Shortcuts** under "Save All Browser Tabs". See [Save All Tabs](/howTo/savingLinks#save-all-tabs) |
 | Custom | Open the current tab in another browser (no default). Record one in **Preferences - Shortcuts** under "Open Tab in Other Browser" |
 | Custom | Toggle Auto-Tile Windows on and off (no default). Record one in **Preferences - Shortcuts** under "Toggle Auto-Tile Windows". See [Tiling](/features/browserIntegration/tiling) for how Auto-Tile behaves |
@@ -97,6 +109,7 @@ When sidebar is focused:
 | `Cmd Opt Click` | Replace the active browser tab with this link instead of opening a new tab. Works on saved links and pinned tabs. Falls back to a normal open if the browser can't replace the active tab |
 | `Opt Click` | Choose browser to open link |
 | `Shift Click` | Range select (from last selected) |
+| Middle-click (on a live tab) | Close the tab, in the expanded sidebar or Compact Mode |
 
 ## Command Panel
 

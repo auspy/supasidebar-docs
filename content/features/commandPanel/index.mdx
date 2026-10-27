@@ -22,9 +22,30 @@ The footer shows where the selected result will open. Use `Opt Return` to choose
 
 ## Open Command Panel
 
-Press `Cmd Ctrl K` from anywhere. You can also enable **`Cmd T` while a browser is active** in **Preferences - Command Panel** to open the Command Panel from inside any browser without changing your global shortcut. Other apps continue to receive `Cmd T` normally, and SupaSidebar skips this binding if your global shortcut is already `Cmd T`.
+Press `Cmd Ctrl K` from anywhere.
+
+### Open it from inside your browser
+
+Turn on **Use ⌘N or ⌘T in browsers** in **Preferences → Command Panel** (it is also in **Preferences → Shortcuts**) to open the Command Panel from inside any browser without changing your global shortcut. Pick `Cmd N` or `Cmd T` next to the switch.
+
+In **1.4.0 and later**, `Cmd N` is the default, so `Cmd T` keeps opening real browser tabs. If you had this switch on before 1.4.0, you keep `Cmd T`. The key works only while a browser is the active app, so other apps still receive `Cmd N` and `Cmd T`. SupaSidebar skips it if your global Command Panel shortcut uses the same key.
+
+### Open straight into Live Tabs or Saved
+
+Two optional shortcuts open the Command Panel already scoped to one kind of result, so you can start typing right away.
+
+| Shortcut | What it does |
+|----------|--------------|
+| **Open Live Tabs Search** | Opens the Command Panel in the **Live Tabs** scope |
+| **Open Saved Search** | Opens the Command Panel in the **Saved** scope |
+
+They have no default keys. Record them in **Preferences → Shortcuts → Scoped Search**. Pressing one while the Command Panel is already open switches it to that scope instead of closing it. A scoped open starts a fresh search rather than [resuming your last one](#resume-your-search).
+
+### Open it with a click
 
 In the **compact sidebar**, the top bar has a magnifying-glass button that opens the Command Panel with one click, so you don't have to reach for a keyboard shortcut when the compact sidebar is already in front of you.
+
+### Command Panel keyboard shortcuts
 
 | Shortcut | Action |
 |----------|--------|

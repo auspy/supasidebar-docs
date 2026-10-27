@@ -1,6 +1,6 @@
 ---
 title: "Link a browser or profile to a space"
-description: "Choose which browser or profile supplies a space's Live Tabs, opens its links, and optionally provides bookmarks in SupaSidebar 1.3.0."
+description: "Choose which browser or profile supplies a space's Live Tabs, opens its links, provides bookmarks, and switches spaces when you focus its windows."
 ---
 
 import { Callout } from 'nextra/components'
@@ -53,16 +53,44 @@ The [Import Bookmarks guide](/howTo/browserImport) also covers importing a brows
 
 ## Switching spaces
 
-Open **Preferences → Spaces → Switching spaces** for the existing browser/profile switching options:
+SupaSidebar can follow you to the right space when you move between browser windows. Click into a window from your Chrome · Work profile and the sidebar can switch to your Work space, the way Arc swaps spaces with its windows. Open **Preferences → Spaces → Switching spaces** to choose how this works.
 
-- **Open linked browser if it isn’t running** controls whether SupaSidebar launches the linked browser when you enter its space.
 - **When a linked browser/profile becomes active** offers **Ask to switch space**, **Switch automatically**, and **Do nothing**.
+- **Open linked browser if it isn’t running** controls whether SupaSidebar launches the linked browser when you enter its space. It is off by default.
 
-Both are off by default: the linked browser does not launch automatically, and browser/profile activation is set to **Do nothing**. Updating preserves choices you previously saved.
+In **1.4.0 and later**, focusing a different window counts, not only switching apps. Moving from a Safari Work window to a Safari Personal window can switch spaces too.
 
-These existing switching controls require Live Tabs to be enabled. The connection itself and its default link destination do not require Live Tabs to be visible.
+### Which behavior you start with
 
-Switching to a linked space updates its tab list. Existing browser-window activation behavior continues to apply. Linking alone does not enable the legacy close-and-reopen flow.
+| Your situation | Behavior |
+|----------------|----------|
+| You never chose a behavior | **Ask to switch space** |
+| You link a profile before choosing a behavior | **Switch automatically** turns on |
+| You already chose a behavior | Your choice is kept |
+
+Before 1.4.0, the default was **Do nothing**. If you never changed it, SupaSidebar now asks instead.
+
+### Ask to switch space
+
+When you focus a window from another space's linked profile, a card in the sidebar names that space and offers **Move** or **Don't Move**. Check **Don't ask again** before you answer to make the choice permanent. **Move** then sets the behavior to **Switch automatically**, and **Don't Move** sets it to **Do nothing**.
+
+### Switch automatically
+
+The sidebar moves to the linked space on its own. An automatic switch moves only the sidebar, so your browser windows stay where they are. Switching spaces yourself, from the sidebar or a shortcut, works as before.
+
+Every automatic switch shows a note in the sidebar, such as **Switched to Work**, that names the window that caused it.
+
+- **Stop switching** - Goes back to the space you were in and sets the behavior to **Do nothing**
+- **Don't show again** - Keeps switching automatically without the note
+- **x button** - Hides this note only. The next automatic switch shows it again
+
+In Compact Mode, the note appears as a **!** badge. Click it to read the note.
+
+### Requirements
+
+These switching controls require Live Tabs to be enabled. The connection itself and its default link destination do not require Live Tabs to be visible.
+
+Switching to a linked space updates its tab list. Linking alone does not enable the legacy close-and-reopen flow.
 
 ## Close and reopen tabs per space
 
