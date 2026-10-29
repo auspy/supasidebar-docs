@@ -103,27 +103,32 @@ You can also drag from Recent Items into Pinned Tabs or saved links the same way
 
 ## Active tab highlight
 
-The currently open tab is visually highlighted in the Live Tabs list, making it easy to spot where you are across multiple browsers. Compact Mode highlights the current tab's icon too.
+The currently open tab is highlighted in the Live Tabs list, so you can spot where you are across multiple browsers. Compact Mode highlights the current tab's icon too.
 
-## Show open tabs in Saved
+## Your current tab in Saved
 
-**Show Open Tabs in Saved** lights up a saved link while its page is your current browser tab, like a pinned tab in Arc. Your saved links then show which one you're on in Safari, Chrome, Firefox, or any other browser with Live Tabs, without switching to Arc. The highlight uses the same fill as the current tab in Live Tabs and moves as you switch tabs.
+Your saved links show which one you're on, like pinned tabs in Arc. While a saved link's page is your current browser tab, its row gets the same highlight as the current tab in Live Tabs, and the highlight moves as you switch tabs in Safari, Chrome, Firefox, or any other browser with Live Tabs. When that page is also in Live Tabs, both rows are highlighted.
+
+If the link sits inside a closed folder, it shows as one row under that folder, so you can see where you are without opening the folder.
+
+Arrow keys move a separate gray highlight, like the one you see on hover, so the current-tab highlight always marks the page you're on.
+
+This is always on, with no setting. Versions 1.4.0 to 1.4.2 kept it behind a setting called **Show Open Tabs in Saved**.
 
 A saved link whose page is open in any tab also gets a hover button that closes that tab, and **Duplicate Tab** in its right-click menu.
 
 ### Hide saved tabs from Live Tabs
 
-Once Show Open Tabs in Saved is on, you can also turn on **Hide Saved Tabs from Live Tabs**. Open tabs that match a saved link then show only in Saved, and all other tabs stay in Live Tabs.
+Turn on **Hide Saved Tabs from Live Tabs** if you want each of those tabs to show only once. Open tabs that match a saved link then show only in Saved, and all other tabs stay in Live Tabs. It's off by default.
 
 While this is on and some open tabs match saved links, an eye icon with a count sits beside the Live Tabs title. Click it to bring those tabs back into Live Tabs, and click it again to hide them.
 
-### Turn these settings on
+### Turn on Hide Saved Tabs from Live Tabs
 
 1. Make sure Live Tabs is your mode in **Preferences → Browser Activity**.
-2. In the **Live Tabs** section on the same screen, turn on **Show Open Tabs in Saved**.
-3. Optionally turn on **Hide Saved Tabs from Live Tabs**.
+2. In the **Live Tabs** section on the same screen, turn on **Hide Saved Tabs from Live Tabs**.
 
-You can also right-click the Live Tabs header to switch either setting. Both are off by default and need **SupaSidebar 1.4.0 or later**.
+You can also right-click the Live Tabs header to switch it. It needs **SupaSidebar 1.4.0 or later**.
 
 ## Privacy and filtering
 
@@ -161,7 +166,7 @@ Yes. Both browsers are fully supported alongside regular Safari, Chrome, Firefox
 
 ### Can SupaSidebar show which saved link is the tab I'm on, like Arc's pinned tabs?
 
-Yes. Turn on **Show Open Tabs in Saved** in **Preferences → Browser Activity → Live Tabs**. A saved link lights up while its page is your current tab in any browser with Live Tabs. Add **Hide Saved Tabs from Live Tabs** if you want those tabs to show only once, in Saved. See [Show open tabs in Saved](#show-open-tabs-in-saved).
+Yes, and it's always on. A saved link is highlighted while its page is your current tab in any browser with Live Tabs, even when it sits inside a closed folder. Add **Hide Saved Tabs from Live Tabs** in **Preferences → Browser Activity → Live Tabs** if you want those tabs to show only once, in Saved. See [Your current tab in Saved](#your-current-tab-in-saved).
 
 ### How do I see every open tab across every browser at once?
 
