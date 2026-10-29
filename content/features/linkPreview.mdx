@@ -7,7 +7,7 @@ import { Callout } from 'nextra/components'
 
 # Link Preview
 
-Preview any link in a floating mini-browser without switching to a full browser. The preview uses macOS's native WebKit engine, the same technology that powers Safari.
+Preview any link in a floating mini-browser without switching to a full browser. The preview uses macOS's native WebKit engine, the same technology that powers Safari. SupaSidebar's settings and shortcuts call this window Peek.
 
 ## How to open a preview
 
@@ -15,6 +15,8 @@ Preview any link in a floating mini-browser without switching to a full browser.
 |--------|--------|
 | **`Cmd` click** | Click any link while holding `Cmd` |
 | **Right-click > Open Preview** | Context menu on any link |
+| **`Cmd Return` in the Command Panel** | Opens the selected result or search ([details](/features/commandPanel#open-results-in-link-preview)) |
+| **Raycast, Alfred, Spotlight or any app** | Opens a page or a search from anywhere ([setup](/howTo/peekFromAnywhere)) |
 
 The preview opens in a floating window that stays on top of other windows. You can resize it, scroll, and interact with the page like a normal browser.
 
@@ -24,10 +26,14 @@ The preview opens in a floating window that stays on top of other windows. You c
 
 ## Opening in a full browser
 
-The preview window includes:
+The preview window has two controls for moving the page to a full browser.
 
 - **Open in Browser** button - sends the link to your default browser
 - **Browser picker dropdown** (chevron next to the button) - choose a specific browser
+
+## Open previews from Raycast, Alfred and Spotlight
+
+Launchers and other apps can send a page or a search straight to the preview with a `supasidebar://peek` link, without touching your browser windows. See [Peek from anywhere](/howTo/peekFromAnywhere) for the link format and setup steps for Raycast, Alfred, Spotlight and Terminal.
 
 ## Is the Link Preview safe to log into?
 

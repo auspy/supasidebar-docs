@@ -1,6 +1,7 @@
 export default {
   index: 'How-To Guides',
   openingLinks: 'All Ways to Open Links',
+  peekFromAnywhere: 'Peek from Anywhere',
   savingLinks: 'All Ways to Save Links',
   browserSelection: 'Open in Any Browser',
   searchSettings: 'Search Settings',
