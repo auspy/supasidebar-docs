@@ -19,7 +19,9 @@ SupaView opens any link in a floating mini browser, so you can read it without s
 | **Raycast, Alfred, Spotlight or any app** | Opens a page or a search from anywhere ([setup](/howTo/peekFromAnywhere)) |
 | **Links in other apps** | Click a link in Slack, Mail, Messages or Terminal once SupaSidebar is your default browser ([setup](#open-links-from-other-apps)) |
 
-SupaView opens in a floating window that stays on top of other windows. You can resize it, scroll, and use the page like a normal browser. It keeps the size you set, even after you restart SupaSidebar.
+SupaView opens in a floating window that stays on top of other windows. Each link gets its own window, so a second link never replaces the page you're reading. You can resize it, scroll, and use the page like a normal browser. It keeps the size you set, even after you restart SupaSidebar.
+
+Press `Esc` or `Cmd W` to close the SupaView window you're in.
 
 <Callout type="info">
 `Cmd` click behavior is configurable. If it opens a browser instead of SupaView, check **Preferences > General** and set `Cmd` click to "Open Preview".
@@ -27,10 +29,10 @@ SupaView opens in a floating window that stays on top of other windows. You can 
 
 ## Opening in a full browser
 
-The SupaView window has two controls for moving the page to a full browser.
+The SupaView window has two controls for moving the page you're on to a full browser. Both close SupaView.
 
-- **Open in Browser** button - sends the link to your default browser
-- **Browser picker dropdown** (chevron next to the button) - choose a specific browser
+- **Open in Browser** button - opens the page in the browser the button names. `Cmd O` does the same.
+- **Chevron next to the button** - the same Open With menu as right-click, with each browser, a submenu of its profiles, and Default Browser
 
 ## Open SupaView from Raycast, Alfred and Spotlight
 
