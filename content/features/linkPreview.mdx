@@ -94,13 +94,23 @@ Chrome, Arc, Brave, Edge and Vivaldi lock their cookies with a key in your Keych
 
 If you chose Allow and automatic sync is on, sync pauses and the SupaView pane shows **Allow Keychain Access**. Click it and choose **Always Allow**. A sync in the background never shows a prompt.
 
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| The pane says sync paused | Click the button in the message. **Allow Keychain Access** asks macOS again, choose **Always Allow**. **Open Full Disk Access** opens the setting Safari needs |
+| You clicked Deny in the Keychain prompt | Click **Allow Keychain Access** or **Import Logins** again and choose **Allow** |
+| A site still shows the signed-out page | Click **Sync Now**, or sign in once inside SupaView. Some sites sign you in with cookies that end when the browser quits, and those are not imported |
+| **Open in Browser** uses Safari, not your browser | SupaSidebar doesn't know which browser you used before it. Pick your browser in **System Settings > Desktop & Dock > Default web browser**, then click **Make Default** in **Preferences > SupaView** again |
+
 ### Safari and Full Disk Access
 
 macOS only lets apps read Safari's cookies with Full Disk Access.
 
-1. Click **Open Full Disk Access** in the SupaView pane and turn on SupaSidebar. macOS may ask you to quit and reopen it.
-2. Click **Import Logins**.
-3. Turn Full Disk Access off again if you like. The imported cookies keep working until they expire.
+1. Pick Safari in **Use Sign-Ins From** and click **Import Logins**. Without access, the pane shows **Open Full Disk Access**.
+2. Click it and turn on SupaSidebar. macOS may ask you to quit and reopen it.
+3. Click **Import Logins** again.
+4. Turn Full Disk Access off again if you like. The imported cookies keep working until they expire.
 
 Automatic sync from Safari needs Full Disk Access left on. SupaView imports from Safari's default profile, usually labeled Personal.
 
