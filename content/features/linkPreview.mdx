@@ -44,15 +44,20 @@ Beta. This arrives in the SupaSidebar 1.6.0 beta.
 
 Make SupaSidebar your default browser and the links you click in other apps, like Slack, Mail, Messages or Terminal, open in SupaView instead of a full browser window. You stay in the app you were using.
 
+{/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewLinkRoute.swift (SupaViewClickAction and decide) */}
+
 1. Open **Preferences > SupaView**.
 2. Click **Make Default**. macOS asks whether to change your default browser. Choose **Use "SupaSidebar"**.
 3. Click a link in another app. It opens in SupaView.
 
-| A link that | Opens in |
-|-------------|----------|
-| Matches an [Air Traffic Control](/features/airTrafficControl) open route | That route's browser |
-| Matches no route, with **Open Links from Other Apps in SupaView** on | SupaView |
-| Matches no route, with that switch off | The browser you used before SupaSidebar |
+**Clicking a Link Opens** picks what a plain click does. Hold `Cmd Option` while clicking to open the link the other way.
+
+| Setting | Click | `Cmd Option` click |
+|---------|-------|--------------------|
+| **SupaView** (default) | SupaView | Your browser |
+| **Browser** | Your browser | SupaView |
+
+When a link opens in your browser, a matching [Air Traffic Control](/features/airTrafficControl) open route picks the browser and profile. Without a match it opens in the browser you used before SupaSidebar. SupaView skips the rules.
 
 Links you click inside a browser stay in that browser. SupaSidebar only sees links that macOS hands to your default browser.
 
