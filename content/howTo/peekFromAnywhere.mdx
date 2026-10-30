@@ -1,41 +1,42 @@
 ---
-title: "Peek from Anywhere - Raycast, Alfred and Spotlight"
-description: "Open pages and searches in SupaSidebar's floating Peek window from the Command Panel, Raycast, Alfred, Spotlight, Terminal or any app that opens links."
+title: "Open SupaView from Anywhere - Raycast, Alfred and Spotlight"
+description: "Open pages and searches in SupaView, SupaSidebar's floating mini browser, from the Command Panel, Raycast, Alfred, Spotlight, Terminal or any app that opens links."
 ---
 
 import { Callout } from 'nextra/components'
 
-# How to open Peek from anywhere
+# How to open SupaView from anywhere
 
-Look something up without leaving what you're working on. Peek is SupaSidebar's [Link Preview](/features/linkPreview) window, a small floating browser that opens on top of your current windows and leaves your browser tabs alone.
+Look something up without leaving what you're working on. [SupaView](/features/linkPreview) is SupaSidebar's small floating browser that opens on top of your current windows and leaves your browser tabs alone.
 
-## Ways to open Peek
+## Ways to open SupaView
 
 | From | How | Setup |
 |------|-----|-------|
 | **Sidebar** | `Cmd` click a link | None |
-| **Command Panel** | `Cmd Return` or `Shift Return` on a result | [Pick the key](#open-command-panel-results-in-peek) |
+| **Command Panel** | `Cmd Return` or `Shift Return` on a result | [Pick the key](#open-command-panel-results-in-supaview) |
 | **Raycast** | Type `Peek`, then your search | [One Quicklink](#set-up-raycast) |
 | **Alfred** | Type `peek`, then your search | [One custom search](#set-up-alfred) |
 | **Spotlight** | Run the Peek shortcut, then type your search | [One shortcut](#set-up-spotlight) |
-| **Terminal and other apps** | Open a `supasidebar://peek` link | [Link format](#peek-links) |
+| **Terminal and other apps** | Open a `supasidebar://peek` link | [Link format](#supaview-links) |
+| **Slack, Mail and other apps** | Click any link | [Make SupaSidebar your default browser](/features/linkPreview#open-links-from-other-apps) |
 
-## Open Command Panel results in Peek
+## Open Command Panel results in SupaView
 
-Select a result in the [Command Panel](/features/commandPanel) and press the Peek key. Saved links, recent links, live tabs, suggestions and the search row all open their page in Peek. Results that aren't web pages, like apps, files and commands, open the normal way.
+Select a result in the [Command Panel](/features/commandPanel) and press the SupaView key. Saved links, recent links, live tabs, suggestions and the search row all open their page in SupaView. Results that aren't web pages, like apps, files and commands, open the normal way.
 
-One key opens Peek and the other searches the web with your query.
+One key opens SupaView and the other searches the web with your query.
 
 | Key | New installs | Updated from an earlier version |
 |-----|--------------|---------------------------------|
-| `Cmd Return` | Peek | Web search |
-| `Shift Return` | Web search | Peek |
+| `Cmd Return` | SupaView | Web search |
+| `Shift Return` | Web search | SupaView |
 
-To swap them, open **Preferences → Command Panel → Shortcuts** and set **`Cmd Return` opens** to **Peek** or **Web Search**. **Preferences → Shortcuts → Command Panel** shows the key each one uses right now.
+To swap them, open **Preferences → Command Panel → Shortcuts** and set **`Cmd Return` opens** to **SupaView** or **Web Search**. **Preferences → Shortcuts → Command Panel** shows the key each one uses right now.
 
-## Peek links
+## SupaView links
 
-Any app that can open a link can send a page or a search to Peek.
+Any app that can open a link can send a page or a search to SupaView. The links start with `supasidebar://peek`, the name SupaView had before.
 
 | Link | Opens |
 |------|-------|
@@ -45,7 +46,7 @@ Any app that can open a link can send a page or a search to Peek.
 - **Encode spaces** as `%20` or `+`. Raycast, Alfred and the Shortcuts app do this for you.
 - **Put `q=` or `url=` first.** Everything after it counts as the search or the page link, so a pasted link keeps its own `&` parts.
 - **Only `http` and `https` pages open.** Other links, like files or app links, are ignored.
-- **SupaSidebar doesn't need to be running.** The link starts it, and Peek opens once it's ready.
+- **SupaSidebar doesn't need to be running.** The link starts it, and SupaView opens once it's ready.
 
 ## Set up Raycast
 
@@ -83,7 +84,7 @@ To use it, press `Cmd Space`, type `Peek` and press `Return`. Type your search i
 Type only `Peek` in Spotlight before pressing `Return`. Typing your search into Spotlight runs a regular Spotlight search instead of the shortcut.
 </Callout>
 
-## Open Peek from Terminal and scripts
+## Open SupaView from Terminal and scripts
 
 ```bash
 open "supasidebar://peek?q=swift%20concurrency"
@@ -97,14 +98,14 @@ open "supasidebar://peek?url=https://developer.apple.com/documentation/swiftui"
 
 | Issue | Solution |
 |-------|----------|
-| `Cmd Return` searches the web instead of opening Peek | Your Mac kept the earlier key. Press `Shift Return`, or change **`Cmd Return` opens** in **Preferences → Command Panel → Shortcuts** |
+| `Cmd Return` searches the web instead of opening SupaView | Your Mac kept the earlier key. Press `Shift Return`, or change **`Cmd Return` opens** in **Preferences → Command Panel → Shortcuts** |
 | Nothing opens from Spotlight | Type only `Peek`, press `Return`, then type your search in the box |
-| The shortcut runs but Peek stays closed | Check that the **URL** action has the **URL Encoded Text** variable right after `q=` |
+| The shortcut runs but SupaView stays closed | Check that the **URL** action has the **URL Encoded Text** variable right after `q=` |
 | A link opens an older copy of SupaSidebar | macOS sends links to one copy when several are on your Mac. Delete old copies and keep the one in **Applications** |
-| A page link does nothing | Peek opens only `http` and `https` pages |
+| A page link does nothing | SupaView opens only `http` and `https` pages |
 
 ## Learn more
 
-- [Link Preview](/features/linkPreview) - Cookie sharing, security and window controls
+- [SupaView](/features/linkPreview) - Staying signed in, links from other apps, security and window controls
 - [Command Panel](/features/commandPanel) - Search, scopes and every Command Panel key
 - [Keyboard shortcuts](/features/shortcuts) - The complete shortcut list

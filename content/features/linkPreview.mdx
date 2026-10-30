@@ -1,104 +1,190 @@
 ---
-title: "Link Preview - Built-in mini browser"
-description: "Preview links without leaving SupaSidebar using a built-in WebKit browser with Safari cookie sharing, persistent sessions, and native macOS security."
+title: "SupaView - Built-in mini browser"
+description: "Open links from SupaSidebar and other apps in SupaView, a floating WebKit mini browser. Stay signed in by importing cookies from Chrome, Arc, Brave, Edge, Vivaldi, Firefox, Zen or Safari."
 ---
 
 import { Callout } from 'nextra/components'
 
-# Link Preview
+# SupaView
 
-Preview any link in a floating mini-browser without switching to a full browser. The preview uses macOS's native WebKit engine, the same technology that powers Safari. SupaSidebar's settings and shortcuts call this window Peek.
+SupaView opens any link in a floating mini browser, so you can read it without switching to a full browser. It uses macOS's native WebKit engine, the same technology that powers Safari. Earlier versions called this window Link Preview or Peek.
 
-## How to open a preview
+## How to open SupaView
 
 | Method | Action |
 |--------|--------|
 | **`Cmd` click** | Click any link while holding `Cmd` |
 | **Right-click > Open Preview** | Context menu on any link |
-| **`Cmd Return` in the Command Panel** | Opens the selected result or search ([details](/features/commandPanel#open-results-in-link-preview)) |
+| **`Cmd Return` in the Command Panel** | Opens the selected result or search ([details](/features/commandPanel#open-results-in-supaview)) |
 | **Raycast, Alfred, Spotlight or any app** | Opens a page or a search from anywhere ([setup](/howTo/peekFromAnywhere)) |
+| **Links in other apps** | Click a link in Slack, Mail, Messages or Terminal once SupaSidebar is your default browser ([setup](#open-links-from-other-apps)) |
 
-The preview opens in a floating window that stays on top of other windows. You can resize it, scroll, and interact with the page like a normal browser. It keeps the size you set, even after you restart SupaSidebar.
+SupaView opens in a floating window that stays on top of other windows. You can resize it, scroll, and use the page like a normal browser. It keeps the size you set, even after you restart SupaSidebar.
 
 <Callout type="info">
-`Cmd` click behavior is configurable. If it opens a browser instead of the preview, check **Preferences > General** and set `Cmd` click to "Open Preview".
+`Cmd` click behavior is configurable. If it opens a browser instead of SupaView, check **Preferences > General** and set `Cmd` click to "Open Preview".
 </Callout>
 
 ## Opening in a full browser
 
-The preview window has two controls for moving the page to a full browser.
+The SupaView window has two controls for moving the page to a full browser.
 
 - **Open in Browser** button - sends the link to your default browser
 - **Browser picker dropdown** (chevron next to the button) - choose a specific browser
 
-## Open previews from Raycast, Alfred and Spotlight
+## Open SupaView from Raycast, Alfred and Spotlight
 
-Launchers and other apps can send a page or a search straight to the preview with a `supasidebar://peek` link, without touching your browser windows. See [Peek from anywhere](/howTo/peekFromAnywhere) for the link format and setup steps for Raycast, Alfred, Spotlight and Terminal.
+Launchers and other apps can send a page or a search straight to SupaView with a `supasidebar://peek` link, without touching your browser windows. See [Open SupaView from anywhere](/howTo/peekFromAnywhere) for the link format and setup steps for Raycast, Alfred, Spotlight and Terminal.
 
-## Is the Link Preview safe to log into?
+## Open links from other apps
 
-Yes. SupaSidebar's Link Preview is as safe as Safari. It uses macOS's built-in WebKit engine with the default persistent data store (`WKWebsiteDataStore.default()`), which means it runs under the exact same security model, TLS enforcement, and credential handling as Safari. SupaSidebar itself never reads, stores, or transmits your web passwords or session cookies. All credential management is handled by macOS Keychain and iCloud Keychain, the same system Safari uses.
+<Callout type="info">
+A Labs feature, new in SupaSidebar 1.5.0 and part of Pro. Turn on **SupaView** in **Preferences > Labs** first. Without Pro, you can use it free for 30 days from the day you turn it on.
+</Callout>
 
-## Cookie and session sharing
+Make SupaSidebar your default browser and the links you click in other apps, like Slack, Mail, Messages or Terminal, open in SupaView instead of a full browser window. You stay in the app you were using.
 
-The preview shares cookies and login sessions with **Safari**. If you are logged into a site in Safari, the preview shows the logged-in version automatically with no need to sign in again. This works because both Safari and the preview use macOS's shared WebKit data store.
+{/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewLinkRoute.swift (SupaViewClickAction and decide) */}
 
-**What this means in practice:**
+1. Open **Preferences > Labs**, turn on **SupaView**, then click **Open**.
+2. Click **Make Default**. macOS asks whether to change your default browser. Choose **Use "SupaSidebar"**.
+3. Click a link in another app. It opens in SupaView.
 
-- Academic portals, Microsoft 365, Google Workspace, and other login-protected pages display correctly if you are already signed into them in Safari
-- Sessions persist across preview uses and app restarts
-- You do not need to log in again each time you preview a link
+**Click Opens** picks what a plain click does. Hold `Cmd Option` while clicking to open the link the other way. The map at the top of the section shows where both go and changes as you change the settings below it.
 
-**What does not carry over:**
+| Setting | Click | `Cmd Option` click |
+|---------|-------|--------------------|
+| **SupaView** (default) | SupaView | Your browser |
+| **Browser** | Your browser | SupaView |
 
-- Cookies from **Chrome, Firefox, Arc, Edge, Brave**, or other non-WebKit browsers. These browsers maintain their own separate cookie stores and do not share sessions with WebKit
-- If you only use Chrome and never Safari, the preview shows the logged-out version of protected pages
+When a link opens in your browser, a matching [Air Traffic Control](/features/airTrafficControl) open route picks the browser and profile. Turn off **Use Air Traffic Control Rules** to skip them. SupaView always skips them.
+
+Links no rule takes open in your **SupaSidebar Default Browser**, the same setting you see in **Preferences > General**. **Automatic** uses the browser you had before SupaSidebar, or Safari, and shows its name.
+
+Links you click inside a browser stay in that browser. SupaSidebar only sees links that macOS hands to your default browser.
+
+To go back, click **Restore** next to your previous browser in the same row, or change it in **System Settings > Desktop & Dock > Default web browser**.
+
+## Stay signed in
+
+{/* Keep in sync with: swiftapp/supasidebar/Views/Preferences/SupaView/SupaViewCookieHelp.swift (the in-app help popovers) */}
+
+<Callout type="info">
+A Labs feature, new in SupaSidebar 1.5.0 and part of Pro. Turn on **SupaView** in **Preferences > Labs** first. Without Pro, you can use it free for 30 days from the day you turn it on.
+</Callout>
+
+SupaView keeps its own sign-ins, separate from your browsers. Sign in once inside SupaView, or import your browser's logins so sites open signed in right away.
+
+1. Open **Preferences > SupaView** and find **Stay Signed In**.
+2. In **Use Sign-Ins From**, pick the browser and profile you use most.
+3. Click **Import Logins**, choose how often to keep in sync, then click **Import**. Each row's info button explains that step.
+
+| Browser | What macOS asks for |
+|---------|---------------------|
+| **Chrome, Arc, Brave, Edge, Vivaldi** | Keychain access to "Chrome Safe Storage" (or your browser's name) |
+| **Firefox, Zen** | Nothing |
+| **Safari** | Full Disk Access |
+
+### What gets imported
+
+- Cookies only. SupaSidebar never imports passwords, history or bookmarks with this feature.
+- Cookies stay on this Mac. SupaSidebar never sends them anywhere.
+- Expired cookies and cookies that end when the browser quits are skipped.
+- If SupaView already has a cookie for the same site, the browser's copy replaces it. Nothing you signed into inside SupaView is removed.
+
+### The Keychain prompt
+
+Chrome, Arc, Brave, Edge and Vivaldi lock their cookies with a key in your Keychain, so macOS asks to let SupaSidebar use it.
+
+- **Allow** works for one import.
+- **Always Allow** lets automatic sync run without asking again.
+
+If you chose Allow and automatic sync is on, sync pauses and the SupaView pane shows **Allow Keychain Access**. Click it and choose **Always Allow**. A sync in the background never shows a prompt.
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| The pane says sync paused | Click the button in the message. **Allow Keychain Access** asks macOS again, choose **Always Allow**. **Open Full Disk Access** opens the setting Safari needs |
+| You clicked Deny in the Keychain prompt | Click **Allow Keychain Access** or **Import Logins** again and choose **Allow** |
+| A site still shows the signed-out page | Click **Sync Now**, or sign in once inside SupaView. Some sites sign you in with cookies that end when the browser quits, and those are not imported |
+| **Open in Browser** uses Safari, not your browser | SupaSidebar doesn't know which browser you used before it. Pick your browser in **System Settings > Desktop & Dock > Default web browser**, then click **Make Default** in **Preferences > SupaView** again |
+
+### Safari and Full Disk Access
+
+macOS only lets apps read Safari's cookies with Full Disk Access.
+
+1. Pick Safari in **Use Sign-Ins From** and click **Import Logins**. Without access, the pane shows **Open Full Disk Access**.
+2. Click it and turn on SupaSidebar. macOS may ask you to quit and reopen it.
+3. Click **Import Logins** again.
+4. Turn Full Disk Access off again if you like. The imported cookies keep working until they expire.
+
+Automatic sync from Safari needs Full Disk Access left on. SupaView imports from Safari's default profile, usually labeled Personal.
+
+### How long it lasts
+
+Each site stays signed in until its cookie expires or the site signs you out. When that happens, sign in inside SupaView or click **Sync Now**.
+
+### Automatic sync
+
+Pick **Every Hour**, **Every Day** or **Every Week** in **Sync Automatically**. macOS runs the sync at a quiet moment and holds it back on low battery. When the browser's cookies haven't changed, nothing is read. Otherwise only the cookies that changed since the last sync are copied, except for Safari, whose cookie file is read whole.
+
+### Undo it
+
+- **Remove Imported Logins** signs SupaView out of every site and turns automatic sync off. Your browser is not changed.
+- To take back Always Allow, open **Keychain Access**, search for "Chrome Safe Storage" (or your browser's name), open it, and remove SupaSidebar under **Access Control**.
+- To take back Full Disk Access, turn SupaSidebar off in **System Settings > Privacy & Security > Full Disk Access**.
+
+## Is SupaView safe to log into?
+
+Yes. SupaView is as safe as Safari. It uses macOS's built-in WebKit engine with SupaSidebar's own persistent data store, so it runs under the same security model, TLS enforcement and credential handling as Safari. SupaSidebar never reads, stores or sends your web passwords. It reads your browser's cookies only when you import logins, keeps them on this Mac, and never sends them anywhere. Password saving and autofill are handled by macOS Keychain and iCloud Keychain, the same system Safari uses.
 
 ## Does SupaSidebar save my passwords?
 
-No. SupaSidebar never accesses, stores, or transmits your web passwords. When you enter credentials in the Link Preview, password saving and autofill are handled entirely by macOS Keychain, the same system that manages passwords in Safari. SupaSidebar's own Keychain usage is limited to your license key, trial information, device identifier, and OpenAI API key (if you use Ask AI). None of these are related to your web browsing credentials.
+No. SupaSidebar never accesses, stores, or transmits your web passwords. When you enter credentials in SupaView, password saving and autofill are handled entirely by macOS Keychain, the same system that manages passwords in Safari. SupaSidebar's own Keychain usage is limited to your license key, trial information, device identifier, and OpenAI API key (if you use Ask AI). Importing logins reads your browser's cookie key from the Keychain once per import and never stores it.
 
 ## Security and privacy details
 
-The preview runs inside macOS's native WebKit framework with the same security model as Safari:
+SupaView runs inside macOS's native WebKit framework with the same security model as Safari.
 
 | Aspect | How it works |
 |--------|-------------|
 | **Credential storage** | Handled by macOS Keychain and iCloud Keychain. SupaSidebar never accesses or stores your web passwords |
-| **Autofill** | macOS may offer to save passwords you enter in the preview, exactly as it does in Safari |
-| **Data isolation** | The preview runs in a sandboxed WebKit content process, separate from SupaSidebar's own app process |
+| **Autofill** | macOS may offer to save passwords you enter in SupaView, exactly as it does in Safari |
+| **Data isolation** | SupaView runs in a sandboxed WebKit content process, separate from SupaSidebar's own app process |
 | **Network security** | Standard WebKit TLS/SSL enforcement applies. Invalid certificates are rejected |
-| **SupaSidebar's access** | The app reads only the current page URL (for the "Open in Browser" button). It cannot read page content, form data, cookies, or passwords |
+| **SupaSidebar's access** | The app reads only the current page URL (for the "Open in Browser" button). It cannot read page content, form data or passwords |
+| **Imported cookies** | Read from your browser only when you import or sync, kept on this Mac, never sent anywhere |
 
-### How the Link Preview compares to a regular browser
+### How SupaView compares to a regular browser
 
-SupaSidebar's Link Preview uses the same WebKit engine, security policies, and credential handling as Safari. The differences are about scope, not safety:
+SupaView uses the same WebKit engine, security policies, and credential handling as Safari. The differences are about scope, not safety.
 
-- **No browser extensions** - ad blockers and third-party password managers do not load in the preview since it is a standalone WebKit view
-- **No browsing history** - SupaSidebar does not record which pages you visit in the preview
-- **No tab or bookmark management** - the preview is designed for quick checks, not extended browsing sessions
+- **No browser extensions** - ad blockers and third-party password managers do not load in SupaView since it is a standalone WebKit view
+- **No browsing history** - SupaSidebar does not record which pages you visit in SupaView
+- **No tab or bookmark management** - SupaView is designed for quick checks, not extended browsing sessions
 
 If you need full browser features, click "Open in Browser" to send the page to any installed browser.
 
 ## Frequently asked questions
 
-**Can I use Microsoft SSO or university login in the preview?**
-Yes. If you have already signed in through Safari, the preview picks up that session automatically. If you have not, you can sign in directly in the preview and macOS handles credential storage through Keychain, the same as Safari.
+**Can I use Microsoft SSO or university login in SupaView?**
+Yes. Sign in once inside SupaView, or [import your browser's logins](#stay-signed-in) so you're already signed in. macOS handles credential storage through Keychain, the same as Safari.
 
-**Does the preview work with two-factor authentication?**
-Yes. 2FA flows (including Microsoft Authenticator, Duo, and TOTP codes) work in the preview the same way they do in Safari.
+**Does SupaView work with two-factor authentication?**
+Yes. 2FA flows (including Microsoft Authenticator, Duo, and TOTP codes) work in SupaView the same way they do in Safari.
 
-**Will my saved passwords from Chrome or Firefox appear in the preview?**
-No. The preview only has access to credentials stored in macOS Keychain and iCloud Keychain (shared with Safari). Passwords stored in Chrome, Firefox, Arc, or other non-WebKit browsers are not available.
+**Will my saved passwords from Chrome or Firefox appear in SupaView?**
+No. Importing logins copies cookies, so sites you're signed into in that browser open signed in. Saved passwords stay in the browser.
+
+**Does SupaView share sign-ins with Safari automatically?**
+No. SupaView has its own website data, separate from Safari and every other browser. Use [Stay signed in](#stay-signed-in) to copy Safari's sign-ins once or on a schedule.
 
 **What if I use multiple browser profiles?**
-The preview only shares cookies with Safari's default profile. If you use multiple Safari profiles, only sessions from the default profile carry over. Chrome, Firefox, and Arc profiles are entirely separate since those browsers do not use WebKit's data store.
+Pick one profile in **Use Sign-Ins From**. SupaView imports from that profile only. To switch, pick another profile and click **Sync Now**.
 
-**Which Safari profile does the preview use?**
-Safari's default profile (usually labeled "Personal"). Sessions from other named Safari profiles are not available in the preview.
-
-**Does SupaSidebar track which pages I preview?**
-No. SupaSidebar does not record browsing history from the Link Preview. The only data it reads is the current page URL, which it needs to power the "Open in Browser" button.
+**Does SupaSidebar track which pages I open in SupaView?**
+No. SupaSidebar does not record browsing history from SupaView. The only data it reads is the current page URL, which it needs to power the "Open in Browser" button. Analytics never include the links you open, the sites you import or your cookies.
 
 ## Turning off hover previews
 
@@ -108,12 +194,13 @@ When the switch is on, a delay dropdown next to it sets how long you hover befor
 
 ## Tips
 
-- Use the preview to quickly check a link before deciding which browser to open it in
-- If a page requires login and shows the logged-out version, sign into that site once in Safari and future previews will be logged in automatically
+- Use SupaView to quickly check a link before deciding which browser to open it in
+- If a page shows the logged-out version, sign in once inside SupaView or [import your browser's logins](#stay-signed-in)
 - For pages you need to interact with extensively, use the "Open in Browser" button to switch to a full browser
 
 ## Learn more
 
 - [All Ways to Open Links](/howTo/openingLinks) - Every method for opening links from the sidebar
+- [Air Traffic Control](/features/airTrafficControl) - Send links to the right browser automatically
 - [Privacy Blocklist](/features/privacyBlocklist) - Hide specific sites from Live Tabs and Recents
 - [Shortcuts](/features/shortcuts) - Complete keyboard shortcut reference
