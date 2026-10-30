@@ -46,7 +46,7 @@ Opens matching links in a specific browser, or in a specific browser profile.
 
 | Setting | Description |
 |---------|-------------|
-| **URL Pattern** | Optional. Leave empty to match all URLs, including with "All Spaces" selected |
+| **URL Pattern** | Optional. Leave empty to match all URLs in the selected space |
 | **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
 | **Open in Browser** | The browser to open matching links in. You can also pick a specific profile (e.g. Chrome Work, Safari Personal) so matching links always open in the right session |
 
@@ -54,7 +54,7 @@ A live preview at the bottom of the editor shows exactly what the rule will do a
 
 An empty URL pattern means **All URLs** for either match type. Any selected source browser or space still limits the rule. Put an all-URLs rule below more specific rules when you want it to act as a fallback.
 
-Open routes always show their source space, **All Spaces**, or **Missing space**. An all-URLs Open route with **All Spaces** selected shows a warning and requires confirmation before saving. A rule pointing to a missing space must be reassigned before it can be saved; importing a rule whose source space cannot be found preserves that restriction and disables the rule.
+Open routes always show their source space, **All Spaces**, or **Missing space**. An all-URLs Open route needs a space. With **All Spaces** selected it won't run, its row shows **Needs a space**, and the editor won't save it. To open every link in one browser, set **SupaSidebar Default Browser** in **Preferences → General** instead. A rule pointing to a missing space must be reassigned before it can be saved; importing a rule whose source space cannot be found preserves that restriction and disables the rule.
 
 ## Smart Suggestions
 
