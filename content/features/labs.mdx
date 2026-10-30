@@ -1,0 +1,89 @@
+---
+title: "Labs - Try new SupaSidebar features early"
+description: "Turn on new SupaSidebar features early in Preferences > Labs. They're part of Pro, and each one is free for 30 days from the first time you turn it on."
+---
+
+import { Callout } from 'nextra/components'
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/LabsFeature.swift (one table row per feature), swiftapp/supasidebar/Models/LabsFreeMonth.swift (free month rules) and swiftapp/supasidebar/Views/Preferences/Components/LabsFeatureCard.swift (card tags and buttons) */}
+
+# Labs
+
+Labs is a page in SupaSidebar Preferences where you try new features before they're finished. Every Labs feature ships in the regular release but stays off, with its settings hidden, until you turn it on. Labs features are part of Pro. Without Pro, each one is free for 30 days from the first time you turn it on.
+
+Labs is new in SupaSidebar 1.5.0.
+
+## What's in Labs
+
+| Feature | What it does | Docs |
+|---------|--------------|------|
+| **SupaView** | Opens links from Slack, Mail and other apps in a floating window | [SupaView](/features/linkPreview#open-links-from-other-apps) |
+| **Archived Tabs** | Closes tabs you stop using and keeps them 30 days | [Archived Tabs](/features/archivedTabs) |
+
+## How to turn on a Labs feature
+
+1. Open **Preferences → Labs**. It has a **New** tag in the Preferences sidebar.
+2. Find the feature's card and turn on its switch.
+3. Click **Set up SupaView** or **Set up Archived Tabs** at the bottom of the card to open the feature's own pane.
+
+Each card explains the feature in a few lines before you turn it on. Once a feature is on, its pane appears in the Preferences sidebar with a **Labs** tag. Turn the switch off and the pane hides again.
+
+You can also type a feature's name or "labs" into [Settings Search](/howTo/searchSettings) to jump to its card.
+
+## Pro and the free month
+
+Labs features are part of Pro. With a paid license, every Labs feature is yours with no time limit, and the cards show no free-month tag.
+
+Without a license, including during the free trial, each feature gets its own free month.
+
+- **It starts the first time you turn the feature on** - not when you install or update SupaSidebar. A feature you never turn on never starts its month.
+- **Each feature has its own month** - trying SupaView doesn't use up the month for Archived Tabs.
+- **Turning a feature off doesn't pause it** - the 30 days keep counting from the first time you turned it on.
+
+The tag next to each feature's name shows where you are.
+
+| Tag | Meaning |
+|-----|---------|
+| **Try free for 30 days** | Not turned on yet. The month starts when you do |
+| **Free until** a date | Your free month is running |
+| **Free month ended** | The month is over |
+| No tag | You have Pro |
+
+## What happens when the free month ends
+
+When a feature's free month ends and you don't have Pro, the feature turns off.
+
+- **The card** shows **Free month ended**, its switch goes away, and an **Upgrade to Pro** button appears.
+- **The feature's pane** leaves the Preferences sidebar.
+- **Your settings are kept.** Upgrade to Pro and the feature comes back the way you left it.
+
+Each feature stops in its own way.
+
+- **SupaView** - If SupaSidebar is still your default browser, links from other apps open in your browser instead of SupaView. No link is lost. See [SupaView](/features/linkPreview#open-links-from-other-apps) to switch your default browser back.
+- **Archived Tabs** - Auto-Close stops, so no more tabs close. See [Archived Tabs](/features/archivedTabs).
+
+To upgrade, click **Upgrade to Pro** on the card, or add a key in **Preferences → About** ([how to activate a license](/howTo/activateLicense)).
+
+## Frequently asked questions
+
+### Is Labs the same as beta updates?
+
+No. [Beta updates](/howTo/betaUpdates) install whole early versions of SupaSidebar. Labs features ship in the regular release and stay off until you turn them on, so you don't need beta updates to try them.
+
+### Are Labs features finished?
+
+Not yet. They work in the regular release, and they can change as feedback comes in. Use [Send feedback](/howTo/sendFeedback) to tell the developer what works and what doesn't.
+
+### Does turning a feature off and on again restart the free month?
+
+No. The 30 days run from the first time you turned the feature on, whether it's on or off after that.
+
+### Do I need Pro to see Labs?
+
+No. Anyone can open **Preferences → Labs** and turn a feature on. Pro only matters once a feature's free month ends.
+
+## Learn more
+
+- [SupaView](/features/linkPreview) - Open links in a floating mini browser
+- [Archived Tabs](/features/archivedTabs) - Auto-close inactive tabs and reopen them for 30 days
+- [Activate a license](/howTo/activateLicense) - Unlock Pro on this Mac

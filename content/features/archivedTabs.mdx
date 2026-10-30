@@ -1,0 +1,155 @@
+---
+title: "Archived Tabs - Auto-close inactive browser tabs"
+description: "Close browser tabs you haven't used in a while, keep the sites you need open, and reopen any closed tab for 30 days. A SupaSidebar Labs feature."
+---
+
+import { Callout } from 'nextra/components'
+
+{/* Keep in sync with: swiftapp/supasidebar/Views/Preferences/ArchivedTabsPreferencesView.swift, swiftapp/supasidebar/Views/Preferences/Components/TabAutoClose*.swift (row names, defaults, options) and swiftapp/supasidebar/Managers/TabAutoCloseManager.swift (what never closes, timer rules) */}
+
+# Archived Tabs
+
+Archived Tabs closes browser tabs you haven't used in a while and keeps them in an archive for 30 days, so you can reopen any of them with one click. It works across Safari, Chrome, Brave, Edge, Arc and the other browsers [Live Tabs](/features/liveTabs) reads on your Mac, with one set of rules for all of them. Tabs you still need stay open with tab locks and Never Close rules.
+
+<Callout type="info">
+A Labs feature, new in SupaSidebar 1.5.0 and part of Pro. Turn on **Archived Tabs** in **Preferences → Labs** first. Without Pro, you can use it free for 30 days from the day you turn it on. See [Labs](/features/labs).
+</Callout>
+
+## How Auto-Close works
+
+Auto-Close gives every open tab a timer. Using a tab restarts its timer. When a tab sits unused for longer than your **Close After** time, SupaSidebar closes it and saves it to the archive.
+
+Auto-Close never closes these tabs.
+
+- **The tab you're on** - the current tab in each browser window stays open
+- **Locked tabs** - right-click a tab in Live Tabs and choose **Lock Tab**
+- **Tabs that match a Never Close rule** - see [Never Close rules](#never-close-rules)
+- **Tabs in an Excluded Browser** - see [Auto-Close settings](#auto-close-settings)
+- **Tabs that would drop a window below Keep At Least** - each window keeps at least that many tabs
+- **Blocked browsers and websites** - SupaSidebar doesn't see tabs you've hidden in [Privacy & Browsers](/features/privacyBlocklist), including browsers with Live Tabs turned off there, so it never closes or archives them
+
+### When tabs start closing
+
+- **Nothing closes right away.** Every tab's timer starts when you turn Auto-Close on, so the first tabs close after one full **Close After** period.
+- **Timers restart** when SupaSidebar launches and when you change **Close After**. A tab only closes after SupaSidebar has seen it unused for the full time.
+- **Tabs close gradually**, a few per minute and oldest first, so a whole window never disappears at once.
+- **Audio isn't detected.** SupaSidebar can't tell when a background tab is playing music or video. Lock tabs like a music player.
+
+## Turn on Auto-Close
+
+1. Open **Preferences → Labs** and turn on **Archived Tabs**.
+2. Click **Set up Archived Tabs** on the card, or open **Preferences → Archived Tabs**.
+3. Turn on **Auto-Close Inactive Tabs**.
+4. Pick a **Close After** time.
+
+While Archived Tabs is on, you can also open the pane from the sidebar's ⋯ menu → **Archived Tabs...**.
+
+## Auto-Close settings
+
+The settings appear in **Preferences → Archived Tabs → Auto-Close Inactive Tabs** once the switch is on.
+
+| Setting | What it does | Default |
+|---------|--------------|---------|
+| **Close After** | How long a tab can sit unused | **12 hours** |
+| **Keep At Least** | Fewest tabs left in each window | **10 tabs** |
+| **Excluded Browsers** | Browsers Auto-Close skips completely | None |
+
+- **Close After** offers 6 hours, 12 hours, 24 hours, 3 days and 7 days.
+- **Custom…** at the bottom of **Close After** adds a **Custom Duration** row, where you combine days, hours and minutes. The shortest time is 1 minute.
+- **Keep At Least** counts locked tabs and the current tab. Set it from 1 to 1,000.
+- **Excluded Browsers** lists the browsers installed on your Mac. Check a browser to skip every tab in it.
+
+## Never Close rules
+
+A Never Close rule keeps matching tabs open even after their timer runs out. Use it for sites you always want around, like your email or calendar.
+
+### Add a rule
+
+1. In **Preferences → Archived Tabs → Never Close Rules**, click **Add Rule**.
+2. Type a domain or part of a URL, like `mail.google.com`.
+3. Pick a **Match Mode**, then click **Add Rule**.
+
+| Match Mode | Protects | Example |
+|------------|----------|---------|
+| **Domain** | The site and all its subdomains | `google.com` keeps `mail.google.com` open |
+| **Contains** | Any URL containing the text | `calendar` keeps any URL with "calendar" |
+
+- **Domain** rules accept a full URL too. SupaSidebar keeps only the domain and drops a leading `www.` or `*.`.
+- **Contains** rules ignore capitalization.
+- A rule that already exists can't be added twice.
+
+### Edit or delete a rule
+
+Click the pencil next to a rule to change its text or match mode. Click the ✕ to delete it.
+
+### Add a rule with AI
+
+Click **Add with AI** to open [Ask AI](/features/askAI) in the Command Panel with the request started. Describe the site you want to keep and Ask AI creates the rule. Ask AI can also list, change and delete your rules, and so can AI assistants connected through [MCP](/features/mcp). These tools are available only while Archived Tabs is on.
+
+## Reopen archived tabs
+
+The **Archived Tabs** list at the bottom of **Preferences → Archived Tabs** shows every tab Auto-Close closed, newest first, with when each one was archived.
+
+- **Reopen** - opens the page in the browser it was closed from and removes it from the archive
+- **✕** - removes one tab from the archive
+- **Clear Archive** - removes every archived tab after you confirm. This can't be undone
+
+A page appears in the archive once, even if Auto-Close closes it more than once. Archived tabs aren't saved links and don't appear in your sidebar. To keep one for good, reopen it and save it.
+
+### How long archived tabs stay
+
+Archived tabs stay for 30 days after they're archived, then SupaSidebar removes them automatically.
+
+## Turn off Auto-Close
+
+- **Stop closing tabs** - turn off **Auto-Close Inactive Tabs**. The archive and your rules stay.
+- **Turn off the whole feature** - turn off **Archived Tabs** in **Preferences → Labs**. Auto-Close stops and the pane and menu item hide. Your settings are kept for when you turn it back on.
+
+Without Pro, Auto-Close also stops when the free month ends. Nothing closes after that. See [what happens when the free month ends](/features/labs#what-happens-when-the-free-month-ends).
+
+## Archived Tabs vs close and reopen tabs (Legacy)
+
+| | Archived Tabs | [Close and reopen tabs (Legacy)](/features/linkOpenTabs) |
+|---|---|---|
+| **Closes tabs** | When unused for a set time | When you leave a space |
+| **Brings them back** | You reopen from the archive | Reopens when you return to the space |
+| **Respects Lock Tab** | **Yes** | **Yes** |
+| **Where to turn on** | Preferences → Labs | Preferences → Spaces |
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| No tabs are closing | Check **Auto-Close Inactive Tabs** is on, and wait one full **Close After** period after turning it on or relaunching SupaSidebar |
+| A window keeps its old tabs | **Keep At Least** holds that many tabs per window. Lower it |
+| A tab I need keeps closing | Lock it, or add a [Never Close rule](#never-close-rules) |
+| A music or video tab closed | Lock it. SupaSidebar can't detect audio in background tabs |
+| A browser's tabs never close | Check **Excluded Browsers**, then check that browser isn't blocked in [Privacy & Browsers](/features/privacyBlocklist) |
+| An Orion tab never closes | Orion doesn't let other apps close the last tab in a window |
+| "Never Close rules could not be read" | Auto-Close pauses to keep your tabs safe. Add a new rule to replace the damaged rule data |
+| Archived Tabs is missing from Preferences | Turn it on in **Preferences → Labs**. Without Pro, check whether its free month ended |
+
+## Frequently asked questions
+
+### Does Auto-Close work while SupaSidebar is closed?
+
+No. SupaSidebar times tabs only while it's running, and every timer restarts when it launches. A tab closes only after SupaSidebar has seen it unused for the full **Close After** time.
+
+### Will Auto-Close close the tab I'm reading?
+
+No. The current tab in each browser window never closes. Its timer starts fresh when you switch away from it.
+
+### Are archived tabs the same as the Trash?
+
+No. The [Trash](/features/trash) holds saved links you deleted. The archive holds open browser tabs that Auto-Close closed. Each has its own list and its own time limit.
+
+### Does SupaSidebar share the pages it closes?
+
+No. If you share analytics, Auto-Close sends only settings and counts, like your **Close After** time, how many tabs closed and how many rules you have. The pages it closes and the text of your rules are never included.
+
+## Learn more
+
+- [Labs](/features/labs) - How Labs features and the free month work
+- [Live Tabs](/features/liveTabs) - See and lock the tabs Auto-Close watches
+- [Close and reopen tabs (Legacy)](/features/linkOpenTabs) - Close tabs when you leave a space instead
+- [Privacy & Browsers](/features/privacyBlocklist) - Hide browsers and sites from SupaSidebar
