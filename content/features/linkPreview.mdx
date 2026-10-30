@@ -50,14 +50,16 @@ Make SupaSidebar your default browser and the links you click in other apps, lik
 2. Click **Make Default**. macOS asks whether to change your default browser. Choose **Use "SupaSidebar"**.
 3. Click a link in another app. It opens in SupaView.
 
-**Clicking a Link Opens** picks what a plain click does. Hold `Cmd Option` while clicking to open the link the other way.
+**Click Opens** picks what a plain click does. Hold `Cmd Option` while clicking to open the link the other way. The line under the setting spells out where both go.
 
 | Setting | Click | `Cmd Option` click |
 |---------|-------|--------------------|
 | **SupaView** (default) | SupaView | Your browser |
 | **Browser** | Your browser | SupaView |
 
-When a link opens in your browser, a matching [Air Traffic Control](/features/airTrafficControl) open route picks the browser and profile. Without a match it opens in the browser you used before SupaSidebar. SupaView skips the rules.
+When a link opens in your browser, a matching [Air Traffic Control](/features/airTrafficControl) open route picks the browser and profile. Turn off **Browser Links Follow Air Traffic Control** to skip the rules. SupaView always skips them.
+
+Links no rule takes open in the **Fallback Browser**. It is the same setting as **SupaSidebar Default Browser** in **Preferences > General**. **Automatic** uses the browser you had before SupaSidebar, or Safari.
 
 Links you click inside a browser stay in that browser. SupaSidebar only sees links that macOS hands to your default browser.
 
