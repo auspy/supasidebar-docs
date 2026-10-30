@@ -18,7 +18,7 @@ export default {
   sidebarAccess: 'Sidebar Access',
   liveTabs: 'Live Tabs',
   browserIntegration: 'Browser Integration',
-  linkPreview: 'Link Preview',
+  linkPreview: 'SupaView',
   shortcuts: 'Shortcuts',
   privacyBlocklist: 'Privacy & Browsers',
   incognitoMode: 'Incognito Mode',
