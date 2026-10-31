@@ -18,6 +18,7 @@ export default {
   sidebarAccess: 'Sidebar Access',
   liveTabs: 'Live Tabs',
   archivedTabs: 'Archived Tabs',
+  tabSwitcher: 'Tab Switcher',
   browserIntegration: 'Browser Integration',
   linkPreview: 'SupaView',
   labs: 'Labs',
