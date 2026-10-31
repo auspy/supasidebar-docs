@@ -21,6 +21,14 @@ SupaView opens any link in a floating mini browser, so you can read it without s
 
 SupaView opens in a floating window that stays on top of other windows. Each link gets its own window, so a second link never replaces the page you're reading. You can resize it, scroll, and use the page like a normal browser. It keeps the size you set, even after you restart SupaSidebar.
 
+To move the window, drag its top bar anywhere outside the buttons, including the page title.
+
+{/* Keep in sync with: swiftapp/supasidebar/Managers/SupaView/SupaViewCommandPanel.swift (what loads in the window) */}
+
+Click the page title, or press `Cmd L`, to open the [Command Panel](/features/commandPanel) from SupaView, like the address bar in Arc. A search or a URL you type there loads in the same SupaView window, and the panel shows **Will open in SupaView**. Saved links, apps, files and open tabs still open where they always do. The Command Panel opened any other way never loads anything into SupaView.
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewShortcut.swift (SupaView keys) */}
+
 Press `Esc` or `Cmd W` to close the SupaView window you're in.
 
 <Callout type="info">
@@ -33,6 +41,20 @@ The SupaView window has two controls for moving the page you're on to a full bro
 
 - **Open in Browser** button - opens the page in the browser the button names. `Cmd O` does the same.
 - **Chevron next to the button** - the same Open With menu as right-click, with each browser, a submenu of its profiles, and Default Browser
+
+## Zoom
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewZoom.swift (zoom keys and levels) */}
+
+Zoom works like Chrome. SupaView remembers the zoom for each site, so a site you zoomed opens at that size next time.
+
+| Shortcut | Action |
+|----------|--------|
+| `Cmd +` or `Cmd =` | Zoom in |
+| `Cmd -` | Zoom out |
+| `Cmd 0` | Back to 100% |
+
+While a page isn't at 100%, its zoom level shows at the right end of the page title. Click it for zoom out, zoom in and **Reset**.
 
 ## Open SupaView from Raycast, Alfred and Spotlight
 
