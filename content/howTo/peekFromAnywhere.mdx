@@ -15,11 +15,22 @@ Look something up without leaving what you're working on. [SupaView](/features/l
 |------|-----|-------|
 | **Sidebar** | `Cmd` click a link | None |
 | **Command Panel** | `Cmd Return` or `Shift Return` on a result | [Pick the key](#open-command-panel-results-in-supaview) |
+| **Raycast, Alfred and Spotlight** | Search the web the way you already do | [Make SupaSidebar your default browser](#skip-the-setup-with-supasidebar-as-your-default-browser) |
 | **Raycast** | Type `Peek`, then your search | [One Quicklink](#set-up-raycast) |
 | **Alfred** | Type `peek`, then your search | [One custom search](#set-up-alfred) |
 | **Spotlight** | Run the Peek shortcut, then type your search | [One shortcut](#set-up-spotlight) |
 | **Terminal and other apps** | Open a `supasidebar://peek` link | [Link format](#supaview-links) |
 | **Slack, Mail and other apps** | Click any link | [Make SupaSidebar your default browser](/features/linkPreview#open-links-from-other-apps) |
+
+## Skip the setup with SupaSidebar as your default browser
+
+Raycast, Alfred and Spotlight open web searches in your default browser. Make SupaSidebar your default browser and those searches open in SupaView, like Little Arc did in Arc. You don't need a Quicklink, a custom search or a shortcut. Follow the steps in [Open links from other apps](/features/linkPreview#open-links-from-other-apps).
+
+- **Turn on SupaView in Labs first.** Opening links from other apps in SupaView is a [Labs](/features/labs) feature and part of Pro. Without Pro, it's free for 30 days from the day you turn it on.
+- **Every link from another app opens in SupaView**, not only launcher searches. Hold `Cmd Option` while clicking a link to open it in your browser instead.
+- **Spotlight searches with Safari's search engine.** To change it, open **Safari → Settings → Search**.
+
+To keep your current default browser, or to send only some searches to SupaView, use the setups below. Each one adds a `peek` keyword.
 
 ## Open Command Panel results in SupaView
 
@@ -103,6 +114,8 @@ open "supasidebar://peek?url=https://developer.apple.com/documentation/swiftui"
 | The shortcut runs but SupaView stays closed | Check that the **URL** action has the **URL Encoded Text** variable right after `q=` |
 | A link opens an older copy of SupaSidebar | macOS sends links to one copy when several are on your Mac. Delete old copies and keep the one in **Applications** |
 | A page link does nothing | SupaView opens only `http` and `https` pages |
+| Launcher searches open in your browser, not SupaView | Check that SupaSidebar is your default browser and **SupaView** is on in **Preferences → Labs** |
+| Spotlight searches use a different engine | Spotlight uses the engine in **Safari → Settings → Search** |
 
 ## Learn more
 

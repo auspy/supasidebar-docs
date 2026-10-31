@@ -17,7 +17,7 @@ SupaView opens any link in a floating mini browser, so you can read it without s
 | **Right-click > Open Preview** | Context menu on any link |
 | **`Cmd Return` in the Command Panel** | Opens the selected result or search ([details](/features/commandPanel#open-results-in-supaview)) |
 | **Raycast, Alfred, Spotlight or any app** | Opens a page or a search from anywhere ([setup](/howTo/peekFromAnywhere)) |
-| **Links in other apps** | Click a link in Slack, Mail, Messages or Terminal once SupaSidebar is your default browser ([setup](#open-links-from-other-apps)) |
+| **Links in other apps** | Click a link in Slack, Mail, Messages or Terminal, or search from Raycast, Alfred or Spotlight, once SupaSidebar is your default browser ([setup](#open-links-from-other-apps)) |
 
 SupaView opens in a floating window that stays on top of other windows. Each link gets its own window, so a second link never replaces the page you're reading. You can resize it, scroll, and use the page like a normal browser. It keeps the size you set, even after you restart SupaSidebar.
 
@@ -62,7 +62,9 @@ While a page isn't at 100%, its zoom level shows at the right end of the page ti
 
 ## Open SupaView from Raycast, Alfred and Spotlight
 
-Launchers and other apps can send a page or a search straight to SupaView with a `supasidebar://peek` link, without touching your browser windows. See [Open SupaView from anywhere](/howTo/peekFromAnywhere) for the link format and setup steps for Raycast, Alfred, Spotlight and Terminal.
+With SupaSidebar as your default browser, the web searches you run in Raycast, Alfred and Spotlight open in SupaView with no extra setup. See [Open links from other apps](#open-links-from-other-apps).
+
+To keep your current default browser, launchers and other apps can send a page or a search straight to SupaView with a `supasidebar://peek` link, without touching your browser windows. See [Open SupaView from anywhere](/howTo/peekFromAnywhere) for the link format and setup steps for Raycast, Alfred, Spotlight and Terminal.
 
 ## Open links from other apps
 
@@ -70,7 +72,7 @@ Launchers and other apps can send a page or a search straight to SupaView with a
 A [Labs](/features/labs) feature, new in SupaSidebar 1.5.0 and part of Pro. Turn on **SupaView** in **Preferences > Labs** first. Without Pro, you can use it free for 30 days from the day you turn it on.
 </Callout>
 
-Make SupaSidebar your default browser and the links you click in other apps, like Slack, Mail, Messages or Terminal, open in SupaView instead of a full browser window. You stay in the app you were using.
+Make SupaSidebar your default browser and the links you click in other apps, like Slack, Mail, Messages or Terminal, open in SupaView instead of a full browser window. You stay in the app you were using. Web searches from Raycast, Alfred and Spotlight open there too, like Little Arc did in Arc.
 
 {/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewLinkRoute.swift (SupaViewClickAction and decide) */}
 
