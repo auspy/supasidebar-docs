@@ -22,7 +22,7 @@ The browser access check is available in builds that include this browser select
 | **Access check failed** | macOS reports permission granted, but the read failed. Follow the recovery steps below. |
 | **Needs permission** | Allow SupaSidebar in Accessibility settings, then check again. |
 | **Open a browser / Open a browser window** | Open the selected browser with a window and check again. This is not a permission failure. |
-| **Excluded** | The browser is excluded in **Privacy & Browsers**, so the check does not access it. Review that choice if you want to use it with Smart Attach. |
+| **Excluded** | **Use** is unticked for the browser in **Preferences > Browsers > Your browsers**, so the check does not access it. Review that choice if you want to use it with Smart Attach. |
 | **Try again shortly** | Wait for the browser to respond, then check again. |
 
 **Access verified** applies to the selected browser at the last check time. It does not test sidebar movement, Live Tabs, mouse triggers, or browser Automation. The check does not open browsers, move windows, or read page content.
@@ -39,7 +39,7 @@ After opening Permission Status or clicking **Check again**, move your mouse nor
 | **Move mouse to verify** | The listener is active, but no movement has been received for this check yet. Move the pointer. |
 | **Mouse access failed** | The listener is missing or inactive. Reopen SupaSidebar, then try the Accessibility recovery steps below if necessary. |
 | **Needs permission** | Allow SupaSidebar in Accessibility settings, then reopen the app. |
-| **No edge selected** | Select Left Edge or Right Edge in **Preferences > Mouse Triggers**. |
+| **No edge selected** | Select Left Edge or Right Edge in **Preferences > Sidebar > Mouse Triggers**. |
 | **Turned off** | Mouse Triggers is disabled in its settings. |
 
 **Input verified** confirms mouse input, not a completed sidebar reveal. If the sidebar still does not appear, check the selected edges and hover delay in Mouse Triggers settings, then try the edge with no modifier keys held.
@@ -47,7 +47,7 @@ After opening Permission Status or clicking **Check again**, move your mouse nor
 ## If access is verified but Smart Attach still fails
 
 - Check **Preferences > Sidebar** and make sure **Smart Attach** is selected.
-- Check **Privacy & Browsers** for exclusions.
+- Check that **Use** is ticked for the browser in **Preferences > Browsers > Your browsers**.
 - Try a normal browser window outside full screen, and show the sidebar beside it.
 - Move the browser window and check whether the sidebar follows.
 
@@ -78,7 +78,7 @@ Run the browser access check again. If it fails, try reopening both apps and the
 
 If reopening and re-adding do not help:
 
-1. [Export a backup of your saved items](/howTo/exportImportData) from **Preferences > Import & Export** before reinstalling.
+1. [Export a backup of your saved items](/howTo/exportImportData) from **Preferences > Data** before reinstalling.
 2. Quit SupaSidebar.
 3. Download SupaSidebar from [the official website](https://supasidebar.com) and replace the app in Applications.
 4. Open that copy, review its Accessibility entry, and repeat the browser access check.
@@ -99,7 +99,7 @@ The **Check again** action does not request Automation access. **Grant access** 
 
 ## A linked space shows a permission warning
 
-In **1.3.0 and later**, click the browser/profile label beside the space name, then use **Review permissions** for a missing permission. **Live Tabs is turned off** and blocked-browser messages lead to **Browser Activity** or **Privacy & Browsers** instead.
+In **1.3.0 and later**, click the browser/profile label beside the space name, then use **Review permissions** for a missing permission. **Live Tabs is turned off** and blocked-browser messages lead to **Browsers > Live Tabs & Recents** or **Browsers > Your browsers** instead.
 
 Grant the permission actually named in the warning, return to SupaSidebar, and check again. An unverified preflight result alone does not stop the regular tab loader. **Connected** confirms the saved link to the browser/profile, not every operation the browser supports.
 

@@ -43,8 +43,10 @@ Shortcuts that interact with browsers require Accessibility permission. If a sho
 
 | Shortcut | Action |
 |----------|--------|
-| `Cmd N` or `Cmd T` (in browser) | Open Command Panel while a browser is active. Turn on **Use ⌘N or ⌘T in browsers** in **Preferences → Command Panel** and pick the key. `Cmd N` is the default in 1.4.0 and later. Skipped if your global Command Panel shortcut uses the same key. See [Open it from inside your browser](/features/commandPanel#open-it-from-inside-your-browser) |
-| `Ctrl Tab` (in browser) | Go back to your last tab, or hold `Ctrl` to pick from your 5 most recent. Turn on **Tab Switcher** in **Preferences → Labs** first, and change the key in **Preferences → Tab Switcher**. See [Tab Switcher](/features/tabSwitcher) |
+| `Cmd T` (in browser) | Open the Command Panel instead of an empty tab. Turn on **New tab** in **Preferences → Browsers → Browser keys**. See [Browser keys](/features/commandPanel#browser-keys) |
+| `Cmd N` (in browser) | Open the Command Panel, and open what you pick in a new window. Turn on **New window** in **Preferences → Browsers → Browser keys** |
+| `Cmd L` (in browser) | Open the Command Panel with the page's address, and load your edit in the same tab. Turn on **Address bar** in **Preferences → Browsers → Browser keys**. Firefox-based browsers, Orion and DuckDuckGo keep their own `Cmd L` |
+| `Ctrl Tab` (in browser) | Go back to your last tab, or hold `Ctrl` to pick from your 5 most recent. Turn it on in **Preferences → Browsers → Browser keys** or **Preferences → Labs**, and change the key on Browser keys. See [Tab Switcher](/features/tabSwitcher) |
 | Custom | Go back a tab, in any browser (no default). Record one in **Preferences → Shortcuts** under "Go Back a Tab". See [Go back and forward through tabs](/features/sidebar#go-back-and-forward-through-tabs) |
 | Custom | Go forward a tab, in any browser (no default). Record one under "Go Forward a Tab" |
 | Custom | Go back or forward a tab within the current space's linked browser profile (no default). Record them under "Go Back a Tab in This Space" and "Go Forward a Tab in This Space" |
@@ -60,7 +62,7 @@ Shortcuts that interact with browsers require Accessibility permission. If a sho
 
 ## Space Navigation
 
-Enable in **Preferences - Spaces**.
+Enable in **Preferences → Shortcuts → Space Navigation**.
 
 | Shortcut | Action |
 |----------|--------|
@@ -70,13 +72,13 @@ Enable in **Preferences - Spaces**.
 
 ## Pinned Links
 
-Enable in **Preferences → Pinned Items**.
+Enable in **Preferences → Shortcuts → Pinned Items**.
 
 | Shortcut | Action |
 |----------|--------|
 | `Cmd Opt 1-9` | Open Pinned Link 1-9 |
 | `Cmd Opt 0` | Open Pinned Link 10 |
-| Custom | Slots 11 and 12 use shortcuts you assign in **Preferences → Pinned Items** |
+| Custom | Slots 11 and 12 use shortcuts you assign in **Preferences → Shortcuts → Pinned Items** |
 | Numpad `1-9`, `0` | Mirror of 1-10 when **Use Numpad Keys** is enabled |
 
 ## In-App Shortcuts
@@ -118,13 +120,12 @@ When Command Panel is open (`Cmd Ctrl K`):
 
 | Shortcut | Action |
 |----------|--------|
-| `Up` `Down` | Navigate results |
+| `Up` `Down` | Navigate results. `Down` also puts the selected result's address in the field, ready to edit |
 | `Return` | Open selected result |
 | `Opt Return` | Open With: choose a browser/profile or item action |
-| `Tab` / `Shift Tab` | Next / previous scope in the scope bar |
+| `Tab` / `Shift Tab` | Next / previous scope. After a word like `hist` or `reddit`, `Tab` enters that scope or site |
 | `/` | Open the scope picker, then type a name or keyword |
 | `Space` / `Return` (in scope picker) | Select the matching scope |
-| `Opt Tab` | Expand or collapse web suggestions |
 | `1` through `9` (in browser picker) | Choose the numbered browser/profile |
 | `Ctrl Return` | Activate [Ask AI](/features/askAI) mode |
 | `Cmd Return` | Open the selected result in [SupaView](/features/linkPreview) |

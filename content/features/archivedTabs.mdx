@@ -26,7 +26,7 @@ Auto-Close never closes these tabs.
 - **Tabs that match a Never Close rule** - see [Never Close rules](#never-close-rules)
 - **Tabs in an Excluded Browser** - see [Auto-Close settings](#auto-close-settings)
 - **Tabs that would drop a window below Keep At Least** - each window keeps at least that many tabs
-- **Blocked browsers and websites** - SupaSidebar doesn't see tabs you've hidden in [Privacy & Browsers](/features/privacyBlocklist), including browsers with Live Tabs turned off there, so it never closes or archives them
+- **Browsers you don't use and hidden websites** - SupaSidebar doesn't see tabs from browsers with **Use** unticked or Live Tabs turned off in [Your browsers](/features/privacyBlocklist), or from sites under **Hidden websites**, so it never closes or archives them
 
 ### When tabs start closing
 
@@ -38,7 +38,7 @@ Auto-Close never closes these tabs.
 ## Turn on Auto-Close
 
 1. Open **Preferences → Labs** and turn on **Archived Tabs**.
-2. Click **Set up Archived Tabs** on the card, or open **Preferences → Archived Tabs**.
+2. Click **Set up Archived Tabs** on the card, or open **Preferences → Browsers → Archived Tabs**.
 3. Turn on **Auto-Close Inactive Tabs**.
 4. Pick a **Close After** time.
 
@@ -46,7 +46,7 @@ While Archived Tabs is on, you can also open the pane from the sidebar's ⋯ men
 
 ## Auto-Close settings
 
-The settings appear in **Preferences → Archived Tabs → Auto-Close Inactive Tabs** once the switch is on.
+The settings appear in **Preferences → Browsers → Archived Tabs → Auto-Close Inactive Tabs** once the switch is on.
 
 | Setting | What it does | Default |
 |---------|--------------|---------|
@@ -65,7 +65,7 @@ A Never Close rule keeps matching tabs open even after their timer runs out. Use
 
 ### Add a rule
 
-1. In **Preferences → Archived Tabs → Never Close Rules**, click **Add Rule**.
+1. In **Preferences → Browsers → Archived Tabs → Never Close Rules**, click **Add Rule**.
 2. Type a domain or part of a URL, like `mail.google.com`.
 3. Pick a **Match Mode**, then click **Add Rule**.
 
@@ -88,7 +88,7 @@ Click **Add with AI** to open [Ask AI](/features/askAI) in the Command Panel wit
 
 ## Reopen archived tabs
 
-The **Archived Tabs** list at the bottom of **Preferences → Archived Tabs** shows every tab Auto-Close closed, newest first, with when each one was archived.
+The **Archived Tabs** list at the bottom of **Preferences → Browsers → Archived Tabs** shows every tab Auto-Close closed, newest first, with when each one was archived.
 
 - **Reopen** - opens the page in the browser it was closed from and removes it from the archive
 - **✕** - removes one tab from the archive
@@ -124,7 +124,7 @@ Without Pro, Auto-Close also stops when the free month ends. Nothing closes afte
 | A window keeps its old tabs | **Keep At Least** holds that many tabs per window. Lower it |
 | A tab I need keeps closing | Lock it, or add a [Never Close rule](#never-close-rules) |
 | A music or video tab closed | Lock it. SupaSidebar can't detect audio in background tabs |
-| A browser's tabs never close | Check **Excluded Browsers**, then check that browser isn't blocked in [Privacy & Browsers](/features/privacyBlocklist) |
+| A browser's tabs never close | Check **Excluded Browsers**, then check that **Use** is ticked for that browser in [Your browsers](/features/privacyBlocklist) |
 | An Orion tab never closes | Orion doesn't let other apps close the last tab in a window |
 | "Never Close rules could not be read" | Auto-Close pauses to keep your tabs safe. Add a new rule to replace the damaged rule data |
 | Archived Tabs is missing from Preferences | Turn it on in **Preferences → Labs**. Without Pro, check whether its free month ended |
@@ -152,4 +152,4 @@ No. If you share analytics, Auto-Close sends only settings and counts, like your
 - [Labs](/features/labs) - How Labs features and the free month work
 - [Live Tabs](/features/liveTabs) - See and lock the tabs Auto-Close watches
 - [Close and reopen tabs (Legacy)](/features/linkOpenTabs) - Close tabs when you leave a space instead
-- [Privacy & Browsers](/features/privacyBlocklist) - Hide browsers and sites from SupaSidebar
+- [Your browsers](/features/privacyBlocklist) - Choose which browsers SupaSidebar works with and hide sites

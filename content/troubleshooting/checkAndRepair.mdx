@@ -7,7 +7,7 @@ import { Callout } from 'nextra/components'
 
 # Missing folders or links: Check & Repair
 
-If links still appear in search or in a space's saved-link count, but their folders are missing from the sidebar, use **Preferences → Backups → Check & Repair**.
+If links still appear in search or in a space's saved-link count, but their folders are missing from the sidebar, use **Preferences → Data → Check & Repair**.
 
 Start with **Check Now**, review the folder rows, then click **Update**. The check reads your current library. You do not need to find or import a backup first.
 
@@ -37,7 +37,7 @@ An ordinary **unfiled link** is different: saving a link without putting it in a
 
 ## Run a check
 
-1. Open **Preferences → Backups** and find **Check & Repair**.
+1. Open **Preferences → Data** and find **Check & Repair**.
 2. Click **Check Now**, or **Check Again** if you have already run a scan.
 3. Review the folder rows in the same **Check & Repair** section. Each row has a folder name and a space dropdown.
 4. Expand **Links (N)** to review the links in that folder tree. It shows link titles and addresses, with Trash or history status where relevant. The list starts collapsed and scrolls inside a fixed-height panel, even for folders with hundreds of links.
@@ -87,7 +87,7 @@ Existing links keep their content, notes, tags, and ordering. Already-filed link
 
 The copy uses the same saved-content format as [automatic backups](/howTo/backups#whats-included). It saves your current content before applying the repair. It includes the disconnected folders being repaired and their saved links. Empty folders you select are included under their chosen destination spaces, with their subfolders, before the app changes any folder connections. Unselected empty trees with no connection to a space or saved link are not included and stay unchanged.
 
-To recover from the copy, open **Preferences → Backups → Restore Backup…**, select the `.ssb` file, and choose the spaces to import.
+To recover from the copy, open **Preferences → Data → Restore Backup…**, select the `.ssb` file, and choose the spaces to import.
 
 <Callout type="info">
 Restoring adds new spaces and keeps your current data. It does not undo the repair in place. Check the recovered content before removing any duplicate spaces.

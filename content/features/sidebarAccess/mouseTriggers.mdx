@@ -1,3 +1,8 @@
+---
+title: "Mouse Triggers - Show the sidebar from a screen edge"
+description: "Show SupaSidebar by moving your mouse to a screen edge, with no click. Set it up in Preferences → Sidebar → Mouse Triggers."
+---
+
 # Mouse Triggers
 
 Show the sidebar by moving your mouse to the screen edge - no clicking required.
@@ -11,9 +16,11 @@ Show the sidebar by moving your mouse to the screen edge - no clicking required.
 
 ## Enable Mouse Triggers
 
-1. Open **Preferences → Mouse Triggers**
-2. Toggle **Enable mouse triggers** ON
-3. Select edge zones (left, right, or both)
+1. Open **Preferences → Sidebar** and scroll to **Mouse Triggers**
+2. Turn on **Enable Mouse Triggers**
+3. Under **Active Zones**, select the left edge, the right edge, or both
+
+Before 1.7.0, Mouse Triggers had its own page in Preferences. It now sits under **Auto-Visibility** on the Sidebar page.
 
 ![Mouse Trigger Settings](/assets/mouse%20trigger%20settings%20panel.jpeg)
 
@@ -23,9 +30,10 @@ Requires [Accessibility permission](/gettingStarted/permissions#accessibility): 
 
 | Setting | Description |
 |---------|-------------|
-| Edge Threshold | How close to edge before triggering (smaller = closer) |
-| Hover Delay | Time to hover before sidebar appears (increase if triggering accidentally) |
-| Enabled Zones | Left edge, right edge, or both |
+| **Active Zones** | Which screen edges show the sidebar |
+| **Edge Sensitivity** | How close to the screen edge your mouse needs to be |
+| **Hover Delay** | How long to hold the mouse at the edge before the sidebar appears (increase if it triggers by accident) |
+| **Exit Distance** | How far the mouse must move away before the sidebar hides |
 
 ![Mouse Triggers](/assets/mouse%20triggers.jpeg)
 
@@ -34,6 +42,6 @@ Requires [Accessibility permission](/gettingStarted/permissions#accessibility): 
 | Issue | Solution |
 |-------|----------|
 | Not working | Grant Accessibility permission, restart app |
-| Triggers too easily | Increase hover delay, decrease edge threshold |
+| Triggers too easily | Increase **Hover Delay** or lower **Edge Sensitivity** |
 | Not appearing | Check triggers enabled, verify edge zone is on |
 | Multi-monitor issues | Test each display edge, check Dock isn't blocking |

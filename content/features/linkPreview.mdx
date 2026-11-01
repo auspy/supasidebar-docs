@@ -25,7 +25,7 @@ To move the window, drag its top bar anywhere outside the buttons, including the
 
 {/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewDesktops.swift (desktops) */}
 
-A SupaView window stays on the desktop where it opened, and it opens over full-screen apps too. To have SupaView windows follow you to every desktop, turn on **Show on All Desktops** in **Preferences > SupaView** (turn on SupaView in **Preferences > Labs** first).
+A SupaView window stays on the desktop where it opened, and it opens over full-screen apps too. To have SupaView windows follow you to every desktop, turn on **Show on All Desktops** in **Preferences > Browsers > SupaView** (turn on SupaView in **Preferences > Labs** first).
 
 {/* Keep in sync with: swiftapp/supasidebar/Managers/SupaView/SupaViewCommandPanel.swift (what loads in the window) */}
 
@@ -36,7 +36,7 @@ Click the page title, or press `Cmd L`, to open the [Command Panel](/features/co
 Press `Esc` or `Cmd W` to close the SupaView window you're in.
 
 <Callout type="info">
-`Cmd` click behavior is configurable. If it opens a browser instead of SupaView, check **Preferences > General** and set `Cmd` click to "Open Preview".
+`Cmd` click behavior is configurable. If it opens a browser instead of SupaView, check **⌘+Click Behavior** in **Preferences > Shortcuts > Click Shortcuts** and set it to **Open Preview**.
 </Callout>
 
 ## Opening in a full browser
@@ -89,7 +89,7 @@ Make SupaSidebar your default browser and the links you click in other apps, lik
 
 When a link opens in your browser, a matching [Air Traffic Control](/features/airTrafficControl) open route picks the browser and profile. Turn off **Use Air Traffic Control Rules** to skip them. SupaView always skips them.
 
-Links no rule takes open in your **SupaSidebar Default Browser**, the same setting you see in **Preferences > General**. **Automatic** uses the browser you had before SupaSidebar, or Safari, and shows its name.
+Links no rule takes open in your **SupaSidebar Default Browser**, the same setting you see in **Preferences > Browsers > Air Traffic Control > Default Browser**. **Automatic** uses the browser you had before SupaSidebar, or Safari, and shows its name.
 
 Links you click inside a browser stay in that browser. SupaSidebar only sees links that macOS hands to your default browser.
 
@@ -105,7 +105,7 @@ A [Labs](/features/labs) feature, new in SupaSidebar 1.5.0 and part of Pro. Turn
 
 SupaView keeps its own sign-ins, separate from your browsers. Sign in once inside SupaView, or import your browser's logins so sites open signed in right away.
 
-1. Open **Preferences > SupaView** and find **Stay Signed In**.
+1. Open **Preferences > Browsers > SupaView** and find **Stay Signed In**.
 2. In **Use Sign-Ins From**, pick the browser and profile you use most.
 3. Click **Import Logins**, choose how often to keep in sync, then click **Import**. Each row's info button explains that step.
 
@@ -138,7 +138,7 @@ If you chose Allow and automatic sync is on, sync pauses and the SupaView pane s
 | The pane says sync paused | Click the button in the message. **Allow Keychain Access** asks macOS again, choose **Always Allow**. **Open Full Disk Access** opens the setting Safari needs |
 | You clicked Deny in the Keychain prompt | Click **Allow Keychain Access** or **Import Logins** again and choose **Allow** |
 | A site still shows the signed-out page | Click **Sync Now**, or sign in once inside SupaView. Some sites sign you in with cookies that end when the browser quits, and those are not imported |
-| **Open in Browser** uses Safari, not your browser | SupaSidebar doesn't know which browser you used before it. Pick your browser in **System Settings > Desktop & Dock > Default web browser**, then click **Make Default** in **Preferences > SupaView** again |
+| **Open in Browser** uses Safari, not your browser | SupaSidebar doesn't know which browser you used before it. Pick your browser in **System Settings > Desktop & Dock > Default web browser**, then click **Make Default** in **Preferences > Browsers > SupaView** again |
 
 ### Safari and Full Disk Access
 

@@ -12,17 +12,18 @@ Organize links with color-coded tags. AI can automatically suggest tags based on
 
 ## Settings
 
-Configure tags in **Preferences → AI Tags**.
+Configure tags in **Preferences → AI**. In SupaSidebar 1.7.0 and later, the old **AI Tags** page is part of the AI page, under **Auto-Tagging** and **Tag Definitions**.
 
-**AI Provider**
-- **Manual** - No AI, assign tags yourself
-- **OpenAI** - Cloud-based, requires API key
-- **Local AI (MLX)** - On-device with Apple Silicon, no API key needed
+**AI Tag Suggestions** (under **Models**)
+- **None** - No AI, assign tags yourself
+- **OpenAI**, **Anthropic** or **Gemini** - Cloud-based, requires an API key
+- **MLX (Local)** - On-device with Apple Silicon, no API key needed
 - **Ollama** - Use any local model via Ollama, works on all Macs
+- **OpenAI-Compatible** - Any server that speaks the OpenAI API, such as LM Studio
 
 **Options**
-- **Auto-suggest tags** - Suggest tags when saving new links
-- **Model selection** - Choose AI model for suggestions
+- **Auto-suggest tags for new links** - Suggest tags when saving new links, under **Auto-Tagging**
+- **Model selection** - Choose the model in the provider's section on the same page
 
 For detailed setup instructions, see [Local AI Models](localModels).
 
@@ -62,7 +63,7 @@ Click **Generate** to create a description from existing tagged links.
 
 ## Usage
 
-- **Create tag** - Preferences → AI Tags → Add tag
+- **Create tag** - Preferences → AI → Tag Definitions → Add Tag
 - **Assign tags** - Right-click link → Edit Tags
 - **Suggest tags** - Click "Suggest" when creating/editing a link
 - **Bulk apply** - See [Bulk Apply Tags](/features/tags/bulkApply) to tag existing links

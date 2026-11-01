@@ -14,8 +14,8 @@ The simplest option. Models download and run directly inside SupaSidebar using A
 **Requirements:** Apple Silicon Mac (M1, M2, M3, or M4)
 
 **Setup:**
-1. Open **Preferences → AI Tags**
-2. Set AI Provider to **Local AI (MLX)**
+1. Open **Preferences → AI**
+2. Under **Models**, set **AI Tag Suggestions** to **MLX (Local)**
 3. Click **Download** on your preferred model
 4. Once downloaded, click **Use This** to activate it
 
@@ -53,11 +53,11 @@ This downloads the Qwen 2.5 3B model, which we recommend for tag suggestions. Yo
 
 ### Step 3: Configure in SupaSidebar
 
-1. Open **Preferences → AI Tags**
-2. Set AI Provider to **Ollama (Local)**
+1. Open **Preferences → AI**
+2. Under **Models**, set **AI Tag Suggestions** to **Ollama**
 3. Click **Check** to verify the connection
 4. Select your model from the dropdown (it auto-populates from Ollama)
-5. Enable **Auto-suggest tags** if you want automatic suggestions
+5. Turn on **Auto-suggest tags for new links** under **Auto-Tagging** if you want automatic suggestions
 
 ### Recommended Ollama Models
 
@@ -81,7 +81,7 @@ ollama pull llama3.1:8b   # 4.7 GB, excellent quality
 - **Model names are not case sensitive**  - `qwen2.5:3b` and `Qwen2.5:3B` both work
 - **Any text generation model works**  - if you already have models in Ollama, they'll appear in the dropdown
 - **The endpoint defaults to `http://localhost:11434`**  - only change this if you're running Ollama on another machine
-- **You can use different models** for Voice (in Voice settings) and Tags (in AI Tags settings)
+- **You can use different models** for Voice (in Voice settings) and Tags (**AI Tag Suggestions** in **Preferences → AI**)
 
 ## Option 3: OpenAI-Compatible Server
 
@@ -89,8 +89,8 @@ Many local and self-hosted model runners (LM Studio, llama.cpp, vLLM, text-gener
 
 ### Setup
 
-1. Open **Preferences → AI Tags**
-2. Set AI Provider to **OpenAI-Compatible**
+1. Open **Preferences → AI**
+2. Under **Models**, set **AI Tag Suggestions** to **OpenAI-Compatible**
 3. Enter the server's **base URL** (for example `http://localhost:1234/v1`)
 4. Add an **API key** if your server requires one. Leave it blank for local servers that don't.
 5. Click **Check** to verify the connection and see live status

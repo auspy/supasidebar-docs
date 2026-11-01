@@ -1,6 +1,6 @@
 ---
 title: "Sidebar attaches to browsers you don't want it in"
-description: "Block SupaSidebar from auto-showing and attaching to specific browsers using the Privacy Blocklist, without revoking Automation permission."
+description: "Keep SupaSidebar from auto-showing and attaching to specific browsers by unticking Use in Your browsers, without revoking Automation permission."
 ---
 
 # Sidebar Appears in a Browser I Don't Use
@@ -15,31 +15,31 @@ By default, SupaSidebar auto-shows and attaches for every supported browser the 
 
 Revoking Automation permission in System Settings is not a reliable fix - SupaSidebar can still detect the frontmost app and react to it, so the sidebar may still appear.
 
-## Solution - Block the unwanted browser
+## Solution - Stop using the unwanted browser
 
-1. Open **SupaSidebar Preferences → Privacy & Browsers**.
-2. Find the unwanted browser in the browser table.
-3. Check its **Blocking** checkbox.
+1. Open **SupaSidebar Preferences → Browsers → Your browsers**.
+2. Find the unwanted browser in the **Each browser** table.
+3. Untick its **Use** checkbox. Before 1.7.0 this was a **Blocking** checkbox you checked.
 
-After blocking, when that browser is frontmost SupaSidebar will not:
+After you untick Use, when that browser is frontmost SupaSidebar will not:
 
 - auto-show the sidebar
 - attach to or resize the browser's windows
-- intercept `Cmd Ctrl T`, Smart Save (`Cmd Ctrl S`), or Smart Copy (`Cmd Ctrl C`) in that browser
+- take over [browser keys](/features/commandPanel#browser-keys) like `Cmd T`, Smart Save (`Cmd Ctrl S`), or Smart Copy (`Cmd Ctrl C`) in that browser
 - list its tabs in [Live Tabs](/features/liveTabs) or its imported history in [Recent Items](/features/recentItems)
 
 Older Recents remain until cleared. To remove this browser's stored history and unsaved Recents, use **Clear history & unsaved Recents…** in its **•••** menu. Saved links and the browser's own history remain unchanged.
 
-The sidebar still works normally everywhere else. Blocking is per-browser, and you can block more than one.
+The sidebar still works normally everywhere else. Use is per-browser, and you can untick more than one.
 
 ## What this is not
 
 - **Not a permission revocation.** Leave Automation access ON for the browser in System Settings - the in-app blocklist is the correct off-switch.
-- **Not an app-wide disable.** The menubar icon, global shortcuts (`Cmd Shift Space` etc.), and manual sidebar access keep working in the blocked browser if you trigger them yourself.
-- **Not reversible only by reinstall.** To re-enable SupaSidebar for that browser, uncheck its **Blocking** checkbox.
+- **Not an app-wide disable.** The menubar icon, global shortcuts (`Cmd Shift Space` etc.), and manual sidebar access keep working in that browser if you trigger them yourself.
+- **Not reversible only by reinstall.** To re-enable SupaSidebar for that browser, tick its **Use** checkbox again.
 
 ## Learn More
 
-- [Privacy Blocklist](/features/privacyBlocklist) - full feature reference for blocking URLs, domains, and browsers
+- [Your browsers](/features/privacyBlocklist) - full reference for choosing browsers and hiding websites
 - [Browser Integration](/features/browserIntegration) - how attach and auto-show work
 - [Sidebar Doesn't Hide in Browser](/troubleshooting/sidebarDoesntHideInBrowser) - related auto-hide issue

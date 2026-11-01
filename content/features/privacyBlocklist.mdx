@@ -1,49 +1,57 @@
 ---
-title: "Privacy & Browsers - Control browser activity"
-description: "Choose which browsers share Live Tabs, Recent activity, and history with SupaSidebar. Pause recording, block browsers or websites, and clear stored activity."
+title: "Your Browsers - Choose what each browser shares"
+description: "Pick the browsers SupaSidebar works with and what each one shares. Pause recording, hide websites, and clear stored activity."
 ---
 
-# Privacy & Browsers
+# Your browsers
 
-Open **Preferences → Privacy & Browsers** to choose what each browser shares with SupaSidebar. Live Tabs, Recent activity, and imported history have separate controls.
+Open **Preferences → Browsers → Your browsers** to choose which browsers SupaSidebar works with and what each one shares. Live Tabs, Recent activity, and imported history have separate controls for every browser.
+
+In SupaSidebar 1.7.0 and later, these controls replace the old **Privacy & Browsers** page. Hidden websites and stored activity moved to **Preferences → Browsers → Live Tabs & Recents**.
 
 ## Choose features for each browser
 
-| Checkbox | What it controls |
+The **Each browser** table has one row per installed browser.
+
+| Column | What it controls |
 |----------|------------------|
+| **Use** | Whether SupaSidebar works with this browser at all |
 | **Live Tabs** | Shows currently open tabs from this browser |
 | **Recents** | Records pages you visit while SupaSidebar is running |
 | **History** | Imports eligible visits from the browser's last 30 days, including visits made while SupaSidebar was closed |
+| **Privacy** | Turns on Private Mode for this browser |
 
 Turning a feature off stops its collection and keeps previously stored activity. A dash means that feature is not supported for the browser. An empty history or an access problem does not turn off your saved History choice.
 
-For display mode, Recent limits, and profile settings, use **Preferences → Browser Activity**.
+For display mode, Recent limits, and linked profiles, use **Preferences → Browsers → Live Tabs & Recents**.
 
 ## Pause activity recording
 
 Check a browser's **Privacy** checkbox to turn on its **Private Mode**. This pauses new Recents and history imports for that browser while keeping Live Tabs available. Existing activity and feature choices stay in place.
 
-Visits made during the private period stay excluded after you turn Private Mode off, including after a history rebuild. To pause all browsers together, turn on [Incognito Mode](/features/incognitoMode) at the top of the page.
+Visits made during the private period stay excluded after you turn Private Mode off, including after a history rebuild. To pause all browsers together, turn on [Incognito Mode](/features/incognitoMode) under **All browsers** at the top of the page.
 
 **SupaSidebar does not detect private windows in every browser.** Turn on Incognito Mode or the browser's Private Mode checkbox before browsing privately. These controls do not change your browser's own privacy settings.
 
-## Block a browser
+## Stop using a browser
 
-Check **Blocking** beside a browser to hide its Live Tabs and imported history, stop new Recent recording and history imports, and stop automatic sidebar attachment. Uncheck it to restore the browser's previous feature choices.
+Untick **Use** beside a browser to keep SupaSidebar out of it. Its Live Tabs and imported history are hidden, new Recent recording and history imports stop, and automatic sidebar attachment stops. Tick it again to restore the browser's previous feature choices.
 
-**Older Recents are kept until you clear them.** Blocking is not a delete action. Saved links remain available.
+**Older Recents are kept until you clear them.** Unticking Use is not a delete action. Saved links remain available.
+
+Before 1.7.0 this column was called **Block**, and you checked it to block a browser. Use works the other way round, so a ticked browser is one SupaSidebar works with.
 
 If the sidebar appears in an unwanted browser, see [Sidebar Appears in a Browser I Don't Use](/troubleshooting/sidebarAppearsInWrongBrowser).
 
-## Block a website
+## Hide a website
 
-Expand **Blocked Websites** and add a website or URL rule. Domain rules include subdomains, so `example.com` also matches `mail.example.com`.
+Open **Preferences → Browsers → Live Tabs & Recents** and add a website or URL rule under **Hidden websites**. Domain rules include subdomains, so `example.com` also matches `mail.example.com`. This list was called **Blocked Websites** before 1.7.0.
 
-Blocked pages are hidden from Live Tabs and imported history, and new Recent activity is not recorded for them. Existing foreground Recent records are not removed automatically. You can still save a link manually, and these rules do not block the website in your browser.
+Hidden pages are left out of Live Tabs and imported history, and new Recent activity is not recorded for them. Existing foreground Recent records are not removed automatically. You can still save a link manually, and these rules do not block the website in your browser.
 
 ## Clear stored activity
 
-Open the **•••** menu beside a browser:
+Open the **•••** menu beside a browser on **Your browsers**:
 
 | Action | What it removes from SupaSidebar |
 |--------|----------------------------------|
@@ -52,10 +60,11 @@ Open the **•••** menu beside a browser:
 
 Both actions keep saved links and your browser's own history. Older cleared visits stay excluded after a rebuild. A new visit can appear again, and a page visited in another browser may still appear.
 
-Under **Stored Activity**, you can clear Recents, refresh history, or reset and rebuild eligible imported history from the last 30 days. A rebuild preserves privacy exclusions and previous clearing choices.
+Under **Stored activity** on **Preferences → Browsers → Live Tabs & Recents**, you can clear Recents, refresh history, or reset and rebuild eligible imported history from the last 30 days. A rebuild preserves privacy exclusions and previous clearing choices.
 
 ## Learn more
 
 - [Recent Links and browser history](/features/recentItems)
+- [Live Tabs](/features/liveTabs)
 - [Incognito Mode](/features/incognitoMode)
 - [Browser permissions](/gettingStarted/permissions)

@@ -23,7 +23,7 @@ export default {
   linkPreview: 'SupaView',
   labs: 'Labs',
   shortcuts: 'Shortcuts',
-  privacyBlocklist: 'Privacy & Browsers',
+  privacyBlocklist: 'Your Browsers',
   incognitoMode: 'Incognito Mode',
   mcp: 'MCP',
   sync: 'iCloud Sync'

@@ -7,13 +7,13 @@ import { Callout } from 'nextra/components'
 
 # Backups & Recovery
 
-Keep dated copies of your saved links in **Preferences → Backups**, and use the same screen to recover them.
+Keep dated copies of your saved links in **Preferences → Data**, and use the same screen to recover them. Before 1.7.0 this screen was called **Backups**.
 
 ## Automatic backups
 
 Automatic backups are **on by default, every 7 days**, when you have never saved a backup preference. SupaSidebar uses its local **Application Support → SupaSidebar → Backups** folder on this Mac. The exact path appears under **Backup Folder**. Existing backup settings, including **Off**, custom folders, and schedules, stay unchanged.
 
-1. Open **Preferences → Backups**.
+1. Open **Preferences → Data**.
 2. Check **Automatic Backups** and **Backup Folder**. If backups are off, turning them on uses the displayed folder immediately; no folder picker is required.
 3. Keep **Weekly (every 7 days)**, or choose another **Backup Frequency**.
 4. Choose a **Backup Limit** of **1, 5, 10, 25, 50, or 100** copies. The default is **10**.
@@ -41,7 +41,7 @@ Recovered links keep their URLs, names, notes, tags, colors, custom icons, brows
 
 Select all related spaces when recovering smart folders. Their source-space, source-folder, and space-filter references reconnect to the recovered spaces and folders. A space you leave unselected is not recovered. Older backups can only restore the information they originally contained.
 
-Automatic backups exclude Trash, browsing history, Live Tabs, and app settings. To include preferences, shortcuts, or Air Traffic Control rules, open **Preferences → Import & Export → Export** and select `.ssb` with settings enabled.
+Automatic backups exclude Trash, browsing history, Live Tabs, and app settings. To include preferences, shortcuts, or Air Traffic Control rules, open **Preferences → Data → Export** and select `.ssb` with settings enabled.
 
 ### Choosing and maintaining a backup folder
 
@@ -49,7 +49,7 @@ Use **Backup Folder → Choose Folder…** to change the destination, and **Show
 
 **Backup Limit** controls how many automatic backups SupaSidebar keeps in the current backup folder. After a new copy saves successfully, older automatic backups are deleted until the folder meets the limit. This also applies to **Back Up Now**. Changing the limit takes effect after the next successful backup; it does not delete files immediately or change the schedule. Existing installations without a saved limit use 10 copies.
 
-Cleanup recognizes the full automatic-backup filename, including its date and unique ID. It leaves manual exports, renamed files, subfolders, and symbolic links alone. Keep a separate copy using **Import & Export** if you want to retain a backup indefinitely. A backup saved with an older app version still counts if it uses the automatic-backup filename.
+Cleanup recognizes the full automatic-backup filename, including its date and unique ID. It leaves manual exports, renamed files, subfolders, and symbolic links alone. Keep a separate copy using **Export** in **Preferences → Data** if you want to retain a backup indefinitely. A backup saved with an older app version still counts if it uses the automatic-backup filename.
 
 Changing the folder while automatic backups are on schedules a copy in the new location immediately. **Last Successful Backup** then reports backups saved to that folder.
 
@@ -63,7 +63,7 @@ Backup schedules and folder permissions belong to this Mac. On a new Mac with no
 
 ### Recovering your links
 
-1. Open **Preferences → Backups** and click **Restore Backup…**. You can also use **Preferences → Import & Export → From Backup File → Choose File…**.
+1. Open **Preferences → Data** and click **Restore Backup…**. You can also use **Preferences → Data → Import → From Backup File → Choose File…**.
 2. Open a dated `.ssb` file from your backup folder. Choose an older copy if the newest one was saved after you lost or changed a link.
 3. Review the spaces in the preview and select the ones you want to recover.
 4. Click **Import**. The button also shows how many spaces are selected.
@@ -79,7 +79,7 @@ When importing a `.ssb` or `.json` file, SupaSidebar uses its folder records and
 
 ## Check & Repair
 
-If saved links appear in search or in a space's count, but their folders are missing from the sidebar, open **Preferences → Backups → Check & Repair**.
+If saved links appear in search or in a space's count, but their folders are missing from the sidebar, open **Preferences → Data → Check & Repair**.
 
 Click **Check Now**, review the folder rows, then click **Update**. The scan reads your current library; you do not need to select a backup first. Each unassigned folder has a space dropdown. Clear destinations are selected for you; choose **Choose a space…** to skip a folder. Expand **Links (N)** to inspect its links in a collapsed, scrollable list.
 

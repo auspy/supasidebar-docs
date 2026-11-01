@@ -1,15 +1,17 @@
 ---
 title: "Command Panel - Search, navigate, and control SupaSidebar"
-description: "Find live tabs, saved links, and recent pages in grouped results. Browse website scopes, choose a browser, and search the web from SupaSidebar."
+description: "Find live tabs, saved links, and history from one panel. Tab into a scope or site, edit an address, choose a browser, and search the web."
 ---
 
 # Command Panel
 
-Find an open tab, a saved link, or a recently visited page from one panel. Press `Cmd Ctrl K`, type what you need, and press `Return` to open the result or switch to its existing browser tab.
+Find an open tab, a saved link, or a page from your history in one panel. Press `Cmd Ctrl K`, type what you need, and press `Return` to open the result or switch to its existing browser tab.
 
-In **All** search results, a new **Recommended** section brings together up to five of the strongest matches from Live Tabs, saved links, and recent visits. It does not guarantee one result from each section, and pages shown here are not repeated below. The remaining results appear in labeled groups such as **Live tabs**, **Pinned**, **Saved**, **Recently visited**, and **Settings**. Browser logos beside the status labels and recent visit times help you tell similar pages apart. Visit times also appear on unselected open tabs and refresh while the panel is open. A page can be both saved and open, with both states shown on its row.
+The Command Panel is a keyboard launcher for your Mac. One shortcut searches open tabs in every browser, saved links and files, your browser history, and SupaSidebar settings, so you can jump to any tab, bookmark or file without touching the mouse. With [browser keys](#browser-keys) on, `Cmd T` in Safari, Chrome, Firefox or any other supported browser opens it, like the command bar in Arc.
 
-The footer shows where the selected result will open. Use `Opt Return` to choose another browser or profile, `Ctrl Return` to [Ask AI](/features/askAI), `Cmd Return` to open it in [SupaView](/features/linkPreview), or `Shift Return` to search the web.
+Each result is one line with its icon, title and site, and six results fit at a time. A page that is open, saved and in your history shows as one row, and the right side of the row says where it is, such as **Open**, **Saved**, or when you last visited it, next to the browser's logo. Typing a site's name shows one row for that site, and repeated visits to the same page show once.
+
+The footer shows the keys for the selected row. `Return` opens it, or switches to it when it's an open tab. `Cmd Return` opens it in [SupaView](/features/linkPreview), and `Opt Return` lets you choose another browser or profile. `Ctrl Return` opens [Ask AI](/features/askAI), and `Shift Return` searches the web.
 
 {/* ![Fuzzy match](/assets/fuzzy%20match.jpeg) */}
 
@@ -24,11 +26,26 @@ The footer shows where the selected result will open. Use `Opt Return` to choose
 
 Press `Cmd Ctrl K` from anywhere.
 
-### Open it from inside your browser
+### Browser keys
 
-Turn on **Use ⌘N or ⌘T in browsers** in **Preferences → Command Panel** (it is also in **Preferences → Shortcuts**) to open the Command Panel from inside any browser without changing your global shortcut. Pick `Cmd N` or `Cmd T` next to the switch.
+{/* Keep in sync with: swiftapp/supasidebar/Models/BrowserKey.swift (keys, canSteerActiveTab browsers that keep Cmd L), swiftapp/supasidebar/Models/BrowserKey+Settings.swift (row titles) and swiftapp/supasidebar/Managers/CommandPanelOpenTarget.swift (where a pick opens) */}
 
-In **1.4.0 and later**, `Cmd N` is the default, so `Cmd T` keeps opening real browser tabs. If you had this switch on before 1.4.0, you keep `Cmd T`. The key works only while a browser is the active app, so other apps still receive `Cmd N` and `Cmd T`. SupaSidebar skips it if your global Command Panel shortcut uses the same key.
+Browser keys let `Cmd T`, `Cmd N` and `Cmd L` open the Command Panel while a browser is in front, without changing your global shortcut. Turn each one on by itself in **Preferences → Browsers → Browser keys**. Every other app keeps these keys, and so do browsers with **Use** unticked in [Your browsers](/features/privacyBlocklist).
+
+| Key | Setting | What it does |
+|-----|---------|--------------|
+| `Cmd T` | **New tab** | Opens the Command Panel instead of an empty tab. What you pick opens in a new tab |
+| `Cmd N` | **New window** | Opens the Command Panel. Pages and searches you pick open in a new window |
+| `Cmd L` | **Address bar** | Opens the Command Panel with the page's address. Edit it and press `Return` to load it in the same tab |
+| `Ctrl Tab` | **Last tab** | Turns on [Tab Switcher](/features/tabSwitcher), a Labs feature |
+
+After `Cmd N`, the new window opens in the browser the pick would use anyway, such as the browser in front, the Space's linked browser or an [Air Traffic Control](/features/airTrafficControl) rule. Picking an open tab switches to it without a new window. Before 1.7.0, `Cmd N` picks opened like any other pick.
+
+`Cmd L` needs a browser whose current tab SupaSidebar can change. In Firefox, Firefox Nightly, Firefox Developer Edition, LibreWolf, Zen, Orion and DuckDuckGo, `Cmd L` stays the browser's own address bar, and the Browser keys page names the ones you have installed. Choose another browser with `Opt Return` and the page opens there instead of the current tab.
+
+Press the same key again to close the panel. A key is skipped while your global Command Panel shortcut uses the same keys.
+
+**Upgrading from before 1.7.0?** There was one switch, **Use ⌘N or ⌘T in browsers**, in **Preferences → Command Panel** and **Preferences → Shortcuts**. If you had it on, the key you used stays on and the others start off. Both places now have a **Browser keys** row that opens the new page. New installs can turn the keys on during setup.
 
 ### Open straight into Live Tabs or Saved
 
@@ -50,12 +67,11 @@ In the **compact sidebar**, the top bar has a magnifying-glass button that opens
 | Shortcut | Action |
 |----------|--------|
 | `Cmd Ctrl K` | Open panel |
-| `Up` `Down` | Navigate results |
+| `Up` `Down` | Navigate results. `Down` also puts the selected result's address in the search field, ready to edit |
 | `Return` | Open the selected result or switch to its open tab |
 | `Opt Return` | Open With: choose a browser or profile, or another item action |
-| `Tab` / `Shift Tab` | Next / previous scope in the scope bar |
+| `Tab` / `Shift Tab` | Next / previous scope. After a word like `hist` or `reddit`, `Tab` enters that scope or site |
 | `/` | Open the scope picker |
-| `Opt Tab` | Expand or collapse web suggestions |
 | `Ctrl Return` | [Ask AI](/features/askAI) |
 | `Cmd Return` | Open the selected result in [SupaView](/features/linkPreview) |
 | `Shift Return` | Search the web directly |
@@ -64,29 +80,37 @@ In the **compact sidebar**, the top bar has a magnifying-glass button that opens
 ## What you can search
 
 - **Saved Links** - All your saved websites, files, and folders, from every Space rather than only the one you're currently in
-- **Recent Items** - Recent visits and imported browser history from the last 30 days, including eligible visits made while SupaSidebar was closed. See [Recent Links](/features/recentItems) for supported browsers and privacy controls.
+- **History** - Recent visits and imported browser history from the last 30 days, including eligible visits made while SupaSidebar was closed. See [Recent Links](/features/recentItems) for supported browsers and privacy controls.
 - **Live Tabs** - Currently open browser tabs
 - **Folders** - Browse and search inside folders
-- **Settings** - Toggle preferences and run commands
+- **Settings** - Toggle preferences and run commands. With nothing typed, the panel lists the 5 settings you use most, then **Talk to Founder**. Type a word or use the Settings scope to see them all
 - **Web Search** - Search the web with your preferred engine
 
 ## Search scopes
 
-Use **All**, **Live tabs**, **Saved**, or **Recent** in the scope bar to focus your results. Website icons in the same bar let you browse pages from a particular site. Press `Tab` or `Shift Tab` to move through the bar without using the mouse.
+Use **All**, **Live tabs**, **Saved**, or **History** in the scope bar to focus your results. Website icons in the same bar let you browse pages from a particular site. **History** was called **Recent** before 1.7.0.
+
+The scope bar stays hidden while you search **All**. Press `Tab` with an empty field to move to the next scope, or `Shift Tab` for the previous one, and the bar appears. It hides again when you come back to **All**.
+
+### Tab into a scope or site
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/CommandPanelTabTarget.swift (one word, 2+ letters) and swiftapp/supasidebar/Views/Components/CommandPanelScope.swift (scopeKeywords) */}
+
+Type one word that starts a scope or site name and press `Tab`. `hist` enters **History**, `tabs` enters **Live tabs**, and `reddit` or `youtube` starts a search on that site. The word clears so you can type your query, and a hint at the right end of the field shows where `Tab` goes before you press it. Site words come from your [Search Shortcuts](/features/commandPanel/searchShortcuts).
 
 For more scopes, type `/` to open the picker, then part of a scope name or website keyword. Press `Space` or `Return` to select the match. Selecting a website preserves your existing search query; closing the picker with `Escape` restores your previous search.
 
 | Scope | Icon | Activation keywords |
 |-------|------|---------------------|
 | **All** | Grid | (default) |
-| **Recents** | Clock | "recents", "recent" |
+| **History** | Clock | "history", "recents", "recent", "visited" |
 | **Live Tabs** | Globe | "live tabs", "tabs" |
 | **Saved** | Tray | "saved" |
 | **Spaces** | Stack | "spaces", "space" |
 | **Folders** | Folder | "folders", "folder" |
 | **Settings** | Gear | "settings", "tools", "commands", "actions" |
 
-The Recents, Saved, Spaces, Folders, and Settings scopes show items even with an empty search query, so you can browse without typing. Switch to Recents to flip through pages you've visited recently, or to Saved to skim everything you've added to the sidebar.
+The History, Saved, Spaces, Folders, and Settings scopes show items even with an empty search query, so you can browse without typing. Switch to History to flip through pages you've visited recently, or to Saved to skim everything you've added to the sidebar.
 
 Saved-link search spans every Space, not just the one you're currently in. You can find a link you filed in any Space without switching to it first, so you never have to remember where you put something to get back to it.
 
@@ -121,19 +145,19 @@ The Command Panel remembers your past search queries. When you start typing, mat
 
 ### Manage suggestions
 
-Open the item options menu (the ⋯ button on a result row) to clean up what shows up in the Command Panel:
+Press `Opt Return` on a result to clean up what shows up in the Command Panel.
 
 - **Remove from suggestions** - Drops an old search query or recent link from future suggestions
-- **Delete saved link** - Removes a saved link from your sidebar
+- **Delete** - Removes a saved link from your sidebar
 - **Reset ranking** - Clears the item's learned query choices and usage ranking signals
 
 ### Remembered choices
 
-Explicitly opening a matching result can help it rank for the same or a closely related query later. Highlighting a row does not teach a choice. In **Recent**, visit time still decides the order within each match-quality group. Incognito Mode pauses query-choice learning.
+Explicitly opening a matching result can help it rank for the same or a closely related query later. Highlighting a row does not teach a choice. In **History**, visit time still decides the order within each match-quality group. Incognito Mode pauses query-choice learning.
 
 ## Frequent items
 
-Open the panel with an empty query to browse useful pages in their result groups. Frequently opened saved links receive a ranking boost for short queries, helping you get back to them with less typing.
+Open the panel with an empty query to see your open tabs and recent pages. Frequently opened saved links receive a ranking boost for short queries, helping you get back to them with less typing.
 
 ## Actions panel
 
@@ -168,7 +192,7 @@ When you open the Command Panel with a URL on your clipboard, a "Paste and Go" r
 
 ## Toggle settings
 
-Search for a preference in **All**, or type `/settings` and press `Return` to use the Settings scope. Select a result to open the matching setting; supported actions can toggle a preference directly. Try “Permission Status”, “Privacy & Browsers”, “Automation”, “Accessibility”, or “learning tips”. You can also [search inside Preferences](/howTo/searchSettings).
+Search for a preference in **All**, or type `/settings` and press `Return` to use the Settings scope. Select a result to open the matching setting; supported actions can toggle a preference directly. Try “Permission Status”, “Your browsers”, “Browser keys”, “Automation”, “Accessibility”, or “learning tips”. You can also [search inside Preferences](/howTo/searchSettings).
 
 Useful entries to know about:
 
@@ -180,13 +204,17 @@ Useful entries to know about:
 
 When the URL you're about to open matches a strong pattern (you've consistently opened the same domain in the same browser, for example), the Command Panel shows a one-click row that creates an [Air Traffic Control](/features/airTrafficControl) open route and opens the link in the suggested browser at the same time. You can decline the suggestion and just open the link as usual.
 
-Control these prompts in **Preferences → Air Traffic Control** using **Show Route Suggestions**.
+Control these prompts in **Preferences → Browsers → Air Traffic Control** using **Show Route Suggestions**.
 
 ## Draggable positioning
 
 Drag the Command Panel anywhere on screen. It magnetically snaps to center with visual guide lines when you drag near the default position. Release near center to reset, or drop anywhere else to save that position across sessions.
 
-The Command Panel uses a frosted glass design that blends with your desktop while keeping content readable.
+## Command Panel in your Space color
+
+The Command Panel takes the color of your current Space. In light mode the panel is white and the selected row is filled with the Space color. In dark mode the panel is tinted with the Space color and the selected row is white.
+
+Turn off **Tint with Space color** in **Preferences → Command Panel → Appearance** to keep the panel neutral, the way it looks in a Space without a color.
 
 ## Live tab switching
 
@@ -202,9 +230,11 @@ SupaSidebar can also be controlled by AI assistants via the Model Context Protoc
 
 ## Web search
 
-1. Open **Preferences - Command Panel**
-2. Enable **Web search suggestions**
-3. Choose your engine (Google, DuckDuckGo, Bing, Yahoo, Perplexity)
+1. Open **Preferences → Command Panel → Link Opening**
+2. Turn on **Show Web Suggestions**
+3. Choose your engine under **Search Engine** (Google, DuckDuckGo, Bing, Yahoo, Perplexity)
+
+Up to 2 web suggestions and past searches appear among your other results, like in Arc.
 
 Press `Shift Return` to search the web directly with your current query, from any row.
 
@@ -214,13 +244,14 @@ Press `Cmd Return` to open the selected result in [SupaView](/features/linkPrevi
 
 If you used SupaSidebar before this was added, `Cmd Return` still searches the web and `Shift Return` opens SupaView. Swap the two in **Preferences → Command Panel → Shortcuts**. To open SupaView from Raycast, Alfred or Spotlight, see [SupaView from anywhere](/howTo/peekFromAnywhere).
 
-Web suggestions sit in a separate expandable section below your local results. They open automatically when there is room. Click **Web suggestions** or press `Opt Tab` to expand or collapse the section yourself.
+Before 1.7.0, web suggestions sat in a separate section that `Opt Tab` expanded or collapsed. They now sit among your results, and `Opt Tab` does nothing in the Command Panel.
 
 ![Command Panel Settings](/assets/command%20panel%20settings.jpeg)
 
 ## Tips
 
-- Use `Tab` and `Shift Tab` to move between the visible scopes, or `/` to find one by name.
+- Type `hist` and press `Tab` to search your history, or use `Tab` and `Shift Tab` to move between scopes, or `/` to find one by name.
+- Press `Down` on a result to edit its address before you open it, like in Chrome.
 - The Settings scope lets you toggle preferences without leaving what you're doing.
 - Drag the panel to a comfortable position - it remembers where you left it.
 - See [Shortcuts](/features/shortcuts) for the complete keyboard shortcut reference.

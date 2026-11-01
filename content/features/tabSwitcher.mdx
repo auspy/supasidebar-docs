@@ -5,14 +5,14 @@ description: "Tap Ctrl Tab to go back to your last browser tab, or hold Ctrl to 
 
 import { Callout } from 'nextra/components'
 
-{/* Keep in sync with: swiftapp/supasidebar/Managers/TabSwitcherShortcuts.swift (keys, browsers-only scope), swiftapp/supasidebar/Managers/TabSwitcher.swift (5 tabs, tap and hold), swiftapp/supasidebar/Models/TabSwitcherStyle.swift (layout names and lines) and swiftapp/supasidebar/Views/Preferences/TabSwitcherPreferencesView.swift (the pane) */}
+{/* Keep in sync with: swiftapp/supasidebar/Managers/TabSwitcherShortcuts.swift (keys, browsers-only scope), swiftapp/supasidebar/Managers/TabSwitcher.swift (5 tabs, tap and hold), swiftapp/supasidebar/Models/TabSwitcherStyle.swift (layout names and lines) and swiftapp/supasidebar/Views/Preferences/BrowserKeysPreferencesView.swift plus Views/Preferences/Components/TabSwitcherLayoutPicker.swift (its switch, shortcut and layout on Browsers › Browser keys since 1.7.0) */}
 
 # Tab Switcher
 
 Tab Switcher lets you switch browser tabs the way `Cmd Tab` switches apps. Tap `Ctrl Tab` to go back to the tab you were on before, or hold `Ctrl` to pick from your 5 most recent tabs. It works across every browser you have open, like Arc's tab switcher.
 
 <Callout type="info">
-A Labs feature, new in SupaSidebar 1.6.0 and part of Pro. Turn on **Tab Switcher** in **Preferences → Labs** first. Without Pro, you can use it free for 30 days from the day you turn it on. See [Labs](/features/labs).
+A Labs feature, new in SupaSidebar 1.6.0 and part of Pro. Turn on **Tab Switcher** in **Preferences → Labs**, or the `Ctrl Tab` switch in **Preferences → Browsers → Browser keys**. Both are the same switch. Without Pro, you can use it free for 30 days from the day you turn it on. See [Labs](/features/labs).
 </Callout>
 
 ## How Tab Switcher works
@@ -30,11 +30,11 @@ Tab Switcher reads the same tab history as [Live Tabs](/features/liveTabs) and t
 
 Tab Switcher only listens while a browser is the app in front. In Terminal, VS Code, Slack and every other app, `Ctrl Tab` keeps doing what it always did.
 
-Inside a browser, `Ctrl Tab` opens Tab Switcher instead of the browser's next tab, like it does in Arc. Browsers you blocked in [Privacy & Browsers](/features/privacyBlocklist) count as other apps, so they keep their own `Ctrl Tab`.
+Inside a browser, `Ctrl Tab` opens Tab Switcher instead of the browser's next tab, like it does in Arc. Browsers with **Use** unticked in [Your browsers](/features/privacyBlocklist) count as other apps, so they keep their own `Ctrl Tab`.
 
 ## Choosing a layout
 
-Open **Preferences → Tab Switcher** and click a layout. Each one shows a small drawing of how it looks.
+Open **Preferences → Browsers → Browser keys** and click a layout under **Layout**. Each one shows a small drawing of how it looks. The layouts and the shortcut show there only while Tab Switcher is on. Before 1.7.0 they had their own **Tab Switcher** page in Preferences.
 
 | Layout | What it shows |
 |--------|---------------|
@@ -46,7 +46,7 @@ The pictures are each page's preview image, the one a site shows when you share 
 
 ## Changing the shortcut
 
-In **Preferences → Tab Switcher → Shortcut**, click the shortcut and press a new one. The rest follows your new keys.
+In **Preferences → Browsers → Browser keys**, click the shortcut under the `Ctrl Tab` row and press a new one. The rest follows your new keys.
 
 - **Moving up the list** - your shortcut plus `Shift`. A shortcut that already uses `Shift` has no move-up key.
 - **Closing without switching** - your shortcut's modifier keys plus `Esc`.
@@ -73,12 +73,13 @@ Without Pro, Tab Switcher turns off when its free month ends. `Ctrl Tab` goes ba
 
 | Issue | Solution |
 |-------|----------|
-| `Ctrl Tab` goes to the browser's next tab | Turn on **Tab Switcher** in **Preferences → Labs**. If the card says **Free month ended**, upgrade to Pro to keep using it |
+| `Ctrl Tab` goes to the browser's next tab | Turn on **Tab Switcher** in **Preferences → Labs** or **Preferences → Browsers → Browser keys**. If the card says **Free month ended**, upgrade to Pro to keep using it |
 | A tab is missing from the list | Tab Switcher lists only open tabs you've visited since SupaSidebar started. Visit the tab once and it appears |
-| Nothing happens in one browser | Check that the browser isn't blocked in **Preferences → Privacy & Browsers** and that [Live Tabs](/features/liveTabs) shows its tabs |
+| Nothing happens in one browser | Check that **Use** is ticked for the browser in **Preferences → Browsers → Your browsers** and that [Live Tabs](/features/liveTabs) shows its tabs |
 
 ## Learn more
 
 - [Live Tabs](/features/liveTabs) - See and switch your open browser tabs from the sidebar
 - [Labs](/features/labs) - Try new SupaSidebar features early
+- [Browser keys](/features/commandPanel#browser-keys) - Turn `Cmd T`, `Cmd N`, `Cmd L` and `Ctrl Tab` on one at a time
 - [Keyboard shortcuts](/features/shortcuts) - Every SupaSidebar shortcut in one place

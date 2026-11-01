@@ -20,9 +20,11 @@ Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules
 
 ## Setup
 
-1. Open **Preferences → Air Traffic Control**
+1. Open **Preferences → Browsers → Air Traffic Control**
 2. Toggle **Enable Air Traffic Control**
 3. Click **Add Route** to create your first rule
+
+The page starts with **Default Browser**, where links go when no route takes them. In SupaSidebar 1.7.0 and later, **SupaSidebar Default Browser** lives here instead of in **Preferences → General**.
 
 ## Creating a Rule
 
@@ -54,14 +56,14 @@ A live preview at the bottom of the editor shows exactly what the rule will do a
 
 An empty URL pattern means **All URLs** for either match type. Any selected source browser or space still limits the rule. Put an all-URLs rule below more specific rules when you want it to act as a fallback.
 
-Open routes always show their source space, **All Spaces**, or **Missing space**. An all-URLs Open route needs a space. With **All Spaces** selected it won't run, its row shows **Needs a space**, and the editor won't save it. To open every link in one browser, set **SupaSidebar Default Browser** in **Preferences → General** instead. A rule pointing to a missing space must be reassigned before it can be saved; importing a rule whose source space cannot be found preserves that restriction and disables the rule.
+Open routes always show their source space, **All Spaces**, or **Missing space**. An all-URLs Open route needs a space. With **All Spaces** selected it won't run, its row shows **Needs a space**, and the editor won't save it. To open every link in one browser, set **SupaSidebar Default Browser** in **Preferences → Browsers → Air Traffic Control → Default Browser** instead. A rule pointing to a missing space must be reassigned before it can be saved; importing a rule whose source space cannot be found preserves that restriction and disables the rule.
 
 ## Smart Suggestions
 
 Air Traffic Control watches what you open from the sidebar and suggests new rules based on patterns it sees, so you don't have to invent every rule from scratch.
 
 - **From the Command Panel** - When the URL you're about to open matches a strong pattern (e.g. you've opened the same domain in the same browser repeatedly), the Command Panel offers a one-click row to create the rule and open the link in the suggested browser at the same time.
-- **From Preferences** - Open **Preferences - Air Traffic Control** to see suggestions based on your recent open history. Click a suggestion to convert it into a regular rule that you can then edit or reorder like any other.
+- **From Preferences** - Open **Preferences - Browsers - Air Traffic Control** to see suggestions based on your recent open history. Click a suggestion to convert it into a regular rule that you can then edit or reorder like any other.
 
 Suggestions stay out of the way until they're confident. You can ignore them and your existing rules keep working unchanged.
 
@@ -80,7 +82,7 @@ The connection supplies a default Open route. It also scopes Live Tabs to that b
 
 Turning off Air Traffic Control or disabling the linked-space Open route stops that route from choosing a destination. The connection and its tab filter remain.
 
-If you only want to change where links open, keep using a per-space Open route in **Preferences → Air Traffic Control**. That route does not need to change which Live Tabs appear.
+If you only want to change where links open, keep using a per-space Open route in **Preferences → Browsers → Air Traffic Control**. That route does not need to change which Live Tabs appear.
 
 For links without an explicit **Preferred Browser**, Open routes are checked in their displayed order. A matching route above the linked-space default takes priority. A one-time **Open With** choice overrides both. See [Browser Selection](/howTo/browserSelection#priority-order) for the full order.
 
@@ -103,7 +105,7 @@ An explicit per-link Preferred Browser takes precedence over ATC. If both apply 
 
 ## Route suggestions
 
-SupaSidebar can suggest routes based on how you open links. Turn **Show Route Suggestions** on or off in **Preferences → Air Traffic Control**. This controls suggestions in Preferences, the Command Panel, and browser pickers; turning suggestions off leaves your existing rules in place.
+SupaSidebar can suggest routes based on how you open links. Turn **Show Route Suggestions** on or off in **Preferences → Browsers → Air Traffic Control**. This controls suggestions in Preferences, the Command Panel, and browser pickers; turning suggestions off leaves your existing rules in place.
 
 ## Examples
 
