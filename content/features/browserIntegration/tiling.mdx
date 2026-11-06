@@ -4,15 +4,30 @@ Automatically arrange browser windows as equal-width columns alongside the sideb
 
 ## Overview
 
-Window Tiling turns your screen into an organized workspace. When you open the sidebar and there are 2-3 browser windows on screen, SupaSidebar automatically arranges them as equal-width columns in the remaining space. The sidebar takes its position at the edge, and the browser windows fill the rest  - no manual dragging or resizing needed.
+Window Tiling turns your screen into an organized workspace. When you open the sidebar, SupaSidebar arranges up to 4 browser windows on that screen as equal-width columns in the remaining space. The sidebar docks at the screen edge, and the browser windows fill the rest. No manual dragging or resizing needed.
+
+## Setup
+
+1. Open **Preferences → Sidebar**
+2. In **Browser Integration**, set **When Sidebar Opens** to **Auto-Tile Browser Windows (max 4)**
+3. Choose what should happen under **When Sidebar Hides**. See [When the Sidebar Hides](#when-the-sidebar-hides)
+4. Grant [Accessibility permission](/gettingStarted/permissions#accessibility) when prompted
+
+Tiling works with both **Smart Attach** and **Independent** integration. If **Draggable Sidebar** is on and you have moved the sidebar away from the screen edge, tiling is skipped, because the columns need the sidebar at the edge.
+
+To switch tiling on and off without opening Preferences, record a shortcut for **Toggle Auto-Tile on Open** in **Preferences → Shortcuts**. It has no default shortcut.
+
+Older versions had separate **Smart** and **All Windows** tiling modes. Both were replaced by the single **Auto-Tile Browser Windows (max 4)** option, which tiles every eligible browser window on the screen.
 
 ## How the Layout Works
 
-The sidebar docks to the screen edge (left or right, based on your preference). The remaining screen space is divided equally among the browser windows.
+The sidebar docks to the screen edge (left or right, based on your preference). The remaining width is divided equally among the browser windows. Windows keep their left-to-right order, so the window that was on the left stays on the left.
+
+A window counts as on the screen when at least 20% of it is on that display.
 
 ### With 2 Windows
 
-The screen is split into three sections:
+The screen splits into three sections.
 
 ```
 ┌──────────┬──────────────────┬──────────────────┐
@@ -38,106 +53,104 @@ Each browser window gets half of the remaining space.
 
 Each browser window gets one-third of the remaining space.
 
-### With 1 Window or 4+ Windows
+### With 4 Windows
 
-Tiling does not activate. The sidebar uses normal attach behavior  - it positions next to the frontmost browser window and only adjusts that single window if it overlaps.
+```
+┌──────────┬─────────┬─────────┬─────────┬─────────┐
+│          │         │         │         │         │
+│ Sidebar  │Browser 1│Browser 2│Browser 3│Browser 4│
+│          │         │         │         │         │
+│          │         │         │         │         │
+└──────────┴─────────┴─────────┴─────────┴─────────┘
+```
 
-SupaSidebar also checks your screen width. If the available space can't fit each window at a minimum usable width (500px per column), tiling won't activate even with 2-3 windows.
+Each browser window gets one-quarter of the remaining space. Four columns need a wide screen, see [Screen Width Limit](#screen-width-limit).
 
-## Setup
+### With 1 Window
 
-1. Open **Preferences → Sidebar → Browser Integration**
-2. Set **Browser Integration** to **Smart Attach**
-3. Find the **Auto-Tile Windows** setting and choose a mode
+The single browser window resizes to fill all the space beside the sidebar, the same result as [Fill Screen](/features/browserIntegration/fillScreen).
 
-## Tiling Modes
+### With 5 or More Windows
 
-### Off
+SupaSidebar tiles 4 of them. Windows from the browser you are using come first. The other windows stay where they are.
 
-No automatic tiling. The sidebar attaches to your frontmost browser window normally.
+### Screen Width Limit
 
-### Smart
+Each column needs at least 500px. On a narrower screen, SupaSidebar tiles fewer windows so every column stays usable. The table below assumes the default sidebar width.
 
-Profile-aware tiling that adapts to your workspace:
+| Screen width | Columns |
+|--------------|---------|
+| About 1,500px (most MacBooks) | **2** |
+| 1,920px | **3** |
+| 2,560px or wider | **4** |
 
-- **In a profile space**  - only that profile's browser windows are tiled. If you have two Chrome windows open for your "Work" profile, those two get tiled. Other browser windows from different profiles or browsers are left exactly where they are.
-- **In a non-profile space**  - all browser windows on the current screen are tiled, regardless of which browser or profile they belong to.
-- **Fallback**  - if you're in a profile space but none of that profile's windows are on the current screen, it falls back to tiling all browser windows.
-
-This is the recommended mode if you use [Browser Profiles](/features/profileSpaces).
-
-### All Windows
-
-Always tiles every browser window on the current screen, regardless of profile. Use this if you don't use profile spaces or want consistent behavior everywhere.
+A wider sidebar leaves less room, so you may get one column fewer.
 
 ## When Tiling Activates
 
-Tiling happens automatically whenever you open the sidebar. It doesn't matter how you open it:
+Tiling runs when you open the sidebar in one of these ways.
 
-- **Keyboard shortcut**  - press your configured sidebar shortcut
-- **Mouse trigger**  - hover or click your trigger zone at the screen edge
-- **Auto-show**  - switch from a non-browser app to a browser window, and the sidebar appears with windows already tiled
-- **Floating button**  - click the floating sidebar button
+- **Keyboard shortcut** - press your configured sidebar shortcut
+- **Menu bar icon** - click the SupaSidebar icon in the menu bar
+- **Floating button** - click the floating sidebar button
+- **Auto-show** - switch from a non-browser app to a browser window, and the sidebar appears with windows already tiled
+- **Switching Spaces** - when the sidebar comes with you to another Space, the browser windows there are tiled
 
-The key requirement is simple: **2-3 browser windows must be on the current screen**. If that condition is met when the sidebar opens, tiling activates.
+Tiling does not run in two cases.
+
+- **A mouse trigger opens the sidebar** - hovering the screen edge never rearranges your windows
+- **You are in a full-screen or Split View space** - macOS controls that layout
+
+Tiling happens once, when the sidebar opens. Switching browsers, changing focus or opening a new window while the sidebar is open does not re-tile.
 
 ### What Happens Step by Step
 
-1. You trigger the sidebar to open
-2. SupaSidebar detects browser windows on the current screen
-3. If 2-3 eligible windows are found, the sidebar moves to the screen edge
-4. The browser windows are resized and positioned as equal columns
+1. You open the sidebar
+2. SupaSidebar finds the browser windows on the current screen
+3. The sidebar moves to the screen edge
+4. Up to 4 browser windows are resized and positioned as equal columns
 5. All tiled windows are brought to the front so they're visible
 
-This all happens instantly  - there's no delay or animation on the browser windows.
+Most browsers snap into place instantly. Firefox and Zen settle into their new size over about a second. See [Browser Integration](/features/browserIntegration) for why.
 
 ## While Tiling Is Active
 
-Once windows are tiled, the layout stays stable:
+Once windows are tiled, the layout stays stable.
 
-- **Switching focus between tiled windows**  - click any of the tiled windows and it comes to focus. The layout doesn't change; windows stay in their positions.
-- **The sidebar stays docked**  - it remains at the screen edge rather than following a specific browser window.
-- **Window order is preserved**  - windows maintain their left-to-right positions. The window that was on the left stays on the left, even if you click the one on the right.
+- **Switching focus between tiled windows** - click any tiled window and it comes to focus. The layout doesn't change, and windows stay in their positions.
+- **The sidebar stays docked** - it remains at the screen edge rather than following a specific browser window.
 
 ## When Tiling Breaks
 
-Tiling is designed to get out of your way when you want to do something different:
-
-- **Drag a tiled window**  - if you move a tiled window away from its tiled position, the tiling layout breaks. The sidebar switches back to normal attach mode and follows whichever window you're using.
-- **Click a non-tiled window**  - if you click a browser window that isn't part of the tiled layout (for example, a window from a different profile), the tiling breaks and the sidebar attaches to that window instead.
-- **Close the sidebar**  - when the sidebar hides, windows expand to fill the full screen by default. See [Sidebar Panel  - Behavior](/features/sidebar#behavior) for options.
+- **Drag a tiled window** - if you move a tiled window, the tiling layout ends. The sidebar switches back to normal attach behavior and follows the window you're using.
+- **Close the sidebar** - what happens next depends on **When Sidebar Hides**. See below.
 
 To re-tile, simply open the sidebar again.
 
-## Profile-Aware Tiling in Detail
+## When the Sidebar Hides
 
-When using **Smart** mode with [Browser Profiles](/features/profileSpaces), tiling becomes context-aware:
+Set this in **Preferences → Sidebar → Browser Integration → When Sidebar Hides**. Each option treats tiled windows differently.
 
-### Example: Work and Personal Profiles
+| Option | Tiled windows when the sidebar hides |
+|--------|--------------------------------------|
+| **Restore Browser Position** (default) | Return to their size and position from before tiling |
+| **Expand Browser to Fill Screen** | Re-tile across the full screen width |
+| **Leave Browser As-Is** | Stay in their tiled columns |
 
-Imagine you have two macOS spaces:
-- **Space 1** is linked to your "Work" Chrome profile
-- **Space 2** is linked to your "Personal" Chrome profile
+See [Sidebar Panel - Behavior](/features/sidebar#behavior) for details.
 
-On Space 1, you have two "Work" profile windows open. When you open the sidebar:
-- Only the two "Work" windows are tiled
-- Any "Personal" windows that happen to be visible are left alone
-- The sidebar tiles specifically with your work context
+## Browser Profiles
 
-Switch to Space 2, and the same logic applies  - only "Personal" windows tile.
-
-### Mixed Browsers
-
-Smart mode works across browsers too. If your profile space is linked to a Chrome profile but you also have a Safari window open, the Safari window won't be included in the tiling  - only Chrome windows matching the profile are tiled.
+Tiling includes every eligible browser window on the screen, from any browser or profile. Spaces linked to [Browser Profiles](/features/profileSpaces) do not limit which windows are tiled.
 
 ### Close Tabs on Space Change
 
-If you have **Close and reopen tabs on space change** enabled (in **Preferences → Spaces → Switching spaces → Advanced**), the outgoing profile's browser windows are closed when you switch spaces. This means when you switch back, the browser re-launches with a single window  - not enough for tiling to activate.
+If you have **Close and reopen tabs on space change** enabled (in **Preferences → Spaces → Switching spaces → Advanced**), the outgoing profile's browser windows are closed when you switch spaces. When you switch back, the browser re-launches with a single window, so you get one full-width window instead of columns.
 
-To use tiling with profile space switching, keep this setting off. Your profile windows will stay open in the background and tile immediately when you return to that space.
+To keep several windows tiled while switching profile spaces, keep this setting off. Your profile windows stay open in the background and tile when you return to that space.
 
 ## Tips
 
-- **Best on wide screens**  - tiling shines on large or ultrawide monitors where there's enough space for the sidebar plus two or more comfortable browser columns.
-- **When Sidebar Hides**  - by default, tiled windows expand to fill the full screen when the sidebar hides. You can change this in **Preferences → Sidebar → Browser Integration → When Sidebar Hides**. See [Sidebar Panel  - Behavior](/features/sidebar#behavior) for details.
-- **Use with auto-show**  - if you enable auto-show (sidebar appears when you switch to a browser), your workspace tiles automatically every time you switch to your browser from another app. This creates a seamless workflow where your browser windows are always organized when you're browsing.
+- **Best on wide screens** - tiling shines on large or ultrawide monitors where there's enough space for the sidebar plus three or four comfortable browser columns.
+- **Use with auto-show** - if you enable auto-show (sidebar appears when you switch to a browser), your windows tile every time you switch to your browser from another app.
+- **Expand on hide** - pick **Expand Browser to Fill Screen** under **When Sidebar Hides** if you want your columns to use the full screen width once the sidebar closes.
