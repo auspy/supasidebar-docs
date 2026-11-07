@@ -1,6 +1,6 @@
 ---
 title: "Some browser profiles are missing"
-description: "Fix Chrome, Brave, or Edge profiles that don't show up in SupaSidebar's profile picker, with a one-line diagnostic to confirm the cause."
+description: "Fix Chrome, Brave, Edge, or Firefox profiles that don't show up in SupaSidebar's profile picker, including macOS 27 blocking the profile list, with a one-line diagnostic to confirm the cause."
 ---
 
 # Some browser profiles are missing
@@ -18,6 +18,23 @@ A profile is usually missing for one of these reasons:
 - The profile was **created but never fully opened**, so the browser hasn't registered it yet.
 - SupaSidebar **scanned before the profile existed** and hasn't re-scanned since.
 - The browser stores its data in a **non-standard location** (managed-device or portable installs that use a custom `--user-data-dir`).
+- You're on **macOS 27**, which blocks other apps from reading the browser's profile list. See [macOS 27 blocks the profile list](#macos-27-blocks-the-profile-list).
+
+## macOS 27 blocks the profile list
+
+{/* Keep in sync with: swiftapp/supasidebar/Utils/BrowserDataAccess.swift (helpURL anchor) and Views/Components/ProfilePickerNotices.swift (card wording) */}
+
+On macOS 27, SupaSidebar may show Chrome, Brave, Edge, or Firefox only as the whole browser, with none of its profiles. macOS 27 stops other apps from reading these browsers' data folders and doesn't ask first. In the 1.8 beta, the profile picker shows a **profiles blocked** card above the browser list when this happens.
+
+Turn access back on in System Settings.
+
+1. Open **System Settings → Privacy & Security → Files & Folders**. The card's **Open Settings** button opens this page.
+2. Find **SupaSidebar** and turn on the browser listed under it, for example **Google Chrome**.
+3. Back in SupaSidebar, click **Check again** on the card, or **Refresh Profiles** in the profile picker.
+
+If the browser isn't listed under SupaSidebar, turn on **System Settings → Privacy & Security → Full Disk Access → SupaSidebar** instead. Then quit and reopen SupaSidebar and refresh the profiles.
+
+> SupaSidebar keeps showing the profiles it found before macOS blocked access. New profiles appear once access is back.
 
 ## Diagnostic: see exactly what the browser reports
 
