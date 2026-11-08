@@ -1,0 +1,67 @@
+---
+title: "Notifications - Confirmations, Undo and Share in SupaSidebar"
+description: "SupaSidebar shows short notices when you save, copy, close or delete. Choose their corner, mute each kind, share a copied link, and undo deletes."
+---
+
+# Notifications
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/NotificationCategory.swift (kinds and their names), swiftapp/supasidebar/Views/Components/DropdownNotificationView.swift (how long each stays) and swiftapp/supasidebar/Models/NotificationToastPosition.swift (corners, default) */}
+
+SupaSidebar shows a short notice when something happens that you can't see right away, like a page saved to your sidebar, a link copied, or tabs closed. Each notice says what happened and, where it helps, offers a button such as **Undo** or **Share**.
+
+## How notices look and leave
+
+A notice is a small card in your current Space's color. A ring around its icon empties as the notice counts down, and it stops while your pointer is over the card, so you have time to read it or click a button. While SupaSidebar is still working, like copying a page's address or closing tabs, the ring spins, then the same card changes to the result.
+
+| Notice | Stays for |
+|--------|-----------|
+| Errors and warnings | 6 seconds |
+| Notices with **Undo** or **Try again**, like **Folder Removed** | 10 seconds |
+| **URL Copied** | 4 seconds |
+| **Opening Pin** | 2 seconds |
+| Everything else | 3 seconds |
+
+A newer notice replaces the one on screen instead of stacking.
+
+## Choose the corner
+
+Notices appear in the top left of your screen. To move them, open **Preferences → General → Notifications** and set **Position** to **Top Right**. Picking a corner shows a sample notice there.
+
+## Share a copied link
+
+After you copy a page's address with `Cmd Shift C`, the **URL Copied** notice has a **Share** button. Click it to send the link through the macOS share menu, to Messages, Mail, AirDrop or any app that accepts links. The notice stays open while the share menu is up.
+
+## Undo a deleted folder or link
+
+Deleting a folder moves its links, including the ones in its subfolders, to the [Trash](/features/trash). The **Folder Removed** notice offers **Undo**, which brings back the folders and every link in them. Deleting a single link works the same way with **Link Removed**.
+
+## Mute a kind of notice
+
+Each kind of notice has its own switch in **Preferences → General → Notifications**.
+
+| Switch | Notices it controls |
+|--------|---------------------|
+| **Save Page** | **Page Saved** after `Cmd Shift S` |
+| **Copy URL** | **URL Copied** after `Cmd Shift C` |
+| **Open Pin** | **Opening Pin** after `Opt 1` to `Opt 9` |
+| **Save All Tabs** | Tabs saved to a Space |
+| **Close Tabs in All Browsers** | **Closing Tabs** and **Tabs Closed** |
+| **Add from Finder** | Files or folders added from Finder |
+| **Paste Link** | **Link Added** after pasting a URL into the sidebar |
+| **Link Removed** | The **Undo** notice after deleting a link or folder |
+
+Error notices always appear and can't be muted, because they tell you what to fix.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| A notice disappears before you can read it | Move your pointer over it. The countdown stops until you move away |
+| No notice after copying or saving | Check that its switch is on in **Preferences → General → Notifications** |
+| Notices cover something you need | Set **Position** to the other corner |
+
+## Tips
+
+- Search Preferences for `toast` or `corner` to jump straight to these settings. See [Search settings](/howTo/searchSettings).
+- [Close tabs in bulk](/features/liveTabs/bulkClose) from Live Tabs, and the **Tabs Closed** notice confirms how many closed.
+- See [Shortcuts](/features/shortcuts) for `Cmd Shift S`, `Cmd Shift C` and the other keys that show a notice.

@@ -23,6 +23,7 @@ export default {
   linkPreview: 'SupaView',
   labs: 'Labs',
   shortcuts: 'Shortcuts',
+  notifications: 'Notifications',
   privacyBlocklist: 'Your Browsers',
   incognitoMode: 'Incognito Mode',
   mcp: 'MCP',

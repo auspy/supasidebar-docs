@@ -1,6 +1,6 @@
 ---
 title: "Command Panel - Search, navigate, and control SupaSidebar"
-description: "Find live tabs, saved links, and history from one panel. Tab into a scope or site, edit an address, choose a browser, and search the web."
+description: "Find live tabs, saved links, and history from one panel. Do quick sums, get back to your usual pages, see where a result opens, and search the web."
 ---
 
 # Command Panel
@@ -9,9 +9,9 @@ Find an open tab, a saved link, or a page from your history in one panel. Press 
 
 The Command Panel is a keyboard launcher for your Mac. One shortcut searches open tabs in every browser, saved links and files, your browser history, and SupaSidebar settings, so you can jump to any tab, bookmark or file without touching the mouse. With [browser keys](#browser-keys) on, `Cmd T` in Safari, Chrome, Firefox or any other supported browser opens it, like the command bar in Arc.
 
-Each result is one line with its icon, title and site, and six results fit at a time. A page that is open, saved and in your history shows as one row, and the right side of the row says where it is, such as **Open**, **Saved**, or when you last visited it, next to the browser's logo. Typing a site's name shows one row for that site, and repeated visits to the same page show once.
+Each result is one line with its icon, title and site, and six results fit at a time. A page that is open, saved and in your history shows as one row. The right side of the row shows when you last visited it, a pin for pinned pages and a bookmark for saved ones. An open tab ends with a key showing its browser's logo, then `→` to switch to it or `↗` to open it in a new tab. The browser logo alone shows only in **History**. Typing a site's name shows one row for that site, and repeated visits to the same page show once.
 
-The footer shows the keys for the selected row. `Return` opens it, or switches to it when it's an open tab. `Cmd Return` opens it in [SupaView](/features/linkPreview), and `Opt Return` lets you choose another browser or profile. `Ctrl Return` opens [Ask AI](/features/askAI), and `Shift Return` searches the web.
+The footer shows the keys for the selected row. `Return` opens it, or switches to it when it's an open tab. `Cmd Return` opens it in [SupaView](/features/linkPreview), and `Opt Return` lets you [choose another browser or profile](#choose-where-a-result-opens). `Ctrl Return` opens [Ask AI](/features/askAI), and `Shift Return` searches the web.
 
 {/* ![Fuzzy match](/assets/fuzzy%20match.jpeg) */}
 
@@ -30,13 +30,13 @@ Press `Cmd Ctrl K` from anywhere.
 
 {/* Keep in sync with: swiftapp/supasidebar/Models/BrowserKey.swift (keys, canSteerActiveTab browsers that keep Cmd L), swiftapp/supasidebar/Models/BrowserKey+Settings.swift (row titles) and swiftapp/supasidebar/Managers/CommandPanelOpenTarget.swift (where a pick opens) */}
 
-Browser keys let `Cmd T`, `Cmd N` and `Cmd L` open the Command Panel while a browser is in front, without changing your global shortcut. Turn each one on by itself in **Preferences → Browsers → Browser keys**. Every other app keeps these keys, and so do browsers with **Use** unticked in [Your browsers](/features/privacyBlocklist).
+Browser keys let `Cmd T`, `Cmd N` and `Cmd L` open the Command Panel while a browser is in front, without changing your global shortcut. Turn each one on by itself in **Preferences → Browsers → Browser keys**. Every other app keeps these keys, and so do browsers you block in [Your browsers](/features/privacyBlocklist).
 
 | Key | Setting | What it does |
 |-----|---------|--------------|
 | `Cmd T` | **New tab** | Opens the Command Panel instead of an empty tab. What you pick opens in a new tab |
 | `Cmd N` | **New window** | Opens the Command Panel. Pages and searches you pick open in a new window |
-| `Cmd L` | **Address bar** | Opens the Command Panel with the page's address. Edit it and press `Return` to load it in the same tab |
+| `Cmd L` | **Address bar** | Opens the Command Panel with the page's address already in the field. Edit it and press `Return` to load it in the same tab. Every pick loads in this tab, so open tabs aren't listed |
 | `Ctrl Tab` | **Last tab** | Turns on [Tab Switcher](/features/tabSwitcher), a Labs feature |
 
 After `Cmd N`, the new window opens in the browser the pick would use anyway, such as the browser in front, the Space's linked browser or an [Air Traffic Control](/features/airTrafficControl) rule. Picking an open tab switches to it without a new window. Before 1.7.0, `Cmd N` picks opened like any other pick.
@@ -69,13 +69,14 @@ In the **compact sidebar**, the top bar has a magnifying-glass button that opens
 | `Cmd Ctrl K` | Open panel |
 | `Up` `Down` | Navigate results. `Down` also puts the selected result's address in the search field, ready to edit |
 | `Return` | Open the selected result or switch to its open tab |
-| `Opt Return` | Open With: choose a browser or profile, or another item action |
+| `Opt Return` | Open With. Choose a browser or profile, or another item action |
+| Hold `Opt` | Show up to 4 numbered places for the selected row. `Opt 1` to `Opt 4` opens it there |
 | `Tab` / `Shift Tab` | Next / previous scope. After a word like `hist` or `reddit`, `Tab` enters that scope or site |
 | `/` | Open the scope picker |
 | `Ctrl Return` | [Ask AI](/features/askAI) |
 | `Cmd Return` | Open the selected result in [SupaView](/features/linkPreview) |
 | `Shift Return` | Search the web directly |
-| `Escape` | Close panel |
+| `Escape` | Close panel, or go back to **All** from a site or scope |
 
 ## What you can search
 
@@ -97,6 +98,8 @@ The scope bar stays hidden while you search **All**. Press `Tab` with an empty f
 {/* Keep in sync with: swiftapp/supasidebar/Models/CommandPanelTabTarget.swift (one word, 2+ letters) and swiftapp/supasidebar/Views/Components/CommandPanelScope.swift (scopeKeywords) */}
 
 Type one word that starts a scope or site name and press `Tab`. `hist` enters **History**, `tabs` enters **Live tabs**, and `reddit` or `youtube` starts a search on that site. The word clears so you can type your query, and a hint at the right end of the field shows where `Tab` goes before you press it. Site words come from your [Search Shortcuts](/features/commandPanel/searchShortcuts).
+
+Inside a site or scope, the same spot reads **Back to All Esc** while the field is empty. Press `Escape` to return to **All**. Once you type, `Escape` clears your text first.
 
 For more scopes, type `/` to open the picker, then part of a scope name or website keyword. Press `Space` or `Return` to select the match. Selecting a website preserves your existing search query; closing the picker with `Escape` restores your previous search.
 
@@ -155,15 +158,35 @@ Press `Opt Return` on a result to clean up what shows up in the Command Panel.
 
 Explicitly opening a matching result can help it rank for the same or a closely related query later. Highlighting a row does not teach a choice. In **History**, visit time still decides the order within each match-quality group. Incognito Mode pauses query-choice learning.
 
+## Your usual
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/CommandPanelUsual.swift (2+ picks, 2+ letters, takeover by another page) */}
+
+When you pick the same page at least twice after typing the start of something, it becomes **Your usual** for that text. From the second letter, it takes the top row in **All**, marked **Your usual for "aud"**, with the search row right below. If the page is open in a browser, the row reads **Switch to Tab**. Pick a different page twice and that one takes over.
+
+A typed web address or a [sum](#calculator) keeps the top row. A one-word site leads only when it's saved, pinned, or you've opened its pages at least 3 times through SupaSidebar.
+
+Nothing is learned while [Incognito Mode](/features/incognitoMode) is on or from private browser windows, and clearing your history clears what the panel learned.
+
 ## Frequent items
 
 Open the panel with an empty query to see your open tabs and recent pages. Frequently opened saved links receive a ranking boost for short queries, helping you get back to them with less typing.
+
+Among equally good matches, pages you visit more often rank higher. A match in the page's title comes before a match only in its address, and visits count from both your imported browser history and what you open through SupaSidebar.
+
+## Calculator
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/CommandPanelCalculator.swift (operators, what stays a search) */}
+
+Type a sum in **All**, like `12*4`, `(2+3) × 4` or `50 * 20%`, and the answer shows as the top row with the search right below. Press `Return` to copy the answer, and a **Copied** notice confirms it.
+
+It handles `+`, `-`, `×` or `*`, `÷` or `/`, `^`, brackets and decimals. `%` means a hundredth, like in Google, so `50 * 20%` is 10. A lone number, words, dates, phone numbers and division by zero stay as searches.
 
 ## Actions panel
 
 Press `Opt Return` on any selected item to see available actions:
 
-**Open With** ranks your browser and profile choices by use. Press a displayed number key (`1` through `9`) to choose a destination, or use the arrow keys and `Return`. The footer's destination hint follows the same browser routing used when you open a result.
+**Open With** lists the places the result can open, in the same order as [holding `Opt`](#hold-opt-for-numbered-places). **Here**, the window you're in, comes first, then where `Return` would go, then your browsers. A browser with two or more profiles lists each profile. Press a number key (`1` through `9`) to choose a place, or use the arrow keys and `Return`.
 
 | Action | When available |
 |--------|---------------|
@@ -175,6 +198,27 @@ Press `Opt Return` on any selected item to see available actions:
 | **Open in [Browser]** | One entry per installed browser |
 
 Press `Escape` to dismiss the actions panel and return to search results.
+
+## Choose where a result opens
+
+{/* Keep in sync with: swiftapp/supasidebar/Models/CommandPanelRowRoute.swift (reason labels, open order) */}
+
+When `Return` would open a result somewhere other than the window you're in, the row says why. The top row always shows it, and a lower row shows it while it's highlighted.
+
+| The row says | Why it opens there |
+|--------------|--------------------|
+| **Always opens in Arc** | The saved link has its own preferred browser |
+| **Your rule opens it in Work** | An [Air Traffic Control](/features/airTrafficControl) rule matches it |
+| **You had it in Work 2h ago** | That's where you last opened the page |
+| **You usually open it in Work** | You've opened the page at least 3 times, mostly there |
+| **Work Space opens it in Work** | The current Space is [linked to that browser or profile](/features/profileSpaces) |
+| **Saved from Chrome** | The link was saved from that browser |
+
+A link's own browser comes first, then an Air Traffic Control rule, then where you usually or last opened the page, then the Space's linked browser or profile. Nothing extra shows when the result opens in the window you're in.
+
+### Hold Opt for numbered places
+
+Hold `Opt` and the highlighted row shows up to 4 numbered places. **1** is the window you're in, **2** is where `Return` would go when that's somewhere else, and the rest are your other browsers, with each profile listed for a browser that has two or more. Press `Opt 1` to `Opt 4` to open the row there. Any other key hides the numbers, so `Opt Delete` and `Opt Left` still edit text.
 
 ## Choose which browser rules apply
 
@@ -219,6 +263,8 @@ Turn off **Tint with Space color** in **Preferences → Command Panel → Appear
 ## Live tab switching
 
 Search for an open tab by title and press `Return` to switch instantly.
+
+Type the name of a site you have open, like `gmail`, and the top row is **Switch to Tab**, ending in `→`. Right below it, **Open in New Tab** ends in `↗` and opens a fresh copy in the browser you're in. Under `Cmd L`, neither row shows, because every pick loads in the current tab.
 
 ## Ask AI
 

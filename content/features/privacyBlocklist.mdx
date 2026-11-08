@@ -15,7 +15,7 @@ The **Each browser** table has one row per installed browser.
 
 | Column | What it controls |
 |----------|------------------|
-| **Use** | Whether SupaSidebar works with this browser at all |
+| **Blocking** | Keeps SupaSidebar out of this browser when ticked |
 | **Live Tabs** | Shows currently open tabs from this browser |
 | **Recents** | Records pages you visit while SupaSidebar is running |
 | **History** | Imports eligible visits from the browser's last 30 days, including visits made while SupaSidebar was closed |
@@ -33,13 +33,11 @@ Visits made during the private period stay excluded after you turn Private Mode 
 
 **SupaSidebar does not detect private windows in every browser.** Turn on Incognito Mode or the browser's Private Mode checkbox before browsing privately. These controls do not change your browser's own privacy settings.
 
-## Stop using a browser
+## Block a browser
 
-Untick **Use** beside a browser to keep SupaSidebar out of it. Its Live Tabs and imported history are hidden, new Recent recording and history imports stop, and automatic sidebar attachment stops. Tick it again to restore the browser's previous feature choices.
+Tick **Blocking** beside a browser to keep SupaSidebar out of it. Its Live Tabs and imported history are hidden, new Recent recording and history imports stop, and automatic sidebar attachment stops. Untick it to restore the browser's previous feature choices.
 
-**Older Recents are kept until you clear them.** Unticking Use is not a delete action. Saved links remain available.
-
-Before 1.7.0 this column was called **Block**, and you checked it to block a browser. Use works the other way round, so a ticked browser is one SupaSidebar works with.
+**Older Recents are kept until you clear them.** Blocking is not a delete action. Saved links remain available.
 
 If the sidebar appears in an unwanted browser, see [Sidebar Appears in a Browser I Don't Use](/troubleshooting/sidebarAppearsInWrongBrowser).
 

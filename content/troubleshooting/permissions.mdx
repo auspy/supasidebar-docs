@@ -22,7 +22,7 @@ The browser access check is available in builds that include this browser select
 | **Access check failed** | macOS reports permission granted, but the read failed. Follow the recovery steps below. |
 | **Needs permission** | Allow SupaSidebar in Accessibility settings, then check again. |
 | **Open a browser / Open a browser window** | Open the selected browser with a window and check again. This is not a permission failure. |
-| **Excluded** | **Use** is unticked for the browser in **Preferences > Browsers > Your browsers**, so the check does not access it. Review that choice if you want to use it with Smart Attach. |
+| **Excluded** | The browser is blocked in **Preferences > Browsers > Your browsers**, so the check does not access it. Unblock it if you want to use it with Smart Attach. |
 | **Try again shortly** | Wait for the browser to respond, then check again. |
 
 **Access verified** applies to the selected browser at the last check time. It does not test sidebar movement, Live Tabs, mouse triggers, or browser Automation. The check does not open browsers, move windows, or read page content.
@@ -47,7 +47,7 @@ After opening Permission Status or clicking **Check again**, move your mouse nor
 ## If access is verified but Smart Attach still fails
 
 - Check **Preferences > Sidebar** and make sure **Smart Attach** is selected.
-- Check that **Use** is ticked for the browser in **Preferences > Browsers > Your browsers**.
+- Check that the browser is not blocked in **Preferences > Browsers > Your browsers**.
 - Try a normal browser window outside full screen, and show the sidebar beside it.
 - Move the browser window and check whether the sidebar follows.
 

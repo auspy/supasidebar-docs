@@ -22,18 +22,17 @@ Auto-Close gives every open tab a timer. Using a tab restarts its timer. When a 
 Auto-Close never closes these tabs.
 
 - **The tab you're on** - the current tab in each browser window stays open
-- **Locked tabs** - right-click a tab in Live Tabs and choose **Lock Tab**
 - **Tabs that match a Never Close rule** - see [Never Close rules](#never-close-rules)
 - **Tabs in an Excluded Browser** - see [Auto-Close settings](#auto-close-settings)
 - **Tabs that would drop a window below Keep At Least** - each window keeps at least that many tabs
-- **Browsers you don't use and hidden websites** - SupaSidebar doesn't see tabs from browsers with **Use** unticked or Live Tabs turned off in [Your browsers](/features/privacyBlocklist), or from sites under **Hidden websites**, so it never closes or archives them
+- **Blocked browsers and hidden websites** - SupaSidebar doesn't see tabs from browsers that are blocked or have Live Tabs turned off in [Your browsers](/features/privacyBlocklist), or from sites under **Hidden websites**, so it never closes or archives them
 
 ### When tabs start closing
 
 - **Nothing closes right away.** Every tab's timer starts when you turn Auto-Close on, so the first tabs close after one full **Close After** period.
 - **Timers restart** when SupaSidebar launches and when you change **Close After**. A tab only closes after SupaSidebar has seen it unused for the full time.
 - **Tabs close gradually**, a few per minute and oldest first, so a whole window never disappears at once.
-- **Audio isn't detected.** SupaSidebar can't tell when a background tab is playing music or video. Lock tabs like a music player.
+- **Audio isn't detected.** SupaSidebar can't tell when a background tab is playing music or video. Add a Never Close rule for sites like a music player.
 
 ## Turn on Auto-Close
 
@@ -113,7 +112,7 @@ Without Pro, Auto-Close also stops when the free month ends. Nothing closes afte
 |---|---|---|
 | **Closes tabs** | When unused for a set time | When you leave a space |
 | **Brings them back** | You reopen from the archive | Reopens when you return to the space |
-| **Respects Lock Tab** | **Yes** | **Yes** |
+| **Respects Never Close rules** | **Yes** | **Yes** |
 | **Where to turn on** | Preferences → Labs | Preferences → Spaces |
 
 ## Troubleshooting
@@ -122,9 +121,9 @@ Without Pro, Auto-Close also stops when the free month ends. Nothing closes afte
 |-------|----------|
 | No tabs are closing | Check **Auto-Close Inactive Tabs** is on, and wait one full **Close After** period after turning it on or relaunching SupaSidebar |
 | A window keeps its old tabs | **Keep At Least** holds that many tabs per window. Lower it |
-| A tab I need keeps closing | Lock it, or add a [Never Close rule](#never-close-rules) |
-| A music or video tab closed | Lock it. SupaSidebar can't detect audio in background tabs |
-| A browser's tabs never close | Check **Excluded Browsers**, then check that **Use** is ticked for that browser in [Your browsers](/features/privacyBlocklist) |
+| A tab I need keeps closing | Add a [Never Close rule](#never-close-rules) for it |
+| A music or video tab closed | Add a Never Close rule for the site. SupaSidebar can't detect audio in background tabs |
+| A browser's tabs never close | Check **Excluded Browsers**, then check that browser isn't blocked in [Your browsers](/features/privacyBlocklist) |
 | An Orion tab never closes | Orion doesn't let other apps close the last tab in a window |
 | "Never Close rules could not be read" | Auto-Close pauses to keep your tabs safe. Add a new rule to replace the damaged rule data |
 | Archived Tabs is missing from Preferences | Turn it on in **Preferences → Labs**. Without Pro, check whether its free month ended |
@@ -150,6 +149,6 @@ No. If you share analytics, Auto-Close sends only settings and counts, like your
 ## Learn more
 
 - [Labs](/features/labs) - How Labs features and the free month work
-- [Live Tabs](/features/liveTabs) - See and lock the tabs Auto-Close watches
+- [Live Tabs](/features/liveTabs) - See the tabs Auto-Close watches
 - [Close and reopen tabs (Legacy)](/features/linkOpenTabs) - Close tabs when you leave a space instead
 - [Your browsers](/features/privacyBlocklist) - Choose which browsers SupaSidebar works with and hide sites

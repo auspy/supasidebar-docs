@@ -7,13 +7,13 @@ import { Callout } from 'nextra/components'
 
 # Backups & Recovery
 
-Keep dated copies of your saved links in **Preferences → Data**, and use the same screen to recover them. Before 1.7.0 this screen was called **Backups**.
+Keep dated copies of your saved links in **Preferences → Data → Backups**, and use the same screen to recover them. Before 1.7.0 this screen was called **Backups**.
 
 ## Automatic backups
 
 Automatic backups are **on by default, every 7 days**, when you have never saved a backup preference. SupaSidebar uses its local **Application Support → SupaSidebar → Backups** folder on this Mac. The exact path appears under **Backup Folder**. Existing backup settings, including **Off**, custom folders, and schedules, stay unchanged.
 
-1. Open **Preferences → Data**.
+1. Open **Preferences → Data → Backups**.
 2. Check **Automatic Backups** and **Backup Folder**. If backups are off, turning them on uses the displayed folder immediately; no folder picker is required.
 3. Keep **Weekly (every 7 days)**, or choose another **Backup Frequency**.
 4. Choose a **Backup Limit** of **1, 5, 10, 25, 50, or 100** copies. The default is **10**.
@@ -63,7 +63,7 @@ Backup schedules and folder permissions belong to this Mac. On a new Mac with no
 
 ### Recovering your links
 
-1. Open **Preferences → Data** and click **Restore Backup…**. You can also use **Preferences → Data → Import → From Backup File → Choose File…**.
+1. Open **Preferences → Data → Backups** and click **Restore Backup…**. You can also use **Preferences → Data → Import → From Backup File → Choose File…**.
 2. Open a dated `.ssb` file from your backup folder. Choose an older copy if the newest one was saved after you lost or changed a link.
 3. Review the spaces in the preview and select the ones you want to recover.
 4. Click **Import**. The button also shows how many spaces are selected.
@@ -79,7 +79,7 @@ When importing a `.ssb` or `.json` file, SupaSidebar uses its folder records and
 
 ## Check & Repair
 
-If saved links appear in search or in a space's count, but their folders are missing from the sidebar, open **Preferences → Data → Check & Repair**.
+If saved links appear in search or in a space's count, but their folders are missing from the sidebar, open **Preferences → Data → Backups → Check & Repair**.
 
 Click **Check Now**, review the folder rows, then click **Update**. The scan reads your current library; you do not need to select a backup first. Each unassigned folder has a space dropdown. Clear destinations are selected for you; choose **Choose a space…** to skip a folder. Expand **Links (N)** to inspect its links in a collapsed, scrollable list.
 

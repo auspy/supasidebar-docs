@@ -1,19 +1,19 @@
 ---
 title: "Close and reopen tabs on space change - Legacy tab memory"
-description: "Understand SupaSidebar’s legacy tab closing and restoring, its browser-wide closing scope, and how to lock tabs that should stay open."
+description: "Understand SupaSidebar’s legacy tab closing and restoring, its browser-wide closing scope, and how Never Close rules keep tabs open."
 ---
 
 # Close and reopen tabs on space change
 
 > **Legacy workflow, SupaSidebar 1.3.0 and later.** Previously named **Link Open Tabs to Space**. Existing settings are retained. [Using 1.2.x?](/versions/1.2/profileSpaces)
 
-**Close and reopen tabs on space change** remembers URLs for a space and attempts to reopen them when you return. It also closes unlocked tabs when you leave. Restore uses the saved browser/profile when it can identify and open that destination. Lock tabs that should stay open across spaces.
+**Close and reopen tabs on space change** remembers URLs for a space and attempts to reopen them when you return. It also closes tabs when you leave. Restore uses the saved browser/profile when it can identify and open that destination. Add a [Never Close rule](#never-close-rules) for tabs that should stay open across spaces.
 
 ## What does the legacy workflow do?
 
 This is an opt-in advanced flow for remembering and restoring URLs. It works with both profile-linked and unlinked spaces, but it does not guarantee an isolated session for each named profile.
 
-> **Closing scope:** when leaving a linked space, the legacy close step can close unlocked tabs across its entire linked browser, including other profiles. When leaving an unlinked space, it can close unlocked tabs across the collected browsers. The named-profile Live Tabs filter does not limit this legacy close step.
+> **Closing scope:** when leaving a linked space, the legacy close step can close tabs across its entire linked browser, including other profiles. When leaving an unlinked space, it can close tabs across the collected browsers. Tabs that match a Never Close rule stay open. The named-profile Live Tabs filter does not limit this legacy close step.
 
 ## How to turn it on
 
@@ -28,7 +28,7 @@ When the master toggle is on, **Remember all open tabs when leaving** automatica
 A switch with the feature on runs the same five steps for both profile-linked and regular spaces:
 
 1. **Snapshot** - If Remember all open tabs when leaving is on, capture the outgoing tab list using the legacy browser/profile matching and save the URLs that can be captured
-2. **Close** - Close unlocked collected tabs, one at a time. For an outgoing linked space this is scoped to its browser, not guaranteed to its named profile
+2. **Close** - Close collected tabs that no Never Close rule matches, one at a time. For an outgoing linked space this is scoped to its browser, not guaranteed to its named profile
 3. **Switch** - Update the sidebar to the new space
 4. **Launch** - Apply the existing linked-browser activation and optional launch behavior
 5. **Restore** - Try to reopen saved URLs that are not already open, using the saved profile when it can be resolved, then the saved browser or normal opening fallback
@@ -39,19 +39,19 @@ In **SupaSidebar 1.3.1 and later**, SupaSidebar waits for fresh tab data before 
 
 While Close and reopen tabs on space change is on, switching may take longer while SupaSidebar saves, closes, and reopens tabs. Rapid switching requests are combined so the final target runs the close-and-reopen cycle. Turning this off removes that legacy cycle; browser activation or launching may still take time.
 
-## Locks: keep a tab open everywhere
+## Never Close rules
 
-Lock a tab to mark it as exempt from the auto-close step. Locked tabs stay open across every space switch, no matter which space owns them. This is what you want for a music player, a chat app, a long-running dashboard, or anything that should never disappear when you change context.
+{/* Keep in sync with: swiftapp/supasidebar/Managers/LockedTabsNeverCloseMigration.swift (lock to rule mapping) and swiftapp/supasidebar/Views/Preferences/LinkedTabsPreferencesSection.swift (where the list shows) */}
 
-Locks are per-machine (they don't sync) and live independently of the automatically remembered tab list. You can have a locked tab that isn't auto-linked, and an auto-linked tab that isn't locked.
+A Never Close rule keeps every matching tab open across every space switch, no matter which space owns it. Use one for a music player, a chat app, a long-running dashboard, or anything that should never disappear when you change context.
 
-To lock or unlock a tab, hover over the live tab row and use the lock icon, or use the right-click menu.
+The rules list sits under **Close and reopen tabs on space change** in **Preferences → Spaces → Switching spaces → Advanced** once the toggle is on. Click **Add Rule**, type a domain like `mail.google.com` or part of a URL, and pick **Domain** or **Contains**. These are the same rules [Archived Tabs](/features/archivedTabs#never-close-rules) uses, so one rule protects a tab from both.
 
-The same locks keep a tab open when [Archived Tabs](/features/archivedTabs) auto-closes inactive tabs.
+**Upgrading from before 1.7.0?** The per-tab **Lock** button is gone. Each tab you had locked became a Never Close rule the first time you opened 1.7.0. A locked homepage became a **Domain** rule for its site, and a deeper page became a **Contains** rule for its address.
 
 ## Manually linking a tab
 
-If you turn Remember all open tabs when leaving off, the master toggle still tracks individually linked tabs. Hover over a live tab and use the link icon (or the right-click menu) to add or remove it from the current space's linked set. Manually linked tabs use the same restore process. Choosing tabs manually does not narrow the browser-wide legacy close step; use locks to exclude tabs from closing.
+If you turn Remember all open tabs when leaving off, the master toggle still tracks individually linked tabs. Hover over a live tab and use the link icon (or the right-click menu) to add or remove it from the current space's linked set. Manually linked tabs use the same restore process. Choosing tabs manually does not narrow the browser-wide legacy close step. Use Never Close rules to exclude tabs from closing.
 
 ## Profile-aware restore
 
@@ -63,14 +63,14 @@ For example, a saved **Brave · Work** identifier can target that profile on res
 
 Closing and reopening tabs across browsers via AppleScript is inherently fragile. AppleScript timing varies per tab, profile lock-files can contend at launch, and browser cold-start times are unpredictable. Beyond the fragility, the feature is also a workflow shift: a casual user expects their tabs to stay where they left them. The master toggle is gated behind the Advanced section so a regular Mac user never encounters this behavior accidentally.
 
-If you do not want browser-wide tab closing, leave the master toggle off. Lock tabs you want excluded when using this workflow. Turning off Remember all open tabs when leaving changes what is remembered; it does not disable the close step.
+If you do not want browser-wide tab closing, leave the master toggle off. Add Never Close rules for tabs you want excluded when using this workflow. Turning off Remember all open tabs when leaving changes what is remembered; it does not disable the close step.
 
 ## When to use legacy tab memory vs. a linked browser
 
 | | Close and reopen tabs (Legacy) | [Linked browser or profile](/features/profileSpaces) |
 |---|---|---|
 | **What it does** | Remembers URLs and attempts restore in their saved browser/profile | Links a space to a browser/profile, with filtered Live Tabs |
-| **Browser behavior** | Unlocked tabs can close across the outgoing linked browser, including other profiles | Linking alone does not enable tab closing |
+| **Browser behavior** | Tabs can close across the outgoing linked browser, including other profiles, unless a Never Close rule matches | Linking alone does not enable tab closing |
 | **Use when** | You want URL-based tab memory and accept the legacy closing scope | You want the space’s tab list and default destination tied to a browser/profile |
 | **Combine?** | Yes, with the same browser-wide closing limitation | Yes; enable legacy tab memory separately |
 
@@ -78,7 +78,7 @@ You can combine them, but a named-profile connection does not make legacy closin
 
 ## Tips
 
-- Lock anything you do not want closed: music, chat, dashboards, in-progress forms.
+- Add Never Close rules for anything you do not want closed, like music, chat, dashboards and in-progress forms.
 - Pair this with [a linked browser or profile](/features/profileSpaces) when you want both browser identity and tab memory per space.
 - Use the phase banner’s settings shortcut to reach the master toggle.
 - Want tabs to close because you stopped using them, not because you switched spaces? Try [Archived Tabs](/features/archivedTabs), which keeps closed tabs for 30 days so you can reopen them.
