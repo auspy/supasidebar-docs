@@ -1,34 +1,52 @@
 ---
 title: "Sidebar doesn't auto-hide in browsers"
-description: "Fix SupaSidebar staying visible in browser windows when mouse triggers should auto-hide it, by enabling browser auto-hide in Sidebar Behavior settings."
+description: "Why SupaSidebar stays open in a browser after your mouse leaves it, and how Auto Show on Browser Focus and When Leaving Browser change that."
 ---
 
-# Sidebar Doesn't Auto-Hide in Browsers
+# Sidebar doesn't auto-hide in browsers
 
 ## Problem
 
-You have [mouse triggers](/features/sidebarAccess/mouseTriggers) enabled so the sidebar appears when you hover the screen edge. When you move your mouse away, the sidebar auto-hides in most apps - but **not when a browser is the active window**. In browsers, the sidebar stays visible until you manually dismiss it.
+You open the sidebar with [Mouse Triggers](/features/sidebarAccess/mouseTriggers). In most apps it hides again when your mouse leaves it. In a browser it stays open until you close it or switch to another app.
 
 ## Cause
 
-When [Browser Integration](/features/browserIntegration) is set to **Smart Attach**, the sidebar's hide behavior in browsers is controlled separately from the general auto-hide setting. This is because Smart Attach actively manages your browser window layout, so hiding the sidebar also affects how your browser windows are positioned.
+Only a sidebar that a mouse trigger opened hides when your mouse leaves it. Once your browser owns the sidebar, moving the mouse away does nothing.
 
-By default, the sidebar may stay visible in browsers even when mouse triggers would normally hide it in other apps.
+**Auto Show on Browser Focus** hands the sidebar to your browser, and it's on by default. While it's on, every time a browser comes to the front, the sidebar opens with it. If the sidebar is already open, the browser takes it over. That happens when you switch to the browser, click into it, or open a link from the sidebar.
+
+From then on the sidebar stays open until you close it, or until you switch to a non-browser app with **When Leaving Browser** set to **Hide**. This works the same in **Smart Attach** and **Independent** [Browser Integration](/features/browserIntegration). There is no separate browser auto-hide setting.
 
 ## Solution
 
-1. Open **Preferences → Sidebar → Sidebar Behavior**
-2. Look for the browser-related auto-hide setting in that section
-3. Enable auto-hide for browser windows
+Both fixes live in **Preferences → Sidebar → Show and Hide → Auto-Visibility**. Pick the one that matches how you work.
 
-This tells the sidebar to automatically close when your mouse leaves the sidebar area, even when a browser is the active app.
+### Hide when the mouse leaves, in browsers too
 
-### Note on timing
+1. Open **Preferences → Sidebar → Show and Hide**.
+2. Under **Auto-Visibility**, turn off **Auto Show on Browser Focus**.
+3. In your browser, open the sidebar from a screen edge, then move the mouse away. The sidebar hides.
 
-After enabling this setting, there may be a brief delay before the sidebar auto-hides in browsers. This is normal - the sidebar waits slightly longer before hiding to avoid flickering while you're moving between the sidebar and your browser window.
+The sidebar now opens only when you ask for it, and a sidebar opened by a mouse trigger hides when your mouse leaves it in every app. You can also turn this setting off from the sidebar's **⋯** menu, under **Visibility**.
 
-## Learn More
+### Keep auto-show, hide when you leave the browser
 
-- [Mouse Triggers](/features/sidebarAccess/mouseTriggers) - Configure edge hover to show the sidebar
-- [Browser Integration](/features/browserIntegration) - How Smart Attach affects sidebar behavior
-- [Sidebar Panel](/features/sidebar) - All sidebar behavior settings
+1. Open **Preferences → Sidebar → Show and Hide**.
+2. Under **Auto-Visibility**, leave **Auto Show on Browser Focus** on.
+3. Set **When Leaving Browser** to **Hide**.
+
+The sidebar still stays open while you're in the browser, then hides as soon as you switch to a non-browser app. **Keep Showing in Finder** appears below and is on by default, so the sidebar stays open in Finder. Turn it off to hide there too.
+
+## Other reasons the sidebar stays open
+
+| Issue | Why | Fix |
+|-------|-----|-----|
+| You opened it with a shortcut, the menu bar icon or the floating button | Only mouse-trigger sidebars hide on mouse exit | Close it with `Cmd Shift Space` or the same control |
+| **Pin to All Spaces** is on | A pinned sidebar never hides on mouse exit | Turn it off in the sidebar's **⋯** menu |
+| A folder preview, folder browser or edit form is open | The sidebar waits until you're done with it | Close it, then move the mouse away |
+
+## Learn more
+
+- [Mouse Triggers](/features/sidebarAccess/mouseTriggers) - Open the sidebar from a screen edge
+- [Sidebar appears automatically](/troubleshooting/sidebarAutoAppears) - More on **Auto Show on Browser Focus**
+- [Browser Integration](/features/browserIntegration) - How the sidebar works with your browser

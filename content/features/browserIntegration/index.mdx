@@ -17,7 +17,7 @@ Smart Attach is the recommended mode. When enabled, the sidebar intelligently po
 
 Choose **Preferences → Appearance → Motion → Smart Attach Motion** to adjust how closely the sidebar follows a moving browser: **Tighter**, **Tight**, **Balanced**, or **Loose**. **Tight** is the default. These options change the trailing motion while dragging; all settle beside the browser.
 
-Browser positioning and resizing are separate controls. Configure these in Preferences:
+Browser positioning and resizing are separate controls, each with its own setting in Preferences.
 
 | Feature | Description |
 |---------|-------------|
@@ -40,11 +40,15 @@ See [Browser Profiles](/features/profileSpaces) for details.
 
 ## Sidebar Hide Behavior
 
-When using Smart Attach, the sidebar's auto-hide behavior in browsers is controlled separately from general [mouse trigger](/features/sidebarAccess/mouseTriggers) settings. In non-browser apps, the sidebar automatically hides when you move your mouse away. In browsers, the sidebar may stay visible because Smart Attach is actively managing your window layout.
+A sidebar opened by a [mouse trigger](/features/sidebarAccess/mouseTriggers) hides when your mouse leaves it. Once a browser owns the sidebar, it stays open instead. **Auto Show on Browser Focus** decides this, not the **Smart Attach** or **Independent** mode.
 
-To configure how the sidebar hides when a browser is active, go to **Preferences → Sidebar → Sidebar Behavior** and enable the browser auto-hide setting. There may be a short delay before auto-hide activates - this prevents the sidebar from flickering during normal use.
+| Setting | Effect in a browser |
+|---------|---------------------|
+| **Auto Show on Browser Focus** on (default) | Opens with the browser and stays while you're in it |
+| **Auto Show on Browser Focus** off | Opens only when you ask, mouse-opened sidebar hides on mouse exit |
+| **When Leaving Browser** set to **Hide** | Hides when you switch to a non-browser app |
 
-If the sidebar isn't auto-hiding in browsers, see [Sidebar Doesn't Hide in Browser](/troubleshooting/sidebarDoesntHideInBrowser).
+Both settings are in **Preferences → Sidebar → Show and Hide → Auto-Visibility**. If the sidebar won't hide in your browser, see [Sidebar doesn't auto-hide in browsers](/troubleshooting/sidebarDoesntHideInBrowser).
 
 ## Permissions
 
