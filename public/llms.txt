@@ -60,7 +60,7 @@
 
 - [Sidebar stays on top](https://docs.supasidebar.com/troubleshooting/sidebarStaysOnTop): Fix the sidebar always staying above other windows
 - [Sidebar doesn't hide in browser](https://docs.supasidebar.com/troubleshooting/sidebarDoesntHideInBrowser): Fix auto-hide not triggering when a browser is focused
-- [Sidebar appears automatically](https://docs.supasidebar.com/troubleshooting/sidebarAutoAppears): Turn off Auto-show with Browser when the sidebar pops up on its own every time you open a browser
+- [Sidebar appears automatically](https://docs.supasidebar.com/troubleshooting/sidebarAutoAppears): Turn off Auto Show on Browser Focus when the sidebar pops up on its own every time you open a browser
 - [Sidebar appears in the wrong browser](https://docs.supasidebar.com/troubleshooting/sidebarAppearsInWrongBrowser): Tick Blocking beside a browser in Preferences > Browsers > Your browsers so the sidebar stops auto-showing and attaching there
 - [Prevent Overlap isn't working](https://docs.supasidebar.com/troubleshooting/preventOverlapNotWorking): Fix Prevent Overlap by checking Smart mode, Accessibility permission, and conflicting window apps like HazeOver
 - [Link opens new tab instead of switching](https://docs.supasidebar.com/troubleshooting/linkOpensNewTab): Fix Smart Tab Reuse not activating the existing tab
