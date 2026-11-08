@@ -1,26 +1,56 @@
 ---
 title: "Sidebar stays on top when you switch apps"
-description: "Stop SupaSidebar from floating over other apps by enabling Auto Show on Browser Focus, so it only appears while a browser is active."
+description: "Why SupaSidebar floats over other apps after you leave your browser, and how Smart Attach or When Leaving Browser fixes it."
 ---
 
-# Sidebar Stays on Top When Switching Apps
+# Sidebar stays on top when you switch apps
 
 ## Problem
 
-The sidebar floats above all windows by default. When you switch from your browser to another app (e.g., a text editor), the browser goes behind as expected, but the sidebar remains visible on top, blocking your view.
+You switch from your browser to another app, like a text editor. The browser goes behind it as expected, but the sidebar keeps floating on top and covers part of the app.
+
+## Cause
+
+What the sidebar does when you leave the browser depends on your [Browser Integration](/features/browserIntegration) mode.
+
+| Mode | When you switch to a non-browser app |
+|------|--------------------------------------|
+| **Smart Attach** (default) | Drops behind the app, comes back to the front with your browser |
+| **Independent** | Stays on top of every app |
+
+In either mode, **When Leaving Browser** set to **Hide** hides the sidebar instead. That setting only shows up while **Auto Show on Browser Focus** is on.
+
+So the sidebar stays on top when it uses **Independent** and isn't set to hide when you leave the browser.
 
 ## Solution
 
-Enable **Auto Show on Browser Focus** to automatically hide the sidebar when you switch to a non-browser app and show it again when you return to your browser.
+Pick the fix that matches how you work.
 
-### Setup
+### Let other apps cover the sidebar
 
-1. Open **Preferences → Sidebar → Show and Hide → Auto-Visibility**
-2. Enable **Auto Show on Browser Focus**
+1. Open **Preferences → Sidebar → Browser Integration**.
+2. Set **Sidebar Browser Integration** to **Smart Attach**.
+3. Switch from your browser to another app. The sidebar drops behind it.
 
-The sidebar will now only appear when a browser is your active app. Switching to any other application will automatically hide it.
+The sidebar comes back to the front when you return to your browser. **Smart Attach** also places the sidebar next to your browser window. See [Smart Attach](/features/browserIntegration#smart-attach).
 
-## Learn More
+### Hide the sidebar when you leave the browser
 
-- [Sidebar Panel](/features/sidebar) - All sidebar behavior settings
-- [Browser Integration](/features/browserIntegration) - How sidebar interacts with browser windows
+1. Open **Preferences → Sidebar → Show and Hide**.
+2. Under **Auto-Visibility**, turn on **Auto Show on Browser Focus**.
+3. Set **When Leaving Browser** to **Hide**.
+
+The sidebar now opens with your browser and hides when you switch to another app. This works with both **Smart Attach** and **Independent**.
+
+## Still on top?
+
+| Issue | Why | Fix |
+|-------|-----|-----|
+| It stays open in Finder | **Keep Showing in Finder** is on by default | Turn off **Keep Showing in Finder** under **When Leaving Browser** |
+| You opened it with a shortcut outside a browser (**Independent**) | It only hides after a browser has owned it | Close it with `Cmd Shift Space` |
+
+## Learn more
+
+- [Browser Integration](/features/browserIntegration) - **Smart Attach** and **Independent** modes
+- [Sidebar doesn't auto-hide in browsers](/troubleshooting/sidebarDoesntHideInBrowser) - The other side of auto-hide
+- [Sidebar Panel](/features/sidebar) - All sidebar visibility settings
