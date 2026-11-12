@@ -63,8 +63,8 @@ Right-click a folder for additional options:
 
 When you open a link in the web preview (`Cmd` click or context menu), the preview window has its own controls:
 
-- **"Open in Browser" button** - opens the previewed link in your default browser
-- **Browser picker dropdown** (chevron next to the button) - opens in a specific browser
+- **"Open in Browser" button** - opens the previewed link where Air Traffic Control sends it, or in your default browser. The button names the browser and profile
+- **Browser picker dropdown** (chevron next to the button) - opens in a specific browser. A gray line at the top says why the button picked its browser
 
 SupaView keeps its own sign-ins. Sign in once inside it, or import your browser's logins so login-protected pages open signed in. See [SupaView](/features/linkPreview#stay-signed-in) for details on signing in, security, and how it compares to a regular browser.
 
@@ -78,7 +78,7 @@ Before opening a new tab, SupaSidebar checks if the URL is already open in any r
 
 ### Air Traffic Control
 
-URL pattern rules that automatically route specific domains to specific browsers. For example, you can send all `github.com` links to Chrome and all `figma.com` links to Arc. Set up rules in **Preferences → Browsers → Air Traffic Control**.
+Rules that automatically route links to specific browsers. For example, you can send all `github.com` links to Chrome, every `atlassian.net` subdomain to Chrome Work, or every link you click in Slack to Arc. Set up rules in **Preferences → Browsers → Air Traffic Control**, and paste a link into **Test a link** there to see which rule wins.
 
 > A saved link's explicit **Preferred Browser** takes precedence over automatic routing. A one-time **Open With** choice takes precedence over that saved preference.
 

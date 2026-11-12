@@ -12,7 +12,7 @@ Create save routes to file links into spaces, and open routes to control which b
 Air Traffic Control has two types of routes:
 
 - **Save Routes**  - When you save a page (`⌘⌃S`), save routes are checked. The first matching route files the link into the specified space. Save routes can also filter by which browser you're saving from.
-- **Open Routes**  - When you click a link in the sidebar, open routes are checked. The first matching route opens it in the specified browser instead of your default.
+- **Open Routes**  - When you click a link in the sidebar or Command Panel, open routes are checked. The first matching route opens it in the specified browser instead of your default. While SupaSidebar is your default browser, links you click in other apps, like Slack or Mail, are checked too. See [Links from other apps](#links-from-other-apps).
 
 Rules are evaluated top-to-bottom. The **first matching rule wins**. If no rules match, the link uses your current space and default browser.
 
@@ -38,25 +38,80 @@ Routes saved links to a specific space, and optionally a specific folder inside 
 |---------|-------------|
 | **Source Browser** | Only match when saving from this browser, or "Any Browser" (optional). You can narrow to a specific browser profile, so saves from Chrome Work and Chrome Personal can route to different spaces |
 | **URL Pattern** | Optional. Leave empty to match all URLs, including with "Any Browser" selected |
-| **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
+| **Match Type** | **Contains**, **Is Equal To**, **Domain** or **Matches Regex**. See [URL pattern types](#url-pattern-types) |
 | **Save to Space** | The space to file matching links into |
 | **Save to Folder** | Optional. A folder inside the chosen space. Matching saves land directly in this folder instead of at the space root |
 
 ### Open Route
 
-Opens matching links in a specific browser, or in a specific browser profile.
+Opens matching links in a specific browser, or in a specific browser profile. Every condition you set must match.
 
 | Setting | Description |
 |---------|-------------|
-| **URL Pattern** | Optional. Leave empty to match all URLs in the selected space |
-| **Match Type** | `contains`: URL includes the pattern anywhere. `is equal to`: URL must match exactly |
+| **Clicked in** | Optional. Only match links clicked in these apps, like Slack, Mail or Ghostty. Leave it empty to match links from any app. See [Links from other apps](#links-from-other-apps) |
+| **Only while this Space is active** | Optional, formerly Source Space. **Any Space** matches in every space. Pick a space to match only while it's open in the sidebar |
+| **URL Pattern** | Optional when an app or a space is set. Leave it empty to match every URL |
+| **Match Type** | **Contains**, **Is Equal To**, **Domain** or **Matches Regex**. See [URL pattern types](#url-pattern-types) |
 | **Open in Browser** | The browser to open matching links in. You can also pick a specific profile (e.g. Chrome Work, Safari Personal) so matching links always open in the right session |
+| **Skip SupaView** | Shown while [SupaView](/features/linkPreview) is on in Labs. A click on a matching link from another app opens this browser right away. See [Skip SupaView](#skip-supaview) |
 
-A live preview at the bottom of the editor shows exactly what the rule will do as you configure it.
+A live preview at the bottom of the editor says in one sentence what the rule will do, naming its apps, its pattern, its space and the browser it opens.
 
-An empty URL pattern means **All URLs** for either match type. Any selected source browser or space still limits the rule. Put an all-URLs rule below more specific rules when you want it to act as a fallback.
+An empty URL pattern means **All URLs** for every match type. Any selected app, source browser or space still limits the rule. Put an all-URLs rule below more specific rules when you want it to act as a fallback.
 
-Open routes always show their source space, **All Spaces**, or **Missing space**. An all-URLs Open route needs a space. With **All Spaces** selected it won't run, its row shows **Needs a space**, and the editor won't save it. To open every link in one browser, set **SupaSidebar Default Browser** in **Preferences → Browsers → Air Traffic Control → Default Browser** instead. A rule pointing to a missing space must be reassigned before it can be saved; importing a rule whose source space cannot be found preserves that restriction and disables the rule.
+An Open route needs at least one condition, an app, a space or a URL pattern. Without one it won't run, its row shows **Needs a condition**, and the editor won't save it. To open every link in one browser, set **SupaSidebar Default Browser** in **Preferences → Browsers → Air Traffic Control → Default Browser** instead.
+
+A rule whose space was deleted shows **Missing space**. Choose another space, or **Any Space**, before you save it. Importing a rule whose space can't be found keeps that limit and turns the rule off.
+
+## URL pattern types
+
+| Match type | Matches | Example |
+|------------|---------|---------|
+| **Contains** | The pattern anywhere in the URL | `github.com` matches every GitHub link, and also `notgithub.com` |
+| **Is Equal To** | The whole URL, exactly | `https://mail.google.com/` matches only that page |
+| **Domain** | The site and all its subdomains | `atlassian.net` matches `acme.atlassian.net`, but not `atlassian.net.example.com` or `notatlassian.net` |
+| **Matches Regex** | A regular expression, anywhere in the full URL, ignoring case | `^https://(www\.)?figma\.com/(file\|design)/` matches Figma files only |
+
+For **Domain**, you can paste a whole link. SupaSidebar keeps the domain and drops the `https://`, a leading `www.`, the path and the port.
+
+**Matches Regex** checks the pattern as you type. A pattern that doesn't work shows the reason under the field and can't be saved. A rule that ends up with a broken pattern, for example from an import, shows **Invalid pattern** and never runs.
+
+## Links from other apps
+
+**Clicked in** makes a route for links you click in one app. A Jira link from Slack can open in Chrome Work while the same link from Mail opens somewhere else.
+
+1. Open **Preferences > Labs**, turn on **SupaView**, and make SupaSidebar your default browser. See [Open links from other apps](/features/linkPreview#open-links-from-other-apps).
+2. In an Open route, click **Add app** next to **Clicked in**.
+3. Pick an app under **Sent links recently**, or **Choose app…** to pick any app in Applications. **SupaSidebar itself** matches links you open from the sidebar, the Command Panel and MCP.
+
+An app alone is enough. A route with only **Clicked in** set opens every link from that app in its browser.
+
+SupaSidebar only sees links from other apps while it's your default browser. Until then, app routes don't run, their rows show **Not default browser**, and the editor shows a note with **Open SupaView Settings**. An app you removed from your Mac stays on the route and shows **Not installed**.
+
+## Skip SupaView
+
+With SupaView on, a plain click on a link from another app opens SupaView. **Skip SupaView** on a route sends that click straight to the route's browser instead. `Cmd Option` click still opens SupaView.
+
+It turns on by itself when you add an app to **Clicked in**, until you change it. URL-only routes start with it off.
+
+What a click on a link in Slack does, with **Click Opens** set to **SupaView**
+
+| Route that matches the link | Click or `Cmd` click | `Cmd Option` click |
+|-----------------------------|----------------------|--------------------|
+| No route matches | SupaView | Your SupaSidebar Default Browser |
+| `youtube.com` → Chrome Personal, Skip SupaView off | SupaView | Chrome Personal |
+| Slack and `atlassian.net` → Chrome Work, Skip SupaView on | Chrome Work | SupaView |
+| Any route, with **Click Opens** set to **Browser** | The route's browser | SupaView |
+
+Terminals and editors that only open links on `Cmd` click, like Ghostty, Terminal, iTerm and VS Code, count as a plain click.
+
+The first time a route skips SupaView, a notice says where the link opened and which route sent it there, with a reminder that `Cmd Option` click previews it in SupaView. It shows once per route. Route rows show **Skips SupaView** next to the browser.
+
+## Test a link
+
+**Test a link** sits under the Air Traffic Control settings. Paste a link and pick the app it came from in **Clicked in**, or leave **Any app**. The answer says which route wins and where a click and a `Cmd Option` click open, and the winning route lights up in the list below.
+
+The test uses the space that's active in the sidebar, as real clicks do. The line under the field says which one, like "Testing while Work is active". When no route matches, the answer names the browser the link falls back to. While Air Traffic Control is off, it says so and offers **Turn On**.
 
 ## Smart Suggestions
 
@@ -68,6 +123,8 @@ Air Traffic Control watches what you open from the sidebar and suggests new rule
 Suggestions stay out of the way until they're confident. You can ignore them and your existing rules keep working unchanged.
 
 ## Managing Rules
+
+Each Open route's row shows the apps it's for, a **Domain** or **Regex** tag, its space or **Any Space**, and the browser it opens. A route that can't run shows why, as **Needs a condition**, **Invalid pattern**, **Not default browser** or **Missing space**. Hover the tag for the fix.
 
 - **Reorder**  - Drag rules to change priority (first match wins)
 - **Enable/Disable**  - Toggle individual rules without deleting them
@@ -120,11 +177,13 @@ SupaSidebar can suggest routes based on how you open links. Turn **Show Route Su
 
 ### Open Routes
 
-| URL Pattern | Open in Browser | Effect |
-|------------|----------------|--------|
-| `figma.com` | Chrome | Figma links always open in Chrome |
-| `localhost` | Safari | Local dev URLs open in Safari |
-| `github.com` | Chrome | GitHub links open in Chrome |
+| Clicked in | URL Pattern | Open in Browser | Effect |
+|------------|-------------|-----------------|--------|
+| *(any app)* | `figma.com` | Chrome | Figma links always open in Chrome |
+| *(any app)* | `localhost` | Safari | Local dev URLs open in Safari |
+| Slack | Domain `atlassian.net` | Chrome Work | Jira links from Slack open in your Work profile, skipping SupaView |
+| Ghostty | *(empty)* | Safari | Every link you click in Ghostty opens in Safari |
+| *(any app)* | Regex `^https://(www\.)?figma\.com/(file\|design)/` | Chrome | Figma files open in Chrome, other Figma pages don't |
 
 ### Combining Both
 
@@ -138,7 +197,8 @@ Each rule does one thing clearly  - no ambiguity.
 ## Tips
 
 - **Start broad, refine later**  - Begin with domain-level patterns like `github.com`, then add specific patterns if needed
-- **Use "contains" for most rules**  - It's more flexible than exact matching
+- **Use Domain for a whole site**  - `atlassian.net` covers every subdomain without matching look-alike sites
+- **Test before you trust it**  - Paste a link into **Test a link** to see which route wins
 - **Order matters**  - Put more specific rules above general ones
 - **Source browser filters are powerful**  - Use them to keep different browsers organized into separate spaces automatically
 - **Combine with Spaces**  - ATC is most useful when you have multiple spaces for different contexts
