@@ -48,6 +48,12 @@ The SupaView window has two controls for moving the page you're on to a full bro
 
 For a link from another app, the button follows the routes for that app, so a link from Slack opens where your Slack route sends it.
 
+{/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewHandoff.swift (which URL) and Managers/SupaView/WebPreviewSession+Handoff.swift (Copy URL) */}
+
+Until you move to another page in SupaView, the browser gets the link exactly as it arrived, with everything it carries. Sign-in links from apps need this. A sign-in page changes its own address as it loads, so sending the address you'd see now would lose the details the browser needs to finish signing you in. Once you click through to another page, the browser gets the page you're on.
+
+To copy that same link, press `Cmd Shift C` or pick **Copy URL** in the chevron menu. SupaView stays open, and a **URL Copied** notice confirms it.
+
 ## Zoom
 
 {/* Keep in sync with: swiftapp/supasidebar/Models/SupaViewZoom.swift (zoom keys and levels) */}
@@ -187,7 +193,7 @@ SupaView runs inside macOS's native WebKit framework with the same security mode
 | **Autofill** | macOS may offer to save passwords you enter in SupaView, exactly as it does in Safari |
 | **Data isolation** | SupaView runs in a sandboxed WebKit content process, separate from SupaSidebar's own app process |
 | **Network security** | Standard WebKit TLS/SSL enforcement applies. Invalid certificates are rejected |
-| **SupaSidebar's access** | The app reads only the current page URL (for the "Open in Browser" button). It cannot read page content, form data or passwords |
+| **SupaSidebar's access** | The app reads only the current page URL (for **Open in Browser** and **Copy URL**). It cannot read page content, form data or passwords |
 | **Imported cookies** | Read from your browser only when you import or sync, kept on this Mac, never sent anywhere |
 
 ### How SupaView compares to a regular browser
@@ -218,7 +224,7 @@ No. SupaView has its own website data, separate from Safari and every other brow
 Pick one profile in **Use Sign-Ins From**. SupaView imports from that profile only. To switch, pick another profile and click **Sync Now**.
 
 **Does SupaSidebar track which pages I open in SupaView?**
-No. SupaSidebar does not record browsing history from SupaView. The only data it reads is the current page URL, which it needs to power the "Open in Browser" button. Analytics never include the links you open, the sites you import or your cookies.
+No. SupaSidebar does not record browsing history from SupaView. The only data it reads is the current page URL, which it needs for **Open in Browser** and **Copy URL**. Analytics never include the links you open, the sites you import or your cookies.
 
 ## Turning off hover previews
 
